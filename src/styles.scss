@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+//@import "~bootstrap/dist/css/bootstrap.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+$primary-orange: #e17000;
+$primary-blue: #007bc7;
+$primary-orange-lite: #f6d4b2;
+$primary-font: 'Open Sans', sans-serif;
+
+*{
+  box-sizing: border-box;
+}
+body {
+  margin: 0 auto;
+  height: 100%;
+  font-family: $primary-font;
+  background-color: #f2f2f2;
+}
+button{
+  background-color: $primary-orange;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+&:hover{
+   background-color: #c96300;
+ }
+}
+
