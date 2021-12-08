@@ -10,6 +10,8 @@ import {FooterComponent} from "./footer/footer.component";
 import {DropdownComponent} from "./afkoteek/dropdown/dropdown.component";
 import {SearchComponent} from "./afkoteek/search/search.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { GamePageComponent } from './afkoteek/game/game-page/game-page.component';
+import { SupportComponent } from './afkoteek/support/support.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     SearchComponent,
     ResultComponent,
     FooterComponent,
-    DropdownComponent
+    DropdownComponent,
+    GamePageComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,

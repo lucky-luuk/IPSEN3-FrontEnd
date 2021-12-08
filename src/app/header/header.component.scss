@@ -32,6 +32,7 @@
     &:hover {
       background-color: #c96300;
     }
+
   }
   a {
     text-decoration: none;
@@ -39,4 +40,7 @@
     font-family: $primary-font;
   }
 
+}
+.active {
+  background-color: #c96300;
 }
