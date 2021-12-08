@@ -1,0 +1,16 @@
+.content-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px;
+}
+.box{
+  display: flex;
+  flex-direction: row;
+  min-width: 800px;
+  width: 100%;
+  justify-content: center;
+  li{
+    color: black;
+  }
+}
