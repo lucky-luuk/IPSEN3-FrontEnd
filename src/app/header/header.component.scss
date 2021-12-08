@@ -1,0 +1,47 @@
+
+@import '../../styles';
+
+.header{
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.19);
+  .logo{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    img{
+      max-width: 150px;
+    }
+  }
+}
+.nav{
+  flex-direction: column;
+  background-color: $primary-orange;
+
+
+  ul{
+    display: flex;
+    width: 90%;
+    max-width: 500px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li{
+    flex: 6;
+    padding: 2em;
+    text-align: center;
+    &:hover {
+      background-color: #c96300;
+    }
+
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    font-family: $primary-font;
+    font-size: 1.2em;
+  }
+
+}
+.active {
+  background-color: #c96300;
+}
