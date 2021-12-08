@@ -47,7 +47,6 @@ export class DropdownComponent implements OnInit {
   constructor(private form: FormBuilder) { }
 
   organisatieForm = this.form.group({
-    placeholder: 'test',
     organisatie: [null]
   });
 
