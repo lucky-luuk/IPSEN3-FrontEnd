@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AbbreviationService} from "./abbreviation.service";
 import {AbbreviationModel} from "./abbreviation.model";
+import {OrganisationModel} from "./organisation.model";
 
 @Component({
   selector: 'app-abbreviation-list',
@@ -13,7 +14,6 @@ export class AbbreviationListComponent implements OnInit {
 
   constructor(private h : AbbreviationService) {
     this.http = h;
-    this.onSearch("a");
   }
 
   onSearch(name : string) : void {

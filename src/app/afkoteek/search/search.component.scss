@@ -1,8 +1,12 @@
+@import "src/styles";
+
+
 .content-container{
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 30px;
+  background-color: $home-page-background-color;
 }
 .box{
   display: flex;
@@ -14,3 +18,4 @@
     color: black;
   }
 }
+

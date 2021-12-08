@@ -1,0 +1,11 @@
+@import "src/styles";
+
+.abbreviation_list {
+  background-color: white;
+}
+.abbreviation-list-container {
+  max-height: $max-content-height - 20vh;
+  overflow-x: hidden;
+  background-color: white;
+}
+

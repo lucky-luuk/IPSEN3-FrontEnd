@@ -8,6 +8,9 @@ $primary-orange: #e17000;
 $primary-blue: #007bc7;
 $primary-orange-lite: #f6d4b2;
 $primary-font: 'Open Sans', sans-serif;
+$home-page-background-color: #f2f2f2;
+
+$max-content-height: 60vh;
 
 *{
   box-sizing: border-box;
@@ -16,7 +19,7 @@ body {
   margin: 0 auto;
   height: 100%;
   font-family: $primary-font;
-  background-color: #f2f2f2;
+  background-color: $home-page-background-color;
 }
 button{
   background-color: $primary-orange;
