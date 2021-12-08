@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
+import {SupportService} from "./support.service";
+import {ActivatedRoute, Router, Routes} from "@angular/router";
 
 @Component({
   selector: 'app-support',
@@ -6,10 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./support.component.scss']
 })
 export class SupportComponent implements OnInit {
+  activeSuport: string = '';
+  options: { type: string, name: string }[] = [];
 
-  constructor() { }
+  constructor(private supportService: SupportService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.options = this.supportService.getOptions();
+    this.route.queryParams
+      .subscribe(
+        (params) => {
+          console.log(params)
+        }
+      )
   }
 
+  supportType(type: string) {
+    this.activeSuport = type;
+  }
 }

@@ -1,0 +1,65 @@
+@import "src/styles";
+
+.content-container {
+  align-items: center;
+  margin-top: 10px;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.title{
+  padding: 10px;
+  width: 70%;
+  background-color: white;
+  margin-top: 5px;
+  align-items: center;
+  h3{
+    color: $primary-orange;
+    text-align: center;
+  }
+}
+
+.verzoek-optie{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 10px;
+  .verzoek{
+    display: flex;
+    background-color: white;
+    padding: 15px;
+    width: 30%;
+    align-items: center;
+    a{
+      color: $primary-orange;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}
+.info-request{
+  display: none;
+}
+.active {
+  display: block;
+
+}
+.clicked {
+  border: 2px solid $primary-orange;
+}
+@media (max-width: 600px) {
+  .verzoek-optie{
+
+    .verzoek{
+      margin-left: 5px;
+    }
+  }
+}
+

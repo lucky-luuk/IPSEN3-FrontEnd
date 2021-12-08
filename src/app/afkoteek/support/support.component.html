@@ -1,1 +1,26 @@
-<p>support works!</p>
+<div class="content-container">
+  <div class="title">
+    <h3>Verzoek Indienen</h3>
+  </div>
+  <div class="verzoek-optie">
+    <div class="verzoek" *ngFor="let option of options"
+         [ngClass]="{'clicked': option.type === activeSuport}"
+         [routerLinkActive]="'active'"
+    >
+      <a (click)="supportType(option.type)"
+        [routerLink]="['/support', option.type]"
+         > {{option.name}}
+      </a>
+    </div>
+  </div>
+  <div class="verzoek-input">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!--    <div class="info-request" [ngClass]="{'active': activeSuport === 'Fout Melden'}">-->
+
+<!--    </div>-->
+<!--    <div class="info-request" [ngClass]="{'active': activeSuport === 'Afkorting Toevoegen'}">-->
+<!--    </div>-->
+<!--  </div>-->
+

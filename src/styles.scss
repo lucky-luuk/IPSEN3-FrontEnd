@@ -9,6 +9,12 @@ $primary-blue: #007bc7;
 $primary-orange-lite: #f6d4b2;
 $primary-font: 'Open Sans', sans-serif;
 
+.content-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 *{
   box-sizing: border-box;
 }
