@@ -1,10 +1,16 @@
-input{
-  box-sizing: border-box;
-  min-width: 50%;
-  font-size: 16px;
-  padding: 10px;
-  border: none;
-  margin-right: 10px;
+.content-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px;
 }
-
-
+.box{
+  display: flex;
+  flex-direction: row;
+  min-width: 800px;
+  width: 100%;
+  justify-content: center;
+  li{
+    color: black;
+  }
+}
