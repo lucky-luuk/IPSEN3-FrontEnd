@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpService} from "./http.service";
 
 @Component({
@@ -8,7 +8,9 @@ import {HttpService} from "./http.service";
 })
 export class AppComponent {
   title = 'AFKORIJK';
+
   constructor(private http : HttpService) {
 
   }
+
 }

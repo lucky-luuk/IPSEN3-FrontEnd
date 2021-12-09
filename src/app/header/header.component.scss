@@ -45,3 +45,12 @@
 .active {
   background-color: #c96300;
 }
+.mod {
+  background-color: $primary-blue;
+  li:hover{
+    background-color: $dark-blue;
+  }
+  .active{
+    background-color: $dark-blue;
+  }
+}

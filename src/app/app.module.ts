@@ -19,6 +19,8 @@ import { InfoRequestComponent } from './afkoteek/support/info-request/info-reque
 import { ReportComponent } from './afkoteek/support/report/report.component';
 import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
+import {HeaderService} from "./header/header.service";
+import { LoginComponent } from './moderator/login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import {SupportService} from "./afkoteek/support/support.service";
     SearchBarComponent,
     InfoRequestComponent,
     ReportComponent,
-    AddComponent
+    AddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import {SupportService} from "./afkoteek/support/support.service";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SupportService],
+  providers: [SupportService, HeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
