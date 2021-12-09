@@ -13,6 +13,8 @@ import {SearchComponent} from "./afkoteek/search/search.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GamePageComponent } from './afkoteek/game/game-page/game-page.component';
 import { SupportComponent } from './afkoteek/support/support.component';
+import { ModeratorComponent } from './moderator/moderator.component';
+import { TicketComponent } from './moderator/ticket/ticket.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { SupportComponent } from './afkoteek/support/support.component';
     FooterComponent,
     DropdownComponent,
     GamePageComponent,
-    SupportComponent
+    SupportComponent,
+    ModeratorComponent,
+    TicketComponent
   ],
   imports: [
     BrowserModule,
