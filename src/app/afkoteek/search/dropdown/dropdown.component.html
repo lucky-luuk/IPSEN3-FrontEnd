@@ -9,7 +9,7 @@
 
 <!--</div>-->
 <form [formGroup]="organisatieForm" (ngSubmit)="submit()">
-  <select formControlName="test" >
+  <select  >
     <option [ngValue]="null" disabled>Selecteer een organisatie</option>
     <option class="option-st" *ngFor="let item of dropdownItem">{{item}}</option>
   </select>

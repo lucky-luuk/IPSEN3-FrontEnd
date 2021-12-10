@@ -15,8 +15,6 @@
 .nav{
   flex-direction: column;
   background-color: $primary-orange;
-
-
   ul{
     display: flex;
     width: 90%;
@@ -27,21 +25,30 @@
   }
   li{
     flex: 6;
-    padding: 2em;
     text-align: center;
+    a {
+      text-decoration: none;
+      color: white;
+      font-family: $primary-font;
+      font-size: 1.2em;
+      padding: 1.5rem;
+      display: block;
+    }
     &:hover {
       background-color: #c96300;
     }
 
   }
-  a {
-    text-decoration: none;
-    color: white;
-    font-family: $primary-font;
-    font-size: 1.2em;
-  }
-
 }
 .active {
   background-color: #c96300;
+}
+.mod {
+  background-color: $primary-blue;
+  li:hover{
+    background-color: $dark-blue;
+  }
+  .active{
+    background-color: $dark-blue;
+  }
 }
