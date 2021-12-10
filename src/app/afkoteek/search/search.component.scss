@@ -7,9 +7,9 @@
 .box{
   display: flex;
   flex-direction: row;
-  min-width: 800px;
   width: 100%;
   justify-content: center;
+  gap: 10px;
   li{
     color: black;
   }
@@ -24,6 +24,10 @@ app-footer{
   display: inline-block;
 }
 
-@media (min-width: 400px) {
-
+@media (max-width: 500px) {
+  .box {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
 }

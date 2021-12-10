@@ -31,16 +31,21 @@
   margin-top: 10px;
   .verzoek{
     display: flex;
-    background-color: white;
-    padding: 15px;
-    width: 30%;
     align-items: center;
+    width: 30%;
+    background-color: white;
+
+
     a{
+
       color: $primary-orange;
       cursor: pointer;
       text-decoration: none;
       margin: 0 auto;
+      padding: 15px;
+      width: 100%;
       text-align: center;
+      display: block;
     }
   }
 }
@@ -56,9 +61,14 @@
 }
 @media (max-width: 600px) {
   .verzoek-optie{
+    width: 90%;
 
     .verzoek{
       margin-left: 5px;
+      a{
+        font-size: 0.8em;
+        padding: 5px;
+      }
     }
   }
 }
