@@ -1,8 +1,12 @@
-<div class="content-container">
-  <div class="box">
-    <app-search-bar (onSearchEvent)="onSearch($event)"></app-search-bar>
-    <app-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-dropdown>
-  </div>
+<div class="container input">
+    <div class="row">
+      <div class="col search">
+        <app-search-bar (onSearchEvent)="onSearch($event)"></app-search-bar>
+      </div>
+      <div class="col">
+        <app-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-dropdown>
+      </div>
+    </div>
 </div>
 <app-abbreviation-list></app-abbreviation-list>
 <app-footer></app-footer>

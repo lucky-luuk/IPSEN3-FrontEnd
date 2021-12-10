@@ -5,7 +5,12 @@
 }
 .abbreviation-list-container {
   max-height: $max-content-height - 20vh;
+  margin-top: 5vh;
   overflow-x: hidden;
   background-color: white;
+  width: 1000px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
