@@ -1,17 +1,6 @@
-<!--<div class="dropdown-menu"-->
-<!--     appDropdown>-->
-<!--  <button class="dropdown-btn">-->
-<!--    Kies organisatie-->
-<!--  </button>-->
-<!--  <ul class="dropdown" >-->
-<!--    <li ><a href="#">{{item}}</a></li>-->
-<!--  </ul>-->
-
-<!--</div>-->
-<form [formGroup]="organisatieForm" (ngSubmit)="submit()">
-  <select formControlName="test" >
-    <option [ngValue]="null" disabled>Selecteer een organisatie</option>
-    <option class="option-st" *ngFor="let item of dropdownItem">{{item}}</option>
+<form>
+  <select (change)="submit($event)">
+    <option class="option-st" *ngFor="let organisation of organisations">{{organisation.name}}</option>
   </select>
 </form>
 
