@@ -43,6 +43,25 @@
     padding: 10px;
 }
 
+.progress-content p{
+    float: right;
+    font-size: 1.5em;
+}
+
+progress {
+    border-radius: 7px; 
+    width: 95%;
+    box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.1);
+  }
+  progress::-webkit-progress-bar {
+    background-color: lightgray;
+  }
+  progress::-webkit-progress-value {
+    background-color: $primary-orange;
+    border-radius: 7px;
+  }
+
+
 @media (max-width: 1500px) {
 .child-content-anwsers{
     width: 50%;
