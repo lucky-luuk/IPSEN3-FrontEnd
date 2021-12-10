@@ -4,8 +4,7 @@
   </div>
   <div class="verzoek-optie">
     <div class="verzoek" *ngFor="let option of options"
-         [ngClass]="{'clicked': option.type === activeSuport}"
-         [routerLinkActive]="'active'"
+         [routerLinkActive]="'clicked'"
     >
       <a (click)="supportType(option.type)"
         [routerLink]="['/support', option.type]"
