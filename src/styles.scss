@@ -7,10 +7,18 @@
 $primary-orange: #e17000;
 $primary-blue: #007bc7;
 $primary-orange-lite: #f6d4b2;
+$dark-blue: #01689B;
 $primary-font: 'Open Sans', sans-serif;
 $home-page-background-color: #f2f2f2;
 
 $max-content-height: 60vh;
+
+.content-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
 
 *{
   box-sizing: border-box;

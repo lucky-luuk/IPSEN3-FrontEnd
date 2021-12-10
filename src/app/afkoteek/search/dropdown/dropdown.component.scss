@@ -44,10 +44,8 @@
 
 select {
   background-color: white;
-  //border-left: 0;
   color: #cccccc;
   min-width: 100%;
-  margin-left: 10px;
   text-decoration: none;
   border: none;
   padding: 10px;
@@ -57,5 +55,11 @@ select {
   .option-st {
     color: black;
     font-size: 12px;
+  }
+}
+@media (max-height: 500px) {
+  select {
+    margin-top: 5px;
+
   }
 }
