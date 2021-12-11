@@ -21,6 +21,10 @@ import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
 import {HeaderService} from "./header/header.service";
 import { LoginComponent } from './moderator/login/login.component';
+import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { SettingsComponent } from './admin/settings/settings.component';
+import { SearchAdminComponent } from './admin/search-admin/search-admin.component';
+import { AddModComponent } from './admin/add-mod/add-mod.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { LoginComponent } from './moderator/login/login.component';
     InfoRequestComponent,
     ReportComponent,
     AddComponent,
-    LoginComponent
+    LoginComponent,
+    AdminPageComponent,
+    SettingsComponent,
+    SearchAdminComponent,
+    AddModComponent
   ],
   imports: [
     BrowserModule,
