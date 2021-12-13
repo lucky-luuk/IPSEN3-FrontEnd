@@ -29,7 +29,7 @@ export class AbbreviationListComponent implements OnInit {
     else if (name === "") {
       this.http.geAbbreviationByOrgId(this.organisationIdFilter, (data) => {
         this.setAbbreviationData(data);
-      })
+      });
     }
     else {
       this.http.getAbbreviationByOrgIdAndName(name, this.organisationIdFilter, (data) => {

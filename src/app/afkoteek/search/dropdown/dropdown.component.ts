@@ -32,6 +32,7 @@ export class DropdownComponent implements OnInit {
     }
   }
 
+  // returns -1 if no id is found
   private getOrganisationIdFromName(name : string) {
     for (let i = 0; i < this.organisations.length; i++) {
       if (this.organisations[i].name === name) {
