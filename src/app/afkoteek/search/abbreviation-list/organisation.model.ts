@@ -4,7 +4,7 @@ export class OrganisationModel {
   name : string;
 
   constructor() {
-    this.id = "";
-    this.name = "";
+    this.id = "NONE";
+    this.name = "NONE";
   }
 }
