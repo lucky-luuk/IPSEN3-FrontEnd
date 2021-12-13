@@ -1,17 +1,12 @@
 input{
-  box-sizing: border-box;
-  min-width: 50%;
-  font-size: 16px;
   padding: 10px;
   border: none;
-  margin: 0;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #cccccc;
 }
-@media (max-width: 500px) {
-  input {
 
-  }
+@media (max-width: 500px) {
+
 }

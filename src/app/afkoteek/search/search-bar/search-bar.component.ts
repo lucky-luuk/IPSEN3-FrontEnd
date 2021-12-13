@@ -20,6 +20,6 @@ export class SearchBarComponent implements OnInit {
     clearTimeout(this.delayTimer);
     this.delayTimer = setTimeout(() => {
       this.onSearchEvent.emit(event.target.value);
-    }, 900);
+    }, 400);
   }
 }

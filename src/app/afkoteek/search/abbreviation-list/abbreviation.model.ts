@@ -9,9 +9,9 @@ export class AbbreviationModel {
   isUnderReview : boolean;
 
   constructor() {
-    this.id = "";
-    this.name = "";
-    this.description = "";
+    this.id = "NONE";
+    this.name = "NONE";
+    this.description = "NONE";
     this.organisations = [];
     this.createdBy = null;
     this.isUnderReview = false;

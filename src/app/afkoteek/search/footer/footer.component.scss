@@ -1,11 +1,12 @@
-
 img{
   position: absolute;
   width: 25%;
   float: left;
   bottom: 10%;
 }
-.game-button{
+
+.game-button {
+  align-items: center;
   display: flex;
   justify-content: center;
   align-items: center;

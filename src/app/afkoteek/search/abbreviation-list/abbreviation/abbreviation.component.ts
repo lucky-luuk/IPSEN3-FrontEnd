@@ -16,4 +16,11 @@ export class AbbreviationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getAllOrganisationNamesAsString() : string {
+    let data : string[] = [];
+    for (let i = 0; i < this.abbreviation.organisations.length; i++) {
+      data.push(this.abbreviation.organisations[i].name);
+    }
+    return data.join(", ");
+  }
 }
