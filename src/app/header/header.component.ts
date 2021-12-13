@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HeaderService} from "./header.service";
 import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -12,7 +11,7 @@ export class HeaderComponent implements OnInit {
   isAuthorised: string = 'afko'
   afkos: { name: string }[] = [];
 
-  constructor(private headerService: HeaderService, private route: Router, private router: ActivatedRoute) {
+  constructor(private headerService: HeaderService, private route: Router) {
     headerService.getAfko();
     this.afkos = headerService.getAfko();
     headerService.getModerator();

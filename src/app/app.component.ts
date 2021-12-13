@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpService} from "./http.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,8 @@ import {HttpService} from "./http.service";
 export class AppComponent {
   title = 'AFKORIJK';
 
-  constructor(private http : HttpService) {
-
+  constructor(private titleService : Title) {
+    this.titleService.setTitle(this.title);
   }
 
 }

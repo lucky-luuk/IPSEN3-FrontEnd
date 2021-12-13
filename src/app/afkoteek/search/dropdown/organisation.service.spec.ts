@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 
 import { OrganisationService } from './organisation.service';
+import {MockHttpService} from "../../../mockHttp.service";
 
 describe('OrganisationService', () => {
   let service: OrganisationService;
 
   beforeEach(() => {
+    service = new OrganisationService(new MockHttpService());
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OrganisationService);
   });
 
   it('should be created', () => {
