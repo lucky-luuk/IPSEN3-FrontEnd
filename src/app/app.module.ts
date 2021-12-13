@@ -46,7 +46,7 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
     ModeratorComponent,
     TicketComponent,
     OverviewComponent,
-    NewAbbreviationComponent
+    NewAbbreviationComponent,
     AbbreviationListComponent,
     AbbreviationComponent,
     SearchBarComponent,
@@ -57,10 +57,9 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
     AdminPageComponent,
     SettingsComponent,
     SearchAdminComponent,
-    AddModComponent
+    AddModComponent,
     GamePagePlayingComponent,
-    GamePageStartComponent
-
+    GamePageStartComponent,
   ],
   imports: [
     BrowserModule,
