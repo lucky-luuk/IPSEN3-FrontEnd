@@ -15,6 +15,8 @@ import { GamePageComponent } from './afkoteek/game/game-page/game-page.component
 import { SupportComponent } from './afkoteek/support/support.component';
 import { ModeratorComponent } from './moderator/moderator.component';
 import { TicketComponent } from './moderator/ticket/ticket.component';
+import { OverviewComponent } from './moderator/overview/overview.component';
+import { NewAbbreviationComponent } from './moderator/ticket/new-abbreviation/new-abbreviation.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { TicketComponent } from './moderator/ticket/ticket.component';
     GamePageComponent,
     SupportComponent,
     ModeratorComponent,
-    TicketComponent
+    TicketComponent,
+    OverviewComponent,
+    NewAbbreviationComponent
   ],
   imports: [
     BrowserModule,

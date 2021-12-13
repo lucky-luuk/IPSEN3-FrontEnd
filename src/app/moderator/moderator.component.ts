@@ -13,7 +13,5 @@ export class ModeratorComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  onClick(){
-    this.router.navigateByUrl("/ticket")
-  }
+
 }

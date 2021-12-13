@@ -1,5 +1,46 @@
-<p>ticket works!</p>
 <div class="ticket-container">
-  <div class="edit">test1</div>
-  <div class="bericht">test2</div>
+
+  <div class="ticket-header">
+    ticket Nummer: *insert nummer*
+    <button>Terug naar overzicht</button>
+  </div>
+
+  <div class="ticket-user-info">
+    <h4>*insert reporttype*</h4>
+    <p>John Doe</p>
+    <p>johndoe@rijksoverheid.nl</p>
+  </div>
+
+  <div class="ticket-bericht">
+    <h4>Bericht</h4>
+    <textarea disabled>deze afkorting moet aangepast worden omdat er een typfout in staat.</textarea>
+  </div>
+
+  <div class="ticket-status">
+    <table>
+      <thead>Status</thead>
+      <tr>
+        <td>Indien datum:</td>
+        <td>09-12-2021</td>
+      </tr>
+      <tr>
+        <td>Status:</td>
+        <td>*hier komt een dropdown*</td>
+      </tr>
+      <tr>
+        <td>Behandelaar:</td>
+        <td>Jason Bourne</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div class="ticket-specifieke-acties">
+    <app-new-abbreviation></app-new-abbreviation>
+  </div>
+  <div class="actie-buttons">
+    <button>Opslaan</button>
+    <button>Wijziging negeren</button>
+    <button>Afkorting verwijderen</button>
+  </div>
 </div>
