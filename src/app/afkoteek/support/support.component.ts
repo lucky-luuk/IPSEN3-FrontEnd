@@ -15,12 +15,6 @@ export class SupportComponent implements OnInit {
 
   ngOnInit(): void {
     this.options = this.supportService.getOptions();
-    this.route.queryParams
-      .subscribe(
-        (params) => {
-          console.log(params)
-        }
-      )
   }
 
   supportType(type: string) {
