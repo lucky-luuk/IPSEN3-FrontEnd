@@ -15,7 +15,7 @@ export class HttpService {
 
   // data is null if api call returns no data!!!!
   public get<T>(endpoint : string, args : Map<string, string>, implementation : (data : T) => void) {
-    endpoint = HttpService.getEndpointWithArguments(endpoint, args);
+    endpoint = this.getEndpointWithArguments(endpoint, args);
 
     this.http.get<HttpResponse<T>>(this.url + endpoint).subscribe(
       (response : HttpResponse<T>) => {
@@ -28,7 +28,7 @@ export class HttpService {
     });
   }
 
-  private static getEndpointWithArguments(endpoint : string, args : Map<string, string>) : string {
+  public getEndpointWithArguments(endpoint : string, args : Map<string, string>) : string {
     if (args.size !== 0) {
       endpoint += "?";
       args.forEach((value: string, key: string) => {
