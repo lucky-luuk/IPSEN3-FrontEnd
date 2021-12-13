@@ -1,3 +1,5 @@
+$dropdown-component-width: 23.5em;
+
 .dropdown-menu {
   width: 100%;
   background-color: white;
@@ -17,7 +19,7 @@
     li{
       display: block;
       padding: 0.2em;
-      width: 23.5em;
+      width: $dropdown-component-width;
       text-align: left;
       position: relative;
       &:hover{
@@ -38,7 +40,6 @@
     flex-direction: column;
     background-color: white;
     overflow: auto;
-
   }
 }
 
@@ -60,6 +61,5 @@ select {
 @media (max-height: 500px) {
   select {
     margin-top: 5px;
-
   }
 }

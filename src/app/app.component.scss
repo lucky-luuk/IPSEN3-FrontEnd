@@ -1,7 +1,6 @@
+@import "src/styles";
 
 .content-container{
-  display:flex;
-  justify-content: center;
+  background-color: $home-page-background-color;
+  height: $max-content-height;
 }
-
-
