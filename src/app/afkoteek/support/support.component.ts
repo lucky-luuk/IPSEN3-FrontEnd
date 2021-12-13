@@ -8,7 +8,7 @@ import {ActivatedRoute, Router, Routes} from "@angular/router";
   styleUrls: ['./support.component.scss']
 })
 export class SupportComponent implements OnInit {
-  activeSuport: string = '';
+  activeSupport: string = '';
   options: { type: string, name: string }[] = [];
 
   constructor(private supportService: SupportService, private route: ActivatedRoute, private router: Router) { }
@@ -24,6 +24,6 @@ export class SupportComponent implements OnInit {
   }
 
   supportType(type: string) {
-    this.activeSuport = type;
+    this.activeSupport = type;
   }
 }

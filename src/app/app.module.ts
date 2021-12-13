@@ -26,6 +26,12 @@ import { ModeratorComponent } from './moderator/moderator.component';
 import { TicketComponent } from './moderator/ticket/ticket.component';
 import { OverviewComponent } from './moderator/overview/overview.component';
 import { NewAbbreviationComponent } from './moderator/ticket/new-abbreviation/new-abbreviation.component';
+import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { SettingsComponent } from './admin/settings/settings.component';
+import { SearchAdminComponent } from './admin/search-admin/search-admin.component';
+import { AddModComponent } from './admin/add-mod/add-mod.component';
+import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
+import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,14 @@ import { NewAbbreviationComponent } from './moderator/ticket/new-abbreviation/ne
     InfoRequestComponent,
     ReportComponent,
     AddComponent,
-    LoginComponent
+    LoginComponent,
+    AdminPageComponent,
+    SettingsComponent,
+    SearchAdminComponent,
+    AddModComponent
+    GamePagePlayingComponent,
+    GamePageStartComponent
+
   ],
   imports: [
     BrowserModule,
