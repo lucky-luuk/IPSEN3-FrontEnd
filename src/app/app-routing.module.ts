@@ -7,6 +7,10 @@ import {InfoRequestComponent} from "./afkoteek/support/info-request/info-request
 import {ReportComponent} from "./afkoteek/support/report/report.component";
 import {AddComponent} from "./afkoteek/support/add/add.component";
 import {LoginComponent} from "./moderator/login/login.component";
+import {AdminPageComponent} from "./admin/admin-page/admin-page.component";
+import {SettingsComponent} from "./admin/settings/settings.component";
+import {SearchAdminComponent} from "./admin/search-admin/search-admin.component";
+import {AddModComponent} from "./admin/add-mod/add-mod.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
@@ -18,7 +22,11 @@ const routes: Routes = [
       {path: 'report', component: ReportComponent},
       {path: 'add', component: AddComponent},
     ]},
-  {path: 'moderator', component: LoginComponent}
+  { path: 'moderator', component: LoginComponent},
+  { path: 'admin', component: AdminPageComponent},
+  { path: 'settings', component: SettingsComponent},
+  { path: 'search-admin', component: SearchAdminComponent},
+  { path: 'add-mod', component: AddModComponent},
 ];
 
 @NgModule({

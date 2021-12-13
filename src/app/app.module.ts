@@ -21,6 +21,10 @@ import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
 import {HeaderService} from "./header/header.service";
 import { LoginComponent } from './moderator/login/login.component';
+import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { SettingsComponent } from './admin/settings/settings.component';
+import { SearchAdminComponent } from './admin/search-admin/search-admin.component';
+import { AddModComponent } from './admin/add-mod/add-mod.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 
@@ -41,8 +45,13 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
     ReportComponent,
     AddComponent,
     LoginComponent,
+    AdminPageComponent,
+    SettingsComponent,
+    SearchAdminComponent,
+    AddModComponent
     GamePagePlayingComponent,
     GamePageStartComponent
+
   ],
   imports: [
     BrowserModule,
