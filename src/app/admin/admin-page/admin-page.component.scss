@@ -1,5 +1,19 @@
-@import "src/styles";
+.list-container{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 40vw;
+  min-height: 30vh;
+  background: white;
+  margin-top: 5vh;
+}
 
-.table-container{
-  width: 60px;
+table{
+  border-collapse: collapse;
+  tr{
+    border-bottom: 1px solid black;
+    &:hover{
+      background-color: #EEEEEE;
+    }
+  }
 }
