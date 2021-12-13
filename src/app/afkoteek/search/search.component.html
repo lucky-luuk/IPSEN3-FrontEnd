@@ -1,3 +1,12 @@
-<input type="text" autocomplete="off" spellcheck="false"  placeholder="Zoek een afkorting"/>
-
-
+<div class="container input">
+    <div class="row">
+      <div class="col search">
+        <app-search-bar (onSearchEvent)="onSearch($event)"></app-search-bar>
+      </div>
+      <div class="col">
+        <app-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-dropdown>
+      </div>
+    </div>
+</div>
+<app-abbreviation-list></app-abbreviation-list>
+<app-footer></app-footer>

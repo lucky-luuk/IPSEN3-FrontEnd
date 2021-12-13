@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {HeaderService} from "./header.service";
+import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -6,10 +9,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isAuthorised: string = 'afko'
+  afkos: { name: string }[] = [];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private headerService: HeaderService, private route: Router, private router: ActivatedRoute) {
+    headerService.getAfko();
+    this.afkos = headerService.getAfko();
+    headerService.getModerator();
   }
 
+  ngOnInit(): void {
+    this.route.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url === '/afko'){
+          this.isAuthorised = 'afko'
+        }
+        if (event.url === '/moderator'){
+          this.isAuthorised = 'moderator'
+        }
+        if (event.url === '/admin'){
+          this.isAuthorised = 'admin'
+        }
+      }
+    });
+  }
 }

@@ -1,7 +1,7 @@
 
 export class HttpResponse<T> {
   response : string = "";
-  errorMessage : string = "";
+  error : string = "";
   data : T;
 
   constructor(data : T) {

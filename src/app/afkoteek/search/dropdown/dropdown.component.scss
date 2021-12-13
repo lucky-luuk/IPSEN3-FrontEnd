@@ -1,3 +1,5 @@
+$dropdown-component-width: 23.5em;
+
 .dropdown-menu {
   width: 100%;
   background-color: white;
@@ -17,7 +19,7 @@
     li{
       display: block;
       padding: 0.2em;
-      width: 23.5em;
+      width: $dropdown-component-width;
       text-align: left;
       position: relative;
       &:hover{
@@ -38,16 +40,13 @@
     flex-direction: column;
     background-color: white;
     overflow: auto;
-
   }
 }
 
 select {
   background-color: white;
-  //border-left: 0;
   color: #cccccc;
   min-width: 100%;
-  margin-left: 10px;
   text-decoration: none;
   border: none;
   padding: 10px;
@@ -57,5 +56,10 @@ select {
   .option-st {
     color: black;
     font-size: 12px;
+  }
+}
+@media (max-height: 500px) {
+  select {
+    margin-top: 5px;
   }
 }

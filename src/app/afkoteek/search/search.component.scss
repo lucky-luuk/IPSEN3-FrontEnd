@@ -1,10 +1,33 @@
-input{
-  box-sizing: border-box;
-  min-width: 50%;
-  font-size: 16px;
-  padding: 10px;
-  border: none;
-  margin-right: 10px;
+@import "src/styles";
+@import "src/app/afkoteek/search/dropdown/dropdown.component";
+
+$input-container-height: 10vh;
+$footer-height: 10vh;
+
+.container.input {
+  background-color: $home-page-background-color;
+  width: 600px;
 }
 
+app-footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: $footer-height;
+  background-color: white;
+  display: inline-block;
+}
 
+.col.search {
+  width: $dropdown-component-width;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  .container.input {
+    width: 300px;
+  }
+  .col {
+    margin-bottom: 10px;
+  }
+}

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResultComponent } from './result.component';
+import { AbbreviationComponent } from './abbreviation.component';
 
-describe('ResultComponent', () => {
-  let component: ResultComponent;
-  let fixture: ComponentFixture<ResultComponent>;
+describe('AbbreviationComponent', () => {
+  let component: AbbreviationComponent;
+  let fixture: ComponentFixture<AbbreviationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResultComponent ]
+      declarations: [ AbbreviationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResultComponent);
+    fixture = TestBed.createComponent(AbbreviationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
