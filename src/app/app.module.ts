@@ -35,6 +35,10 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
 import { ReportedComponent } from './moderator/ticket/reported/reported.component';
 import { AbbreviationRequestComponent } from './moderator/ticket/abbreviation-request/abbreviation-request.component';
 import { TicketModelComponent } from './moderator/ticket/ticket-model/ticket-model.component';
+import { ReportedAbbreviationComponent } from './moderator/ticket/reported-abbreviation/reported-abbreviation.component';
+import { TicketRowComponent } from './moderator/overview/ticket-row/ticket-row.component';
+import {TicketService} from "./moderator/ticket/ticket/ticket.service";
+
 
 @NgModule({
   declarations: [
@@ -66,6 +70,9 @@ import { TicketModelComponent } from './moderator/ticket/ticket-model/ticket-mod
     ReportedComponent,
     AbbreviationRequestComponent,
     TicketModelComponent,
+    ReportedAbbreviationComponent,
+    TicketRowComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -74,7 +81,7 @@ import { TicketModelComponent } from './moderator/ticket/ticket-model/ticket-mod
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SupportService, HeaderService],
+  providers: [SupportService, HeaderService, TicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
