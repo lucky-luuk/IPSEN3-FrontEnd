@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TicketService} from "../../ticket/ticket/ticket.service";
 import {TicketModel} from "../../ticket/ticket/ticket.model";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-ticket-row',

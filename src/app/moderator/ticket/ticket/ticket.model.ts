@@ -5,13 +5,15 @@ export class TicketModel {
   ticketType : string;
   ticketID : string;
   createdDate : any;
+  ticketStatus : string;
 
   constructor() {
     this.abbreviationID = "abbreviationID";
-    this.createdBy = null;
-    this.ticketType = "ticketType";
-    this.ticketID = "ticketID";
-    this.createdDate = null;
+    this.createdBy = "jan";
+    this.ticketType = "nieuw";
+    this.ticketID = "1234";
+    this.createdDate = "01-12-2000";
+    this.ticketStatus = "in behandeling";
   }
 
 

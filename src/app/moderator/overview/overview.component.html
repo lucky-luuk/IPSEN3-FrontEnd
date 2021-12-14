@@ -1,25 +1,3 @@
-<!--<div class="list-container">-->
-<!--  <table>-->
-<!--    <tr>-->
-<!--      <th>ticket nummer</th>-->
-<!--      <th>ticket soort</th>-->
-<!--      <th>status</th>-->
-<!--      <th>aanmeld datum</th>-->
-<!--    </tr>-->
-<!--    <tr [routerLink]="['/moderator', 'ticket']">-->
-<!--      <td>12345</td>-->
-<!--      <td>gerapporteerd</td>-->
-<!--      <td>aangemeld</td>-->
-<!--      <td>01-01-0001</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--      <td>678890</td>-->
-<!--      <td>nieuw</td>-->
-<!--      <td>in behandeling</td>-->
-<!--      <td>60-60-0420</td>-->
-<!--    </tr>-->
-<!--  </table>-->
-<!--</div>-->
 <div class="list-container">
   <div *ngFor="let ticket of tickets">
     <app-ticket-row [model]="ticket"></app-ticket-row>

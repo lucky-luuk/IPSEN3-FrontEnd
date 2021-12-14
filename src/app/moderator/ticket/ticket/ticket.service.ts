@@ -23,6 +23,20 @@ export class TicketService {
   public getTickets(): TicketModel[] {
     let tickets = [];
     tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
+    tickets.push(new TicketModel());
     return tickets;
   }
 
