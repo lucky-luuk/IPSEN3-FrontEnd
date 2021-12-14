@@ -31,11 +31,11 @@ const routes: Routes = [
     {path: 'overview', component: OverviewComponent},
     ]
   },
-  { path: 'moderator', component: LoginComponent},
-  { path: 'admin', component: AdminPageComponent},
-  { path: 'settings', component: SettingsComponent},
-  { path: 'search-admin', component: SearchAdminComponent},
-  { path: 'add-mod', component: AddModComponent},
+  { path: 'admin', component: AdminPageComponent, children:[
+      { path: 'settings', component: SettingsComponent},
+      { path: 'search-admin', component: SearchAdminComponent},
+      { path: 'add-mod', component: AddModComponent},
+    ]},
 ];
 
 @NgModule({

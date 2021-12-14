@@ -32,6 +32,8 @@ import { SearchAdminComponent } from './admin/search-admin/search-admin.componen
 import { AddModComponent } from './admin/add-mod/add-mod.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
+import { UserComponent } from './admin/overview/user/user.component';
+import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
     AddModComponent,
     GamePagePlayingComponent,
     GamePageStartComponent,
+    UserComponent,
+    AdminOverviewComponent
   ],
   imports: [
     BrowserModule,
