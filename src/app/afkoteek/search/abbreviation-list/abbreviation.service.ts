@@ -33,7 +33,15 @@ export class AbbreviationService {
   }
 
   public postAbbreviations(abbr : AbbreviationModel[]) : void {
-    console.log("hi")
-    this.http.post<AbbreviationModel[]>(this.endpoint, abbr, (abbrs) => {});
+    this.http.post<AbbreviationModel[]>(this.endpoint, abbr, (data) => {});
+  }
+
+  public changeAbbreviation(abbr1 : AbbreviationModel, abbr2 : AbbreviationModel) : void {
+    let body = [abbr1, abbr2];
+    this.http.put<AbbreviationModel[]>(this.endpoint, body, (data) => {});
+  }
+
+  public deleteAbbreviation(abbrs : AbbreviationModel[]) : void {
+    this.http.delete<AbbreviationModel[]>(this.endpoint, abbrs, (data) => {});
   }
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpResponse} from "./HttpResponse";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {catchError, Observable} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +26,18 @@ export class HttpService {
 
   public post<T>(endpoint : string, body : T, implementation : (data : T) => void) {
     this.http.post<HttpResponse<T>>(this.url + endpoint, body).subscribe((response) => {
+      HttpService.callImplementation<T>(response, implementation);
+    });
+  }
+
+  public put<T>(endpoint : string, body : T, implementation : (data : T) => void) {
+    this.http.put<HttpResponse<T>>(this.url + endpoint, body).subscribe((response) => {
+      HttpService.callImplementation<T>(response, implementation);
+    });
+  }
+
+  public delete<T>(endpoint : string, body : T, implementation : (data : T) => void) {
+    this.http.delete<HttpResponse<T>>(this.url + endpoint, {body: body}).subscribe((response) => {
       HttpService.callImplementation<T>(response, implementation);
     });
   }

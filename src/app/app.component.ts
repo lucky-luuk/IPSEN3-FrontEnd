@@ -1,8 +1,5 @@
 import {Component} from '@angular/core';
-import {HttpService} from "./http.service";
 import {Title} from "@angular/platform-browser";
-import {AbbreviationService} from "./afkoteek/search/abbreviation-list/abbreviation.service";
-import {AbbreviationModel} from "./afkoteek/search/abbreviation-list/abbreviation.model";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +9,7 @@ import {AbbreviationModel} from "./afkoteek/search/abbreviation-list/abbreviatio
 export class AppComponent {
   title = 'AFKORIJK';
 
-  constructor(private titleService : Title, private http : AbbreviationService) {
+  constructor(private titleService : Title) {
     this.titleService.setTitle(this.title);
   }
 
