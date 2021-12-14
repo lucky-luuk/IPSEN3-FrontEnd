@@ -9,12 +9,12 @@
     <div class="float-child">
         <div class="child-content">
             <label for="name">Naam:</label>
-            <input class="name-input" type="text">
+            <input class="name-input" id="name" type="text" #nameInput>
 
             <label for="organisatie">Organisatie:</label>
             <app-dropdown></app-dropdown>
             <br>
-            <button class="button-start-game">Start</button>
+            <button class="button-start-game" (click)="startGame()" routerLink="/game-play">Start</button>
         </div>
     </div>
 </div>
