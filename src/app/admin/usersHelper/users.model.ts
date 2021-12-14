@@ -1,6 +1,7 @@
 
 
 export class UsersModel {
+  userid: string;
   org_id: string;
   status: string;
   firstname: string;
@@ -11,5 +12,6 @@ export class UsersModel {
     this.status = 'status';
     this.firstname = 'firstname';
     this.lastname = 'lastname';
+    this.userid = 'userid';
   }
 }
