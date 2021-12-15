@@ -24,4 +24,29 @@ export class MockHttpService extends HttpService {
     // @ts-ignore
     implementation(this.mockData[endpoint]);
   }
+
+
+  override post<T>(endpoint: string, body: T, implementation: (data: T) => void) {
+    // ignoring types to not have to implement giant if else chain
+    // @ts-ignore
+    implementation(this.mockData[endpoint]);
+  }
+
+  override put<T>(endpoint: string, body: T, implementation: (data: T) => void) {
+    // ignoring types to not have to implement giant if else chain
+    // @ts-ignore
+    implementation([this.mockData[endpoint][0],this.mockData[endpoint][0]]);
+
+  }
+
+  override delete<T>(endpoint: string, body: T, implementation: (data: T) => void) {
+    // ignoring types to not have to implement giant if else chain
+    // @ts-ignore
+    implementation(this.mockData[endpoint]);
+
+  public setData<T>(endpoint : string, data : T) {
+    // @ts-ignore
+    this.mockData[endpoint] = data;
+
+  }
 }
