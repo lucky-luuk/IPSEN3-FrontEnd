@@ -16,6 +16,6 @@ export class UsersModel {
     this.lastname = 'Duif';
     this.userid = '35007A69';
     this.email = "henk.duif.overheid@gmail.com";
-    this.phoneNumber = "+31 61889543";
+    this.phoneNumber = "+31 61889542";
   }
 }
