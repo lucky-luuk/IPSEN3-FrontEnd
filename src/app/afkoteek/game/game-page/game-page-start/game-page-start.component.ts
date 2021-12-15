@@ -10,11 +10,11 @@ import { gameService } from '../game.service';
 export class GamePageStartComponent implements OnInit {
 
   @ViewChild ('nameInput') nameInputRef: ElementRef;
-  @ViewChild ('orgInput') OrgInputRef: ElementRef;
+  // @ViewChild ('orgInput') OrgInputRef: ElementRef;
 
   constructor(private gameService: gameService) {
     this.nameInputRef = new ElementRef(null);
-    this.OrgInputRef = new ElementRef(null);
+    // this.OrgInputRef = new ElementRef(null);
   }
 
   ngOnInit(): void {
@@ -22,8 +22,8 @@ export class GamePageStartComponent implements OnInit {
 
   startGame(){
     const playerName = this.nameInputRef.nativeElement.value;
-    const orgName = this.OrgInputRef.nativeElement.value;
-    this.gameService.addGameInfo(playerName, orgName);
+    // const orgName = this.OrgInputRef.nativeElement.value;
+    this.gameService.addGameInfo(playerName);
   }
 
 }

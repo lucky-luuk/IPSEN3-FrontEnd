@@ -12,7 +12,9 @@ export class GamePagePlayingComponent implements OnInit {
 
  public GameLogic: Game = new Game(this.gameService.name,0);
 
-  constructor(private gameService: gameService) { }
+  constructor(private gameService: gameService) { 
+    console.log(gameService.name);
+  }
 
   ngOnInit(): void { }
 

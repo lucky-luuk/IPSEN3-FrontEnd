@@ -7,8 +7,8 @@ export class gameService{
         this.organisation = '';
     }
 
-    public addGameInfo(name: string, orgName: string){
+    public addGameInfo(name: string){
         this.name = name;
-        this.organisation = orgName;
+        // this.organisation = orgName;
     }
 }
