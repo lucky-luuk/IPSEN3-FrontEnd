@@ -17,8 +17,8 @@ export class TicketService {
     let parameters = new Map<string, string>();
     parameters.set("name", ID);
     this.http.get<TicketModel[]>(this.endpoint, parameters, implementation);
-
   }
+
 
   public getTickets(): TicketModel[] {
     let tickets = [];

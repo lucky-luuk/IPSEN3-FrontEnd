@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfoRequestComponent } from './info-request.component';
+import { TicketTypeDropdownComponent } from './ticket-type-dropdown.component';
 
-describe('InfoRequestComponent', () => {
-  let component: InfoRequestComponent;
-  let fixture: ComponentFixture<InfoRequestComponent>;
+describe('TicketTypeDropdownComponent', () => {
+  let component: TicketTypeDropdownComponent;
+  let fixture: ComponentFixture<TicketTypeDropdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InfoRequestComponent ]
+      declarations: [ TicketTypeDropdownComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InfoRequestComponent);
+    fixture = TestBed.createComponent(TicketTypeDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

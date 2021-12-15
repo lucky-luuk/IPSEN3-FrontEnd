@@ -32,4 +32,11 @@ export class AbbreviationService {
     parameters.set("org_id", orgId);
     this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation);
   }
+
+  public getAbbreviationById(id : string, implementation : (data : AbbreviationModel) => void) : void {
+    let parameters = new Map<string, string>();
+    parameters.set("id", id);
+    this.http.get<AbbreviationModel>(this.endpoint, parameters, implementation);
+  }
+
 }

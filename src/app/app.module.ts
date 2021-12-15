@@ -32,11 +32,11 @@ import { SearchAdminComponent } from './admin/search-admin/search-admin.componen
 import { AddModComponent } from './admin/add-mod/add-mod.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
-import { ReportedComponent } from './moderator/ticket/reported/reported.component';
-import { AbbreviationRequestComponent } from './moderator/ticket/abbreviation-request/abbreviation-request.component';
 import { ReportedAbbreviationComponent } from './moderator/ticket/reported-abbreviation/reported-abbreviation.component';
 import { TicketRowComponent } from './moderator/overview/ticket-row/ticket-row.component';
 import {TicketService} from "./moderator/ticket/ticketModel/ticket.service";
+import { TicketTypeDropdownComponent } from './moderator/ticket/ticket-type-dropdown/ticket-type-dropdown.component';
+import {ReportedComponent} from "./moderator/ticket/reported/reported.component";
 
 
 @NgModule({
@@ -66,10 +66,10 @@ import {TicketService} from "./moderator/ticket/ticketModel/ticket.service";
     AddModComponent,
     GamePagePlayingComponent,
     GamePageStartComponent,
-    ReportedComponent,
-    AbbreviationRequestComponent,
     ReportedAbbreviationComponent,
     TicketRowComponent,
+    TicketTypeDropdownComponent,
+    ReportedComponent,
 
   ],
   imports: [

@@ -1,44 +1,46 @@
 <div class="ticket-container">
 
   <div class="ticket-header">
-    ticket Nummer: *insert nummer*
-    <button>Terug naar overzicht</button>
+    ticket Nummer: {{model.ticketID}}
+    <button [routerLink]="['/moderator' , 'overview']">Terug naar overzicht</button>
   </div>
 
   <div class="ticket-user-info">
-    <h4>*insert reporttype*</h4>
-    <p>John Doe</p>
-    <p>johndoe@rijksoverheid.nl</p>
+    <h4>{{model.ticketType}}</h4>
+    <p>{{model.createdBy}}</p>
+    <p>{{model.createdByMail}}</p>
   </div>
 
   <div class="ticket-bericht">
     <h4>Bericht</h4>
-    <textarea disabled>deze afkorting moet aangepast worden omdat er een typfout in staat.</textarea>
+    <textarea disabled>{{model.message}}</textarea>
   </div>
 
   <div class="ticket-status">
     <table>
-      <thead>Status</thead>
+      <thead><h4>Status</h4></thead>
       <tr>
         <td>Indien datum:</td>
-        <td>09-12-2021</td>
+        <td>{{model.createdDate}}</td>
       </tr>
       <tr>
         <td>Status:</td>
-        <td>*hier komt een dropdown*</td>
+        <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>
       </tr>
       <tr>
         <td>Behandelaar:</td>
-        <td>Jason Bourne</td>
+        <td><form><input type="text" value="{{model.handler}}"></form></td>
       </tr>
 
     </table>
   </div>
 
-  <div class="ticket-specifieke-acties">
-    <app-new-abbreviation></app-new-abbreviation>
-<!--    <app-reported></app-reported>-->
-<!--    <app-abbreviation-request></app-abbreviation-request>-->
+  <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'nieuwe afkorting'">
+        <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
+
+  </div>
+  <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'gerapporteerde afkorting'">
+        <app-reported ></app-reported>
   </div>
   <div class="actie-buttons">
     <button>Opslaan</button>
