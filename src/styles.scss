@@ -27,7 +27,7 @@ body {
   margin: 0 auto;
   height: 100%;
   font-family: $primary-font;
-  background-color: $home-page-background-color;
+  background-color: $home-page-background-color !important;
 }
 
 button{
