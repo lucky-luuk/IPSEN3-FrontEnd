@@ -14,7 +14,7 @@ import {AdminPageComponent} from "./admin/admin-page/admin-page.component";
 import {SettingsComponent} from "./admin/settings/settings.component";
 import {SearchAdminComponent} from "./admin/search-admin/search-admin.component";
 import {AddModComponent} from "./admin/add-mod/add-mod.component";
-import {EditModComponent} from "./admin/usersHelper/edit-mod/edit-mod.component";
+import {EditModComponent} from "./admin/edit-mod/edit-mod.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},

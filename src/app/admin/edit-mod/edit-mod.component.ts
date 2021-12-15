@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UsersModel} from "../users.model";
-import {UserService} from "../user.service";
+import {UsersModel} from "../usersHelper/users.model";
+import {UserService} from "../usersHelper/user.service";
 
 @Component({
   selector: 'app-edit-mod',

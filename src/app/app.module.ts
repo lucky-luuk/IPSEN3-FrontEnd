@@ -34,7 +34,7 @@ import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-pl
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
-import { EditModComponent } from './admin/usersHelper/edit-mod/edit-mod.component';
+import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 
 @NgModule({
   declarations: [
