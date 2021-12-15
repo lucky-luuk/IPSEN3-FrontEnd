@@ -7,9 +7,8 @@ import {AbbreviationModel} from "./abbreviation.model";
 })
 export class AbbreviationService {
   private endpoint : string = "/abbreviation";
-  private http : HttpService;
-  constructor(private h : HttpService) {
-    this.http = h;
+
+  constructor(private http : HttpService) {
   }
 
   public getAbbreviationsByName(name : string, implementation : (data : AbbreviationModel[]) => void) : void {
@@ -37,6 +36,19 @@ export class AbbreviationService {
     let parameters = new Map<string, string>();
     parameters.set("id", id);
     this.http.get<AbbreviationModel>(this.endpoint, parameters, implementation);
+  }
+
+  public postAbbreviations(abbr : AbbreviationModel[]) : void {
+    this.http.post<AbbreviationModel[]>(this.endpoint, abbr, (data) => {});
+  }
+
+  public changeAbbreviation(abbr1 : AbbreviationModel, abbr2 : AbbreviationModel) : void {
+    let body = [abbr1, abbr2];
+    this.http.put<AbbreviationModel[]>(this.endpoint, body, (data) => {});
+  }
+
+  public deleteAbbreviation(abbrs : AbbreviationModel[]) : void {
+    this.http.delete<AbbreviationModel[]>(this.endpoint, abbrs, (data) => {});
   }
 
 }

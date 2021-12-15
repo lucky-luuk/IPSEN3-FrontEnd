@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+
+import { gameService } from '../game.service';
 
 @Component({
   selector: 'app-game-page-start',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePageStartComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild ('nameInput') nameInputRef: ElementRef;
+  // @ViewChild ('orgInput') OrgInputRef: ElementRef;
+
+  constructor(private gameService: gameService) {
+    this.nameInputRef = new ElementRef(null);
+    // this.OrgInputRef = new ElementRef(null);
+  }
 
   ngOnInit(): void {
+  }
+
+  startGame(){
+    const playerName = this.nameInputRef.nativeElement.value;
+    // const orgName = this.OrgInputRef.nativeElement.value;
+    this.gameService.addGameInfo(playerName);
   }
 
 }
