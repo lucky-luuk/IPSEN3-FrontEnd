@@ -35,6 +35,7 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
 import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { EditModComponent } from './admin/edit-mod/edit-mod.component';
     GamePageStartComponent,
     UserComponent,
     AdminOverviewComponent,
-    EditModComponent
+    EditModComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
