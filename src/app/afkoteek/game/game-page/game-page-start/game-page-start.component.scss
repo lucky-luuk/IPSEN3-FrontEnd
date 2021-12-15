@@ -28,18 +28,18 @@
         text-align: center;
         th{
             padding: 5px;
-            height: 100px;
-            border-bottom: 1px solid black;
+            height: 4em;
+            border-bottom: 5px solid white;
             img{
-                max-height: 60%;
+                max-height: 80%;
                 
             }
     }
 }
 
-tr:nth-child(1){background-color: #FFd700}
-tr:nth-child(2){background-color: #C0C0C0}
-tr:nth-child(3){background-color: #CD7F32}
+tr:nth-child(1){background:linear-gradient(130deg,#fcec96 15%,#FFd700 70%, #c9ab01 100%)}
+tr:nth-child(2){background:linear-gradient(130deg,#e4e3e3 15%,#C0C0C0 30%, #8b8b8b 100%)}
+tr:nth-child(3){background:linear-gradient(130deg,#fa9a3b 15%,#CD7F32 50%, #804f1e 100%)}
 }
 
 @media (max-width: 720px) {
