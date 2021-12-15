@@ -14,11 +14,15 @@ import {AdminPageComponent} from "./admin/admin-page/admin-page.component";
 import {SettingsComponent} from "./admin/settings/settings.component";
 import {SearchAdminComponent} from "./admin/search-admin/search-admin.component";
 import {AddModComponent} from "./admin/add-mod/add-mod.component";
+import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
+import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
   { path: 'afko', component: AfkoteekComponent},
   { path: 'game', component: GamePageComponent },
+  { path: 'game-home', component: GamePageStartComponent},
+  { path: 'game-play', component: GamePagePlayingComponent},
 
   { path: 'support', component: SupportComponent,
     children: [

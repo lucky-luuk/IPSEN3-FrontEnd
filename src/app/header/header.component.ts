@@ -9,27 +9,28 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
   isAuthorised: string = 'afko'
-  afkos: { name: string }[] = [];
+  afkoHeaders: { name: string }[] = [];
+  private urls : string[] = [
+    "/afko",
+    "/moderator",
+    "/admin"
+  ];
 
   constructor(private headerService: HeaderService, private route: Router) {
-    headerService.getAfko();
-    this.afkos = headerService.getAfko();
-    headerService.getModerator();
+    this.afkoHeaders = headerService.getAfkotheekHeaderOptions();
+    headerService.getModeratorHeaderOptions();
   }
 
   ngOnInit(): void {
     this.route.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (event.url === '/afko'){
-          this.isAuthorised = 'afko'
-        }
-        if (event.url === '/moderator'){
-          this.isAuthorised = 'moderator'
-        }
-        if (event.url === '/admin'){
-          this.isAuthorised = 'admin'
+        if (this.urls.includes(event.url)) {
+          this.setIsAuthorized(event.url);
         }
       }
     });
+  }
+  setIsAuthorized(url : string) {
+    this.isAuthorised = url.replace("/", "");
   }
 }

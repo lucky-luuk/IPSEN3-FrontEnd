@@ -12,12 +12,11 @@
 
 .child-content{
     padding: 10px;
-}
-
-.child-content p{
+    p{
     font-size:  3em;
     font-weight: bolder;
     color:  $primary-orange;
+}
 }
 
 .child-anwsers-container{
@@ -43,9 +42,11 @@
     padding: 10px;
 }
 
-.progress-content p{
+.progress-content {
+    p{
     float: right;
     font-size: 1.5em;
+    }
 }
 
 progress {
@@ -59,6 +60,15 @@ progress {
   progress::-webkit-progress-value {
     background-color: $primary-orange;
     border-radius: 7px;
+  }
+
+  .game-header{
+      padding: 2em;
+      p{
+          font-size: 1.5em;
+          font-weight: bolder;
+          color:  $primary-orange;
+      }
   }
 
 
