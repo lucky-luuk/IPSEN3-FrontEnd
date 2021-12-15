@@ -1,11 +1,14 @@
 export class gameService{
-    private name: string;
+    name: string;
+    organisation: string;
 
     constructor(){
         this.name = '';
+        this.organisation = '';
     }
 
-    public addPlayer(name: string){
-        // DOE IETS MET NAAM
+    public addGameInfo(name: string, orgName: string){
+        this.name = name;
+        this.organisation = orgName;
     }
 }

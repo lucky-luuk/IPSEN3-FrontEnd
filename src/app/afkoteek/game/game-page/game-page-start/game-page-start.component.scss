@@ -9,7 +9,7 @@
 }
 
 .child-content{
-    padding: 10px;
+    padding: 20px;
     background-color: white;
 }
 
@@ -22,6 +22,26 @@
     width: 100%;
 }
 
+.top-three-table{
+    width: 100%;
+    tr{
+        text-align: center;
+        th{
+            padding: 5px;
+            height: 100px;
+            border-bottom: 1px solid #ddd;
+            img{
+                max-height: 60%;
+                
+            }
+    }
+}
+
+tr:nth-child(1){background-color: #FFd700}
+tr:nth-child(2){background-color: #C0C0C0}
+tr:nth-child(3){background-color: #CD7F32}
+}
+
 @media (max-width: 720px) {
   .float-child {
     width: 100%;
@@ -29,5 +49,9 @@
 
 .float-container {
   padding: 0px;
+}
+
+.game-form{
+    background-color: #f2f2f2;
 }
 }
