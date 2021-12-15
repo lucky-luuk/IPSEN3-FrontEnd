@@ -3,7 +3,6 @@
     <img src="assets/RO_Logo.png" alt="Logo rijksoverheid">
   </div>
   <div class="nav" [ngClass]="{'mod': isAuthorised === 'moderator'}">
-  <div class="nav" [ngClass]="{'admin': isAuthorised === 'admin'}">
 
     <div class="navbar-container">
       <ul *ngIf="isAuthorised === 'afko'">
@@ -24,7 +23,6 @@
         <li routerLinkActive="active"><a routerLink="/add-mod">Gebruiker Toevoegen</a></li>
       </ul>
     </div>
-  </div>
   </div>
 </div>
 

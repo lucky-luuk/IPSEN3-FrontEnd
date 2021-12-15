@@ -12,7 +12,7 @@ import {DropdownComponent} from "../dropdown/dropdown.component";
 export class AbbreviationListComponent implements OnInit {
   abbreviations : AbbreviationModel[] = [];
   private http : AbbreviationService;
-  private organisationIdFilter : string = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
+  organisationIdFilter : string = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
 
   constructor(private h : AbbreviationService) {
     this.http = h;
@@ -21,16 +21,19 @@ export class AbbreviationListComponent implements OnInit {
   ngOnInit(): void {}
 
   onSearch(name : string) : void {
+    // search by name only
     if (this.organisationIdFilter === DropdownComponent.NO_ORGANISATION_SELECTED_ID) {
       this.http.getAbbreviationsByName(name, (data) => {
         this.setAbbreviationData(data);
       });
     }
+    // search by organisation id
     else if (name === "") {
       this.http.geAbbreviationByOrgId(this.organisationIdFilter, (data) => {
         this.setAbbreviationData(data);
-      })
+      });
     }
+    // search by org id and name
     else {
       this.http.getAbbreviationByOrgIdAndName(name, this.organisationIdFilter, (data) => {
         this.setAbbreviationData(data);
@@ -42,9 +45,9 @@ export class AbbreviationListComponent implements OnInit {
     this.organisationIdFilter = id;
   }
 
-  private setAbbreviationData(data : AbbreviationModel[]) {
+  public setAbbreviationData(data : AbbreviationModel[] | null) {
     if (data === null) {
-      this.abbreviations = []
+      this.abbreviations = [];
       let abbr = new AbbreviationModel();
       abbr.name = "leeg";
       abbr.description = "er zijn geen afkortingen gevonden!";

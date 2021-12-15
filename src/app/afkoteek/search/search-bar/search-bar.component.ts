@@ -6,6 +6,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
+  public placeHolderText ="Zoek een afkorting";
+  public onKeyTimeout = 400;
   private delayTimer : number = 0;
   @Output() onSearchEvent = new EventEmitter();
 
@@ -15,11 +17,10 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   onKey(event : any) {
     clearTimeout(this.delayTimer);
     this.delayTimer = setTimeout(() => {
       this.onSearchEvent.emit(event.target.value);
-    }, 400);
+    }, this.onKeyTimeout);
   }
 }
