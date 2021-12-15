@@ -28,7 +28,7 @@ const routes: Routes = [
     ]
   },
   {path: 'moderator', component: ModeratorComponent, children:[
-    {path: 'ticket', component: TicketComponent},
+    {path: 'ticketModel', component: TicketComponent},
     {path: 'overview', component: OverviewComponent},
     ]
   },

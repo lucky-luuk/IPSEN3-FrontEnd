@@ -36,7 +36,7 @@ import { ReportedComponent } from './moderator/ticket/reported/reported.componen
 import { AbbreviationRequestComponent } from './moderator/ticket/abbreviation-request/abbreviation-request.component';
 import { ReportedAbbreviationComponent } from './moderator/ticket/reported-abbreviation/reported-abbreviation.component';
 import { TicketRowComponent } from './moderator/overview/ticket-row/ticket-row.component';
-import {TicketService} from "./moderator/ticket/ticket/ticket.service";
+import {TicketService} from "./moderator/ticket/ticketModel/ticket.service";
 
 
 @NgModule({

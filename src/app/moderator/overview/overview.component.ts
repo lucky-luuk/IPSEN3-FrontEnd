@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {TicketService} from "../ticket/ticket/ticket.service";
-import {TicketModel} from "../ticket/ticket/ticket.model";
+import {TicketService} from "../ticket/ticketModel/ticket.service";
+import {TicketModel} from "../ticket/ticketModel/ticket.model";
 
 @Component({
   selector: 'app-overview',
@@ -20,7 +20,7 @@ export class OverviewComponent implements OnInit {
   }
 
   onClick(){
-    console.log( this.router.navigate(['/ticket']));
-    this.router.navigate(['ticket']);
+    console.log( this.router.navigate(['/ticketModel']));
+    this.router.navigate(['ticketModel']);
   }
 }

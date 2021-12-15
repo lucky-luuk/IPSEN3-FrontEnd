@@ -7,7 +7,7 @@ import {TicketModel} from "./ticket.model";
 })
 export class TicketService {
 
-  private endpoint : string = "/ticket";
+  private endpoint : string = "/ticketModel";
   private http : HttpService;
   constructor(private h : HttpService) {
     this.http = h;
