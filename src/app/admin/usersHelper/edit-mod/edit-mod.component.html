@@ -1,0 +1,42 @@
+<div class="mod-container">
+
+  <div class="ticket-header">
+    Moderator: {{model.userid}}
+    <button [routerLink]="['/admin' , 'admin-page']">Terug naar overzicht</button>
+  </div>
+
+  <div class="mod-info">
+    <table>
+      <thead><h4>Moderator: {{model.userid}}</h4></thead>
+      <tr>
+        <td>Voornaam</td>
+        <td><form><input type="text" value="{{model.firstname}}"></form></td>
+      </tr>
+      <tr>
+        <td>Achternaam:</td>
+        <td><form><input type="text" value="{{model.lastname}}"></form></td>
+      </tr>
+      <tr>
+        <td>E-mail:</td>
+        <td><form><input type="text" value="{{model.email}}"></form></td>
+      </tr>
+      <tr>
+        <td>Telefoon:</td>
+        <td><form><input type="text" value="{{model.phoneNumber}}"></form></td>
+      </tr>
+      <tr>
+        <td>Orginisatie:</td>
+<!--        <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>-->
+      </tr>
+    </table>
+  </div>
+
+
+
+
+
+  <div class="actie-buttons">
+    <button>Opslaan</button>
+    <button>Wijziging negeren</button>
+  </div>
+</div>

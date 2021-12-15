@@ -1,5 +1,5 @@
 <div class="list-container">
   <div *ngFor="let user of users">
-    <app-user [singleUser]="user"></app-user>
+    <app-user [singleUser]="user" [routerLink]="['/admin' , 'edit-mod']"></app-user>
   </div>
 </div>

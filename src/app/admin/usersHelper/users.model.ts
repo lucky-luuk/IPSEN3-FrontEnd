@@ -6,12 +6,16 @@ export class UsersModel {
   status: string;
   firstname: string;
   lastname: string;
+  email: string;
+  phoneNumber: string;
 
   constructor() {
-    this.org_id = 'id';
-    this.status = 'status';
-    this.firstname = 'firstname';
-    this.lastname = 'lastname';
-    this.userid = 'userid';
+    this.org_id = 'binnenlandse zaken';
+    this.status = 'actief';
+    this.firstname = 'Henk';
+    this.lastname = 'Duif';
+    this.userid = '35007A69';
+    this.email = "henk.duif.overheid@gmail.com";
+    this.phoneNumber = "+31 61889543";
   }
 }
