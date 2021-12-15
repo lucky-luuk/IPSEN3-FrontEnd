@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {HttpService} from "./http.service";
 import {Title} from "@angular/platform-browser";
 
 @Component({

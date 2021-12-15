@@ -1,20 +1,45 @@
 <div class="float-container">
     <div class="float-child">
         <div class="child-content">
-            <h3>AFKO Game</h3>
-            <p>Raad zoveel mogelijk afkortingen in één minuut on word de AFK-kenner van de Rijksoverheid!</p>
+            <h3>Welkom bij de AFKO Game!</h3>
+            <p> Voer een gebruiker naam in en kies daarna een organisatie uit waar je meer over wilt leren.
+                In deze game krijg je één minuut de tijd om zoveel mogelijk afkortingen goed te raden, uit de vier gegeven opties die er onder staan. Raad de meeste worden en word de AFK-kenner van de Rijksoverheid!
+                </p>
         </div>
+        <br>
+        <article class="child-content">
+            <h3>Top 3 Spelers</h3>
+            <section class="card-body">
+                <table class="top-three-table">
+                  <tr>
+                    <th>Roeland</th>
+                    <th>890</th>
+                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
+                  </tr>
+                  <tr>
+                    <th>Luuk</th>
+                    <th>345</th>
+                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
+                  </tr>
+                  <tr>
+                    <th>Mees</th>
+                    <th>256</th>
+                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
+                  </tr>
+                </table>                
+            </section>
+        </article>
     </div>
 
     <div class="float-child">
-        <div class="child-content">
+        <div class="child-content game-form">
             <label for="name">Naam:</label>
-            <input class="name-input" type="text">
+            <input class="name-input" id="name" type="text" #nameInput>
 
             <label for="organisatie">Organisatie:</label>
             <app-dropdown></app-dropdown>
             <br>
-            <button class="button-start-game">Start</button>
+            <button class="button-start-game" (click)="startGame()" routerLink="/game-play">Start</button>
         </div>
     </div>
 </div>

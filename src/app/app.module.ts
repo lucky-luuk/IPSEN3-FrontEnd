@@ -12,7 +12,6 @@ import {SearchComponent} from "./afkoteek/search/search.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { GamePageComponent } from './afkoteek/game/game-page/game-page.component';
 import { SupportComponent } from './afkoteek/support/support.component';
-
 import {AbbreviationListComponent} from "./afkoteek/search/abbreviation-list/abbreviation-list.component";
 import { AbbreviationComponent } from './afkoteek/search/abbreviation-list/abbreviation/abbreviation.component';
 import { SearchBarComponent } from './afkoteek/search/search-bar/search-bar.component';
@@ -32,9 +31,15 @@ import { SearchAdminComponent } from './admin/search-admin/search-admin.componen
 import { AddModComponent } from './admin/add-mod/add-mod.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
+import { ReportedAbbreviationComponent } from './moderator/ticket/reported-abbreviation/reported-abbreviation.component';
+import { TicketRowComponent } from './moderator/overview/ticket-row/ticket-row.component';
+import { TicketService } from "./moderator/ticket/ticketModel/ticket.service";
+import { TicketTypeDropdownComponent } from './moderator/ticket/ticket-type-dropdown/ticket-type-dropdown.component';
+import {ReportedComponent} from "./moderator/ticket/reported/reported.component";
 import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
+import { gameService } from './afkoteek/game/game-page/game.service';
 
 @NgModule({
   declarations: [
@@ -63,6 +68,10 @@ import { EditModComponent } from './admin/edit-mod/edit-mod.component';
     AddModComponent,
     GamePagePlayingComponent,
     GamePageStartComponent,
+    ReportedAbbreviationComponent,
+    TicketRowComponent,
+    TicketTypeDropdownComponent,
+    ReportedComponent,
     UserComponent,
     AdminOverviewComponent,
     EditModComponent
@@ -74,7 +83,7 @@ import { EditModComponent } from './admin/edit-mod/edit-mod.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SupportService, HeaderService],
+  providers: [SupportService, HeaderService, TicketService, gameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

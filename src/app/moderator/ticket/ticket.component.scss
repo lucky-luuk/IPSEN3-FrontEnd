@@ -1,3 +1,5 @@
+@import "src/styles";
+
 .ticket-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -55,5 +57,9 @@
     & button{
       margin-right: 0.2rem;
     }
+  }
+
+  button{
+    background-color: $primary-blue;
   }
 }

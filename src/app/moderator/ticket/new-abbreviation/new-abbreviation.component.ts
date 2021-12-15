@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {AbbreviationModel} from "../../../afkoteek/search/abbreviation-list/abbreviation.model";
+import {AbbreviationService} from "../../../afkoteek/search/abbreviation-list/abbreviation.service";
 
 @Component({
   selector: 'app-new-abbreviation',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-abbreviation.component.scss']
 })
 export class NewAbbreviationComponent implements OnInit {
+ @Input() abbrModel: AbbreviationModel;
 
-  constructor() { }
+  constructor(private abbrService: AbbreviationService) {
+   this.abbrModel = new AbbreviationModel();
+  }
 
   ngOnInit(): void {
   }

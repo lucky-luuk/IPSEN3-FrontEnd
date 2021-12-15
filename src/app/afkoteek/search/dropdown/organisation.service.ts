@@ -13,4 +13,16 @@ export class OrganisationService {
     let parameters = new Map<string, string>();
     this.http.get<OrganisationModel[]>("/organisation", parameters, implementation);
   }
+
+  postOrganisations(organisations : OrganisationModel[]) : void {
+    this.http.post<OrganisationModel[]>("/organisation", organisations, (data) => {});
+  }
+
+  changeOrganisation(organisation1 : OrganisationModel, organisation2 : OrganisationModel) {
+    this.http.put<OrganisationModel[]>("/organisation", [organisation1, organisation2], (data) => {});
+  }
+
+  deleteOrganisation(organisation : OrganisationModel) {
+    this.http.put<OrganisationModel[]>("/organisation", [organisation], (data) => {});
+  }
 }
