@@ -1,5 +1,5 @@
 export class HeaderService {
-  private afko = [
+  private afkotheekHeaderOptions = [
     {
       name: 'Afkotheek'
     },
@@ -11,7 +11,7 @@ export class HeaderService {
     }
   ];
 
-  private moderator = [
+  private moderatorHeaderOptions = [
     {
       name: 'Overzicht'
     },
@@ -23,12 +23,12 @@ export class HeaderService {
     }
   ]
 
-  getAfko() {
-    return this.afko;
+  getAfkotheekHeaderOptions() {
+    return this.afkotheekHeaderOptions;
   }
 
-  getModerator() {
-    return this.moderator;
+  getModeratorHeaderOptions() {
+    return this.moderatorHeaderOptions;
   }
 
 }
