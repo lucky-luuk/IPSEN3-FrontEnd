@@ -11,7 +11,7 @@ export class SearchComponent implements OnInit {
   // type must be any, because member is injected by angular, it must not be set in the constructor.
   @ViewChild(AbbreviationListComponent) abbreviationList: any;
 
-  private lastSearchedData : string = "";
+  lastSearchedData : string = "";
 
   constructor() { }
 
@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
     this.lastSearchedData = data;
     this.abbreviationList.onSearch(data);
   }
+
   onSelectOrganisation(orgid : string) {
     this.abbreviationList.setOrganisationIdFilter(orgid);
     this.abbreviationList.onSearch(this.lastSearchedData);

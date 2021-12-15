@@ -24,4 +24,9 @@ export class MockHttpService extends HttpService {
     // @ts-ignore
     implementation(this.mockData[endpoint]);
   }
+
+  public setData<T>(endpoint : string, data : T) {
+    // @ts-ignore
+    this.mockData[endpoint] = data;
+  }
 }
