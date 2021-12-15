@@ -30,9 +30,10 @@ const routes: Routes = [
       {path: 'request', component: InfoRequestComponent},
       {path: 'report', component: ReportComponent},
       {path: 'add', component: AddComponent},
-    ]},
+    ]
+  },
   {path: 'moderator', component: ModeratorComponent, children:[
-    {path: 'ticket', component: TicketComponent},
+    {path: 'ticketModel', component: TicketComponent},
     {path: 'overview', component: OverviewComponent},
     ]
   },

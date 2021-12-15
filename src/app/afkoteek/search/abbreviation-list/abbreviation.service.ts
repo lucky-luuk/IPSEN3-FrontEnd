@@ -32,6 +32,12 @@ export class AbbreviationService {
     this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation);
   }
 
+  public getAbbreviationById(id : string, implementation : (data : AbbreviationModel) => void) : void {
+    let parameters = new Map<string, string>();
+    parameters.set("id", id);
+    this.http.get<AbbreviationModel>(this.endpoint, parameters, implementation);
+  }
+
   public postAbbreviations(abbr : AbbreviationModel[]) : void {
     this.http.post<AbbreviationModel[]>(this.endpoint, abbr, (data) => {});
   }
@@ -44,4 +50,5 @@ export class AbbreviationService {
   public deleteAbbreviation(abbrs : AbbreviationModel[]) : void {
     this.http.delete<AbbreviationModel[]>(this.endpoint, abbrs, (data) => {});
   }
+
 }

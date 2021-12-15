@@ -1,0 +1,9 @@
+<form>
+  <select (change)="submit($event)">
+    <option class="option-st" *ngFor="let status of statusList">
+      {{status}}
+    </option>
+  </select>
+</form>
+
+
