@@ -39,7 +39,9 @@ import {ReportedComponent} from "./moderator/ticket/reported/reported.component"
 import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
+import { AdminComponent } from './admin/admin.component';
 import { gameService } from './afkoteek/game/game-page/game.service';
+
 
 @NgModule({
   declarations: [
@@ -74,7 +76,8 @@ import { gameService } from './afkoteek/game/game-page/game.service';
     ReportedComponent,
     UserComponent,
     AdminOverviewComponent,
-    EditModComponent
+    EditModComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

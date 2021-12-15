@@ -15,8 +15,10 @@ import {SettingsComponent} from "./admin/settings/settings.component";
 import {SearchAdminComponent} from "./admin/search-admin/search-admin.component";
 import {AddModComponent} from "./admin/add-mod/add-mod.component";
 import {EditModComponent} from "./admin/edit-mod/edit-mod.component";
+import {AdminComponent} from "./admin/admin.component";
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
@@ -37,7 +39,8 @@ const routes: Routes = [
     {path: 'overview', component: OverviewComponent},
     ]
   },
-  { path: 'admin', component: AdminPageComponent, children:[
+  { path: 'admin', component: AdminComponent, children:[
+      { path: 'admin-page', component: AdminPageComponent},
       { path: 'edit-mod', component: EditModComponent},
       { path: 'settings', component: SettingsComponent},
       { path: 'search-admin', component: SearchAdminComponent},
