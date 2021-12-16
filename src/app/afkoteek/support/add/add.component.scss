@@ -1,0 +1,32 @@
+@import "src/styles";
+
+$list-width: 40vw;
+$input-width: $max-content-width - $list-width;
+
+.container.addAbbreviation {
+  padding-top: 5vh;
+  width: $max-content-width + 10vw;
+}
+
+.btn.btn-primary.abbreviation-submit-button {
+  background-color: $primary-orange;
+}
+
+.form-control.abbreviation-definition {
+  height: 25vh;
+  max-height: 25vh;
+  margin-top: 5%;
+}
+
+.row.abbreviation-list {
+  height: 30vh;
+  max-height: 30vh;
+}
+
+.row.button {
+  width: 60%;
+  padding: 12px;
+  margin-left: auto;
+  margin-right: auto;
+}
+

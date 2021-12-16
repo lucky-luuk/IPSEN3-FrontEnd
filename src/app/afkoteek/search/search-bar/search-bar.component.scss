@@ -1,6 +1,11 @@
+@import "src/styles";
 input{
   padding: 10px;
   border: none;
+}
+app-abbreviation-list {
+  max-height: $max-content-height - 20vh;
+
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

@@ -1,18 +1,20 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {AbbreviationService} from "./abbreviation.service";
 import {AbbreviationModel} from "./abbreviation.model";
-import {OrganisationModel} from "./organisation.model";
 import {DropdownComponent} from "../dropdown/dropdown.component";
 
 @Component({
   selector: 'app-abbreviation-list',
   templateUrl: './abbreviation-list.component.html',
-  styleUrls: ['./abbreviation-list.component.scss']
+  styleUrls: ['./abbreviation-list.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AbbreviationListComponent implements OnInit {
   abbreviations : AbbreviationModel[] = [];
   private http : AbbreviationService;
   organisationIdFilter : string = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
+  // a bit hacky but whatever
+  @Input() list_height : string = "45vh";
 
   constructor(private h : AbbreviationService) {
     this.http = h;

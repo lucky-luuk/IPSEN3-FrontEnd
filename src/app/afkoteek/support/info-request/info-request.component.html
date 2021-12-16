@@ -1,5 +1,4 @@
-
-  <form class="row gx-5" (ngSubmit)="onSubmit()" #f="ngForm">
+ <form class="row gx-5" (ngSubmit)="onSubmit()" #f="ngForm">
       <div class="col-sm-6">
           <div class="mb-3">
             <label>Naam </label>
@@ -41,7 +40,8 @@
             name="data"
             required
             #data="ngModel"
-            [ngClass]="{'is-invalid': !data.valid && data.touched }"></textarea>
+            [ngClass]="{'is-invalid': !data.valid && data.touched }">
+          </textarea>
         </div>
 
       </div>

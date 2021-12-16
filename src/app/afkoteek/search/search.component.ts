@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AbbreviationListComponent} from "./abbreviation-list/abbreviation-list.component";
 import {DropdownComponent} from "./dropdown/dropdown.component";
+import {OrganisationModel} from "./abbreviation-list/organisation.model";
 
 @Component({
   selector: 'app-search',
@@ -23,9 +24,8 @@ export class SearchComponent implements OnInit {
     this.abbreviationList.onSearch(data);
   }
 
-  onSelectOrganisation(orgid : string) {
-    this.abbreviationList.setOrganisationIdFilter(orgid);
+  onSelectOrganisation(org : OrganisationModel) {
+    this.abbreviationList.setOrganisationIdFilter(org.id);
     this.abbreviationList.onSearch(this.lastSearchedData);
   }
-
 }
