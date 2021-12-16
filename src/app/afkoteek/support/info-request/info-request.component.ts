@@ -6,10 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info-request.component.scss']
 })
 export class InfoRequestComponent implements OnInit {
+  // name : string;
+  // email : string;
+  // phone : string;
+  // data : string;
 
-  constructor() { }
+  constructor() {
+    // this.name = "";
+    // this.email = "";
+    // this.phone = "";
+    // this.data = "";
+  }
 
   ngOnInit(): void {
   }
+  test(event : any) {
+    //console.log(this.name);
+  }
 
+  onSubmit() {
+
+  }
+  // nameIsValid() : boolean {
+  //   return (this.name === "a");
+  // }
 }

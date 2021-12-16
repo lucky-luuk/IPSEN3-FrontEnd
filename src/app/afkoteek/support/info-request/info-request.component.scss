@@ -1,3 +1,4 @@
+@import "src/styles";
 .row {
   margin-top: 25px;
   align-items: center;
@@ -6,4 +7,7 @@
   button {
     width: 60%;
   }
+}
+.btn.btn-primary.submit-button {
+  background-color: $primary-orange;
 }
