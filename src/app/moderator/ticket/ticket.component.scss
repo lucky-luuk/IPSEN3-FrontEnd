@@ -83,7 +83,7 @@
     }
   }
 
-  @media only screen and (min-width: 400px) and (max-width:770px){
+  @media only screen and (min-width: 100px) and (max-width:770px){
     .ticket-container{
       max-width: 10vw;
       grid-template-columns: 1fr;
