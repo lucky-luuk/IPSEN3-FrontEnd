@@ -16,4 +16,16 @@ padding: .45rem;
   }
 }
 
+@media only screen and (min-width: 100px) and (max-width:1600px){
+  .new-abbreviation{
+    form{
+      display: block;
+    }
+    input{
+      margin: 2px;
+      width: 100%;
+    }
+  }
+}
+
 
