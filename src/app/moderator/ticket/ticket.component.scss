@@ -1,10 +1,17 @@
 @import "src/styles";
 
+
+.container-container{
+  display: flex;
+  justify-content: center;
+}
 .ticket-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
   margin-top: 5vh;
+  max-width: 60vw;
+
 
   .ticket-header {
     padding: .45rem;
@@ -35,7 +42,7 @@
     & textarea{
       padding: .45rem;
       resize: none;
-      width: 21vw;
+      width: 100%;
       min-height: 8vh;
       max-height: 15vh;
       border-radius: 10px;
@@ -62,4 +69,37 @@
   button{
     background-color: $primary-blue;
   }
+
+  @media only screen and (min-width: 771px) and (max-width:1158px){
+    .ticket-container{
+      grid-template-columns: 1fr;
+    }
+    .ticket-header, .ticket-user-info, .ticket-status, .ticket-bericht, .ticket-specifieke-acties, .actie-buttons{
+      grid-column: 1/1;
+    }
+
+    .ticket-bericht textarea{
+      width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: 400px) and (max-width:770px){
+    .ticket-container{
+      max-width: 10vw;
+      grid-template-columns: 1fr;
+    }
+    .ticket-header, .ticket-user-info, .ticket-status, .ticket-bericht, .ticket-specifieke-acties, .actie-buttons{
+      grid-column: 1/1;
+    }
+
+    .ticket-bericht textarea{
+      width: 80%;
+    }
+
+    .ticket-header{
+      gap: 10px;
+    }
+
+  }
+
 }

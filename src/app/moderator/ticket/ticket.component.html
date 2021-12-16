@@ -1,50 +1,52 @@
-<div class="ticket-container">
+<div class="container-container">
+  <div class="ticket-container">
 
-  <div class="ticket-header">
-    ticket Nummer: {{model.ticketID}}
-    <button [routerLink]="['/moderator' , 'overview']">Terug naar overzicht</button>
-  </div>
+    <div class="ticket-header">
+      ticket Nummer: {{model.ticketID}}
+      <button [routerLink]="['/moderator' , 'overview']">Terug naar overzicht</button>
+    </div>
 
-  <div class="ticket-user-info">
-    <h4>{{model.ticketType}}</h4>
-    <p>{{model.createdBy}}</p>
-    <p>{{model.createdByMail}}</p>
-  </div>
+    <div class="ticket-user-info">
+      <h4>{{model.ticketType}}</h4>
+      <p>{{model.createdBy}}</p>
+      <p>{{model.createdByMail}}</p>
+    </div>
 
-  <div class="ticket-bericht">
-    <h4>Bericht</h4>
-    <textarea disabled>{{model.message}}</textarea>
-  </div>
+    <div class="ticket-bericht">
+      <h4>Bericht</h4>
+      <textarea disabled>{{model.message}}</textarea>
+    </div>
 
-  <div class="ticket-status">
-    <table>
-      <thead><h4>Status</h4></thead>
-      <tr>
-        <td>Indien datum:</td>
-        <td>{{model.createdDate}}</td>
-      </tr>
-      <tr>
-        <td>Status:</td>
-        <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>
-      </tr>
-      <tr>
-        <td>Behandelaar:</td>
-        <td><form><input type="text" value="{{model.handler}}"></form></td>
-      </tr>
+    <div class="ticket-status">
+      <table>
+        <thead><h4>Status</h4></thead>
+        <tr>
+          <td>Indien datum:</td>
+          <td>{{model.createdDate}}</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>
+        </tr>
+        <tr>
+          <td>Behandelaar:</td>
+          <td><form><input type="text" value="{{model.handler}}"></form></td>
+        </tr>
 
-    </table>
-  </div>
+      </table>
+    </div>
 
-  <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'nieuwe afkorting'">
-        <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
+    <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'nieuwe afkorting'">
+          <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
 
-  </div>
-  <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'gerapporteerde afkorting'">
-        <app-reported ></app-reported>
-  </div>
-  <div class="actie-buttons">
-    <button>Opslaan</button>
-    <button>Wijziging negeren</button>
-    <button>Afkorting verwijderen</button>
+    </div>
+    <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'gerapporteerde afkorting'">
+          <app-reported ></app-reported>
+    </div>
+    <div class="actie-buttons">
+      <button>Opslaan</button>
+      <button>Wijziging negeren</button>
+      <button>Afkorting verwijderen</button>
+    </div>
   </div>
 </div>
