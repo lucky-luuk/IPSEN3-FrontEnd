@@ -44,4 +44,6 @@ export class AddComponent implements OnInit {
       && this.model.organisations.length !== 0
       && this.model.description !== AbbreviationModel.DEFAULT_DESCRIPTION
   }
+
+
 }
