@@ -18,4 +18,9 @@ export class AdminOverviewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSearchMod(data : string) {
+  console.log("Aangekomen");
+  
+  }
+
 }

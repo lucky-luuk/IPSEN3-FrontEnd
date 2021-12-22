@@ -41,6 +41,7 @@ import { AdminOverviewComponent} from "./admin/overview/admin-overview.component
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
 import { gameService } from './afkoteek/game/game-page/game.service';
+import { SearchModeratorComponent } from './admin/search-moderator/search-moderator.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { gameService } from './afkoteek/game/game-page/game.service';
     UserComponent,
     AdminOverviewComponent,
     EditModComponent,
-    AdminComponent
+    AdminComponent,
+    SearchModeratorComponent
   ],
   imports: [
     BrowserModule,
