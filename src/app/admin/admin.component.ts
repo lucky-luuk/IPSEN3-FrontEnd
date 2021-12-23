@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AdminOverviewComponent } from './overview/admin-overview.component';
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  @ViewChild(AdminOverviewComponent) adminOverView: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

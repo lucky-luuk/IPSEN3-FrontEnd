@@ -1,50 +1,116 @@
-<div class="ticket-container">
+<div class="float-container">
+    <div class="float-child">
+      <table class="child-content ticket-header">
+        <tr>
+          <th>
+              ticket Nummer: {{model.ticketID}}
+          </th>
+          <th>
+              <button [routerLink]="['/moderator' , 'overview']" class="ticket-header-button">Terug naar overzicht</button>
+          </th>
+        </tr>
+      </table>
+    </div>
 
-  <div class="ticket-header">
-    ticket Nummer: {{model.ticketID}}
-    <button [routerLink]="['/moderator' , 'overview']">Terug naar overzicht</button>
+  <div class="float-child">
+    <div class="float-child-split">
+      <div class="child-content">
+        <h4>{{model.ticketType}}</h4>
+        <p>{{model.createdBy}}</p>
+        <p>{{model.createdByMail}}</p>
+    </div>
+    <br>
+    <div class="child-content">
+        <table>
+          <thead><h4>Status</h4></thead>
+            <tr>
+              <td>Indien datum:</td>
+              <td>{{model.createdDate}}</td>
+            </tr>
+            <tr>
+              <td>Status:</td>
+              <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>
+            </tr>
+            <tr>
+              <td>Behandelaar:</td>
+              <td><form><input type="text" value="{{model.handler}}"></form></td>
+            </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="float-child-split">
+      <div class="child-content">
+          <h4>Bericht</h4>
+          <textarea disabled>{{model.message}}</textarea>
+      </div>
+      <br>
+      <div class="child-content" *ngIf="model.ticketType == 'nieuwe afkorting'">
+          <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
+      </div>
+    </div>
   </div>
 
-  <div class="ticket-user-info">
-    <h4>{{model.ticketType}}</h4>
-    <p>{{model.createdBy}}</p>
-    <p>{{model.createdByMail}}</p>
-  </div>
-
-  <div class="ticket-bericht">
-    <h4>Bericht</h4>
-    <textarea disabled>{{model.message}}</textarea>
-  </div>
-
-  <div class="ticket-status">
-    <table>
-      <thead><h4>Status</h4></thead>
-      <tr>
-        <td>Indien datum:</td>
-        <td>{{model.createdDate}}</td>
-      </tr>
-      <tr>
-        <td>Status:</td>
-        <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>
-      </tr>
-      <tr>
-        <td>Behandelaar:</td>
-        <td><form><input type="text" value="{{model.handler}}"></form></td>
-      </tr>
-
-    </table>
-  </div>
-
-  <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'nieuwe afkorting'">
-        <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
-
-  </div>
-  <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'gerapporteerde afkorting'">
-        <app-reported ></app-reported>
-  </div>
-  <div class="actie-buttons">
-    <button>Opslaan</button>
-    <button>Wijziging negeren</button>
-    <button>Afkorting verwijderen</button>
+  <div class="float-child">
+    <div class="child-content child-content-footer">
+      <button>Opslaan</button>
+      <button>Wijziging negeren</button>
+      <button>Afkorting verwijderen</button>
+    </div>
   </div>
 </div>
+
+
+
+<!-- <div class="container-container">
+  <div class="ticket-container">
+
+    <div class="ticket-header">
+      ticket Nummer: {{model.ticketID}}
+      <button [routerLink]="['/moderator' , 'overview']" class="ticket-header-button">Terug naar overzicht</button>
+    </div>
+
+    <div class="ticket-user-info">
+      <h4>{{model.ticketType}}</h4>
+      <p>{{model.createdBy}}</p>
+      <p>{{model.createdByMail}}</p>
+    </div>
+
+    <div class="ticket-bericht">
+      <h4>Bericht</h4>
+      <textarea disabled>{{model.message}}</textarea>
+    </div>
+
+    <div class="ticket-status">
+      <table>
+        <thead><h4>Status</h4></thead>
+        <tr>
+          <td>Indien datum:</td>
+          <td>{{model.createdDate}}</td>
+        </tr>
+        <tr>
+          <td>Status:</td>
+          <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>
+        </tr>
+        <tr>
+          <td>Behandelaar:</td>
+          <td><form><input type="text" value="{{model.handler}}"></form></td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'nieuwe afkorting'">
+          <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
+
+    </div>
+    <div class="ticket-specifieke-acties" *ngIf="model.ticketType == 'gerapporteerde afkorting'">
+          <app-reported ></app-reported>
+    </div>
+    <div class="actie-buttons">
+      <button>Opslaan</button>
+      <button>Wijziging negeren</button>
+      <button>Afkorting verwijderen</button>
+    </div>
+  </div>
+</div> -->
