@@ -43,8 +43,9 @@ export class MockHttpService extends HttpService {
     // ignoring types to not have to implement giant if else chain
     // @ts-ignore
     implementation(this.mockData[endpoint]);
-
-  public setData<T>(endpoint : string, data : T) {
+  }
+  
+   setData<T>(endpoint : string, data : T) {
     // @ts-ignore
     this.mockData[endpoint] = data;
 

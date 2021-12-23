@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 
 export class AdminOverviewComponent implements OnInit {
-  users: UsersModel[] = [];
-  filterdUsers: UsersModel[] =[];
+  users: UsersModel[];
+  filterdUsers: UsersModel[];
 
   constructor(private userService: UserService, public router: Router) {
     this.users = this.userService.getUsers();
