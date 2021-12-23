@@ -41,6 +41,8 @@ import { AdminOverviewComponent} from "./admin/overview/admin-overview.component
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
 import { gameService } from './afkoteek/game/game-page/game.service';
+import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
+import { ReportDropdownComponent } from './afkoteek/support/report/report-dropdown/report-dropdown.component';
 
 
 @NgModule({
@@ -77,7 +79,9 @@ import { gameService } from './afkoteek/game/game-page/game.service';
     UserComponent,
     AdminOverviewComponent,
     EditModComponent,
-    AdminComponent
+    AdminComponent,
+    ClickableAbbreviationComponent,
+    ReportDropdownComponent
   ],
   imports: [
     BrowserModule,

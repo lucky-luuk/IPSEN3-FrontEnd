@@ -14,6 +14,8 @@ export class AbbreviationListComponent implements OnInit {
   organisationIdFilter : string = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
   //  used to set the height of the list, makes stuff a whole lot easier
   @Input() list_height : string = "45vh";
+  @Input() shouldUseClickableAbbreviationComponent = false;
+  @Input() onAbbreviationClick : (model : AbbreviationModel) => void = (model) => {};
 
   constructor(private h : AbbreviationService) {
     this.http = h;
@@ -60,4 +62,7 @@ export class AbbreviationListComponent implements OnInit {
     }
   }
 
+  onAbbreviationClicked(abbr : AbbreviationModel) {
+    this.onAbbreviationClick(abbr);
+  }
 }

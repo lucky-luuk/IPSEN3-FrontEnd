@@ -1,1 +1,14 @@
-<p>report works!</p>
+<div class="container report-abbreviation">
+  <div class="row">
+    <div class="col">
+      <app-search-bar (onSearchEvent)="onSearch($event)"></app-search-bar>
+    </div>
+    <div class="col">
+      <app-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-dropdown>
+    </div>
+    <div class="row">
+      <app-abbreviation-list [shouldUseClickableAbbreviationComponent]="true" [onAbbreviationClick]="onClick"></app-abbreviation-list>
+    </div>
+  </div>
+</div>
+
