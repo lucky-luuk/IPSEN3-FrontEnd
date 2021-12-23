@@ -1,3 +1,7 @@
+<div *ngIf="router.url === '/admin/admin-page'">
+  <app-search-moderator (onSearchEvent)="onSearch($event)"></app-search-moderator>
+</div>
+
 <div class="list-container">
   <div *ngFor="let user of users">
     <app-user [singleUser]="user" [routerLink]="['/admin' , 'edit-mod']"></app-user>

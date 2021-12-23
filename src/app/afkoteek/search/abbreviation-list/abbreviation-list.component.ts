@@ -21,6 +21,8 @@ export class AbbreviationListComponent implements OnInit {
   ngOnInit(): void {}
 
   onSearch(name : string) : void {
+    console.log(name);
+    
     // search by name only
     if (this.organisationIdFilter === DropdownComponent.NO_ORGANISATION_SELECTED_ID) {
       this.http.getAbbreviationsByName(name, (data) => {
