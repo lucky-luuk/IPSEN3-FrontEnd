@@ -3,6 +3,8 @@ import {AbbreviationListComponent} from "../../search/abbreviation-list/abbrevia
 import {DropdownComponent} from "../../search/dropdown/dropdown.component";
 import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
 import {AbbreviationModel} from "../../search/abbreviation-list/abbreviation.model";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ReportPopupComponent} from "./report-popup/report-popup.component";
 
 @Component({
   selector: 'app-report',
@@ -13,7 +15,9 @@ export class ReportComponent implements OnInit {
   @ViewChild(AbbreviationListComponent) abbreviationList: any;
   @ViewChild(DropdownComponent) dropDownComponent : any;
 
-  constructor() { }
+  constructor(private modalService : NgbModal) {
+    console.log(modalService);
+  }
 
   ngOnInit(): void {
   }
@@ -32,6 +36,7 @@ export class ReportComponent implements OnInit {
   }
 
   onClick(abbr : AbbreviationModel) {
-    console.log(abbr);
+    const modalRef = this.modalService.open(ReportPopupComponent);
+    modalRef.componentInstance.reportedAbbreviation = abbr;
   }
 }

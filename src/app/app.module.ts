@@ -42,7 +42,8 @@ import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
 import { gameService } from './afkoteek/game/game-page/game.service';
 import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
-import { ReportDropdownComponent } from './afkoteek/support/report/report-dropdown/report-dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReportPopupComponent } from './afkoteek/support/report/report-popup/report-popup.component';
 
 
 @NgModule({
@@ -81,14 +82,15 @@ import { ReportDropdownComponent } from './afkoteek/support/report/report-dropdo
     EditModComponent,
     AdminComponent,
     ClickableAbbreviationComponent,
-    ReportDropdownComponent
+    ReportPopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [SupportService, HeaderService, TicketService, gameService],
   bootstrap: [AppComponent]

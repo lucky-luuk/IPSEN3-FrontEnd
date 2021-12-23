@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {AbbreviationService} from "./abbreviation.service";
 import {AbbreviationModel} from "./abbreviation.model";
 import {DropdownComponent} from "../dropdown/dropdown.component";
@@ -15,7 +15,7 @@ export class AbbreviationListComponent implements OnInit {
   //  used to set the height of the list, makes stuff a whole lot easier
   @Input() list_height : string = "45vh";
   @Input() shouldUseClickableAbbreviationComponent = false;
-  @Input() onAbbreviationClick : (model : AbbreviationModel) => void = (model) => {};
+  @Output() onAbbreviationClick = new EventEmitter<AbbreviationModel>();
 
   constructor(private h : AbbreviationService) {
     this.http = h;
@@ -63,6 +63,6 @@ export class AbbreviationListComponent implements OnInit {
   }
 
   onAbbreviationClicked(abbr : AbbreviationModel) {
-    this.onAbbreviationClick(abbr);
+    this.onAbbreviationClick.emit(abbr);
   }
 }

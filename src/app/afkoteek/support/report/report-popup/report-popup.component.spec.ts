@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReportDropdownComponent } from './report-dropdown.component';
+import { ReportPopupComponent } from './report-popup.component';
 
-describe('ReportDropdownComponent', () => {
-  let component: ReportDropdownComponent;
-  let fixture: ComponentFixture<ReportDropdownComponent>;
+describe('ReportPopupComponent', () => {
+  let component: ReportPopupComponent;
+  let fixture: ComponentFixture<ReportPopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReportDropdownComponent ]
+      declarations: [ ReportPopupComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReportDropdownComponent);
+    fixture = TestBed.createComponent(ReportPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
