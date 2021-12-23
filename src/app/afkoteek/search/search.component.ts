@@ -25,6 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSelectOrganisation(org : OrganisationModel) {
+    this.showAbbreviationListSearchingAnimation();
     this.abbreviationList.setOrganisationIdFilter(org.id);
     this.abbreviationList.onSearch(this.lastSearchedData);
   }

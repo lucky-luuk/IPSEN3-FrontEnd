@@ -45,5 +45,7 @@ export class AddComponent implements OnInit {
       && this.model.description !== AbbreviationModel.DEFAULT_DESCRIPTION
   }
 
-
+  showAbbreviationListSearchingAnimation() {
+    this.abbreviationList.showSearchingAnimation();
+  }
 }

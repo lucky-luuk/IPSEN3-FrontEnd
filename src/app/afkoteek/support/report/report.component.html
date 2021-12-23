@@ -1,7 +1,7 @@
 <div class="container report-abbreviation">
   <div class="row">
     <div class="col">
-      <app-search-bar (onSearchEvent)="onSearch($event)"></app-search-bar>
+      <app-search-bar (onSearchEvent)="onSearch($event)" (preOnSearchEvent)="showAbbreviationListSearchingAnimation()"></app-search-bar>
     </div>
     <div class="col">
       <app-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-dropdown>

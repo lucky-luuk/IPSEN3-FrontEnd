@@ -14,6 +14,7 @@ import {ReportPopupComponent} from "./report-popup/report-popup.component";
 export class ReportComponent implements OnInit {
   @ViewChild(AbbreviationListComponent) abbreviationList: any;
   @ViewChild(DropdownComponent) dropDownComponent : any;
+  lastSearchedData : string = "";
 
   constructor(private modalService : NgbModal) {
     console.log(modalService);
@@ -27,16 +28,21 @@ export class ReportComponent implements OnInit {
   }
 
   onSearch(data : string) {
+    this.lastSearchedData = data;
     this.abbreviationList.onSearch(data);
   }
 
   onSelectOrganisation(org : OrganisationModel) {
+    this.showAbbreviationListSearchingAnimation();
     this.abbreviationList.setOrganisationIdFilter(org.id);
-    this.abbreviationList.onSearch()
+    this.abbreviationList.onSearch(this.lastSearchedData);
   }
 
   onClick(abbr : AbbreviationModel) {
     const modalRef = this.modalService.open(ReportPopupComponent);
     modalRef.componentInstance.reportedAbbreviation = abbr;
+  }
+  showAbbreviationListSearchingAnimation() {
+    this.abbreviationList.showSearchingAnimation();
   }
 }

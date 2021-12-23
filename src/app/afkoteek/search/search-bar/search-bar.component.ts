@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class SearchBarComponent implements OnInit {
   public placeHolderText ="Zoek een afkorting";
-  public onKeyTimeout = 400;
+  public onKeyTimeout = 700;
   private delayTimer : number = 0;
   @Output() preOnSearchEvent = new EventEmitter();
   @Output() onSearchEvent = new EventEmitter<string>();
