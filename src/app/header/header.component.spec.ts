@@ -7,8 +7,6 @@ import {Router} from "@angular/router";
 
 describe('HeaderComponent', () => {
   let fixture : ComponentFixture<HeaderComponent>;
-  let router : Router;
-  let headerService : HeaderService;
   let component : HeaderComponent;
 
   beforeEach(() => {

@@ -11,3 +11,9 @@
 .btn.btn-primary.submit-button {
   background-color: $primary-orange;
 }
+
+@media (width < 576px) {
+  .row.gx-5 {
+    margin: 10px;
+  }
+}
