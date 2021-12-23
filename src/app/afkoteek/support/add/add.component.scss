@@ -30,3 +30,13 @@ $input-width: $max-content-width - $list-width;
   margin-right: auto;
 }
 
+@media (max-width: 575px) {
+  .form-control.abbreviation-definition {
+    height: 100px;
+    max-height: 100px;
+  }
+  .row.abbreviation-list {
+    height: 40vh;
+    max-height: 40vh;
+  }
+}

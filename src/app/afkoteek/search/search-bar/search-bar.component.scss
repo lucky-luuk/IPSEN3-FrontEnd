@@ -2,6 +2,7 @@
 input{
   padding: 10px;
   border: none;
+  width: 100%;
 }
 app-abbreviation-list {
   max-height: $max-content-height - 20vh;
@@ -10,8 +11,4 @@ app-abbreviation-list {
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #cccccc;
-}
-
-@media (max-width: 500px) {
-
 }
