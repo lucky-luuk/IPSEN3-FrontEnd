@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { AdminOverviewComponent } from './overview/admin-overview.component';
 
 @Component({
@@ -10,13 +9,8 @@ import { AdminOverviewComponent } from './overview/admin-overview.component';
 export class AdminComponent implements OnInit {
   @ViewChild(AdminOverviewComponent) adminOverView: any;
 
-  constructor(public router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-
-  onSearch(data : any) {
-    this.adminOverView.onSearchMod(data);
-  }
-
 }
