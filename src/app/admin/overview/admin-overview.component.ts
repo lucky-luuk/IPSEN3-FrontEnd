@@ -10,6 +10,7 @@ import {UserService} from "../usersHelper/user.service";
 
 export class AdminOverviewComponent implements OnInit {
   users: UsersModel[] = [];
+  filterdUsers: UsersModel[] =[];
 
   constructor(private userService: UserService) {
     this.users = this.userService.getUsers();
@@ -19,8 +20,15 @@ export class AdminOverviewComponent implements OnInit {
   }
 
   onSearchMod(data : string) {
-  console.log("Aangekomen");
-  
+    console.log("Aangekomen");
+    this.filterdUsers =[];
+    for(let user of this.users){
+      if(user.userid!==data && user.firstname!==data && user.lastname!==data){
+        this.filterdUsers.push(user);
+      }
+    }
+    this.users = [];
+    this.users = this.filterdUsers;
   }
-
+  
 }

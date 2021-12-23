@@ -8,14 +8,14 @@ import { AdminOverviewComponent } from './overview/admin-overview.component';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-@ViewChild(AdminOverviewComponent) adminOverView: any;
+  @ViewChild(AdminOverviewComponent) adminOverView: any;
 
   constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSearch(data : string) {
+  onSearch(data : any) {
     this.adminOverView.onSearchMod(data);
   }
 
