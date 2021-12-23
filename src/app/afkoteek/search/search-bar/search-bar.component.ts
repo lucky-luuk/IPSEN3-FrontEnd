@@ -9,7 +9,8 @@ export class SearchBarComponent implements OnInit {
   public placeHolderText ="Zoek een afkorting";
   public onKeyTimeout = 400;
   private delayTimer : number = 0;
-  @Output() onSearchEvent = new EventEmitter();
+  @Output() preOnSearchEvent = new EventEmitter();
+  @Output() onSearchEvent = new EventEmitter<string>();
 
   constructor() {
   }
@@ -18,6 +19,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   onKey(event : any) {
+    this.preOnSearchEvent.emit();
     clearTimeout(this.delayTimer);
     this.delayTimer = setTimeout(() => {
       this.onSearchEvent.emit(event.target.value);

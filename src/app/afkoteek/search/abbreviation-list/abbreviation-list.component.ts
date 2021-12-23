@@ -12,6 +12,7 @@ export class AbbreviationListComponent implements OnInit {
   abbreviations : AbbreviationModel[] = [];
   private http : AbbreviationService;
   organisationIdFilter : string = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
+  public shouldShowSearchingAnimation = false;
   //  used to set the height of the list, makes stuff a whole lot easier
   @Input() list_height : string = "45vh";
   @Input() shouldUseClickableAbbreviationComponent = false;
@@ -49,13 +50,9 @@ export class AbbreviationListComponent implements OnInit {
   }
 
   public setAbbreviationData(data : AbbreviationModel[] | null) {
+    this.shouldShowSearchingAnimation = false;
     if (data === null) {
       this.abbreviations = [];
-      // let abbr = new AbbreviationModel();
-      // abbr.id = this.emptyAbbreviationId;
-      // abbr.name = "leeg";
-      // abbr.description = "er zijn geen afkortingen gevonden!";
-      // this.abbreviations.push(abbr);
     }
     else {
       this.abbreviations = data;
@@ -64,5 +61,10 @@ export class AbbreviationListComponent implements OnInit {
 
   onAbbreviationClicked(abbr : AbbreviationModel) {
     this.onAbbreviationClick.emit(abbr);
+  }
+
+  showSearchingAnimation() {
+    this.abbreviations = [];
+    this.shouldShowSearchingAnimation = true;
   }
 }

@@ -1,5 +1,6 @@
 <div class="abbreviation-list-container"
      [ngStyle]="{'max-height': list_height, 'height': list_height}">
+  <app-loading-animation *ngIf="shouldShowSearchingAnimation" class="loading-animation"></app-loading-animation>
   <div *ngFor="let abbreviation of abbreviations">
     <app-abbreviation *ngIf="shouldUseClickableAbbreviationComponent === false" [abbreviation]="abbreviation"></app-abbreviation>
     <app-clickable-abbreviation *ngIf="shouldUseClickableAbbreviationComponent === true" [abbreviation]="abbreviation" (onClicked)="onAbbreviationClicked($event)"></app-clickable-abbreviation>

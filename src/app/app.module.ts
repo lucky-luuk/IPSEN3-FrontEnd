@@ -44,6 +44,7 @@ import { gameService } from './afkoteek/game/game-page/game.service';
 import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReportPopupComponent } from './afkoteek/support/report/report-popup/report-popup.component';
+import { LoadingAnimationComponent } from './afkoteek/search/abbreviation-list/loading-animation/loading-animation.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { ReportPopupComponent } from './afkoteek/support/report/report-popup/rep
     EditModComponent,
     AdminComponent,
     ClickableAbbreviationComponent,
-    ReportPopupComponent
+    ReportPopupComponent,
+    LoadingAnimationComponent
   ],
   imports: [
     BrowserModule,

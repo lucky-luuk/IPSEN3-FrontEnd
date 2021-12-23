@@ -28,4 +28,9 @@ export class SearchComponent implements OnInit {
     this.abbreviationList.setOrganisationIdFilter(org.id);
     this.abbreviationList.onSearch(this.lastSearchedData);
   }
+
+  showAbbreviationListSearchingAnimation() {
+    this.abbreviationList.showSearchingAnimation();
+  }
+
 }
