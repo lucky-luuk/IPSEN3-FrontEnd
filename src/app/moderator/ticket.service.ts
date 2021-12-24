@@ -14,6 +14,10 @@ export class TicketService {
     this.http.get<TicketModel[]>("/ticket", new Map<string, string>(),implementation);
   }
 
+  createTickets(ticket : TicketModel[], implementation : (data : TicketModel[]) => void) {
+    this.http.post<TicketModel[]>("/ticket", ticket, implementation);
+  }
+
   setSelectedTicket(t : TicketModel) {
     this.selectedTicket = t;
   }

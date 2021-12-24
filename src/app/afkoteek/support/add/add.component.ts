@@ -4,6 +4,12 @@ import {AbbreviationModel} from "../../search/abbreviation-list/abbreviation.mod
 import {AbbreviationService} from "../../search/abbreviation-list/abbreviation.service";
 import {DropdownComponent} from "../../search/dropdown/dropdown.component";
 import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
+import {TicketModel} from "../../../moderator/ticket/ticket.model";
+import {TicketTypeModel} from "../../../moderator/ticket/ticketType.model";
+import {AccountService} from "../../../account.service";
+import {tick} from "@angular/core/testing";
+import {TicketStatusModel} from "../../../moderator/ticket/ticketStatus.model";
+import {TicketService} from "../../../moderator/ticket.service";
 
 @Component({
   selector: 'app-add',
@@ -15,7 +21,7 @@ export class AddComponent implements OnInit {
   @ViewChild(DropdownComponent) dropDownComponent : any;
   model : AbbreviationModel;
 
-  constructor(private http : AbbreviationService) {
+  constructor(private accountService : AccountService, private ticketService : TicketService) {
     this.model = new AbbreviationModel();
   }
 
@@ -23,7 +29,12 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit() : void {
-
+    let ticket = new TicketModel();
+    ticket.type = TicketTypeModel.ADD_ABBREVIATION;
+    ticket.accountId = this.accountService.getCurrentUserAccount().id;
+    ticket.temporaryAbbreviation = this.model;
+    ticket.statusName = TicketStatusModel.UNDER_REVIEW;
+    this.ticketService.createTickets([ticket], () => {});
   }
 
   onSearch(data : string) : void {

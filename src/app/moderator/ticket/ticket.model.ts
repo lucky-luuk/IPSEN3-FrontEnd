@@ -5,7 +5,7 @@ export class TicketModel {
   message : string;
   createDate : string;
   accountId : any;
-  abbreviation : AbbreviationModel;
+  temporaryAbbreviation : AbbreviationModel | null;
   statusName : string;
   type : string;
 
@@ -13,7 +13,7 @@ export class TicketModel {
     this.id = "";
     this.message = "";
     this.createDate = "";
-    this.abbreviation = new AbbreviationModel();
+    this.temporaryAbbreviation = null;
     this.statusName = "";
     this.type = "";
   }
