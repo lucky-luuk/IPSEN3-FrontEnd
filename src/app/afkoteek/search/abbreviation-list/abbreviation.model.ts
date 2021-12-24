@@ -8,7 +8,7 @@ export class AbbreviationModel {
   name : string;
   description : string;
   organisations : OrganisationModel[];
-  createdBy : any; // temp any type for now
+  accountId : any; // temp any type for now
   isUnderReview : boolean;
 
   constructor() {
@@ -16,7 +16,7 @@ export class AbbreviationModel {
     this.name = AbbreviationModel.DEFAULT_DESCRIPTION;
     this.description = AbbreviationModel.DEFAULT_ID;
     this.organisations = [];
-    this.createdBy = null;
+    this.accountId = null;
     this.isUnderReview = false;
   }
 }

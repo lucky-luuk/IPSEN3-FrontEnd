@@ -33,6 +33,7 @@ export class AddComponent implements OnInit {
     ticket.type = TicketTypeModel.ADD_ABBREVIATION;
     ticket.accountId = this.accountService.getCurrentUserAccount().id;
     ticket.temporaryAbbreviation = this.model;
+    ticket.temporaryAbbreviation.accountId = ticket.accountId;
     ticket.statusName = TicketStatusModel.UNDER_REVIEW;
     this.ticketService.createTickets([ticket], () => {});
   }

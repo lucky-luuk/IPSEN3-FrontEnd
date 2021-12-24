@@ -1,8 +1,8 @@
 <div class="new-abbreviation">
   <h4>Afkorting toevoegen</h4>
   <form>
-    <input class="definition" placeholder="betekenis" value="{{abbrModel.description}}">
-    <input class="abbreviation" placeholder="afkorting" value="{{abbrModel.name}}">
-    <div class="organisation"><app-dropdown></app-dropdown></div>
+    <input class="abbreviation" placeholder="afkorting" value="{{abbrModel.name}}" (keyup)="onChangeName($event)">
+    <input class="definition" placeholder="betekenis" value="{{abbrModel.description}}" (keyup)="onChangeDescription($event)">
+    <div class="organisation"><app-dropdown (onSelectEvent)="onChangeOrganisation($event)"></app-dropdown></div>
   </form>
 </div>

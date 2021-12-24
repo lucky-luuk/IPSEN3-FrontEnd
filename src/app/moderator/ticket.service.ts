@@ -18,6 +18,10 @@ export class TicketService {
     this.http.post<TicketModel[]>("/ticket", ticket, implementation);
   }
 
+  deleteTickets(tickets : TicketModel[], implementation : (data : TicketModel[]) => void) {
+    this.http.delete<TicketModel[]>("/ticket",tickets, implementation);
+  }
+
   setSelectedTicket(t : TicketModel) {
     this.selectedTicket = t;
   }

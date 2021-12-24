@@ -1,4 +1,4 @@
-<div class="float-container">
+<div class="float-container" *ngIf="ticketHasBeenSelected === true">
     <div class="float-child">
       <table class="child-content ticket-header">
         <tr>
@@ -45,7 +45,7 @@
           <textarea disabled>{{model.message}}</textarea>
       </div>
       <br>
-      <div class="child-content" *ngIf="model.type == getAddAbbreviationTicketType()">
+      <div class="child-content" *ngIf="model.type === getAddAbbreviationTicketType()">
           <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
       </div>
     </div>
@@ -53,9 +53,13 @@
 
   <div class="float-child">
     <div class="child-content child-content-footer">
-      <button>Opslaan</button>
-      <button>Wijziging negeren</button>
-      <button>Afkorting verwijderen</button>
+<!--      add abbreviation buttons -->
+      <button *ngIf="model.type === getAddAbbreviationTicketType()" (click)="onSaveAbbreviation()">Opslaan</button>
+      <button *ngIf="model.type === getAddAbbreviationTicketType()" (click)="onDeleteTicket()">verwijder</button>
+<!--      report buttons -->
+      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onDeleteTicket()">Wijziging negeren</button>
+      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onSaveAbbreviation()">Afkorting wijzigen</button>
+      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onDeleteAbbreviation()">Afkorting verwijderen</button>
     </div>
   </div>
 </div>
