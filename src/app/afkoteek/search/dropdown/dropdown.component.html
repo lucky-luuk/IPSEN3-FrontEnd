@@ -1,7 +1,7 @@
 <form>
-  <select class="organisation_select"(change)="submit($event)">
-    <option class="option-st" *ngFor="let organisation of organisations">
-      {{organisation.name}}
+  <select class="organisation_select" (change)="submit($event)" id="organisation_select_dropdown">
+    <option class="option-st" *ngFor="let organisation of organisations" [value]="organisation['org'].name" [selected]="organisation['selected'] == true">
+      {{organisation["org"].name}}
     </option>
   </select>
 </form>
