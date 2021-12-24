@@ -16,26 +16,24 @@ import {TicketTypeModel} from "./ticketType.model";
 export class TicketComponent implements OnInit {
   model: TicketModel;
   account : AccountModel = new AccountModel();
-  abbreviation : AbbreviationModel;
+  abbreviation : AbbreviationModel = new AbbreviationModel();
 
   constructor(private ticketService : TicketService, private abbrService: AbbreviationService, private accountService : AccountService) {
-    this.model = new TicketModel();
-    this.abbreviation = new AbbreviationModel();
-    this.abbrService.getAbbreviationById(this.model.id, (data)=>{
-      this.abbreviation = data;
-    });
+    this.model = this.ticketService.getSelectedTicket();
+    // wont be null, but just make ts shut up
+    if (this.model.temporaryAbbreviation != null)
+      this.abbreviation = this.model.temporaryAbbreviation;
+
     this.accountService.getAccountDetails(this.model.accountId, (data) => {
       this.account = data;
-    })
+    });
   }
 
   ngOnInit(): void {
-    this.model = this.ticketService.getSelectedTicket();
   }
 
 
   setTicketType(data : string){
-    console.log(data)
   }
 
   getAddAbbreviationTicketType() {
