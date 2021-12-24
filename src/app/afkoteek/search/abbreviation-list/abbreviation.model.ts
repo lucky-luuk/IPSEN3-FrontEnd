@@ -1,6 +1,9 @@
 import {OrganisationModel} from "./organisation.model";
 
 export class AbbreviationModel {
+  public static readonly DEFAULT_NAME = "NONE";
+  public static readonly DEFAULT_DESCRIPTION = "NONE";
+  public static readonly DEFAULT_ID = "NONE";
   id : string;
   name : string;
   description : string;
@@ -9,9 +12,9 @@ export class AbbreviationModel {
   isUnderReview : boolean;
 
   constructor() {
-    this.id = "NONE";
-    this.name = "NONE";
-    this.description = "NONE";
+    this.id = AbbreviationModel.DEFAULT_NAME;
+    this.name = AbbreviationModel.DEFAULT_DESCRIPTION;
+    this.description = AbbreviationModel.DEFAULT_ID;
     this.organisations = [];
     this.createdBy = null;
     this.isUnderReview = false;

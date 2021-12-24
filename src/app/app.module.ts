@@ -41,7 +41,12 @@ import { AdminOverviewComponent} from "./admin/overview/admin-overview.component
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
 import { gameService } from './afkoteek/game/game-page/game.service';
+import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReportPopupComponent } from './afkoteek/support/report/report-popup/report-popup.component';
+import { LoadingAnimationComponent } from './afkoteek/search/abbreviation-list/loading-animation/loading-animation.component';
 import { SearchModeratorComponent } from './admin/overview/search-moderator/search-moderator.component';
+
 
 
 @NgModule({
@@ -79,6 +84,9 @@ import { SearchModeratorComponent } from './admin/overview/search-moderator/sear
     AdminOverviewComponent,
     EditModComponent,
     AdminComponent,
+    ClickableAbbreviationComponent,
+    ReportPopupComponent,
+    LoadingAnimationComponent,
     SearchModeratorComponent
   ],
   imports: [
@@ -86,7 +94,8 @@ import { SearchModeratorComponent } from './admin/overview/search-moderator/sear
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [SupportService, HeaderService, TicketService, gameService],
   bootstrap: [AppComponent]

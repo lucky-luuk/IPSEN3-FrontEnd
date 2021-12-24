@@ -1,1 +1,49 @@
-<p>info-request works!</p>
+ <form class="row gx-5" (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="col-sm-6">
+          <div class="mb-3">
+            <label>Naam </label>
+            <input class="form-control"
+              type="text"
+              ngModel
+              name="name"
+              required
+              #name="ngModel"
+              [ngClass]="{'is-invalid': !name.valid && name.touched}">
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input class="form-control"
+              type="email"
+              ngModel
+              name="email"
+              required
+              email
+              #email="ngModel"
+              [ngClass]="{'is-invalid': !email.valid && email.touched}">
+          </div>
+          <div class="mb-3">
+            <label>Telefoon</label>
+            <input class="form-control"
+              type="tel"
+              ngModel
+              name="phone"
+              required
+              tel
+              #phone="ngModel"
+              [ngClass]="{'is-invalid': !phone.valid && phone.touched }">
+          </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="mb-3">
+          <textarea class="form-control"
+            ngModel
+            name="data"
+            required
+            #data="ngModel"
+            [ngClass]="{'is-invalid': !data.valid && data.touched }">
+          </textarea>
+        </div>
+
+      </div>
+    <button class="btn btn-primary submit-button" type="submit" [disabled]="!f.valid">Verstuur</button>
+  </form>

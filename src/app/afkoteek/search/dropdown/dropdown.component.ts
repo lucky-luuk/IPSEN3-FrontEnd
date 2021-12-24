@@ -26,20 +26,22 @@ export class DropdownComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(event : any) {
-    let id = this.getOrganisationIdFromName(event.target.value);
-    if (id !== -1) {
-      this.onSelectEvent.emit(id);
+    let org = this.getOrganisationFromName(event.target.value);
+    if (org.id !== DropdownComponent.NO_ORGANISATION_SELECTED_ID) {
+      this.onSelectEvent.emit(org);
     }
   }
 
   // returns -1 if no id is found
-  private getOrganisationIdFromName(name : string) {
+  public getOrganisationFromName(name : string) : OrganisationModel{
     for (let i = 0; i < this.organisations.length; i++) {
       if (this.organisations[i].name === name) {
-        return this.organisations[i].id;
+        return this.organisations[i];
       }
     }
-    return -1;
+    let org = new OrganisationModel();
+    org.id = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
+    return org;
   }
 
   private fillOrganisationsArray(orgs : OrganisationModel[]) : void {

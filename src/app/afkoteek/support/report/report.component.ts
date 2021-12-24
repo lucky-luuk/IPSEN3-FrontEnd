@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {AbbreviationListComponent} from "../../search/abbreviation-list/abbreviation-list.component";
+import {DropdownComponent} from "../../search/dropdown/dropdown.component";
+import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
+import {AbbreviationModel} from "../../search/abbreviation-list/abbreviation.model";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ReportPopupComponent} from "./report-popup/report-popup.component";
 
 @Component({
   selector: 'app-report',
@@ -6,10 +12,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent implements OnInit {
+  @ViewChild(AbbreviationListComponent) abbreviationList: any;
+  @ViewChild(DropdownComponent) dropDownComponent : any;
+  lastSearchedData : string = "";
 
-  constructor() { }
+  constructor(private modalService : NgbModal) {
+    console.log(modalService);
+  }
 
   ngOnInit(): void {
   }
 
+  onSubmit() {
+
+  }
+
+  onSearch(data : string) {
+    this.lastSearchedData = data;
+    this.abbreviationList.onSearch(data);
+  }
+
+  onSelectOrganisation(org : OrganisationModel) {
+    this.showAbbreviationListSearchingAnimation();
+    this.abbreviationList.setOrganisationIdFilter(org.id);
+    this.abbreviationList.onSearch(this.lastSearchedData);
+  }
+
+  onClick(abbr : AbbreviationModel) {
+    const modalRef = this.modalService.open(ReportPopupComponent);
+    modalRef.componentInstance.reportedAbbreviation = abbr;
+  }
+  showAbbreviationListSearchingAnimation() {
+    this.abbreviationList.showSearchingAnimation();
+  }
 }
