@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {TicketService} from "../ticket/ticketModel/ticket.service";
-import {TicketModel} from "../ticket/ticketModel/ticket.model";
+import {TicketModel} from "../ticket/ticket.model";
+import {TicketService} from "../ticket.service";
 
 @Component({
   selector: 'app-overview',
@@ -12,15 +12,17 @@ export class OverviewComponent implements OnInit {
   tickets : TicketModel[] = [];
 
   constructor(private router: Router, private ticketService: TicketService) {
-    this.tickets = this.ticketService.getTickets();
+    this.ticketService.getAllTickets((data) => {
+      this.tickets = data;
+    });
 
   }
 
   ngOnInit(): void {
+
   }
 
-  onClick(){
-    console.log( this.router.navigate(['/ticketModel']));
-    this.router.navigate(['ticketModel']);
+  onClick(ticket : TicketModel) {
+    this.ticketService.setSelectedTicket(ticket);
   }
 }

@@ -3,7 +3,7 @@
       <table class="child-content ticket-header">
         <tr>
           <th>
-              ticket Nummer: {{model.ticketID}}
+              ticket Nummer: {{model.id}}
           </th>
           <th>
               <button [routerLink]="['/moderator' , 'overview']" class="ticket-header-button">Terug naar overzicht</button>
@@ -15,9 +15,9 @@
   <div class="float-child">
     <div class="float-child-split">
       <div class="child-content">
-        <h4>{{model.ticketType}}</h4>
-        <p>{{model.createdBy}}</p>
-        <p>{{model.createdByMail}}</p>
+        <h4>{{model.type}}</h4>
+        <p>{{account.firstName}}</p>
+        <p>{{account.email}}</p>
     </div>
     <br>
     <div class="child-content">
@@ -25,7 +25,7 @@
           <thead><h4>Status</h4></thead>
             <tr>
               <td>Indien datum:</td>
-              <td>{{model.createdDate}}</td>
+              <td>{{model.createDate}}</td>
             </tr>
             <tr>
               <td>Status:</td>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
               <td>Behandelaar:</td>
-              <td><form><input type="text" value="{{model.handler}}"></form></td>
+              <td><form><input type="text" value="{{account.firstName}}, {{account.lastName}}"></form></td>
             </tr>
         </table>
       </div>
@@ -45,7 +45,7 @@
           <textarea disabled>{{model.message}}</textarea>
       </div>
       <br>
-      <div class="child-content" *ngIf="model.ticketType == 'nieuwe afkorting'">
+      <div class="child-content" *ngIf="model.type == getAddAbbreviationTicketType()">
           <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
       </div>
     </div>

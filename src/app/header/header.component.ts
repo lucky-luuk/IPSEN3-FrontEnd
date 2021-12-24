@@ -8,7 +8,7 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isAuthorised: string = 'admin'
+  isAuthorised: string = 'afko'
   afkoHeaders: { name: string }[] = [];
   private urls : string[] = [
     "/afko",

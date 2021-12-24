@@ -35,7 +35,7 @@ const routes: Routes = [
     ]
   },
   {path: 'moderator', component: ModeratorComponent, children:[
-    {path: 'ticketModel', component: TicketComponent},
+    {path: 'ticket', component: TicketComponent},
     {path: 'overview', component: OverviewComponent},
     ]
   },
