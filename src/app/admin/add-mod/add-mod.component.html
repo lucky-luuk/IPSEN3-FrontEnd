@@ -1,1 +1,80 @@
-<p>add-mod works!</p>
+<div class="form-container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-background">
+      <div class="add-mod-title">
+        Moderator toevoegen
+      </div>
+      <div class="container add-mod-container">
+        <div class="row">
+          <div class="col text-column">
+            Voornaam
+          </div>
+          <div class="col">
+            <input type="text" class="form-control"
+                   ngModel
+                   name="first_name"
+                   required
+                   #first_name="ngModel"
+                   [ngClass]="{'is-invalid': !first_name.valid && first_name.touched}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-column">
+            Achternaam
+          </div>
+          <div class="col">
+            <input type="text" class="form-control"
+                   ngModel
+                   name="last_name"
+                   required
+                   #last_name="ngModel"
+                   [ngClass]="{'is-invalid': !last_name.valid && last_name.touched}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-column">
+            E-mail
+          </div>
+          <div class="col">
+            <input type="email" class="form-control"
+                   ngModel
+                   name="email"
+                   required
+                   #email="ngModel"
+                   [ngClass]="{'is-invalid': !email.valid && email.touched}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-column">
+            Telefoon
+          </div>
+          <div class="col">
+            <input type="tel" class="form-control"
+                   ngModel
+                   name="phone"
+                   required
+                   #phone="ngModel"
+                   [ngClass]="{'is-invalid': !phone.valid && phone.touched}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-column">
+            Organisatie
+          </div>
+          <div class="col">
+            <app-dropdown (onSelectEvent)="onSetOrganisation($event)"></app-dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-background button">
+      <button class="btn btn-primary add-button" [disabled]="(!shouldEnableButton()) || (!f.valid)">
+        voeg toe
+      </button>
+    </div>
+  </form>
+</div>

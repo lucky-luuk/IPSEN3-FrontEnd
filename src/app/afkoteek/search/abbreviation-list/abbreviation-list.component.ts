@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 import {AbbreviationService} from "./abbreviation.service";
 import {AbbreviationModel} from "./abbreviation.model";
 import {DropdownComponent} from "../dropdown/dropdown.component";
+import {OrganisationModel} from "./organisation.model";
 
 @Component({
   selector: 'app-abbreviation-list',
@@ -11,7 +12,7 @@ import {DropdownComponent} from "../dropdown/dropdown.component";
 export class AbbreviationListComponent implements OnInit {
   abbreviations : AbbreviationModel[] = [];
   private http : AbbreviationService;
-  organisationIdFilter : string = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
+  organisationIdFilter : string = OrganisationModel.DEFAULT_ID;
   public shouldShowSearchingAnimation = false;
   //  used to set the height of the list, makes stuff a whole lot easier
   @Input() list_height : string = "45vh";
@@ -26,7 +27,7 @@ export class AbbreviationListComponent implements OnInit {
 
   onSearch(name : string) : void {
     // search by name only
-    if (this.organisationIdFilter === DropdownComponent.NO_ORGANISATION_SELECTED_ID) {
+    if (this.organisationIdFilter === OrganisationModel.DEFAULT_ID) {
       this.http.getAbbreviationsByName(name, (data) => {
         this.setAbbreviationData(data);
       });

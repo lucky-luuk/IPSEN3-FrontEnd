@@ -46,6 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReportPopupComponent } from './afkoteek/support/report/report-popup/report-popup.component';
 import { LoadingAnimationComponent } from './afkoteek/search/abbreviation-list/loading-animation/loading-animation.component';
 import { SearchModeratorComponent } from './admin/overview/search-moderator/search-moderator.component';
+import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popup.component';
 
 
 
@@ -87,7 +88,8 @@ import { SearchModeratorComponent } from './admin/overview/search-moderator/sear
     ClickableAbbreviationComponent,
     ReportPopupComponent,
     LoadingAnimationComponent,
-    SearchModeratorComponent
+    SearchModeratorComponent,
+    AddModPopupComponent
   ],
   imports: [
     BrowserModule,
