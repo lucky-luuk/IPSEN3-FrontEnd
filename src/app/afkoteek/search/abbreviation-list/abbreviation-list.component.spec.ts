@@ -18,14 +18,14 @@ describe('AbbreviationListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("#setAbbreviationData should set abbreviations#length to 1 when given null", () => {
+  it("#setAbbreviationData should set abbreviations#length to 0 when given null", () => {
     expect(component.abbreviations.length).toBe(0);
     component.setAbbreviationData(null);
-    expect(component.abbreviations.length).toBe(1);
+    expect(component.abbreviations.length).toBe(0);
   });
 
   it("#setOrganisationFilter should correctly set organisationFilter and have correct default value", () => {
-    expect(component.organisationIdFilter).toEqual(DropdownComponent.NO_ORGANISATION_SELECTED_ID);
+    expect(component.organisationIdFilter).toEqual(OrganisationModel.DEFAULT_ID);
     let id : string = "1234567890";
     component.setOrganisationIdFilter(id);
     expect(component.organisationIdFilter).toEqual(id);

@@ -4,20 +4,11 @@ import { NewAbbreviationComponent } from './new-abbreviation.component';
 
 describe('NewAbbreviationComponent', () => {
   let component: NewAbbreviationComponent;
-  let fixture: ComponentFixture<NewAbbreviationComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ NewAbbreviationComponent ]
-    })
-    .compileComponents();
+  beforeEach( () => {
+    component = new NewAbbreviationComponent();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NewAbbreviationComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

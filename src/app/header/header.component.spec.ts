@@ -3,6 +3,7 @@ import {ComponentFixture, getTestBed, TestBed} from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import {HeaderService} from "./header.service";
 import {RouterTestingModule} from "@angular/router/testing";
+import {AppModule} from "../app.module";
 
 describe('HeaderComponent', () => {
   let fixture : ComponentFixture<HeaderComponent>;
@@ -17,7 +18,8 @@ describe('HeaderComponent', () => {
         {provide: HeaderService, useClass: HeaderService},
       ],
       imports: [
-        RouterTestingModule.withRoutes([])
+        RouterTestingModule.withRoutes([]),
+        AppModule
       ]
     }).compileComponents();
     fixture = TestBed.createComponent(HeaderComponent);

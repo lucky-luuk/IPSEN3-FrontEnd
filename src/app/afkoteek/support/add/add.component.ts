@@ -39,7 +39,7 @@ export class AddComponent implements OnInit {
     ref.componentInstance.onSubmit = () => {this.createTicket();};
   }
 
-  private createTicket() {
+  createTicket() {
     let ticket = new TicketModel();
     ticket.type = TicketTypeModel.ADD_ABBREVIATION;
     ticket.accountId = this.accountService.getCurrentUserAccount().id;
@@ -56,6 +56,7 @@ export class AddComponent implements OnInit {
   }
 
   onSelectOrganisation(org : OrganisationModel) {
+    this.model.organisations = [];
     this.model.organisations.push(org);
   }
 

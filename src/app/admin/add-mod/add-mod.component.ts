@@ -9,7 +9,7 @@ import {AddModPopupComponent} from "./add-mod-popup/add-mod-popup.component";
   styleUrls: ['./add-mod.component.scss']
 })
 export class AddModComponent implements OnInit {
-  private organisationModel : OrganisationModel;
+  organisationModel : OrganisationModel;
 
   constructor(private modalService : NgbModal) {
     this.organisationModel = new OrganisationModel();

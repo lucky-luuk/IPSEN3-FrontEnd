@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchAdminComponent } from './search-admin.component';
+import {AppModule} from "../../app.module";
 
 describe('SearchAdminComponent', () => {
   let component: SearchAdminComponent;
   let fixture: ComponentFixture<SearchAdminComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ SearchAdminComponent ]
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [ SearchAdminComponent ],
+      imports: [AppModule],
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(SearchAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

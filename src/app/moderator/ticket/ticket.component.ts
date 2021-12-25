@@ -53,15 +53,18 @@ export class TicketComponent implements OnInit {
     this.ticketService.deleteTickets([this.model], () => {});
     this.closeTicket();
   }
+
   // delete the ticket
   onDeleteTicket() {
     this.closeTicket();
   }
+
   // delete the ticket and the abbreviation
   onDeleteAbbreviation() {
     this.abbrService.deleteAbbreviation([this.abbreviation]);
     this.closeTicket();
   }
+
   // change the abbreviation and delette the ticket
   onChangeAbbreviation() {
     // send the same abbreviation, api looks at id only when deciding what abbr to change

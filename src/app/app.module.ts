@@ -47,6 +47,7 @@ import { SearchModeratorComponent } from './admin/overview/search-moderator/sear
 import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popup.component';
 import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request/ticket-info-request.component";
 import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-popup.component';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -95,6 +96,7 @@ import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

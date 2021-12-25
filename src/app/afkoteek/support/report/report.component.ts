@@ -28,8 +28,12 @@ export class ReportComponent implements OnInit {
   }
 
   onSearch(data : string) {
-    this.lastSearchedData = data;
+    this.setLastSearchData(data);
     this.abbreviationList.onSearch(data);
+  }
+
+  setLastSearchData(data : string) {
+    this.lastSearchedData = data;
   }
 
   onSelectOrganisation(org : OrganisationModel) {

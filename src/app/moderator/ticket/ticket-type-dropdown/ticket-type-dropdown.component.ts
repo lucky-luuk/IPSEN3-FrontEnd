@@ -15,7 +15,7 @@ export class TicketTypeDropdownComponent implements OnInit {
     {data: TicketStatusModel.CLOSED, selected: false}];
   @Input() selectedStatus : string | null;
 
-  constructor(private form: FormBuilder, private router : Router) {
+  constructor() {
     this.selectedStatus = null;
   }
 

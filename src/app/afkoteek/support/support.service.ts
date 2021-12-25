@@ -6,7 +6,7 @@ import {HttpService} from "../../http.service";
 })
 export class SupportService {
 
-  constructor(private http : HttpService) {
+  constructor() {
   }
 
 
@@ -27,6 +27,10 @@ export class SupportService {
 
   getOptions() {
     return this.supportOption;
+  }
+
+  setOptions(data : {type: string, name: string}[]) {
+    this.supportOption = data;
   }
 
 }
