@@ -1,5 +1,5 @@
 <div class="list-container">
   <div *ngFor="let ticket of tickets">
-    <app-ticket-row [model]="ticket" [routerLink]="['/moderator' , 'ticketModel']"></app-ticket-row>
+    <app-ticket-row [model]="ticket" [routerLink]="['/moderator' , 'ticket']" (click)="onClick(ticket)"></app-ticket-row>
   </div>
 </div>

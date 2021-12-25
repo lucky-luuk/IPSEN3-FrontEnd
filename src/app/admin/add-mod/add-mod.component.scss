@@ -1,0 +1,40 @@
+@import "src/styles";
+
+form {
+  width: 40vw;
+  margin: auto;
+}
+.form-background {
+  background-color: white;
+  padding: 10px;
+  margin: 40px;
+  &.button {
+    padding: 20px;
+  }
+}
+.btn.btn-primary.add-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.add-mod-title {
+  font-weight: bold;
+  font-size: 24px;
+  padding: 20px;
+}
+
+.container.add-mod-container {
+  width: 30vw;
+}
+
+.col.text-column {
+  max-width: 200px;
+}
+
+.row {
+  padding: 10px;
+}
+
+

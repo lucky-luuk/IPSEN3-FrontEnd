@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {TicketModel} from "../../../moderator/ticket/ticket.model";
+import {TicketTypeModel} from "../../../moderator/ticket/ticketType.model";
+import {TicketStatusModel} from "../../../moderator/ticket/ticketStatus.model";
+import {AccountService} from "../../../account.service";
+import {TicketService} from "../../../moderator/ticket.service";
 
 @Component({
   selector: 'app-info-request',
@@ -6,28 +11,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info-request.component.scss']
 })
 export class InfoRequestComponent implements OnInit {
-  // name : string;
-  // email : string;
-  // phone : string;
-  // data : string;
 
-  constructor() {
-    // this.name = "";
-    // this.email = "";
-    // this.phone = "";
-    // this.data = "";
+  constructor(private accountService : AccountService, private ticketService : TicketService) {
+
   }
 
   ngOnInit(): void {
   }
-  test(event : any) {
-    //console.log(this.name);
+
+
+  onSubmit(f : any) {
+
+    // todo actually save the data
+    let data : {name : string, email : string, phone : string, data : string} = f.form.value
+    let ticket = new TicketModel();
+    ticket.type = TicketTypeModel.INFO;
+    ticket.accountId = this.accountService.getCurrentUserAccount().id;
+    ticket.temporaryAbbreviation = null;
+    ticket.statusName = TicketStatusModel.UNDER_REVIEW;
+    this.ticketService.createTickets([ticket], () => {});
   }
 
-  onSubmit() {
-
-  }
-  // nameIsValid() : boolean {
-  //   return (this.name === "a");
-  // }
 }

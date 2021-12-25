@@ -17,7 +17,7 @@ export class ReportComponent implements OnInit {
   lastSearchedData : string = "";
 
   constructor(private modalService : NgbModal) {
-    console.log(modalService);
+
   }
 
   ngOnInit(): void {

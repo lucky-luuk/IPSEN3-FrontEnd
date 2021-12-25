@@ -33,7 +33,6 @@ import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-pl
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 import { ReportedAbbreviationComponent } from './moderator/ticket/reported-abbreviation/reported-abbreviation.component';
 import { TicketRowComponent } from './moderator/overview/ticket-row/ticket-row.component';
-import { TicketService } from "./moderator/ticket/ticketModel/ticket.service";
 import { TicketTypeDropdownComponent } from './moderator/ticket/ticket-type-dropdown/ticket-type-dropdown.component';
 import {ReportedComponent} from "./moderator/ticket/reported/reported.component";
 import { UserComponent } from './admin/overview/user/user.component';
@@ -46,6 +45,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReportPopupComponent } from './afkoteek/support/report/report-popup/report-popup.component';
 import { LoadingAnimationComponent } from './afkoteek/search/abbreviation-list/loading-animation/loading-animation.component';
 import { SearchModeratorComponent } from './admin/overview/search-moderator/search-moderator.component';
+import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popup.component';
 
 
 
@@ -87,7 +87,8 @@ import { SearchModeratorComponent } from './admin/overview/search-moderator/sear
     ClickableAbbreviationComponent,
     ReportPopupComponent,
     LoadingAnimationComponent,
-    SearchModeratorComponent
+    SearchModeratorComponent,
+    AddModPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +98,7 @@ import { SearchModeratorComponent } from './admin/overview/search-moderator/sear
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [SupportService, HeaderService, TicketService, gameService],
+  providers: [SupportService, HeaderService, gameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

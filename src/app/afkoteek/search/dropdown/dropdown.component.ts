@@ -12,8 +12,8 @@ export class DropdownComponent implements OnInit {
   @Output() onSelectEvent = new EventEmitter();
 
   public organisations : OrganisationModel[];
-  public static readonly NO_ORGANISATION_SELECTED_ID = "NO_ID";
-  public static readonly NO_ORGANISATION_SELECTED_NAME = "selecteer een organisatie";
+  private static readonly NO_ORGANISATION_SELECTED_ID = "NO_ID";
+  private static readonly NO_ORGANISATION_SELECTED_NAME = "selecteer een organisatie";
 
   constructor(private form: FormBuilder, private http : OrganisationService) {
     this.organisations = [];
@@ -29,6 +29,9 @@ export class DropdownComponent implements OnInit {
     let org = this.getOrganisationFromName(event.target.value);
     if (org.id !== DropdownComponent.NO_ORGANISATION_SELECTED_ID) {
       this.onSelectEvent.emit(org);
+    }
+    else {
+      this.onSelectEvent.emit(new OrganisationModel());
     }
   }
 

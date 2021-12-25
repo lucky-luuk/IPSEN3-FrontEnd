@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TicketModel } from './ticket.model';
+import { AddModPopupComponent } from './add-mod-popup.component';
 
-describe('TicketModel', () => {
-  let component: TicketModel;
-  let fixture: ComponentFixture<TicketModel>;
+describe('AddModPopupComponent', () => {
+  let component: AddModPopupComponent;
+  let fixture: ComponentFixture<AddModPopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TicketModel ]
+      declarations: [ AddModPopupComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TicketModel);
+    fixture = TestBed.createComponent(AddModPopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
