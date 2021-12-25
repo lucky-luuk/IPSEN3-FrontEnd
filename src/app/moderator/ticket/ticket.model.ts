@@ -8,6 +8,9 @@ export class TicketModel {
   temporaryAbbreviation : AbbreviationModel | null;
   statusName : string;
   type : string;
+  userName : string;
+  userEmail : string;
+  userPhone : string;
 
   constructor() {
     this.id = "";
@@ -16,5 +19,8 @@ export class TicketModel {
     this.temporaryAbbreviation = null;
     this.statusName = "";
     this.type = "";
+    this.userName = "";
+    this.userEmail = "";
+    this.userPhone = "";
   }
 }

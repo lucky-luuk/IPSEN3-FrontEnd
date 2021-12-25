@@ -24,13 +24,15 @@ export class TicketComponent implements OnInit {
   constructor(private ticketService : TicketService, private abbrService: AbbreviationService, private accountService : AccountService, private router : Router) {
     this.model = this.ticketService.getSelectedTicket();
     this.ticketHasBeenSelected = this.model.id !== "";
-    // wont be null, but just make ts shut up
-    if (this.model.temporaryAbbreviation != null)
-      this.abbreviation = this.model.temporaryAbbreviation;
+    if (this.ticketHasBeenSelected) {
+      // wont be null, but just make ts shut up
+      if (this.model.temporaryAbbreviation != null)
+        this.abbreviation = this.model.temporaryAbbreviation;
 
-    this.accountService.getAccountDetailsFromId(this.model.accountId, (data) => {
-      this.account = data;
-    });
+      this.accountService.getAccountDetailsFromId(this.model.accountId, (data) => {
+        this.account = data;
+      });
+    }
   }
 
   ngOnInit(): void {
@@ -43,12 +45,10 @@ export class TicketComponent implements OnInit {
   }
   // delete the ticket
   onDeleteTicket() {
-    this.ticketService.deleteTickets([this.model], () => {});
     this.closeTicket();
   }
   // delete the ticket and the abbreviation
   onDeleteAbbreviation() {
-    this.ticketService.deleteTickets([this.model], () => {});
     this.abbrService.deleteAbbreviation([this.abbreviation]);
     this.closeTicket();
   }
@@ -59,8 +59,8 @@ export class TicketComponent implements OnInit {
     this.closeTicket();
   }
 
-
   private closeTicket() {
+    this.ticketService.deleteTickets([this.model], () => {});
     this.ticketHasBeenSelected = false;
     this.router.navigate(["moderator", "overview"]);
   }

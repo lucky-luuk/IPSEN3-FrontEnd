@@ -29,6 +29,10 @@ export class InfoRequestComponent implements OnInit {
     ticket.accountId = this.accountService.getCurrentUserAccount().id;
     ticket.temporaryAbbreviation = null;
     ticket.statusName = TicketStatusModel.UNDER_REVIEW;
+    ticket.message = data.data;
+    ticket.userName = data.name;
+    ticket.userEmail = data.email;
+    ticket.userPhone = data.phone;
     this.ticketService.createTickets([ticket], () => {});
   }
 

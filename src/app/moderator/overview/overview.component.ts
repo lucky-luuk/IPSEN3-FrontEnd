@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TicketModel} from "../ticket/ticket.model";
 import {TicketService} from "../ticket.service";
+import {NavigationEvent} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-view-model";
 
 @Component({
   selector: 'app-overview',
@@ -11,17 +12,23 @@ import {TicketService} from "../ticket.service";
 export class OverviewComponent implements OnInit {
   tickets : TicketModel[] = [];
 
-  constructor(private router: Router, private ticketService: TicketService) {
-    this.ticketService.getAllTickets((data) => {
-      this.tickets = data;
+  constructor(private ticketService: TicketService, private router : Router) {
+    this.getAllTickets();
+    // make sure we reset the tickets on reload
+    this.router.events.subscribe((event) => {
+      this.getAllTickets();
     });
-
   }
 
   ngOnInit(): void {
 
   }
 
+  getAllTickets() : void {
+    this.ticketService.getAllTickets((data) => {
+      this.tickets = data;
+    });
+  }
   onClick(ticket : TicketModel) {
     this.ticketService.setSelectedTicket(ticket);
   }
