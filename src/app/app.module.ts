@@ -46,6 +46,7 @@ import { LoadingAnimationComponent } from './afkoteek/search/abbreviation-list/l
 import { SearchModeratorComponent } from './admin/overview/search-moderator/search-moderator.component';
 import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popup.component';
 import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request/ticket-info-request.component";
+import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-popup.component';
 
 
 
@@ -88,7 +89,8 @@ import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request
     LoadingAnimationComponent,
     SearchModeratorComponent,
     AddModPopupComponent,
-    TicketInfoRequestComponent
+    TicketInfoRequestComponent,
+    ConfirmPopupComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,9 @@ import {AccountService} from "../../../account.service";
 import {tick} from "@angular/core/testing";
 import {TicketStatusModel} from "../../../moderator/ticket/ticketStatus.model";
 import {TicketService} from "../../../moderator/ticket.service";
+import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+import {ConfirmPopupComponent} from "../confirm-popup/confirm-popup.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add',
@@ -21,7 +24,7 @@ export class AddComponent implements OnInit {
   @ViewChild(DropdownComponent) dropDownComponent : any;
   model : AbbreviationModel;
 
-  constructor(private accountService : AccountService, private ticketService : TicketService) {
+  constructor(private accountService : AccountService, private ticketService : TicketService, private modalService : NgbModal, private router : Router) {
     this.model = new AbbreviationModel();
   }
 
@@ -29,6 +32,14 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit() : void {
+    let ref : NgbModalRef = this.modalService.open(ConfirmPopupComponent);
+    ref.componentInstance.headerText = "weet je zeker dat je deze afkorting wil toevoegen?";
+    ref.componentInstance.bodyText = this.model.name + ": " + this.model.description;
+    ref.componentInstance.submitText = "voeg toe";
+    ref.componentInstance.onSubmit = () => {this.createTicket();};
+  }
+
+  private createTicket() {
     let ticket = new TicketModel();
     ticket.type = TicketTypeModel.ADD_ABBREVIATION;
     ticket.accountId = this.accountService.getCurrentUserAccount().id;
@@ -36,6 +47,7 @@ export class AddComponent implements OnInit {
     ticket.temporaryAbbreviation.accountId = ticket.accountId;
     ticket.statusName = TicketStatusModel.UNDER_REVIEW;
     this.ticketService.createTickets([ticket], () => {});
+    this.router.navigate(["afko"]);
   }
 
   onSearch(data : string) : void {

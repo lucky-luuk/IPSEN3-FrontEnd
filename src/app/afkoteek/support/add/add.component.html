@@ -11,7 +11,7 @@
       </div>
       <div class="row abbreviation-list">
         <div class="col-sm">
-          <textarea (keydown)="onSetDescription($event)"
+          <textarea (keyup)="onSetDescription($event)"
                     class="form-control abbreviation-definition"
                     ngModel
                     required
