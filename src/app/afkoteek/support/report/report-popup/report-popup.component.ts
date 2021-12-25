@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {AbbreviationModel} from "../../../search/abbreviation-list/abbreviation.model";
-import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {TicketModel} from "../../../../moderator/ticket/ticket.model";
-import {tick} from "@angular/core/testing";
 import {TicketTypeModel} from "../../../../moderator/ticket/ticketType.model";
 import {TicketStatusModel} from "../../../../moderator/ticket/ticketStatus.model";
 import {AccountService} from "../../../../account.service";
 import {TicketService} from "../../../../moderator/ticket.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-report-popup',
@@ -15,9 +15,9 @@ import {TicketService} from "../../../../moderator/ticket.service";
 })
 export class ReportPopupComponent implements OnInit {
   reportedAbbreviation : AbbreviationModel = new AbbreviationModel();
-  private description : string = "";
+  description : string = "";
 
-  constructor(public activeModal : NgbActiveModal, private accountService : AccountService, private ticketService : TicketService) { }
+  constructor(public activeModal : NgbActiveModal, private accountService : AccountService, private ticketService : TicketService, private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -28,10 +28,11 @@ export class ReportPopupComponent implements OnInit {
     ticket.accountId = this.accountService.getCurrentUserAccount().id;
     ticket.temporaryAbbreviation = this.reportedAbbreviation;
     ticket.statusName = TicketStatusModel.UNDER_REVIEW;
+    ticket.message = this.description;
     this.ticketService.createTickets([ticket], () => {});
-
     // mischien een captcha toevoegen?
     this.activeModal.close();
+    this.router.navigate(["afko"]);
   }
 
   onSetDescription(event : any) {

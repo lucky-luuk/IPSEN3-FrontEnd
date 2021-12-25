@@ -20,7 +20,7 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
   { path: 'afko', component: AfkoteekComponent},
   { path: 'game', component: GamePageComponent },

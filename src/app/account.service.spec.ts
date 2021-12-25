@@ -1,16 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AccountService } from './account.service';
+import {MockHttpService} from "./mockHttp.service";
 
 describe('AccountService', () => {
   let service: AccountService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(AccountService);
+    service = new AccountService(new MockHttpService());
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+
   });
 });

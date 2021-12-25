@@ -3,13 +3,11 @@
     <h3>Verzoek Indienen</h3>
   </div>
   <div class="verzoek-optie">
-    <div class="verzoek" *ngFor="let option of options"
-         [routerLinkActive]="'clicked'"
-    >
-      <a (click)="supportType(option.type)"
+    <div class="verzoek" *ngFor="let option of getOptions()"
+         [routerLinkActive]="'clicked'">
+      <a (click)="setSupportType(option.type)"
          [routerLink]="['/support', option.type]"
-      > {{option.name}}
-      </a>
+         id="{{option.name}}_{{option.type}}">{{option.name}}</a>
     </div>
   </div>
   <div class="verzoek-input">

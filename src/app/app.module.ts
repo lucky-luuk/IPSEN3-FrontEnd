@@ -34,7 +34,6 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
 import { ReportedAbbreviationComponent } from './moderator/ticket/reported-abbreviation/reported-abbreviation.component';
 import { TicketRowComponent } from './moderator/overview/ticket-row/ticket-row.component';
 import { TicketTypeDropdownComponent } from './moderator/ticket/ticket-type-dropdown/ticket-type-dropdown.component';
-import {ReportedComponent} from "./moderator/ticket/reported/reported.component";
 import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
@@ -46,6 +45,9 @@ import { ReportPopupComponent } from './afkoteek/support/report/report-popup/rep
 import { LoadingAnimationComponent } from './afkoteek/search/abbreviation-list/loading-animation/loading-animation.component';
 import { SearchModeratorComponent } from './admin/overview/search-moderator/search-moderator.component';
 import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popup.component';
+import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request/ticket-info-request.component";
+import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-popup.component';
+import {RouterModule} from "@angular/router";
 
 
 
@@ -79,7 +81,6 @@ import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popu
     ReportedAbbreviationComponent,
     TicketRowComponent,
     TicketTypeDropdownComponent,
-    ReportedComponent,
     UserComponent,
     AdminOverviewComponent,
     EditModComponent,
@@ -88,11 +89,14 @@ import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popu
     ReportPopupComponent,
     LoadingAnimationComponent,
     SearchModeratorComponent,
-    AddModPopupComponent
+    AddModPopupComponent,
+    TicketInfoRequestComponent,
+    ConfirmPopupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

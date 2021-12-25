@@ -1,7 +1,7 @@
 <form>
   <select (change)="submit($event)">
-    <option class="option-st" *ngFor="let status of statusList">
-      {{status}}
+    <option class="option-st" *ngFor="let status of statusList" [selected]="status.selected">
+      {{status.data}}
     </option>
   </select>
 </form>

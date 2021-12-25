@@ -11,19 +11,21 @@ import {OrganisationModel} from "../abbreviation-list/organisation.model";
 export class DropdownComponent implements OnInit {
   @Output() onSelectEvent = new EventEmitter();
 
-  public organisations : OrganisationModel[];
+  public organisations : Array<{org: OrganisationModel, selected: boolean}>;
+  private selectedOrganisation : OrganisationModel | null = null;
   private static readonly NO_ORGANISATION_SELECTED_ID = "NO_ID";
   private static readonly NO_ORGANISATION_SELECTED_NAME = "selecteer een organisatie";
 
-  constructor(private form: FormBuilder, private http : OrganisationService) {
-    this.organisations = [];
+  constructor(private fb: FormBuilder, private http : OrganisationService) {
+    this.organisations = new Array<{org: OrganisationModel; selected: boolean}>();
 
     this.http.getAllOrganisations((orgs : OrganisationModel[]) => {
       this.fillOrganisationsArray(orgs);
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   submit(event : any) {
     let org = this.getOrganisationFromName(event.target.value);
@@ -38,8 +40,8 @@ export class DropdownComponent implements OnInit {
   // returns -1 if no id is found
   public getOrganisationFromName(name : string) : OrganisationModel{
     for (let i = 0; i < this.organisations.length; i++) {
-      if (this.organisations[i].name === name) {
-        return this.organisations[i];
+      if (this.organisations[i].org.name === name) {
+        return this.organisations[i].org;
       }
     }
     let org = new OrganisationModel();
@@ -52,10 +54,25 @@ export class DropdownComponent implements OnInit {
     let defaultOrg = new OrganisationModel();
     defaultOrg.id = DropdownComponent.NO_ORGANISATION_SELECTED_ID;
     defaultOrg.name = DropdownComponent.NO_ORGANISATION_SELECTED_NAME;
-    this.organisations.push(defaultOrg);
+    this.organisations.push({org: defaultOrg,selected: true});
 
     orgs.forEach((org) => {
-      this.organisations.push(org);
+      this.organisations.push({org: org,selected: false});
     });
+    // work around for async issues
+    if (this.selectedOrganisation != null) {
+      this.setSelectedOrganisation(this.selectedOrganisation);
+    }
+  }
+
+  // set the organisation to be selected when creating the organisation list
+  // work around for the list being filled after instantiation
+  public selectOrganisation(org : OrganisationModel | null) {
+    this.selectedOrganisation = org;
+  }
+  private setSelectedOrganisation(org : OrganisationModel) {
+    for (let i = 0; i < this.organisations.length; i++) {
+      this.organisations[i].selected = this.organisations[i].org.name === org.name;
+    }
   }
 }
