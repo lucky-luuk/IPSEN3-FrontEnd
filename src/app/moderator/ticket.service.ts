@@ -22,10 +22,16 @@ export class TicketService {
     this.http.delete<TicketModel[]>("/ticket", tickets, implementation);
   }
 
+  updateTicket(ticket : TicketModel, implementation : (data : TicketModel[]) => void) {
+    this.http.put<TicketModel[]>("/ticket", [ticket, ticket], implementation);
+  }
+
   setSelectedTicket(t : TicketModel) {
     this.selectedTicket = t;
   }
   getSelectedTicket() : TicketModel {
     return this.selectedTicket;
   }
+
+
 }

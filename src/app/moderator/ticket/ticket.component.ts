@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {TicketModel} from "./ticket.model";
 import {AbbreviationService} from "../../afkoteek/search/abbreviation-list/abbreviation.service";
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";
@@ -7,6 +7,7 @@ import {AccountModel} from "../../account.model";
 import {AccountService} from "../../account.service";
 import {TicketTypeModel} from "./ticketType.model";
 import {Router} from "@angular/router";
+import {TicketTypeDropdownComponent} from "./ticket-type-dropdown/ticket-type-dropdown.component";
 
 
 @Component({
@@ -16,14 +17,23 @@ import {Router} from "@angular/router";
 })
 export class TicketComponent implements OnInit {
   ticketHasBeenSelected = false;
-  model: TicketModel;
+  model: TicketModel = new TicketModel();
   account : AccountModel = new AccountModel();
   // changed in new-abbriation-component with 2 way databinding
   abbreviation : AbbreviationModel = new AbbreviationModel();
 
+
   constructor(private ticketService : TicketService, private abbrService: AbbreviationService, private accountService : AccountService, private router : Router) {
+    this.init();
+    // make sure the page is reloaded every time
+    this.router.events.subscribe((event) => {
+      this.init();
+    });
+
+  }
+  init() {
     this.model = this.ticketService.getSelectedTicket();
-    this.ticketHasBeenSelected = this.model.id !== "";
+    this.ticketHasBeenSelected = this.model.id !== 0;
     if (this.ticketHasBeenSelected) {
       // wont be null, but just make ts shut up
       if (this.model.temporaryAbbreviation != null)
@@ -34,9 +44,9 @@ export class TicketComponent implements OnInit {
       });
     }
   }
-
   ngOnInit(): void {
   }
+
   // create a new abbreviation and delete the ticket
   onSaveAbbreviation() {
     this.abbrService.postAbbreviations([this.abbreviation]);
@@ -65,7 +75,9 @@ export class TicketComponent implements OnInit {
     this.router.navigate(["moderator", "overview"]);
   }
 
-  setTicketType(data : string){
+  setTicketStatus(data : string) {
+    this.model.statusName = data;
+    this.ticketService.updateTicket(this.model, () => {});
   }
 
   getAddAbbreviationTicketType() {

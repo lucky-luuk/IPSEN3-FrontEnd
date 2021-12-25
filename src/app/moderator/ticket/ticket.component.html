@@ -16,8 +16,8 @@
     <div class="float-child-split">
       <div class="child-content">
         <h4>{{model.type}}</h4>
-        <p>{{account.firstName}}</p>
-        <p>{{account.email}}</p>
+        <p>{{model.userName}}</p>
+        <p>{{model.userEmail}}</p>
     </div>
     <br>
     <div class="child-content">
@@ -29,11 +29,11 @@
             </tr>
             <tr>
               <td>Status:</td>
-              <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>
+              <td><app-ticket-type-dropdown [selectedStatus]="model.statusName" (onSelectEvent)="setTicketStatus($event)"></app-ticket-type-dropdown></td>
             </tr>
             <tr>
               <td>Behandelaar:</td>
-              <td><form><input type="text" value="{{account.firstName}}, {{account.lastName}}"></form></td>
+              <td><form><input type="text" disabled value="{{account.firstName}}, {{account.lastName}}"></form></td>
             </tr>
         </table>
       </div>
@@ -51,7 +51,7 @@
       <div class="child-content" *ngIf="model.type === getReportAbbreviationTicketType()">
         <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
       </div>
-      <div class="child-content" *ngIf="model.type === getReportAbbreviationTicketType()">
+      <div class="child-content" *ngIf="model.type === getInfoRequestTicketType()">
         <app-ticket-info-request [ticket]="model"></app-ticket-info-request>
       </div>
     </div>

@@ -1,5 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
+import {TicketStatusModel} from "../ticketStatus.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ticket-type-dropdown',
@@ -9,16 +11,28 @@ import {FormBuilder} from "@angular/forms";
 export class TicketTypeDropdownComponent implements OnInit {
   @Output() onSelectEvent = new EventEmitter();
 
-  public statusList: string[] = ["Geregistreerd", "In Behandeling", "On Hold", "Gereed"];
+  public statusList: {data: string, selected: boolean}[] = [{data: TicketStatusModel.UNDER_REVIEW, selected: true},
+    {data: TicketStatusModel.CLOSED, selected: false}];
+  @Input() selectedStatus : string | null;
 
-  constructor(private form: FormBuilder) {
-    this.statusList = ["Geregistreerd", "In Behandeling", "On Hold", "Gereed"];
+  constructor(private form: FormBuilder, private router : Router) {
+    this.selectedStatus = null;
   }
 
   ngOnInit(): void {
+    if (this.selectedStatus != null) {
+      this.selectStatus(this.selectedStatus);
+    }
   }
 
   submit(event: any) {
     this.onSelectEvent.emit(event.target.value);
+  }
+
+  private selectStatus(status : string) {
+    console.log("selecting: " + status);
+    for (let i = 0; i < this.statusList.length; i++) {
+      this.statusList[i].selected = this.statusList[i].data === status;
+    }
   }
 }

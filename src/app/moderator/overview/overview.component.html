@@ -1,4 +1,4 @@
-<div class="list-container">
+<div class="overview-container">
   <div class="container overview-header">
     <div class="row">
       <div class="col-sm">
@@ -15,7 +15,10 @@
       </div>
     </div>
   </div>
-  <div *ngFor="let ticket of tickets">
-    <app-ticket-row [model]="ticket" [routerLink]="['/moderator' , 'ticket']" (click)="onClick(ticket)"></app-ticket-row>
+  <div class="list-container">
+    <div *ngFor="let ticket of tickets">
+      <app-ticket-row [model]="ticket" [routerLink]="['/moderator' , 'ticket']" (click)="onClick(ticket)"></app-ticket-row>
+    </div>
   </div>
 </div>
+
