@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {Title} from "@angular/platform-browser";
 export class AppComponent {
   title = 'AFKORIJK';
 
-  constructor(private titleService : Title) {
+  constructor(private titleService : Title, public router: Router) {
     this.titleService.setTitle(this.title);
   }
 

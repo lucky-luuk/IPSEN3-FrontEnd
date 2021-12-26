@@ -1,0 +1,47 @@
+<div class="login-container">
+  <div class="login-card">
+    <form
+      name="form"
+      (ngSubmit)="onSubmit()"
+      #Login="ngForm">
+      <div class="login-element">
+        <div class="row-el header-text">
+          <h2>Login</h2>
+          <h4>moderator</h4>
+        </div>
+
+        <div class="row-el">
+          <label>Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel"
+          >
+        </div>
+        <div class="row-el">
+          <label>Wachtwoord</label>
+          <input
+            type="password"
+            class="form-control"
+            ngModel
+            name="password"
+            required
+            minlength="8"
+            password
+            #password="ngModel"
+          >
+        </div>
+        <div class="row-el cen">
+          <button
+            type="submit"
+            [disabled]="!Login.valid">Login</button>
+        </div>
+        </div>
+    </form>
+  </div>
+</div>

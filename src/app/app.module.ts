@@ -20,7 +20,7 @@ import { ReportComponent } from './afkoteek/support/report/report.component';
 import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
 import {HeaderService} from "./header/header.service";
-import { LoginComponent } from './moderator/login/login.component';
+
 import { ModeratorComponent } from './moderator/moderator.component';
 import { TicketComponent } from './moderator/ticket/ticket.component';
 import { OverviewComponent } from './moderator/overview/overview.component';
@@ -41,6 +41,7 @@ import { AdminOverviewComponent} from "./admin/overview/admin-overview.component
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
 import { gameService } from './afkoteek/game/game-page/game.service';
+import {LoginComponent} from "./auth/login/login.component";
 
 
 @NgModule({
@@ -63,7 +64,6 @@ import { gameService } from './afkoteek/game/game-page/game.service';
     InfoRequestComponent,
     ReportComponent,
     AddComponent,
-    LoginComponent,
     AdminPageComponent,
     SettingsComponent,
     SearchAdminComponent,
@@ -77,7 +77,8 @@ import { gameService } from './afkoteek/game/game-page/game.service';
     UserComponent,
     AdminOverviewComponent,
     EditModComponent,
-    AdminComponent
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
