@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
 import {UserService} from "../usersHelper/user.service";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-mod',
@@ -17,4 +18,8 @@ export class EditModComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(form: NgForm){
+    console.log(form);
+  }
 }
+
