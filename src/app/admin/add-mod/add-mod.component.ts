@@ -20,14 +20,16 @@ export class AddModComponent implements OnInit {
 
   onSubmit(data : any) {
     let modal = this.modalService.open(AddModPopupComponent);
-    modal.componentInstance.data = data.form.value;
+    modal.componentInstance.data = {data: data.form.value, org: this.organisationModel};
   }
 
   onSetOrganisation(org : OrganisationModel) {
     this.organisationModel = org;
   }
 
-  shouldEnableButton() : boolean {
+  shouldEnableButton() : boolean {   
+    console.log("HELLO");
+    
     return (this.organisationModel.name !== OrganisationModel.DEFAULT_NAME);
   }
 }

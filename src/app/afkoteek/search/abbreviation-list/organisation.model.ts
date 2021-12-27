@@ -10,4 +10,5 @@ export class OrganisationModel {
     this.id = OrganisationModel.DEFAULT_ID;
     this.name = OrganisationModel.DEFAULT_NAME;
   }
+
 }
