@@ -36,10 +36,10 @@
               </tr>
               <tr>
                 <td>Orginisatie:</td>
-        <!--        <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>-->
+                <td><app-mod-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-mod-dropdown></td>
               </tr>
           </table>
-          <button class="save-btn" type="submit" [disabled]="!f.valid">Opslaan</button>
+<!--          <button class="save-btn" type="submit" [disabled]="!f.valid">Opslaan</button>-->
         </form>
       </div>
     </div>
@@ -64,7 +64,7 @@
   </div>
   <div class="float-child">
     <div class="child-content child-content-footer">
-<!--      <button type="submit" [disabled]="!f.valid">Opslaan</button>-->
+      <button type="submit" [disabled]="!f.valid">Opslaan</button>
       <button>Wijziging negeren</button>
     </div>
   </div>

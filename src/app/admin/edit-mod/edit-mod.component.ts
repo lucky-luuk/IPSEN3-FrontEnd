@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
 import {UserService} from "../usersHelper/user.service";
 import {NgForm} from "@angular/forms";
+import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list/abbreviation-list.component";
 
 @Component({
   selector: 'app-edit-mod',
@@ -10,6 +11,9 @@ import {NgForm} from "@angular/forms";
 })
 export class EditModComponent implements OnInit {
   @Input() model: UsersModel;
+  @ViewChild(AbbreviationListComponent) abbreviationList: any;
+
+  lastSearchedData : string = "";
 
   constructor(private UsersService : UserService) {
     this.model = new UsersModel();
@@ -20,6 +24,11 @@ export class EditModComponent implements OnInit {
 
   onSubmit(form: NgForm){
     console.log(form);
+  }
+
+  onSelectOrganisation(orgid : string) {
+    this.abbreviationList.setOrganisationIdFilter(orgid);
+    this.abbreviationList.onSearch(this.lastSearchedData);
   }
 }
 
