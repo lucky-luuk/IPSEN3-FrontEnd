@@ -48,6 +48,8 @@ import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popu
 import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request/ticket-info-request.component";
 import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-popup.component';
 import {RouterModule} from "@angular/router";
+import { AdminSavePopupComponent } from './admin/edit-mod/admin-save-popup/admin-save-popup.component';
+import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-popup/mod-ticket-save-popup.component';
 
 
 
@@ -92,6 +94,8 @@ import {RouterModule} from "@angular/router";
     AddModPopupComponent,
     TicketInfoRequestComponent,
     ConfirmPopupComponent,
+    AdminSavePopupComponent,
+    ModTicketSavePopupComponent,
   ],
   imports: [
     BrowserModule,
