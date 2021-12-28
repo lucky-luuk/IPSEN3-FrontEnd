@@ -27,9 +27,7 @@ export class AddModComponent implements OnInit {
     this.organisationModel = org;
   }
 
-  shouldEnableButton() : boolean {   
-    console.log("HELLO");
-    
+  shouldEnableButton() : boolean {      
     return (this.organisationModel.name !== OrganisationModel.DEFAULT_NAME);
   }
 }

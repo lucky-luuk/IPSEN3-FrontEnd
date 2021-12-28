@@ -1,20 +1,19 @@
-import { Injectable } from "@angular/core";
 import { OrganisationModel } from "../afkoteek/search/abbreviation-list/organisation.model";
 
 export class ModeratorModel {
   name : string;
   lastname : string;
   createDate : Date;
-  Email : any;
+  email : string;
   phone : string;
   organisatie : OrganisationModel;
 
-  constructor(name: string, lastName: string, email : any, phone: string, org: OrganisationModel) {
-    this.name = name;
-    this.lastname = lastName;
+  constructor() {
+    this.name = '';
+    this.lastname = '';
     this.createDate = new Date();
-    this.Email = email;
-    this.phone = phone;
-    this.organisatie = org;
+    this.email = '';
+    this.phone = '';
+    this.organisatie = new OrganisationModel;
   }
 }

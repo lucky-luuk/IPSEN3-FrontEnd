@@ -48,9 +48,7 @@ import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popu
 import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request/ticket-info-request.component";
 import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-popup.component';
 import {RouterModule} from "@angular/router";
-import { AddModService } from './admin/add-mod/addmod.service';
-import { ModeratorModel } from './moderator/moderator.model';
-
+import { AdminService } from './admin/admin.service';
 
 
 @NgModule({
@@ -104,7 +102,7 @@ import { ModeratorModel } from './moderator/moderator.model';
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [SupportService, HeaderService, gameService, AddModService],
+  providers: [SupportService, HeaderService, gameService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
