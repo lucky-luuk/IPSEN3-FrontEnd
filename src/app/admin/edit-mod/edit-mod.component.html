@@ -7,21 +7,24 @@
             <thead><h4>Moderator: {{model.userid}}</h4></thead>
               <tr>
                 <td>Voornaam</td>
-                <td><input type="text" value="{{model.firstname}}" ngModel name="firstname" required #firstname="ngModel">
+                <td>
+                  <input class="text-input" type="text" ngModel ="{{model.firstname}}" name="firstname" required #firstname="ngModel">
                   <br>
                   <span class="help-block" *ngIf="!firstname.valid && firstname.touched">Please enter the Firstname of the Moderator!</span>
                 </td>
               </tr>
               <tr>
                 <td>Achternaam:</td>
-                <td><input type="text" value="{{model.lastname}}" ngModel name="lastname" required #lastname="ngModel">
+                <td>
+                  <input class="text-input" type="text" ngModel="{{model.lastname}}" name="lastname" required #lastname="ngModel">
                   <br>
                   <span class="help-block" *ngIf="!lastname.valid && lastname.touched">Please enter the Lastname of the Moderator!</span>
                 </td>
               </tr>
               <tr>
                 <td>E-mail:</td>
-                <td><input type="text" value="{{model.email}}" ngModel name="e-mail" required email #email="ngModel">
+                <td>
+                  <input class="text-input" type="text" ngModel="{{model.email}}" name="e-mail" required email #email="ngModel">
                   <br>
                   <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
                 </td>
@@ -29,7 +32,7 @@
               <tr>
                 <td>Telefoon:</td>
                 <td>
-                  <input type="text" value="{{model.phoneNumber}}" ngModel name="phonenumber" required #phonenumber="ngModel">
+                  <input class="text-input" type="text" ngModel="{{model.phoneNumber}}" name="phonenumber" required #phonenumber="ngModel">
                   <br>
                   <span class="help-block" *ngIf="!phonenumber.valid && phonenumber.touched">Please enter a valid phonenumber!</span>
                 </td>
@@ -39,7 +42,7 @@
                 <td><app-mod-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-mod-dropdown></td>
               </tr>
           </table>
-<!--          <button class="save-btn" type="submit" [disabled]="!f.valid">Opslaan</button>-->
+          <button class="save-btn" type="submit" [disabled]="!f.valid">Opslaan</button>
         </form>
       </div>
     </div>
@@ -64,97 +67,9 @@
   </div>
   <div class="float-child">
     <div class="child-content child-content-footer">
-      <button type="submit" [disabled]="!f.valid">Opslaan</button>
+<!--      <button type="submit" [disabled]="!f.valid">Opslaan</button>-->
       <button>Wijziging negeren</button>
     </div>
   </div>
 </div>
 
-<!--<div class="mod-container">-->
-
-<!--  <div class="mod-info">-->
-<!--    <form (ngSubmit)="onSubmit(f)" #f="ngForm">-->
-<!--      <table>-->
-<!--        <thead><h4>Moderator: {{model.userid}}</h4></thead>-->
-<!--          <tr>-->
-<!--            <td>Voornaam</td>-->
-<!--            <td><input type="text" value="{{model.firstname}}" ngModel name="firstname" required #firstname="ngModel">-->
-<!--              <span class="help-block" *ngIf="!firstname.valid && firstname.touched">Please enter the Firstname of the Moderator!</span>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <td>Achternaam:</td>-->
-<!--            <td><input type="text" value="{{model.lastname}}" ngModel name="lastname" required #lastname="ngModel">-->
-<!--              <span class="help-block" *ngIf="!lastname.valid && lastname.touched">Please enter the Lastname of the Moderator!</span>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <td>E-mail:</td>-->
-<!--            <td><input type="text" value="{{model.email}}" ngModel name="e-mail" required email #email="ngModel">-->
-<!--              <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <td>Telefoon:</td>-->
-<!--            <td>-->
-<!--              <input type="text" value="{{model.phoneNumber}}" ngModel name="phonenumber" required #phonenumber="ngModel">-->
-<!--              <span class="help-block" *ngIf="!phonenumber.valid && phonenumber.touched">Please enter a valid phonenumber!</span>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr>-->
-<!--            <td>Orginisatie:</td>-->
-<!--    &lt;!&ndash;        <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>&ndash;&gt;-->
-<!--          </tr>-->
-<!--      </table>-->
-<!--    </form>-->
-<!--  </div>-->
-
-<!--&lt;!&ndash;  <div class="mod-info2">&ndash;&gt;-->
-<!--&lt;!&ndash;    <h4>Moderator: {{model.userid}}</h4>&ndash;&gt;-->
-<!--&lt;!&ndash;    <form (ngSubmit)="onSubmit(f)" #f="ngForm">&ndash;&gt;-->
-<!--&lt;!&ndash;      <div id="user-data">&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="firstname">Firstname:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="text" id="firstname" value="{{model.firstname}}" ngModel name="firstname" required>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="lastname">Lastname:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="text" id="lastname"  value="{{model.lastname}}" required>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="e-mail">E-mail:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="text" id="e-mail"  value="{{model.email}}" required email>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div class="form-group">&ndash;&gt;-->
-<!--&lt;!&ndash;          <label for="phonenumber">Phonenumber:</label>&ndash;&gt;-->
-<!--&lt;!&ndash;          <input type="text" id="phonenumber"  value="{{model.phoneNumber}}" required>&ndash;&gt;-->
-<!--&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--&lt;!&ndash;      </div>&ndash;&gt;-->
-<!--&lt;!&ndash;      <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>&ndash;&gt;-->
-<!--&lt;!&ndash;    </form>&ndash;&gt;-->
-<!--&lt;!&ndash;  </div>&ndash;&gt;-->
-
-<!--  <div class="activation">-->
-
-<!--    <button class="btn-back" [routerLink]="['/admin' , 'admin-page']">Terug naar overzicht</button>-->
-<!--    <form>-->
-<!--      <div class="radio-container">-->
-<!--        <div class="radio-btn">-->
-<!--          <label for="actief">Actief</label>-->
-<!--          <input type="radio" id="actief" name="activation-buttons" value="actief" checked>-->
-
-<!--          <label for="in-actief">In-actief</label>-->
-<!--          <input type="radio" id="in-actief" name="activation-buttons" value="in-actief">-->
-<!--        </div>-->
-<!--        </div>-->
-<!--    </form>-->
-
-<!--    <button class="ww-button">wachtwoord wijzigen</button>-->
-<!--  </div>-->
-
-<!--  <div class="actie-buttons">-->
-<!--    <form><button><input type="submit" [disabled]="!f.valid">>Opslaan</button></form>-->
-
-<!--    <button>Wijziging negeren</button>-->
-<!--  </div>-->
-<!--</div>-->

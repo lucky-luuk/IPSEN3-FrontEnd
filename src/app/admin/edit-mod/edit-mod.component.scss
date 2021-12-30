@@ -78,6 +78,10 @@ label{
     border: 1px solid red;
   }
 
+ .text-input{
+   width: 230px;
+ }
+
   @media only screen and (min-width: 100px) and (max-width:1200px)  {
     .float-child-split{
       width: 100%;
@@ -89,72 +93,3 @@ label{
       padding: 0px 0%;
     }
   }
-
-//.mod-container {
-//  display: grid;
-//  grid-template-columns: 1fr 1fr;
-//  grid-gap: 1rem;
-//  margin-top: 5vh;
-//
-//  .mod-info{
-//    padding: .45rem;
-//    background-color: white;
-//    margin-left: 800px;
-//    margin-right: 20px;
-//    grid-column: 1/2;
-//    height: 300px;
-//  }
-//
-//  .mod-info2{
-//    padding: .45rem;
-//    margin-left: 80px;
-//    background-color: white;
-//    grid-column: 1/2;
-//  }
-//
-//  .actie-buttons{
-//    padding: .45rem;
-//    margin-left: 800px;
-//    margin-right: 800px;
-//    display: flex;
-//    justify-content: center;
-//    flex-direction: row;
-//    background-color: white;
-//    grid-column: 1/3;
-//    & button{
-//      margin-right: 0.2rem;
-//      background-color: #7FB3D5;
-//    }
-//  }
-//
-//  .activation{
-//    padding: .45rem;
-//    margin-right: 800px;
-//    background-color: white;
-//    & button{
-//      background-color: #7FB3D5;
-//    }
-//    .btn-back{
-//      float: right;
-//      margin-top: .45rem;
-//    }
-//    .radio-container{
-//      margin-top: 70px;
-//      padding: .15rem;
-//      background-color: #7FB3D5;
-//      .radio-btn{
-//        display: block;
-//        margin-left: 20px;
-//        font-size: 20px;
-//      }
-//    }
-//    .ww-button{
-//      margin-left: 20px;
-//      margin-top: 40px;
-//    }
-//  }
-//
-//  input.ng-invalid.ng-touched {
-//    border: 1px solid red;
-//  }
-//}

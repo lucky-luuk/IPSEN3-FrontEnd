@@ -18,4 +18,13 @@ export class AdminOverviewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getAllUsers() : void {
+    this.userService.getAllUsers((data) => {
+      this.users = data;
+    });
+  }
+
+  onClick(user : UsersModel) : void {
+    this.userService.setSelectedUser(user)
+  }
 }

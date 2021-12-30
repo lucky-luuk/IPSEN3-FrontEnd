@@ -15,8 +15,9 @@ export class EditModComponent implements OnInit {
 
   lastSearchedData : string = "";
 
-  constructor(private UsersService : UserService) {
-    this.model = new UsersModel();
+  constructor(private usersService : UserService) {
+    console.log(usersService.getSelectedUser())
+    this.model = usersService.getSelectedUser()
   }
 
   ngOnInit(): void {
