@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
-import { gameService } from '../game.service';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-game-page-start',
@@ -8,22 +7,24 @@ import { gameService } from '../game.service';
   styleUrls: ['./game-page-start.component.scss']
 })
 export class GamePageStartComponent implements OnInit {
-
+  organisatie: string = "";
   @ViewChild ('nameInput') nameInputRef: ElementRef;
-  // @ViewChild ('orgInput') OrgInputRef: ElementRef;
 
-  constructor(private gameService: gameService) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     this.nameInputRef = new ElementRef(null);
-    // this.OrgInputRef = new ElementRef(null);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSelectOrg(data: string){
+    this.organisatie = data;
+    console.log(this.organisatie);
   }
 
   startGame(){
     const playerName = this.nameInputRef.nativeElement.value;
-    // const orgName = this.OrgInputRef.nativeElement.value;
-    this.gameService.addGameInfo(playerName);
+    this.router.navigate(['game',this.organisatie,playerName]);
+
   }
 
 }

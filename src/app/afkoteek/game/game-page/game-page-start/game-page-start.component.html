@@ -9,25 +9,7 @@
         <br>
         <article class="child-content">
             <h3>Top 3 Spelers</h3>
-            <section class="card-body">
-                <table class="top-three-table">
-                  <tr>
-                    <th>Mees</th>
-                    <th>890</th>
-                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
-                  </tr>
-                  <tr>
-                    <th>Luuk</th>
-                    <th>345</th>
-                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
-                  </tr>
-                  <tr>
-                    <th>Roeland</th>
-                    <th>256</th>
-                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
-                  </tr>
-                </table>
-            </section>
+          <app-top-player-list></app-top-player-list>
         </article>
     </div>
 
@@ -36,8 +18,8 @@
             <label for="name">Naam:</label>
             <input class="name-input" id="name" type="text" #nameInput>
 
-            <label for="organisatie">Organisatie:</label>
-            <app-dropdown></app-dropdown>
+            <label>Organisatie:</label>
+            <app-dropdown (onSelectEvent)="onSelectOrg($event)"></app-dropdown>
             <br>
             <button class="button-start-game" (click)="startGame()" routerLink="/game-play">Start</button>
         </div>
