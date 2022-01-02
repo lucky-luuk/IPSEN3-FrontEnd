@@ -6,7 +6,7 @@
               ticket Nummer: {{model.id}}
           </th>
           <th>
-              <button [routerLink]="['/moderator' , 'overview']" class="ticket-header-button">Terug naar overzicht</button>
+              <button  (click)="backToOverview()" class="ticket-header-button">Terug naar overzicht</button>
           </th>
         </tr>
       </table>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
               <td>Behandelaar:</td>
-              <td><form><input type="text" disabled value="{{account.firstName}}, {{account.lastName}}"></form></td>
+              <td><form><input id="validator" type="text" value="{{account.firstName}}, {{account.lastName}}" ></form></td>
             </tr>
         </table>
       </div>
