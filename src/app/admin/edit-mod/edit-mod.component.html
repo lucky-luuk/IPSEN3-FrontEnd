@@ -27,7 +27,7 @@
   </div>
 
   <div class="activation">
-    <button [routerLink]="['/admin' , 'admin-page']">Terug naar overzicht</button>
+    <button [routerLink]="['/admin' , 'admin-page']" (click)="backToOverview()">Terug naar overzicht</button>
     <div>
       <label for="actief">Actief</label>
       <input type="radio" id="actief" name="activation-buttons" value="actief" checked>
