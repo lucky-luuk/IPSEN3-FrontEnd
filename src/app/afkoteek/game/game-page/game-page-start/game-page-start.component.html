@@ -14,14 +14,27 @@
     </div>
 
     <div class="float-child">
-        <div class="child-content game-form">
+        <form (ngSubmit)="startGame(gameform)" #gameform="ngForm" class="child-content game-form">
             <label for="name">Naam:</label>
-            <input class="name-input" id="name" type="text" #nameInput>
+            <input
+            type="text" 
+            id="name" 
+            class="name-input" 
+            ngModel
+            name="name"
+            #name="ngModel"
+            required>
+
+            <!-- <span *ngIf="!name.valid && name.touched">Dit is geen geldige naam!</span> -->
+            <span *ngIf="!name.valid && name.touched">Er mist nog een naam</span>
+
+            <br><br>
 
             <label>Organisatie:</label>
             <app-dropdown (onSelectEvent)="onSelectOrg($event)"></app-dropdown>
             <br>
-            <button class="button-start-game" (click)="startGame()" routerLink="/game-play">Start</button>
-        </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="!gameform.valid">Start</button>
+        </form>
     </div>
 </div>

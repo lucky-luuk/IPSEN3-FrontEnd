@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
@@ -7,24 +8,22 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./game-page-start.component.scss']
 })
 export class GamePageStartComponent implements OnInit {
+  @ViewChild('gameform') gameForm!: NgForm;
   organisatie: string = "";
-  @ViewChild ('nameInput') nameInputRef: ElementRef;
 
   constructor(private router: Router, private route: ActivatedRoute) {
-    this.nameInputRef = new ElementRef(null);
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+  }
 
   onSelectOrg(data: string){
     this.organisatie = data;
     console.log(this.organisatie);
   }
 
-  startGame(){
-    const playerName = this.nameInputRef.nativeElement.value;
-    this.router.navigate(['game',this.organisatie,playerName]);
-
+  startGame(form: NgForm){
+    this.router.navigate(['game',this.organisatie, this.gameForm.value.name]);    
   }
 
 }
