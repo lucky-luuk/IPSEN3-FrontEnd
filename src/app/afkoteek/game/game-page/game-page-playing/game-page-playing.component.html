@@ -1,12 +1,12 @@
 <div class="game-header">
-    <p>{{GameLogic.name}}</p>
+    <p>{{player}}</p>
 </div>
 
 <div class="float-container">
     <div class="float-child">
         <div class="child-content">
             <h1>Wat betekend de volgende afkorting?</h1>
-            <p>--ABBR--</p>
+            <p>{{currentWord}}</p>
         </div>
     </div>
 
@@ -38,7 +38,7 @@
 
     <div class="float-child">
         <div class="child-content">
-        <button class="button-start-game">Volgende vraag &rarr;</button>
+        <button class="button-start-game" (click)="nextQuestion()">Volgende vraag &rarr;</button>
         <div class="progress-content">
         <p>--00:00:00--</p>
         <progress class="timer-bar" value="32" max="100"></progress>

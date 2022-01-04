@@ -23,10 +23,9 @@ import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-pl
 export const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
   { path: 'afko', component: AfkoteekComponent},
-  { path: 'game', component: GamePageComponent, children: [
-      { path: 'home', component: GamePageStartComponent},
-      { path: ':organisatie/:name', component: GamePagePlayingComponent}
-    ]},
+  { path: 'game', component: GamePageComponent},
+  { path: 'spelen', component: GamePagePlayingComponent},
+  { path: 'home', component: GamePageStartComponent},
 
   { path: 'support', component: SupportComponent,
     children: [

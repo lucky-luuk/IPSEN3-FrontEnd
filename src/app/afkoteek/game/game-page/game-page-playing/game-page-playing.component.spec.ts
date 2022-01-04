@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GamePagePlayingComponent } from './game-page-playing.component';
-import {gameService} from "../game.service";
+import {gameService} from "../Game.service";
 import {AppModule} from "../../../../app.module";
 
 describe('GamePagePlayingComponent', () => {
