@@ -8,6 +8,9 @@ import {AccountService} from "../../account.service";
 import {TicketTypeModel} from "./ticketType.model";
 import {Router} from "@angular/router";
 import {TicketTypeDropdownComponent} from "./ticket-type-dropdown/ticket-type-dropdown.component";
+import {AdminSavePopupComponent} from "../../admin/edit-mod/admin-save-popup/admin-save-popup.component";
+import {ModTicketSavePopupComponent} from "./mod-ticket-save-popup/mod-ticket-save-popup.component";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 
 @Component({
@@ -23,7 +26,7 @@ export class TicketComponent implements OnInit {
   abbreviation : AbbreviationModel = new AbbreviationModel();
 
 
-  constructor(private ticketService : TicketService, private abbrService: AbbreviationService, private accountService : AccountService, private router : Router) {
+  constructor(private ticketService : TicketService, private abbrService: AbbreviationService, private accountService : AccountService, private router : Router, private modalService: NgbModal) {
     this.init();
     // make sure the page is reloaded every time
     this.router.events.subscribe((event) => {
@@ -68,8 +71,11 @@ export class TicketComponent implements OnInit {
   // change the abbreviation and delette the ticket
   onChangeAbbreviation() {
     // send the same abbreviation, api looks at id only when deciding what abbr to change
-    this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
-    this.closeTicket();
+    let ref = this.modalService.open(ModTicketSavePopupComponent);
+    ref.componentInstance.onClose = ()=>{
+      this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
+      this.closeTicket()
+    }
   }
 
   private closeTicket() {

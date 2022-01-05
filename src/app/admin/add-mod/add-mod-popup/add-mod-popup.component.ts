@@ -8,7 +8,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 })
 export class AddModPopupComponent implements OnInit {
   data : {first_name : string, last_name : string, email : string, phone : string};
-  constructor(public activeModal : NgbActiveModal) {
+  constructor(public activeModel : NgbActiveModal) {
     this.data = {first_name: "",last_name: "",email: "",phone: ""};
   }
 
