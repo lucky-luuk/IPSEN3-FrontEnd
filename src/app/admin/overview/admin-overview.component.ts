@@ -23,15 +23,18 @@ export class AdminOverviewComponent implements OnInit {
 
   onSearch(data : string) {
     this.users =[];
-    if(data == ""){this.users = this.filterdUsers;}
-
+    if(data == ""){
+      this.users = this.filterdUsers;
+    }else{
     for(let user of this.filterdUsers){  
-      if(user.userid    == data ||
-         user.firstname == data ||
-         user.lastname  == data){          
-        this.users.push(user);
-      }
+      if(user.userid.includes(data)    ||
+         user.firstname.includes(data) ||
+         user.lastname.includes(data)  ||
+         user.status.includes(data)    ||
+         user.org_id.includes(data))
+         { this.users.push(user);}
     }
+  }
   }
   
 }
