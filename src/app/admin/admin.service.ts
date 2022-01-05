@@ -10,6 +10,6 @@ export class AdminService {
   constructor(private http : HttpService) { }
 
   postModerator(moderator : ModeratorModel) : void{
-    this.http.post<ModeratorModel>("#", moderator, (data) =>{});
+    this.http.post<ModeratorModel>("/moderator", moderator, (data) =>{});
   }
 }
