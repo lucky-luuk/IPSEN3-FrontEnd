@@ -3,6 +3,9 @@
 .float-container{
   padding: 0px 20%;
 }
+.drop-org{
+  width: 80%;
+}
 
 .float-child{
   float: right;
@@ -42,6 +45,9 @@
 
   button{
     background-color: #7FB3D5;
+    &:hover{
+      background-color: $dark-blue;
+    }
   }
 
   .btn-back{
