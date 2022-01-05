@@ -13,26 +13,8 @@
     <div class="float-child">
         <!-- LOOP TROUGH ANWSERS -->
         <div class="child-anwsers-container">
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
+        <app-anwser *ngFor="let anwser of ArrayOfWords"
+        [anwser]="anwser"></app-anwser>
         </div>
     </div>
 

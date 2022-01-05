@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AbbreviationModel } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.model';
-import { AbbreviationService } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.service';
-import { HttpService } from 'src/app/http.service';
 import { gameService } from '../Game.service';
 
 @Component({
@@ -16,12 +14,13 @@ export class GamePagePlayingComponent implements OnInit{
   currentWord: string = '';
   ArrayOfWords: AbbreviationModel[] = [];
 
-  constructor(private gamservice: gameService, private http: AbbreviationService) {
+  constructor(private gamservice: gameService) {
   }
 
   ngOnInit(){
     this.player = this.gamservice.playerName;
     this.currentWord = this.gamservice.currentAbbreviation.name;
+    this.ArrayOfWords = this.gamservice.listOfAnwsers;
    }
 
    nextQuestion(){

@@ -49,6 +49,7 @@ import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request
 import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-popup.component';
 import {RouterModule} from "@angular/router";
 import { TopPlayerListComponent } from './afkoteek/game/game-page/game-page-start/top-player-list/top-player-list.component';
+import { AnwserComponent } from './afkoteek/game/game-page/game-page-playing/anwser/anwser.component';
 
 
 
@@ -94,6 +95,7 @@ import { TopPlayerListComponent } from './afkoteek/game/game-page/game-page-star
     TicketInfoRequestComponent,
     ConfirmPopupComponent,
     TopPlayerListComponent,
+    AnwserComponent,
   ],
   imports: [
     BrowserModule,
