@@ -19,13 +19,15 @@ import {FormGroup} from "@angular/forms";
 export class EditModComponent implements OnInit {
   model: UsersModel;
   id: string = '';
+  lastSearchedData : string = "";
   // userEdit: FormGroup;
+  @ViewChild(AbbreviationListComponent) abbreviationList: any;
 
   constructor(
     private usersService : UserService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {
     this.model = new UsersModel();
     // this.userEdit = new FormGroup();

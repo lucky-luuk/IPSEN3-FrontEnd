@@ -87,7 +87,7 @@ import { AuthComponent } from './auth/auth.component';
     AdminOverviewComponent,
     EditModComponent,
     AdminComponent,
-    ModDropdownComponent
+    ModDropdownComponent,
     ClickableAbbreviationComponent,
     ReportPopupComponent,
     LoadingAnimationComponent,

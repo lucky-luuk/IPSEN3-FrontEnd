@@ -4,15 +4,16 @@
       <div class="child-content">
         <form (ngSubmit)="onSubmit(f)" #f="ngForm">
           <table>
-            <thead><h4>Moderator: {{model.userid}}</h4></thead>
+            <thead><h4>Moderator: {{(model.firstName + '' + model.lastName)}}</h4></thead>
               <tr>
                 <td>Voornaam</td>
                 <td>
                   <input
-                    class="text-input"
+                    class="text-input form-control"
                     type="text"
-                    ngModel ="{{model.firstname}}"
-                    name="firstname" required
+                    ngModel ="{{model.firstName}}"
+                    name="firstname"
+                    required
                     #firstname="ngModel">
                   <br>
                   <span class="help-block" *ngIf="!firstname.valid && firstname.touched">Please enter the Firstname of the Moderator!</span>
@@ -22,9 +23,9 @@
                 <td>Achternaam:</td>
                 <td>
                   <input
-                    class="text-input"
+                    class="text-input form-control"
                     type="text"
-                    ngModel="{{model.lastname}}"
+                    ngModel="{{model.lastName}}"
                     name="lastname" required
                     #lastname="ngModel">
                   <br>
@@ -35,7 +36,7 @@
                 <td>E-mail:</td>
                 <td>
                   <input
-                    class="text-input"
+                    class="text-input form-control"
                     type="text"
                     ngModel="{{model.email}}"
                     name="e-mail" required email
@@ -48,7 +49,7 @@
                 <td>Telefoon:</td>
                 <td>
                   <input
-                    class="text-input"
+                    class="text-input form-control"
                     type="text"
                     ngModel="{{model.phoneNumber}}"
                     name="phonenumber" required
@@ -78,7 +79,7 @@
     <div class="float-child-split">
       <div class="child-content">
         <button
-          class="btn-back" [routerLink]="['/admin' , 'admin-page']">Terug naar overzicht
+          class="btn-back" [routerLink]="['/admin' , 'overzicht']">Terug naar overzicht
         </button>
         <form>
           <div class="radio-container">

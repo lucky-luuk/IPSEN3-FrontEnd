@@ -24,13 +24,6 @@ export class UserService {
     this.http.put<UsersModel[]>("/user", [ticket, ticket], implementation);
   }
 
-  setSelectedUser(u : UsersModel) {
-    this.selectedUser = u;
-  }
-
-  getSelectedUser() : UsersModel {
-    return this.selectedUser;
-  }
 
   public getUsers(implementation : (data : UsersModel[]) => void) {
     let parameters = new Map<string, string>();
