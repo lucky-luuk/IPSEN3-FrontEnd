@@ -1,20 +1,21 @@
 
 
 export class UsersModel {
-  userid: string;
-  org_id: string;
-  status: string;
-  firstname: string;
-  lastname: string;
+  id: string;
+  org_id?: string;
+  status?: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  phoneNumber: string;
+  phoneNumber?: string;
+  roles?: [];
 
   constructor() {
     this.org_id = "";
     this.status = "";
-    this.firstname = "";
-    this.lastname = "";
-    this.userid = "";
+    this.firstName = "";
+    this.lastName = "";
+    this.id = "";
     this.email = "";
     this.phoneNumber = "";
   }

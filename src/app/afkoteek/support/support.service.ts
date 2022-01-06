@@ -1,4 +1,15 @@
-export class SupportService{
+import {Injectable} from "@angular/core";
+import {HttpService} from "../../http.service";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SupportService {
+
+  constructor() {
+  }
+
+
   private supportOption = [
     {
       type: 'request',
@@ -17,4 +28,9 @@ export class SupportService{
   getOptions() {
     return this.supportOption;
   }
+
+  setOptions(data : {type: string, name: string}[]) {
+    this.supportOption = data;
+  }
+
 }

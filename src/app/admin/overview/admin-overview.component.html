@@ -18,9 +18,10 @@
       </div>
     </div>
   </div>
-  <div class="list-container">
-    <div *ngFor="let user of users">
-      <app-user (click)="onClick(user)" [singleUser]="user" [routerLink]="['/admin' , 'edit-mod']"></app-user>
-    </div>
+</div>
+<app-search-moderator (onSearchEvent)="onSearch($event)"></app-search-moderator>
+<div class="list-container">
+  <div *ngFor="let user of users">
+    <app-user [singleUser]="user" [routerLink]="['/admin' , user.id, 'edit']"></app-user>
   </div>
 </div>

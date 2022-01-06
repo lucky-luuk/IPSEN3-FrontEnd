@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../usersHelper/user.service";
+import { Router } from '@angular/router';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-admin-overview',
@@ -11,17 +13,41 @@ import {UserService} from "../usersHelper/user.service";
 
 export class AdminOverviewComponent implements OnInit {
   users: UsersModel[] = [];
+  filterdUsers: UsersModel[] = [];
+
+  constructor(private userService: UserService, public router: Router) {
+    // this.users = this.userService.getUsers();
+    // this.filterdUsers = this.users;
+
 
   constructor(private userService: UserService, private router: Router) {
     this.getAllUsers();
-
-    this.router.events.subscribe((event) => {
-      this.getAllUsers()
-    });
-    // this.users = this.userService.getUsers();
   }
 
   ngOnInit(): void {
+    this.userService.setUsers();
+    this.getAllUsers();
+  }
+  setUsers(userList: UsersModel[]) {
+    this.users = userList
+  }
+
+  getAllUsers() {
+    this.users = this.userService.getModUsers()
+    this.filterdUsers = this.users;
+  }
+
+  onSearch(data : string) {
+    this.users =[];
+    if(data == ""){this.users = this.filterdUsers;}
+
+    for(let user of this.filterdUsers){
+      if(user.id    == data ||
+        user.firstName == data ||
+        user.lastName  == data){
+        this.users.push(user);
+      }
+    }
   }
 
   getAllUsers() : void {
