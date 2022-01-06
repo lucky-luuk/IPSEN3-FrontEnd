@@ -16,14 +16,13 @@ export class AdminOverviewComponent implements OnInit {
 
   constructor(private userService: UserService, public router: Router) {
     // this.users = this.userService.getUsers();
-
     // this.filterdUsers = this.users;
 
   }
 
   ngOnInit(): void {
+    this.userService.setUsers();
     this.getAllUsers();
-    console.log(this.users)
   }
   setUsers(userList: UsersModel[]) {
     this.users = userList

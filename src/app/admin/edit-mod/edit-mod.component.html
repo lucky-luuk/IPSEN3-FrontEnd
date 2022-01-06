@@ -2,22 +2,25 @@
 
   <div class="mod-info">
     <table>
-      <thead><h4>Moderator: {{model.id}}</h4></thead>
+      <thead><h4>Moderator: {{(model.firstName + ' '+ model.lastName)}}</h4></thead>
       <tr>
         <td>Voornaam</td>
-        <td><form><input type="text" value="{{model.firstName}}"></form></td>
+        <td><form><input
+          type="text"
+          class="form-control"
+          value="{{model.firstName}}"></form></td>
       </tr>
       <tr>
         <td>Achternaam:</td>
-        <td><form><input type="text" value="{{model.lastName}}"></form></td>
+        <td><form><input type="text" class="form-control" value="{{model.lastName}}"></form></td>
       </tr>
       <tr>
         <td>E-mail:</td>
-        <td><form><input type="text" value="{{model.email}}"></form></td>
+        <td><form><input type="text" class="form-control" value="{{model.email}}"></form></td>
       </tr>
       <tr>
         <td>Telefoon:</td>
-        <td><form><input type="text" value="{{model.phoneNumber}}"></form></td>
+        <td><form><input type="text" class="form-control" value="{{model.phoneNumber}}"></form></td>
       </tr>
       <tr>
         <td>Orginisatie:</td>

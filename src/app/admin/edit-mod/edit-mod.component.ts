@@ -3,6 +3,8 @@ import {UsersModel} from "../usersHelper/users.model";
 import {UserService} from "../usersHelper/user.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AdminSavePopupComponent} from "./admin-save-popup/admin-save-popup.component";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-mod',
@@ -10,16 +12,42 @@ import {AdminSavePopupComponent} from "./admin-save-popup/admin-save-popup.compo
   styleUrls: ['./edit-mod.component.scss']
 })
 export class EditModComponent implements OnInit {
-  @Input() model: UsersModel;
+  model: UsersModel;
+  id: string = '';
+  // userEdit: FormGroup;
 
-  constructor(private UsersService : UserService, private modalService: NgbModal) {
+  constructor(
+    private usersService : UserService,
+    private modalService: NgbModal,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.model = new UsersModel();
+    // this.userEdit = new FormGroup();
+  }
+
+  ngOnInit(): void {
+    this.route.params
+      .subscribe((params: Params) => {
+      this.id = params['id'];
+    })
+    this.initForm()
+  }
+
+  initForm() {
+    let user: UsersModel;
+    this.usersService.getUsersById(this.id, (data) => {
+      user = data;
+      this.model = data;
+      console.log(data);
+    });
+    // this.userEdit = new FormGroup({
+    //
+    // })
   }
 
   onClick(){
     this.modalService.open(AdminSavePopupComponent)
-  }
-  ngOnInit(): void {
   }
 
 }

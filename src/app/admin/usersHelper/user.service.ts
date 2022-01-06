@@ -14,7 +14,6 @@ export class UserService {
 
   constructor(private h : HttpService) {
     this.http = h;
-    this.setUsers();
   }
 
   public getUsersByName(firstname : string, lastname: string, implementation : (data : UsersModel[]) => void) : void {
@@ -49,6 +48,13 @@ export class UserService {
   public getUsers(implementation : (data : UsersModel[]) => void) {
     let parameters = new Map<string, string>();
     this.http.get<UsersModel[]>(this.endpoint+'/mod', parameters, implementation);
+  }
+
+  public getUsersById(name: string, implementation : (data : UsersModel) => void) {
+    let parameters = new Map<string, string>();
+    parameters.set('id', name);
+    this.http.get<UsersModel>(this.endpoint + '/user', parameters, implementation);
+
   }
 
   setUsers() {
