@@ -10,12 +10,12 @@ export class UsersModel {
   phoneNumber: string;
 
   constructor() {
-    this.org_id = 'binnenlandse zaken';
-    this.status = 'actief';
-    this.firstname = 'Henk';
-    this.lastname = 'Duif';
-    this.userid = '35007A69';
-    this.email = "henk.duif.overheid@gmail.com";
-    this.phoneNumber = "+31 61889542";
+    this.org_id = "";
+    this.status = "";
+    this.firstname = "";
+    this.lastname = "";
+    this.userid = "";
+    this.email = "";
+    this.phoneNumber = "";
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
+import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../usersHelper/user.service";
 
 @Component({
@@ -11,8 +12,13 @@ import {UserService} from "../usersHelper/user.service";
 export class AdminOverviewComponent implements OnInit {
   users: UsersModel[] = [];
 
-  constructor(private userService: UserService) {
-    this.users = this.userService.getUsers();
+  constructor(private userService: UserService, private router: Router) {
+    this.getAllUsers();
+
+    this.router.events.subscribe((event) => {
+      this.getAllUsers()
+    });
+    // this.users = this.userService.getUsers();
   }
 
   ngOnInit(): void {
