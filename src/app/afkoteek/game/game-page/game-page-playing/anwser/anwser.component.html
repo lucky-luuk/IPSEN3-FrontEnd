@@ -1,5 +1,8 @@
 <div class="child-content-anwsers">
-    <div class="anwser-container">
-        <p>{{anwser.description}}</p>
-    </div>
+    <a (click)="selectAnwser(anwser.description)">
+        <div class="anwser-container">
+            <p>{{anwser.description}}</p>
+        </div>
+    </a>
+
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AbbreviationModel } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.model';
 import { gameService } from '../Game.service';
 
@@ -7,26 +8,48 @@ import { gameService } from '../Game.service';
   templateUrl: './game-page-playing.component.html',
   styleUrls: ['./game-page-playing.component.scss']
 })
-export class GamePagePlayingComponent implements OnInit{
+export class GamePagePlayingComponent implements OnInit, OnDestroy{
   AbbreviationsArray: AbbreviationModel[] = [];
 
+  timer: number = 60;
   player: string = '';
   currentWord: string = '';
   ArrayOfWords: AbbreviationModel[] = [];
 
-  constructor(private gamservice: gameService) {
+  destroyPage = false;
+
+  constructor(private gamservice: gameService, private router: Router) {
   }
 
   ngOnInit(){
     this.player = this.gamservice.playerName;
     this.currentWord = this.gamservice.currentAbbreviation.name;
     this.ArrayOfWords = this.gamservice.listOfAnwsers;
+    this.gamservice.setTimer();
+    this.timerEvent();
    }
 
-   nextQuestion(){
-     this.gamservice.setQuestion();
-     this.currentWord = this.gamservice.currentAbbreviation.name;
+   timerEvent(){
+    let intervalID = setInterval(() =>{
+      this.timer = this.gamservice.counter;
+      this.currentWord = this.gamservice.currentAbbreviation.name;
      this.ArrayOfWords = this.gamservice.listOfAnwsers;
+     console.log(this.gamservice.score);
+     if(this.destroyPage || this.gamservice.gameOver){
+       clearInterval(intervalID);
+       this.router.navigate(['score']); 
+     }
+    }, 100);
+  }
+
+   nextQuestion(){
+     this.gamservice.anwserGiven = false;
+     this.gamservice.setQuestion();
+   }
+
+   ngOnDestroy(): void {
+       this.gamservice.counter = 1;
+       this.destroyPage = true;
    }
 
 }

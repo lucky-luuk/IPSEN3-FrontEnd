@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { gameService } from '../../Game.service';
 
 @Component({
   selector: 'app-anwser',
@@ -8,10 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class AnwserComponent implements OnInit {
   @Input() anwser!: { description: string};
 
-  constructor() { }
+  constructor(private gameService: gameService) { }
 
   ngOnInit(): void {
 
+  }
+  selectAnwser(givenAnwser: string){
+    if(this.gameService.anwserGiven){
+      this.gameService.controlAnwser(givenAnwser);
+    }
   }
 
 }

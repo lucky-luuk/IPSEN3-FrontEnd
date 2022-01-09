@@ -18,6 +18,12 @@ export class gameService{
     playerName: string = '';
     score: number = 0;
 
+    counter: number = 0;
+    gameOver: boolean = false;
+    anwserGiven = false;
+    forGlory = false;
+
+
     totalAbbreviations: number = 0;
     maxAnwsers: number= 4;
 
@@ -75,5 +81,28 @@ export class gameService{
                 this.goOn = false;
             }
         }
+    }
+
+    controlAnwser(anwser: String){
+        this.anwserGiven = true;
+        if(anwser === this.currentAbbreviation.description){
+            this.score = this.score + this.counter;
+        }
+        if(this.forGlory){
+            this.anwserGiven = false;
+            this.setQuestion();
+        }
+    }
+
+    setTimer(){
+        this.counter = 3;
+        this.gameOver = false;
+        let intervalID = setInterval(() =>{
+            this.counter = this.counter - 1;
+            if(this.counter === 0){
+                clearInterval(intervalID);
+                this.gameOver = true;  
+            }
+        }, 1000);
     }
 }

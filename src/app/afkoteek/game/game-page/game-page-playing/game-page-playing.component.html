@@ -20,11 +20,13 @@
 
     <div class="float-child">
         <div class="child-content">
-        <button class="button-start-game" (click)="nextQuestion()">Volgende vraag &rarr;</button>
-        <div class="progress-content">
-        <p>--00:00:00--</p>
-        <progress class="timer-bar" value="32" max="100"></progress>
-        </div>
+            <button class="button-start-game" (click)="nextQuestion()">Volgende vraag &rarr;</button>
+            <hr>
+            <div class="progress-content">
+                <progress class="timer-bar" value="{{60 - timer}}" max="60"></progress>
+                <br>
+                <p>{{timer}}</p>
+            </div>
         </div>
     </div>
 </div>

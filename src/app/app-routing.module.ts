@@ -18,6 +18,7 @@ import {EditModComponent} from "./admin/edit-mod/edit-mod.component";
 import {AdminComponent} from "./admin/admin.component";
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
+import { ScoreComponent } from './afkoteek/game/game-page/score/score.component';
 
 
 export const routes: Routes = [
@@ -26,6 +27,7 @@ export const routes: Routes = [
   { path: 'game', component: GamePageComponent},
   { path: 'spelen', component: GamePagePlayingComponent},
   { path: 'home', component: GamePageStartComponent},
+  { path: 'score', component: ScoreComponent},
 
   { path: 'support', component: SupportComponent,
     children: [
