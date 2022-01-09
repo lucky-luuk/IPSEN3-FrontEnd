@@ -32,17 +32,18 @@ export class GamePageStartComponent implements OnInit {
     this.gamservice.choosenOrganisatie(this.organisatie,this.gameForm.value.name);
   }
 
+  forGlory(form: NgForm){
+    this.gamservice.forGlory = true;
+    this.startGame(form);
+  }
+
   setAbbreviationData(data: string){
     console.log("SetAbbreviationData");
-    
-    this.http.geAbbreviationByOrgId(this.organisatie, (data) => {
-      data.forEach( (abbr) =>{
-      console.log(abbr);
-      this.gamservice.putAbbreviationInList(abbr);
-      });
-      this.gamservice.setQuestion();
-      this.router.navigate(['spelen']);    
-    });
+    this.gamservice.organisatie = this.organisatie;
+
+    this.gamservice.getAbbreviations();
+    this.gamservice.setQuestion();
+    this.router.navigate(['spelen']);   
   }
 
 }

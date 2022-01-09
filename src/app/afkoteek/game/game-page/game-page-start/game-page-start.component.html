@@ -8,7 +8,6 @@
         </div>
         <br>
         <article class="child-content">
-            <h3>Top 3 Spelers</h3>
           <app-top-player-list></app-top-player-list>
         </article>
     </div>
@@ -34,7 +33,8 @@
             <app-dropdown (onSelectEvent)="onSelectOrg($event)"></app-dropdown>
             <br>
 
-            <button class="btn btn-primary" type="submit" [disabled]="!gameform.valid">Start</button>
+            <button type="submit" [disabled]="!gameform.valid">Start</button>
+            <button type="button" [disabled]="!gameform.valid" (click)="forGlory(gameform)">Voor de eer</button>
         </form>
     </div>
 </div>

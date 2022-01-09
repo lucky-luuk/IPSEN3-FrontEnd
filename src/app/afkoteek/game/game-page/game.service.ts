@@ -1,10 +1,23 @@
+import { Injectable } from "@angular/core";
+import { HttpService } from "src/app/http.service";
 import { AbbreviationModel } from "../../search/abbreviation-list/abbreviation.model";
+import { AbbreviationService } from "../../search/abbreviation-list/abbreviation.service";
+import { Game } from "./game.model";
+
+
+@Injectable({
+    providedIn: 'root'
+  })
 
 export class gameService{
+    private endpoint : string = "/score";
+
     holderOfAbbreviations: AbbreviationModel[] =[];
     listOfAbbreviations: AbbreviationModel[] = [];
     listOfAnwsers: AbbreviationModel[] =[];
     listOfUsedAfk: string[] = [];
+    Game : Game = new Game();
+    Gamemodel : Game[] = [];
 
     currentAbbreviation: AbbreviationModel = new AbbreviationModel;
     wrongAbbreviation: AbbreviationModel = new AbbreviationModel;
@@ -18,16 +31,17 @@ export class gameService{
     playerName: string = '';
     score: number = 0;
 
-    counter: number = 0;
+    counter: number = 10;
     gameOver: boolean = false;
     anwserGiven = false;
     forGlory = false;
-
+    anwserSend = false;
 
     totalAbbreviations: number = 0;
     maxAnwsers: number= 4;
+    organisatie = '';
 
-    constructor(){
+    constructor(private AbbreviationHTTP: AbbreviationService, private http : HttpService){
     }
 
     choosenOrganisatie(org: string, player: string){
@@ -55,6 +69,8 @@ export class gameService{
             this.listOfUsedAfk = [];
             this.listOfAbbreviations = this.holderOfAbbreviations;
         }
+        console.log("Correct: " + this.currentAbbreviation.description);
+        
        this.setListOfAnswers();
     }
 
@@ -92,10 +108,63 @@ export class gameService{
             this.anwserGiven = false;
             this.setQuestion();
         }
+        
+    }
+
+    prepForNextgame(){
+        this.holderOfAbbreviations =[];
+        this.listOfAbbreviations = [];
+        this.listOfAnwsers =[];
+        this.listOfUsedAfk = [];
+
+        this.randomNumber = 0;
+        this.randomAnwserLocation = 0;
+        this.goOn = true;
+
+        this.selectedOrganisatie = '';
+        this.checkedAbbreviation = '';
+        this.playerName = '';
+        this.score = 0;
+
+        this.counter = 60;
+        this.gameOver = false;
+        this.anwserGiven = false;
+        this.forGlory = false;
+        this.anwserSend = false;
+
+        this.totalAbbreviations = 0;
+    }
+
+    postScore(){
+        this.anwserSend = true;
+
+        this.Game.name = this.playerName;
+        this.Game.totalScore = this.score;
+
+        this.Gamemodel = [];
+        this.Gamemodel.push(this.Game);
+
+        this.http.put<Game[]>('/score', this.Gamemodel, (data) => {
+        });
+    }
+
+    getAbbreviations(){
+        if(this.forGlory){
+            //TODO: GET 100 RANDOM WORDS!
+        }else{
+            this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
+                data.forEach( (abbr) =>{
+                    this.putAbbreviationInList(abbr);
+                }); 
+            });
+        }
+    }
+
+    getTopPlayers(implementation : (data : Game[]) => void){
+        this.http.get<Game[]>("/score", new Map<string, string>(),implementation);
     }
 
     setTimer(){
-        this.counter = 3;
         this.gameOver = false;
         let intervalID = setInterval(() =>{
             this.counter = this.counter - 1;

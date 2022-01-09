@@ -24,7 +24,6 @@ import { ScoreComponent } from './afkoteek/game/game-page/score/score.component'
 export const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
   { path: 'afko', component: AfkoteekComponent},
-  { path: 'game', component: GamePageComponent},
   { path: 'spelen', component: GamePagePlayingComponent},
   { path: 'home', component: GamePageStartComponent},
   { path: 'score', component: ScoreComponent},

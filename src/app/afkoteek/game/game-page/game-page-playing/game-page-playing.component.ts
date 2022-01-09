@@ -15,6 +15,7 @@ export class GamePagePlayingComponent implements OnInit, OnDestroy{
   player: string = '';
   currentWord: string = '';
   ArrayOfWords: AbbreviationModel[] = [];
+  forGlory: boolean = false;
 
   destroyPage = false;
 
@@ -22,6 +23,7 @@ export class GamePagePlayingComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit(){
+    this.forGlory = this.gamservice.forGlory;
     this.player = this.gamservice.playerName;
     this.currentWord = this.gamservice.currentAbbreviation.name;
     this.ArrayOfWords = this.gamservice.listOfAnwsers;
@@ -34,7 +36,7 @@ export class GamePagePlayingComponent implements OnInit, OnDestroy{
       this.timer = this.gamservice.counter;
       this.currentWord = this.gamservice.currentAbbreviation.name;
      this.ArrayOfWords = this.gamservice.listOfAnwsers;
-     console.log(this.gamservice.score);
+     console.log("SCORE: "+ this.gamservice.score);
      if(this.destroyPage || this.gamservice.gameOver){
        clearInterval(intervalID);
        this.router.navigate(['score']); 

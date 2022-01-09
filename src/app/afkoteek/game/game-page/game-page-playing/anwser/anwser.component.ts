@@ -15,7 +15,9 @@ export class AnwserComponent implements OnInit {
 
   }
   selectAnwser(givenAnwser: string){
-    if(this.gameService.anwserGiven){
+    console.log(givenAnwser);
+    
+    if(!this.gameService.anwserGiven){
       this.gameService.controlAnwser(givenAnwser);
     }
   }

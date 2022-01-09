@@ -20,7 +20,7 @@
 
     <div class="float-child">
         <div class="child-content">
-            <button class="button-start-game" (click)="nextQuestion()">Volgende vraag &rarr;</button>
+            <button *ngIf="!forGlory" class="button-start-game" (click)="nextQuestion()">Volgende vraag &rarr;</button>
             <hr>
             <div class="progress-content">
                 <progress class="timer-bar" value="{{60 - timer}}" max="60"></progress>
