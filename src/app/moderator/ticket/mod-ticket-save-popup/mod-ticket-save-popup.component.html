@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h4 class="modal-title">Voeg moderator toe</h4>
+  <button class="btn btn-close" (click)="activeModal.close('Close click')"></button>
+</div>
+<div class="modal-body">
+  <div>Weet je zeker dat deze data op wilt slaan?</div>
+  <div class="data-container">
+
+  </div>
+</div>
+<div class="modal-footer">
+  <button [routerLink]="['moderator/overview']" (click)="onSave()">opslaan</button>
+</div>

@@ -51,6 +51,10 @@ import {RouterModule} from "@angular/router";
 import { TopPlayerListComponent } from './afkoteek/game/game-page/game-page-start/top-player-list/top-player-list.component';
 import { AnwserComponent } from './afkoteek/game/game-page/game-page-playing/anwser/anwser.component';
 import { ScoreComponent } from './afkoteek/game/game-page/score/score.component';
+import { AdminSavePopupComponent } from './admin/edit-mod/admin-save-popup/admin-save-popup.component';
+import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-popup/mod-ticket-save-popup.component';
+import { AuthComponent } from './auth/auth.component';
+
 
 
 
@@ -98,6 +102,10 @@ import { ScoreComponent } from './afkoteek/game/game-page/score/score.component'
     TopPlayerListComponent,
     AnwserComponent,
     ScoreComponent,
+    AdminSavePopupComponent,
+    ModTicketSavePopupComponent,
+    AuthComponent,
+
   ],
   imports: [
     BrowserModule,

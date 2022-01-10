@@ -7,8 +7,11 @@ import {UsersModel} from "./users.model";
   providedIn: 'root'
 })
 export class UserService {
-  private endpoint : string = "/usersHelper";
+  private endpoint : string = "/account";
   private http : HttpService;
+  users: UsersModel[] = [];
+
+
   constructor(private h : HttpService) {
     this.http = h;
   }
@@ -42,13 +45,25 @@ export class UserService {
     this.http.get<UsersModel[]>(this.endpoint, parameters, implementation);
   }
 
-  public getUsers() {
-    let users = [];
-    users.push(new UsersModel());
-    users.push(new UsersModel());
-    users.push(new UsersModel());
-    users.push(new UsersModel());
-    users.push(new UsersModel());
-    return users;
+  public getUsers(implementation : (data : UsersModel[]) => void) {
+    let parameters = new Map<string, string>();
+    this.http.get<UsersModel[]>(this.endpoint+'/mod', parameters, implementation);
+  }
+
+  public getUsersById(name: string, implementation : (data : UsersModel) => void) {
+    let parameters = new Map<string, string>();
+    parameters.set('id', name);
+    this.http.get<UsersModel>(this.endpoint + '/user', parameters, implementation);
+
+  }
+
+  setUsers() {
+    this.getUsers((data) => {
+      this.users = data;
+    })
+  }
+
+  getModUsers() {
+    return this.users.slice()
   }
 }

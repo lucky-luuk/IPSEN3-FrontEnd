@@ -41,11 +41,11 @@ export const routes: Routes = [
     ]
   },
   { path: 'admin', component: AdminComponent, children:[
-      { path: 'admin-page', component: AdminPageComponent},
-      { path: 'edit-mod', component: EditModComponent},
+      { path: 'overzicht', component: AdminPageComponent},
+      { path: ':id/edit', component: EditModComponent},
       { path: 'settings', component: SettingsComponent},
       { path: 'search-admin', component: SearchAdminComponent},
-      { path: 'add-mod', component: AddModComponent},
+      { path: 'nieuw', component: AddModComponent},
     ]},
 ];
 
