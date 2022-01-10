@@ -29,7 +29,8 @@ export class GamePageStartComponent implements OnInit {
   startGame(form: NgForm){
     this.setAbbreviationData(this.organisatie);
 
-    this.gamservice.choosenOrganisatie(this.organisatie,this.gameForm.value.name);
+    this.gamservice.selectedOrganisatie = this.organisatie;
+    this.gamservice.playerName = form.value.name;
   }
 
   forGlory(form: NgForm){
@@ -38,12 +39,8 @@ export class GamePageStartComponent implements OnInit {
   }
 
   setAbbreviationData(data: string){
-    console.log("SetAbbreviationData");
     this.gamservice.organisatie = this.organisatie;
-
     this.gamservice.getAbbreviations();
-    this.gamservice.setQuestion();
-    this.router.navigate(['spelen']);   
   }
 
 }

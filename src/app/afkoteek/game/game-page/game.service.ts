@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { HttpService } from "src/app/http.service";
 import { AbbreviationModel } from "../../search/abbreviation-list/abbreviation.model";
 import { AbbreviationService } from "../../search/abbreviation-list/abbreviation.service";
@@ -31,7 +32,7 @@ export class gameService{
     playerName: string = '';
     score: number = 0;
 
-    counter: number = 10;
+    counter: number = 60;
     gameOver: boolean = false;
     anwserGiven = false;
     forGlory = false;
@@ -41,12 +42,7 @@ export class gameService{
     maxAnwsers: number= 4;
     organisatie = '';
 
-    constructor(private AbbreviationHTTP: AbbreviationService, private http : HttpService){
-    }
-
-    choosenOrganisatie(org: string, player: string){
-        this.selectedOrganisatie = org;
-        this.playerName = player;
+    constructor(private router: Router ,private AbbreviationHTTP: AbbreviationService, private http : HttpService){
     }
 
     putAbbreviationInList(data: AbbreviationModel){
@@ -65,12 +61,10 @@ export class gameService{
         this.listOfAbbreviations.splice(this.listOfAbbreviations.findIndex(abbr => abbr.name === this.currentAbbreviation.name), 1)
         this.listOfUsedAfk.push(this.currentAbbreviation.name);
                
-        if(this.listOfAbbreviations.length == 0){
+        if(this.listOfAbbreviations.length < 5){
             this.listOfUsedAfk = [];
             this.listOfAbbreviations = this.holderOfAbbreviations;
         }
-        console.log("Correct: " + this.currentAbbreviation.description);
-        
        this.setListOfAnswers();
     }
 
@@ -86,12 +80,17 @@ export class gameService{
         }
     }
 
+
     getWrongAnwser(){
         this.goOn = true;
 
         while(this.goOn){
             this.randomNumber = Math.floor(Math.random() * this.holderOfAbbreviations.length -1);
             this.wrongAbbreviation = this.holderOfAbbreviations[this.randomNumber];
+            //CRASH-------------------------------------------------------
+            console.log(this.wrongAbbreviation);
+            
+            
             if(this.wrongAbbreviation.name !== this.currentAbbreviation.name){
                 this.listOfAnwsers.push(this.wrongAbbreviation);
                 this.goOn = false;
@@ -112,50 +111,50 @@ export class gameService{
     }
 
     prepForNextgame(){
-        this.holderOfAbbreviations =[];
-        this.listOfAbbreviations = [];
-        this.listOfAnwsers =[];
         this.listOfUsedAfk = [];
-
-        this.randomNumber = 0;
-        this.randomAnwserLocation = 0;
-        this.goOn = true;
-
-        this.selectedOrganisatie = '';
-        this.checkedAbbreviation = '';
-        this.playerName = '';
         this.score = 0;
-
         this.counter = 60;
+        this.goOn = true;
         this.gameOver = false;
         this.anwserGiven = false;
         this.forGlory = false;
         this.anwserSend = false;
-
-        this.totalAbbreviations = 0;
     }
 
     postScore(){
         this.anwserSend = true;
 
         this.Game.name = this.playerName;
-        this.Game.totalScore = this.score;
+        this.Game.score = this.score;
+        this.Game.organisation_id = this.selectedOrganisatie;
 
         this.Gamemodel = [];
+        console.log(this.Game.organisation_id);
+        
         this.Gamemodel.push(this.Game);
 
-        this.http.put<Game[]>('/score', this.Gamemodel, (data) => {
+        this.http.post<Game[]>('/score', this.Gamemodel, (data) => {
         });
     }
 
     getAbbreviations(){
+        this.holderOfAbbreviations =[];
+        this.listOfAbbreviations = [];
         if(this.forGlory){
-            //TODO: GET 100 RANDOM WORDS!
+            this.AbbreviationHTTP.geAbbreviationByOrgId('glory', (data) => {
+                data.forEach( (abbr) =>{
+                    this.putAbbreviationInList(abbr);
+                }); 
+                this.setQuestion();
+                this.router.navigate(['spelen']);   
+            });
         }else{
             this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
                 data.forEach( (abbr) =>{
                     this.putAbbreviationInList(abbr);
                 }); 
+                this.setQuestion();
+                this.router.navigate(['spelen']);   
             });
         }
     }

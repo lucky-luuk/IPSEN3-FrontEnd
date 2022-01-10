@@ -1,9 +1,11 @@
 export class Game{
     public name: string;
-    public totalScore: number;
+    public score: number;
+    public organisation_id: string;
 
     constructor(){
         this.name = '';
-        this.totalScore = 0;
+        this.score = 0;
+        this.organisation_id = '';
     }
 }
