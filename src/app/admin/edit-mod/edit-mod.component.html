@@ -42,20 +42,20 @@
                 <td>Telefoon:</td>
                 <td>
                   <input type="text" class="form-control"
-                         ngModel ="{{model.firstName}}"
-                         name="firstName"
+                         ngModel ="{{model.phoneNumber}}"
+                         name="phoneNumber"
                          required
-                         #firstName="ngModel"
-                         [ngClass]="{'is-invalid': !firstName.valid && firstName.touched}">
+                         #phoneNumber="ngModel"
+                         [ngClass]="{'is-invalid': !phoneNumber.valid && phoneNumber.touched}">
                 </td>
               </tr>
               <tr>
                 <td>Orginisatie:</td>
-<!--                <div class="drop-org">-->
+                <div class="drop-org">
                   <td>
                     <app-mod-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-mod-dropdown>
                   </td>
-<!--                </div>-->
+                </div>
               </tr>
           </table>
           <div class="save-btn">

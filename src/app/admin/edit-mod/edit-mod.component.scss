@@ -4,11 +4,14 @@
   padding: 0px 20%;
 }
 .drop-org{
-  width: 60%;
+  width: 40%;
+  select{
+    width: 220%;
+  }
 }
 
 .form{
-  width: 40vw;
+  width: 10vw;
 }
 
 .float-child{
@@ -86,7 +89,6 @@ label{
     justify-content: center;
     margin-top: 20px;
   }
-
 
  .text-input{
    width: 230px;
