@@ -1,13 +1,16 @@
 export class HeaderService {
   private afkotheekHeaderOptions = [
     {
-      name: 'Afkotheek'
+      name: 'Afkotheek',
+      rout: '/afko'
     },
     {
-      name: 'Game'
+      name: 'Game',
+      rout: '/game'
     },
     {
-      name: 'support'
+      name: 'support',
+      rout: '/support'
     }
   ];
 

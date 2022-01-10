@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TicketModel } from './ticket.model';
+import { AdminSavePopupComponent } from './admin-save-popup.component';
 
-describe('TicketModel', () => {
-  let component: TicketModel;
-  let fixture: ComponentFixture<TicketModel>;
+describe('PopupComponent', () => {
+  let component: AdminSavePopupComponent;
+  let fixture: ComponentFixture<AdminSavePopupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TicketModel ]
+      declarations: [ AdminSavePopupComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TicketModel);
+    fixture = TestBed.createComponent(AdminSavePopupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

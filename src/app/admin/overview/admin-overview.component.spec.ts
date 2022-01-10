@@ -7,6 +7,9 @@ import { UserService } from '../usersHelper/user.service';
 import { UsersModel } from '../usersHelper/users.model';
 
 import { AdminOverviewComponent } from './admin-overview.component';
+import {SearchModeratorComponent} from "./search-moderator/search-moderator.component";
+import {UserComponent} from "./user/user.component";
+import {AppModule} from "../../app.module";
 
 describe('OverviewComponent', () => {
   let component: AdminOverviewComponent;
@@ -15,7 +18,7 @@ describe('OverviewComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AdminOverviewComponent
+        AdminOverviewComponent, SearchModeratorComponent, UserComponent
       ],
       providers: [
         {provide: UserService, useClass: UserService},
@@ -24,6 +27,7 @@ describe('OverviewComponent', () => {
         {provide: HttpHandler, useClass: HttpHandler},
       ],
       imports: [
+        AppModule,
         RouterTestingModule.withRoutes([])
       ]
     }).compileComponents();

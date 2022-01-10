@@ -1,17 +1,21 @@
 @import "src/styles";
 
-.list-container{
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
+.overview-container {
   width: 60vw;
-  min-height: 30vh;
-  background: white;
-  margin-top: 5vh;
-  max-height: $max-content-height - 20vh;
-  overflow-x: hidden;
   margin-left: auto;
   margin-right: auto;
+}
+.list-container{
+  width: auto;
+  display: block;
+
+  justify-content: space-around;
+  flex-direction: column;
+  background: white;
+  max-height: $max-content-height - 20vh;
+  height: $max-content-height - 20vh;
+  overflow-x: hidden;
+
 }
 
 table{
@@ -22,4 +26,14 @@ table{
       background-color: #EEEEEE;
     }
   }
+}
+
+.container.overview-header {
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: black solid 1px;
+  background-color: white;
+  margin-top: 2vh;
 }

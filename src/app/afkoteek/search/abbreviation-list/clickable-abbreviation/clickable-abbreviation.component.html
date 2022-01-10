@@ -1,0 +1,15 @@
+<div class="container" (click)="onClick()" >
+  <div class="row abbreviation">
+    <div class="col-sm name">
+      {{abbreviation.name}}
+    </div>
+    <div class="col-sm">
+      <div class="description">
+        {{abbreviation.description}}
+      </div>
+      <div class="organisations">
+        {{getAllOrganisationNamesAsString()}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
 import {UserService} from "../usersHelper/user.service";
 import { Router } from '@angular/router';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-admin-overview',
@@ -10,15 +11,26 @@ import { Router } from '@angular/router';
 })
 
 export class AdminOverviewComponent implements OnInit {
-  users: UsersModel[];
-  filterdUsers: UsersModel[];
+  users: UsersModel[] = [];
+  filterdUsers: UsersModel[] = [];
 
   constructor(private userService: UserService, public router: Router) {
-    this.users = this.userService.getUsers();
-    this.filterdUsers = this.users;
+    // this.users = this.userService.getUsers();
+    // this.filterdUsers = this.users;
+
   }
 
   ngOnInit(): void {
+    this.userService.setUsers();
+    this.getAllUsers();
+  }
+  setUsers(userList: UsersModel[]) {
+    this.users = userList
+  }
+
+  getAllUsers() {
+    this.users = this.userService.getModUsers()
+    this.filterdUsers = this.users;
   }
 
   onSearch(data : string) {
@@ -33,8 +45,8 @@ export class AdminOverviewComponent implements OnInit {
          user.status.includes(data)    ||
          user.org_id.includes(data))
          { this.users.push(user);}
+      }
     }
-  }
   }
   
 }

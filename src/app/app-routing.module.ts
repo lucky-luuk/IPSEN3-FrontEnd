@@ -20,7 +20,7 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
   { path: 'afko', component: AfkoteekComponent},
   { path: 'game', component: GamePageComponent },
@@ -35,16 +35,16 @@ const routes: Routes = [
     ]
   },
   {path: 'moderator', component: ModeratorComponent, children:[
-    {path: 'ticketModel', component: TicketComponent},
+    {path: 'ticket', component: TicketComponent},
     {path: 'overview', component: OverviewComponent},
     ]
   },
   { path: 'admin', component: AdminComponent, children:[
-      { path: 'admin-page', component: AdminPageComponent},
-      { path: 'edit-mod', component: EditModComponent},
+      { path: 'overzicht', component: AdminPageComponent},
+      { path: ':id/edit', component: EditModComponent},
       { path: 'settings', component: SettingsComponent},
       { path: 'search-admin', component: SearchAdminComponent},
-      { path: 'add-mod', component: AddModComponent},
+      { path: 'nieuw', component: AddModComponent},
     ]},
 ];
 
