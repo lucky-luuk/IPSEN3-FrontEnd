@@ -35,7 +35,7 @@
 .child-content-footer{
   display: flex;
   justify-content: center;
-  
+
   button{
     margin: 4px;
   }
@@ -54,6 +54,9 @@
 
   button{
     background-color: $primary-blue;
+    &:hover{
+      background-color: $dark-blue;
+    }
   }
 
   @media only screen and (min-width: 771px) and (max-width:1158px){

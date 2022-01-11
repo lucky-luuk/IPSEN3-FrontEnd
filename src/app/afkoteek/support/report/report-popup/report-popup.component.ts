@@ -27,7 +27,7 @@ export class ReportPopupComponent implements OnInit {
     ticket.type = TicketTypeModel.REPORT;
     ticket.accountId = this.accountService.getCurrentUserAccount().id;
     ticket.temporaryAbbreviation = this.reportedAbbreviation;
-    ticket.statusName = TicketStatusModel.UNDER_REVIEW;
+    ticket.statusName = TicketStatusModel.REGISTERED;
     ticket.message = this.description;
     this.ticketService.createTickets([ticket], () => {});
     // mischien een captcha toevoegen?

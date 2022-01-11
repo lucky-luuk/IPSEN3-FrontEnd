@@ -10,6 +10,12 @@ export class TicketService {
 
   constructor(private http : HttpService) { }
 
+  getAllActiveTickets(implementation : (data : TicketModel[]) => void) {
+    let map = new Map<string, string>();
+    map.set("removed", "false");
+    this.http.get<TicketModel[]>("/ticket", map,implementation);
+  }
+
   getAllTickets(implementation : (data : TicketModel[]) => void) {
     this.http.get<TicketModel[]>("/ticket", new Map<string, string>(),implementation);
   }

@@ -11,6 +11,7 @@ export class TicketModel {
   userName : string;
   userEmail : string;
   userPhone : string;
+  removed: boolean;
 
   constructor() {
     this.id = 0;
@@ -22,5 +23,6 @@ export class TicketModel {
     this.userName = "";
     this.userEmail = "";
     this.userPhone = "";
+    this.removed = false;
   }
 }

@@ -56,9 +56,6 @@ export class TicketComponent implements OnInit {
   // create a new abbreviation and delete the ticket
   onSaveAbbreviation() {
     this.abbrService.postAbbreviations([this.abbreviation]);
-    this.ticketService.deleteTickets([this._model], () => {
-    });
-    this.closeTicket();
   }
 
   // delete the ticket
@@ -85,8 +82,8 @@ export class TicketComponent implements OnInit {
   }
 
   private closeTicket() {
-    this.ticketService.deleteTickets([this._model], () => {
-    });
+    this.model.removed=true;
+    this.ticketService.updateTicket(this.model, ()=>{})
     this.ticketHasBeenSelected = false;
     this.router.navigate(["moderator", "overview"]);
   }

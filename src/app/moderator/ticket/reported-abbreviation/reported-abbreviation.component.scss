@@ -6,13 +6,13 @@
     grid-gap: 2rem;
   }
   .abbreviation{
-    grid-column: 1/2;
-  }
-  .definition{
     grid-column: 2/3;
   }
-  .organisation{
+  .definition{
     grid-column: 1/2;
+  }
+  .organisation{
+    grid-column: 2/3;
   }
 }
 
