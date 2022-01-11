@@ -52,6 +52,8 @@ import { AdminSavePopupComponent } from './admin/edit-mod/admin-save-popup/admin
 import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-popup/mod-ticket-save-popup.component';
 import { NotSavedPopupComponent } from './moderator/ticket/not-saved-popup/not-saved-popup.component';
 import { PopupNotSavedComponent } from './admin/popup-not-saved/popup-not-saved.component';
+import { AuthComponent } from './auth/auth.component';
+
 
 
 
@@ -100,6 +102,7 @@ import { PopupNotSavedComponent } from './admin/popup-not-saved/popup-not-saved.
     ModTicketSavePopupComponent,
     NotSavedPopupComponent,
     PopupNotSavedComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

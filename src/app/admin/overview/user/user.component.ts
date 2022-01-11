@@ -8,6 +8,7 @@ import {UsersModel} from "../../usersHelper/users.model";
 })
 export class UserComponent implements OnInit {
   @Input() singleUser: UsersModel;
+
   constructor() {
     this.singleUser = new UsersModel();
   }
