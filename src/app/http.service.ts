@@ -48,7 +48,6 @@ export class HttpService {
       args.forEach((value: string, key: string) => {
         endpoint += key + "=" + value + "&";
       });
-      endpoint += 'max_amount=1000'
       endpoint = endpoint.substr(0, endpoint.length - 1);
     }
     return endpoint;
