@@ -8,38 +8,33 @@
         </div>
         <br>
         <article class="child-content">
-            <h3>Top 3 Spelers</h3>
-            <section class="card-body">
-                <table class="top-three-table">
-                  <tr>
-                    <th>Mees</th>
-                    <th>890</th>
-                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
-                  </tr>
-                  <tr>
-                    <th>Luuk</th>
-                    <th>345</th>
-                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
-                  </tr>
-                  <tr>
-                    <th>Roeland</th>
-                    <th>256</th>
-                    <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
-                  </tr>
-                </table>
-            </section>
+          <app-top-player-list></app-top-player-list>
         </article>
     </div>
 
     <div class="float-child">
-        <div class="child-content game-form">
+        <form (ngSubmit)="startGame(gameform)" #gameform="ngForm" class="child-content game-form">
             <label for="name">Naam:</label>
-            <input class="name-input" id="name" type="text" #nameInput>
+            <input
+            type="text" 
+            id="name" 
+            class="name-input" 
+            ngModel
+            name="name"
+            #name="ngModel"
+            required>
 
-            <label for="organisatie">Organisatie:</label>
-            <app-dropdown></app-dropdown>
+            <!-- <span *ngIf="!name.valid && name.touched">Dit is geen geldige naam!</span> -->
+            <span *ngIf="!name.valid && name.touched">Er mist nog een naam</span>
+
+            <br><br>
+
+            <label>Organisatie:</label>
+            <app-dropdown (onSelectEvent)="onSelectOrg($event)"></app-dropdown>
             <br>
-            <button class="button-start-game" (click)="startGame()" routerLink="/game-play">Start</button>
-        </div>
+
+            <button type="submit" [disabled]="!gameform.valid">Start</button>
+            <button type="button" [disabled]="!gameform.valid" (click)="forGlory(gameform)">Voor de eer</button>
+        </form>
     </div>
 </div>

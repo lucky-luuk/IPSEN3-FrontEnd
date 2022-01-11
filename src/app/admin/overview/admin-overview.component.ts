@@ -30,11 +30,11 @@ export class AdminOverviewComponent implements OnInit {
       this.users = this.filterdUsers;
     }else{
     for(let user of this.filterdUsers){  
-      if(user.userid.includes(data)    ||
-         user.firstname.includes(data) ||
-         user.lastname.includes(data)  ||
-         user.status.includes(data)    ||
-         user.org_id.includes(data))
+      if(user.id.includes(data)    ||
+         user.firstName.includes(data) ||
+         user.lastName.includes(data)  ||
+         user.status?.includes(data)    ||
+         user.org_id?.includes(data))
          { this.users.push(user);}
       }
     }

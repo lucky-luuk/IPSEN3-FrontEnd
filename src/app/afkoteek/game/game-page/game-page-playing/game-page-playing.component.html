@@ -1,48 +1,32 @@
 <div class="game-header">
-    <p>{{GameLogic.name}}</p>
+    <p>{{player}}</p>
 </div>
 
 <div class="float-container">
     <div class="float-child">
         <div class="child-content">
             <h1>Wat betekend de volgende afkorting?</h1>
-            <p>--ABBR--</p>
+            <p>{{currentWord}}</p>
         </div>
     </div>
 
     <div class="float-child">
         <!-- LOOP TROUGH ANWSERS -->
         <div class="child-anwsers-container">
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
-            <div class="child-content-anwsers">
-                <div class="anwser-container">
-                    <p>--BETEKENIS VAN HET WOORD--</p>
-                </div>
-            </div>
+        <app-anwser *ngFor="let anwser of ArrayOfWords"
+        [anwser]="anwser"></app-anwser>
         </div>
     </div>
 
     <div class="float-child">
         <div class="child-content">
-        <button class="button-start-game">Volgende vraag &rarr;</button>
-        <div class="progress-content">
-        <p>--00:00:00--</p>
-        <progress class="timer-bar" value="32" max="100"></progress>
-        </div>
+            <button *ngIf="!forGlory" class="button-start-game" (click)="nextQuestion()">Volgende vraag &rarr;</button>
+            <hr>
+            <div class="progress-content">
+                <progress class="timer-bar" value="{{60 - timer}}" max="60"></progress>
+                <br>
+                <p>{{timer}}</p>
+            </div>
         </div>
     </div>
 </div>
