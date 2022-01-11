@@ -39,6 +39,7 @@ import { AdminOverviewComponent} from "./admin/overview/admin-overview.component
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
 import { gameService } from './afkoteek/game/game-page/game.service';
+import { ModDropdownComponent } from './admin/edit-mod/mod-dropdown/mod-dropdown.component';
 import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReportPopupComponent } from './afkoteek/support/report/report-popup/report-popup.component';
@@ -51,8 +52,6 @@ import {RouterModule} from "@angular/router";
 import { AdminSavePopupComponent } from './admin/edit-mod/admin-save-popup/admin-save-popup.component';
 import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-popup/mod-ticket-save-popup.component';
 import { AuthComponent } from './auth/auth.component';
-
-
 
 @NgModule({
   declarations: [
@@ -88,6 +87,7 @@ import { AuthComponent } from './auth/auth.component';
     AdminOverviewComponent,
     EditModComponent,
     AdminComponent,
+    ModDropdownComponent,
     ClickableAbbreviationComponent,
     ReportPopupComponent,
     LoadingAnimationComponent,

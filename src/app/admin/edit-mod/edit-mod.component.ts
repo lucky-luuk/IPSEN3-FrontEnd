@@ -1,10 +1,15 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
 import {UserService} from "../usersHelper/user.service";
+
+import {NgForm} from "@angular/forms";
+import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list/abbreviation-list.component";
+
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AdminSavePopupComponent} from "./admin-save-popup/admin-save-popup.component";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
+
 
 @Component({
   selector: 'app-edit-mod',
@@ -14,13 +19,15 @@ import {FormGroup} from "@angular/forms";
 export class EditModComponent implements OnInit {
   model: UsersModel;
   id: string = '';
+  lastSearchedData : string = "";
   // userEdit: FormGroup;
+  @ViewChild(AbbreviationListComponent) abbreviationList: any;
 
   constructor(
     private usersService : UserService,
     private modalService: NgbModal,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {
     this.model = new UsersModel();
     // this.userEdit = new FormGroup();
@@ -50,4 +57,12 @@ export class EditModComponent implements OnInit {
     this.modalService.open(AdminSavePopupComponent)
   }
 
+  onSubmit(form: NgForm){
+    console.log(form);
+  }
+
+  onSelectOrganisation(orgid : string) {
+    this.abbreviationList.setOrganisationIdFilter(orgid);
+    this.abbreviationList.onSearch(this.lastSearchedData);
+  }
 }

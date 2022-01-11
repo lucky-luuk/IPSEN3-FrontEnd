@@ -1,50 +1,104 @@
-<div class="mod-container">
-
-  <div class="mod-info">
-    <table>
-      <thead><h4>Moderator: {{(model.firstName + ' '+ model.lastName)}}</h4></thead>
-      <tr>
-        <td>Voornaam</td>
-        <td><form><input
-          type="text"
-          class="form-control"
-          value="{{model.firstName}}"></form></td>
-      </tr>
-      <tr>
-        <td>Achternaam:</td>
-        <td><form><input type="text" class="form-control" value="{{model.lastName}}"></form></td>
-      </tr>
-      <tr>
-        <td>E-mail:</td>
-        <td><form><input type="text" class="form-control" value="{{model.email}}"></form></td>
-      </tr>
-      <tr>
-        <td>Telefoon:</td>
-        <td><form><input type="text" class="form-control" value="{{model.phoneNumber}}"></form></td>
-      </tr>
-      <tr>
-        <td>Orginisatie:</td>
-<!--        <td><app-ticket-type-dropdown (onSelectEvent)="setTicketType($event)"></app-ticket-type-dropdown></td>-->
-      </tr>
-    </table>
-  </div>
-
-  <div class="activation">
-    <button [routerLink]="['/admin' , 'admin-page']">Terug naar overzicht</button>
-    <div>
-      <label for="actief">Actief</label>
-      <input type="radio" id="actief" name="activation-buttons" value="actief" checked>
+<div class="float-container">
+  <div class="float-child">
+    <div class="float-child-split">
+      <div class="child-content">
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <table>
+            <thead><h4>Moderator: {{(model.firstName + '' + model.lastName)}}</h4></thead>
+              <tr>
+                <td>Voornaam:</td>
+                <td>
+                  <input type="text" class="form-control"
+                         ngModel ="{{model.firstName}}"
+                         name="firstName"
+                         required
+                         #firstName="ngModel"
+                         [ngClass]="{'is-invalid': !firstName.valid && firstName.touched}">
+                </td>
+              </tr>
+              <tr>
+                <td>Achternaam:</td>
+                <td>
+                  <input type="text" class="form-control"
+                         ngModel ="{{model.lastName}}"
+                         name="lastName"
+                         required
+                         #lastName="ngModel"
+                         [ngClass]="{'is-invalid': !lastName.valid && lastName.touched}">
+                </td>
+              </tr>
+              <tr>
+                <td>E-mail:</td>
+                <td>
+                  <input type="text" class="form-control"
+                         ngModel ="{{model.email}}"
+                         name="email"
+                         required email
+                         #email="ngModel"
+                         [ngClass]="{'is-invalid': !email.valid && email.touched}">
+                </td>
+              </tr>
+              <tr>
+                <td>Telefoon:</td>
+                <td>
+                  <input type="text" class="form-control"
+                         ngModel ="{{model.phoneNumber}}"
+                         name="phoneNumber"
+                         required
+                         #phoneNumber="ngModel"
+                         [ngClass]="{'is-invalid': !phoneNumber.valid && phoneNumber.touched}">
+                </td>
+              </tr>
+              <tr>
+                <td>Orginisatie:</td>
+                <div class="drop-org">
+                  <td>
+                    <app-mod-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-mod-dropdown>
+                  </td>
+                </div>
+              </tr>
+          </table>
+          <div class="save-btn">
+            <button
+              type="submit" [disabled]="!f.valid">Opslaan
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div>
-      <label for="in-actief">In-actief</label>
-      <input type="radio" id="in-actief" name="activation-buttons" value="in-actief">
-    </div>
-    <button>wachtwoord wijzigen</button>
-  </div>
+    <div class="float-child-split">
+      <div class="child-content">
+        <button
+          class="btn-back" [routerLink]="['/admin' , 'overzicht']">Terug naar overzicht
+        </button>
+        <form>
+          <div class="radio-container">
+            <div class="radio-btn">
+              <label for="actief">Actief</label>
+              <input
+                type="radio"
+                id="actief"
+                name="activation-buttons"
+                value="actief" checked>
 
-  <div class="actie-buttons">
-    <button type="Button" class="close" aria-label="Close" (click)="onClick()">Opslaan</button>
-    <button>Wijziging negeren</button>
+              <label for="in-actief">In-actief</label>
+              <input
+                type="radio"
+                id="in-actief"
+                name="activation-buttons"
+                value="in-actief">
+            </div>
+          </div>
+        </form>
+        <button class="ww-button">Wachtwoord Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="float-child">
+    <div class="child-content child-content-footer">
+<!--      <button type="submit" [disabled]="!f.valid">Opslaan</button>-->
+      <button>Wijziging negeren</button>
+    </div>
   </div>
 </div>
