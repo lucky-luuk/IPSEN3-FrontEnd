@@ -23,22 +23,27 @@ export class AdminOverviewComponent implements OnInit {
   }
 
 
-  onSearch(data: string) {
-    this.users = [];
-    if (data == "") {
-      this.users = this.filterdUsers;
-    }
 
-    for (let user of this.filterdUsers) {
-      if (user.id == data ||
-        user.firstName == data ||
-        user.lastName == data) {
-        this.users.push(user);
+  onSearch(data : string) {
+    this.users =[];
+    if(data == ""){
+      this.users = this.filterdUsers;
+    }else{
+    for(let user of this.filterdUsers){  
+      if(user.userid.includes(data)    ||
+         user.firstname.includes(data) ||
+         user.lastname.includes(data)  ||
+         user.status.includes(data)    ||
+         user.org_id.includes(data))
+         { this.users.push(user);}
       }
     }
   }
+  
+
 
   getUsers() {
     this.users = this.userService.getModUsers();
   }
+
 }
