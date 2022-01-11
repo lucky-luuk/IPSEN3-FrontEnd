@@ -6,7 +6,7 @@
               ticket Nummer: {{model.id}}
           </th>
           <th>
-              <button [routerLink]="['/moderator' , 'overview']" class="ticket-header-button">Terug naar overzicht</button>
+              <button  (click)="backToOverview()" class="ticket-header-button">Terug naar overzicht</button>
           </th>
         </tr>
       </table>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
               <td>Behandelaar:</td>
-              <td><form><input type="text" disabled value="{{account.firstName}}, {{account.lastName}}"></form></td>
+              <td><form><input id="validator" type="text" value="{{account.firstName}}, {{account.lastName}}" ></form></td>
             </tr>
         </table>
       </div>
@@ -64,8 +64,7 @@
       <button *ngIf="model.type === getAddAbbreviationTicketType()" (click)="onSaveAbbreviation()">Opslaan</button>
 <!--      report buttons -->
       <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onDeleteTicket()">Verwijder ticket</button>
-      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onChangeAbbreviation()">Afkorting wijzigen</button>
-      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onDeleteAbbreviation()">Afkorting verwijderen</button>
+      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onChangeAbbreviation()">Opslaan</button>
 <!--      info request buttons -->
       <button *ngIf="model.type === getInfoRequestTicketType()" (click)="onDeleteTicket()">verwijder ticket</button>
     </div>

@@ -51,6 +51,8 @@ import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-
 import {RouterModule} from "@angular/router";
 import { AdminSavePopupComponent } from './admin/edit-mod/admin-save-popup/admin-save-popup.component';
 import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-popup/mod-ticket-save-popup.component';
+import { NotSavedPopupComponent } from './moderator/ticket/not-saved-popup/not-saved-popup.component';
+import { PopupNotSavedComponent } from './admin/popup-not-saved/popup-not-saved.component';
 import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
@@ -97,6 +99,8 @@ import { AuthComponent } from './auth/auth.component';
     ConfirmPopupComponent,
     AdminSavePopupComponent,
     ModTicketSavePopupComponent,
+    NotSavedPopupComponent,
+    PopupNotSavedComponent,
     AuthComponent,
   ],
   imports: [

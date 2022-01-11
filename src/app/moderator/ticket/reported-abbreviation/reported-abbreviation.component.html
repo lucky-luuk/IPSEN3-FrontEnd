@@ -3,6 +3,6 @@
   <form>
     <input class="abbreviation" placeholder="afkorting">
     <input class="definition" placeholder="betekenis">
-    <div class="organisation"><app-dropdown></app-dropdown></div>
+    <div class="organisation"><app-dropdown (onSelectEvent)="onChangeOrganisation($event)"></app-dropdown></div>
   </form>
 </div>

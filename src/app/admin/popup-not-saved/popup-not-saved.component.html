@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title">Weet je zeker dat je terug wil gaan zonder op te slaan?</h4>
+  <button class="btn btn-close" (click)="activeModal.close('Close click')"></button>
+</div>
+<div class="modal-body">
+  <div class="data-container">
+    <div>Afkorting: {{data.afkorting}}</div>
+    <div>Betekenis: {{data.beschrijving}}</div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button [routerLink]="['admin/admin-page']" (click)="onSave()">toch opslaan</button>
+  <button [routerLink]="['admin/admin-page']" (click)="activeModal.close('not saved')">weizigingen negeren</button>
+</div>

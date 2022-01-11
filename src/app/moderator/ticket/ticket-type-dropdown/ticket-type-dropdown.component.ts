@@ -11,8 +11,10 @@ import {Router} from "@angular/router";
 export class TicketTypeDropdownComponent implements OnInit {
   @Output() onSelectEvent = new EventEmitter();
 
-  public statusList: {data: string, selected: boolean}[] = [{data: TicketStatusModel.UNDER_REVIEW, selected: true},
-    {data: TicketStatusModel.CLOSED, selected: false}];
+  public statusList: {data: string, selected: boolean}[] = [{data: TicketStatusModel.UNDER_REVIEW, selected: false},
+                                                            {data: TicketStatusModel.CLOSED, selected: false},
+                                                            {data: TicketStatusModel.ON_HOLD, selected: false},
+                                                            {data: TicketStatusModel.REGISTERED, selected: true}];
   @Input() selectedStatus : string | null;
 
   constructor() {
