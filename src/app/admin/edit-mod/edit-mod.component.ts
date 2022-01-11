@@ -8,7 +8,6 @@ import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AdminSavePopupComponent} from "./admin-save-popup/admin-save-popup.component";
 import {NotSavedPopupComponent} from "../../moderator/ticket/not-saved-popup/not-saved-popup.component";
-import {Router} from "@angular/router";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
 
