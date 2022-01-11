@@ -11,12 +11,12 @@ export class UsersModel {
   roles?: [];
 
   constructor() {
-    this.org_id = 'binnenlandse zaken';
-    this.status = 'actief';
-    this.firstName = 'Henk';
-    this.lastName = 'Duif';
-    this.id = '35007A69';
-    this.email = "henk.duif.overheid@gmail.com";
-    this.phoneNumber = "+31 61889542";
+    this.org_id = "";
+    this.status = "";
+    this.firstName = "";
+    this.lastName = "";
+    this.id = "";
+    this.email = "";
+    this.phoneNumber = "";
   }
 }

@@ -1,7 +1,25 @@
-
 <app-search-moderator (onSearchEvent)="onSearch($event)"></app-search-moderator>
-<div class="list-container">
-  <div *ngFor="let user of users">
-    <app-user [singleUser]="user" [routerLink]="['/admin' , user.id, 'edit']"></app-user>
+<div class="overview-container">
+  <div class="container overview-header">
+    <div class="row">
+      <div class="col-sm">
+        voornaam
+      </div>
+      <div class="col-sm">
+        achternaam
+      </div>
+      <div class="col-sm">
+        activiteit
+      </div>
+      <div class="col-sm">
+        organisatie
+      </div>
+    </div>
+  </div>
+  <div class="list-container">
+    <div *ngFor="let user of users">
+      <app-user [singleUser]="user" [routerLink]="['/admin' , user.id, 'edit']"></app-user>
+    </div>
   </div>
 </div>
+
