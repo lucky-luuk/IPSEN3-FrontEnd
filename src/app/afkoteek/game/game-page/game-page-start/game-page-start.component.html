@@ -23,9 +23,10 @@
             name="name"
             #name="ngModel"
             required>
-
-            <!-- <span *ngIf="!name.valid && name.touched">Dit is geen geldige naam!</span> -->
-            <span *ngIf="!name.valid && name.touched">Er mist nog een naam</span>
+            
+            <label
+            style="color: red; font-size:  1em;"
+            *ngIf="!name.valid && name.touched">Er mist nog een naam</label>
 
             <br><br>
 
@@ -34,7 +35,14 @@
             <br>
 
             <button type="submit" [disabled]="!gameform.valid">Start</button>
-            <button type="button" [disabled]="!gameform.valid" (click)="forGlory(gameform)">Voor de eer</button>
+            <button type="button" (click)="forGlory()">{{Glory ? 'Ga naar Oefenen' : 'Ga naar eer' }}</button>
+            <hr>
+            <span><label><b>Je speelt nu:</b></label>{{Glory ? 'Voor de eer!' : 'Om te oefenen!' }} 
+                <br>
+                <p>{{Glory ? 'Strijd om de hoogste score! In deze speel mode kan je je totaal punten
+                    op sturen.' : 'Selecteer een organisatie die je graag zou willen oefenen!
+                    De punten die je hierbij haalt kan je niet versturen.' }}</p>
+            </span>
         </form>
     </div>
 </div>

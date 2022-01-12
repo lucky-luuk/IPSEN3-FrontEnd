@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
-import { AbbreviationModel } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.model';
 import { AbbreviationService } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.service';
 import { OrganisationModel } from 'src/app/afkoteek/search/abbreviation-list/organisation.model';
 import { gameService } from '../Game.service';
@@ -14,6 +13,7 @@ import { gameService } from '../Game.service';
 export class GamePageStartComponent implements OnInit {
   @ViewChild('gameform') gameForm!: NgForm;
   organisatie: string = '';
+  Glory= false;
 
   constructor(private router: Router,private http: AbbreviationService, private route: ActivatedRoute, private gamservice: gameService) {
   }
@@ -23,19 +23,17 @@ export class GamePageStartComponent implements OnInit {
 
   onSelectOrg(data: OrganisationModel){
     this.organisatie = data.id;
-    
   }
 
   startGame(form: NgForm){
+    this.gamservice.forGlory = this.Glory;
     this.setAbbreviationData(this.organisatie);
-
     this.gamservice.selectedOrganisatie = this.organisatie;
     this.gamservice.playerName = form.value.name;
   }
 
-  forGlory(form: NgForm){
-    this.gamservice.forGlory = true;
-    this.startGame(form);
+  forGlory(){
+    this.Glory = !this.Glory; 
   }
 
   setAbbreviationData(data: string){
