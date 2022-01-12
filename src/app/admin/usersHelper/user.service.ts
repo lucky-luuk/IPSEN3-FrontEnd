@@ -9,8 +9,6 @@ import {UsersModel} from "./users.model";
 export class UserService {
   private endpoint : string = "/account";
   private http : HttpService;
-  users: UsersModel[] = [];
-
 
   constructor(private h : HttpService) {
     this.http = h;
@@ -41,13 +39,5 @@ export class UserService {
 
   }
 
-  setUsers() {
-    this.getUsers((data) => {
-      this.users = data;
-    })
-  }
 
-  getModUsers() {
-    return this.users;
-  }
 }

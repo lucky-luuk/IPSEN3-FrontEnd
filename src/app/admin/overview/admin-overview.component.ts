@@ -12,39 +12,26 @@ import {Subscription} from "rxjs";
 
 export class AdminOverviewComponent implements OnInit {
   users: UsersModel[] = [];
-  filterdUsers: UsersModel[] = [];
+  filteredUsers: UsersModel[] = [];
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.userService.getUsers((data)=>{
       this.users = data;
+      this.filteredUsers = data;
     })
   }
 
-
-
   onSearch(data : string) {
-    this.users =[];
-    if(data == ""){
-      this.users = this.filterdUsers;
-    }else{
-    for(let user of this.filterdUsers){  
-      if(user.id.includes(data)    ||
-         user.firstName.includes(data) ||
-         user.lastName.includes(data)  ||
-         user.status?.includes(data)    ||
-         user.org_id?.includes(data))
-         { this.users.push(user);}
+    this.filteredUsers = [];
+    for (let user of this.users) {
+      if (user.firstName.toLowerCase().includes(data.toLowerCase())) {
+        this.filteredUsers.push(user);
       }
     }
   }
-  
 
-
-  getUsers() {
-    this.users = this.userService.getModUsers();
-  }
 
 }

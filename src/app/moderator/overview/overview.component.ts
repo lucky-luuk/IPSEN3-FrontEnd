@@ -12,18 +12,14 @@ import {NavigationEvent} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-
 export class OverviewComponent implements OnInit {
   tickets : TicketModel[] = [];
 
-  constructor(private ticketService: TicketService, private router : Router) {
-  }
+  constructor(private ticketService: TicketService) {}
 
   ngOnInit(): void {
-    this.getAllTickets();
-  }
-
-  getAllTickets() : void {
     this.ticketService.getAllActiveTickets((data) => {
       this.tickets = data;
     });
   }
+
   onClick(ticket : TicketModel) {
     this.ticketService.setSelectedTicket(ticket);
   }
