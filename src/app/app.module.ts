@@ -38,7 +38,7 @@ import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
-import { gameService } from './afkoteek/game/game-page/game.service';
+import { gameService } from './afkoteek/game/game-page/Game.service';
 import { ModDropdownComponent } from './admin/edit-mod/mod-dropdown/mod-dropdown.component';
 import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -49,8 +49,13 @@ import { AddModPopupComponent } from './admin/add-mod/add-mod-popup/add-mod-popu
 import {TicketInfoRequestComponent} from "./moderator/ticket/ticket-info-request/ticket-info-request.component";
 import { ConfirmPopupComponent } from './afkoteek/support/confirm-popup/confirm-popup.component';
 import {RouterModule} from "@angular/router";
+import { TopPlayerListComponent } from './afkoteek/game/game-page/game-page-start/top-player-list/top-player-list.component';
+import { AnwserComponent } from './afkoteek/game/game-page/game-page-playing/anwser/anwser.component';
+import { ScoreComponent } from './afkoteek/game/game-page/score/score.component';
 import { AdminSavePopupComponent } from './admin/edit-mod/admin-save-popup/admin-save-popup.component';
 import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-popup/mod-ticket-save-popup.component';
+import { NotSavedPopupComponent } from './moderator/ticket/not-saved-popup/not-saved-popup.component';
+import { PopupNotSavedComponent } from './admin/popup-not-saved/popup-not-saved.component';
 import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
@@ -95,9 +100,15 @@ import { AuthComponent } from './auth/auth.component';
     AddModPopupComponent,
     TicketInfoRequestComponent,
     ConfirmPopupComponent,
+    TopPlayerListComponent,
+    AnwserComponent,
+    ScoreComponent,
     AdminSavePopupComponent,
     ModTicketSavePopupComponent,
+    NotSavedPopupComponent,
+    PopupNotSavedComponent,
     AuthComponent,
+
   ],
   imports: [
     BrowserModule,

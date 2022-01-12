@@ -1,0 +1,17 @@
+<div class="grid-container">
+        <div class="child-content">
+            <br>
+            <h3>{{name}}</h3>
+            <br><hr><br>
+            <h5><b>Behaalde Score!</b></h5>
+            <h1>{{score}}</h1>
+            <br>
+            <button type="button" (click)="sendScoreToDB()">Stuur je score op</button>
+        </div>
+        <div class="child-content">
+          <app-top-player-list></app-top-player-list>
+        </div>
+        <div class="button-content">
+        <button type="button" (click)="backToStart()">&leftarrow; terug naar de game</button>
+          </div>
+</div>

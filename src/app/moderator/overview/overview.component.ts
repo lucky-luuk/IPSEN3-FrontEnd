@@ -25,7 +25,7 @@ export class OverviewComponent implements OnInit {
   }
 
   getAllTickets() : void {
-    this.ticketService.getAllTickets((data) => {
+    this.ticketService.getAllActiveTickets((data) => {
       this.tickets = data;
     });
   }

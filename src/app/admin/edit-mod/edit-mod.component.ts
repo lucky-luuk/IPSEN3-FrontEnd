@@ -7,6 +7,7 @@ import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list
 
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AdminSavePopupComponent} from "./admin-save-popup/admin-save-popup.component";
+import {NotSavedPopupComponent} from "../../moderator/ticket/not-saved-popup/not-saved-popup.component";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {FormGroup} from "@angular/forms";
 
@@ -29,7 +30,9 @@ export class EditModComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
   ) {
+
     this.user = new UsersModel();
+
     // this.userEdit = new FormGroup();
   }
 
@@ -57,6 +60,7 @@ export class EditModComponent implements OnInit {
     this.modalService.open(AdminSavePopupComponent)
   }
 
+
   // onSubmit(){
   //   let data : {firstName : string, lastName : string, email : string, phoneNumber : string} = f.form.value
   //   this.onSubmit = () => {this.updateUser(f)};
@@ -74,6 +78,15 @@ export class EditModComponent implements OnInit {
     user.email = data.email
     // user.phoneNumber = data.phoneNumber;
     this.usersService.updateUsers(user, () => {});
+
+  backToOverview() {
+    let ref = this.modalService.open(NotSavedPopupComponent);
+    // ref.componentInstance.data = {afkorting: this.abbreviation.name, beschrijving: this.abbreviation.description}
+    ref.componentInstance.onClose = () => {
+   //TODO weizigingen opslaan
+      this.router.navigate(["moderator", "overview"]);
+
+    }
   }
 
   onSelectOrganisation(orgid : string) {
