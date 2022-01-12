@@ -37,7 +37,6 @@ export class GamePagePlayingComponent implements OnInit, OnDestroy{
       this.currentWord = this.gamservice.currentAbbreviation.name;
      this.ArrayOfWords = this.gamservice.listOfAnwsers;
      //SCORE LOG
-     console.log("SCORE: "+ this.gamservice.score);
      if(this.destroyPage || this.gamservice.gameOver){
        clearInterval(intervalID);
        this.router.navigate(['score']); 
