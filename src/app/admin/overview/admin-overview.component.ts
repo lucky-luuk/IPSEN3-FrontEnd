@@ -18,8 +18,9 @@ export class AdminOverviewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.setUsers();
-    this.getUsers();
+    this.userService.getUsers((data)=>{
+      this.users = data;
+    })
   }
 
 

@@ -2,14 +2,14 @@
   <div class="float-child">
     <div class="float-child-split">
       <div class="child-content">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <form #f="ngForm">
           <table>
-            <thead><h4>Moderator: {{(model.firstName + '' + model.lastName)}}</h4></thead>
+            <thead><h4>Moderator: {{(user.firstName + ' ' + user.lastName)}}</h4></thead>
               <tr>
                 <td>Voornaam:</td>
                 <td>
                   <input type="text" class="form-control"
-                         ngModel ="{{model.firstName}}"
+                         ngModel ="{{user.firstName}}"
                          name="firstName"
                          required
                          #firstName="ngModel"
@@ -20,7 +20,7 @@
                 <td>Achternaam:</td>
                 <td>
                   <input type="text" class="form-control"
-                         ngModel ="{{model.lastName}}"
+                         ngModel ="{{user.lastName}}"
                          name="lastName"
                          required
                          #lastName="ngModel"
@@ -31,24 +31,24 @@
                 <td>E-mail:</td>
                 <td>
                   <input type="text" class="form-control"
-                         ngModel ="{{model.email}}"
+                         ngModel ="{{user.email}}"
                          name="email"
                          required email
                          #email="ngModel"
                          [ngClass]="{'is-invalid': !email.valid && email.touched}">
                 </td>
               </tr>
-              <tr>
-                <td>Telefoon:</td>
-                <td>
-                  <input type="text" class="form-control"
-                         ngModel ="{{model.phoneNumber}}"
-                         name="phoneNumber"
-                         required
-                         #phoneNumber="ngModel"
-                         [ngClass]="{'is-invalid': !phoneNumber.valid && phoneNumber.touched}">
-                </td>
-              </tr>
+<!--              <tr>-->
+<!--                <td>Telefoon:</td>-->
+<!--                <td>-->
+<!--                  <input type="text" class="form-control"-->
+<!--                         ngModel ="{{user.phoneNumber}}"-->
+<!--                         name="telefoon"-->
+<!--                         required-->
+<!--                         #phoneNumber="ngModel"-->
+<!--                         [ngClass]="{'is-invalid': !phoneNumber.valid && phoneNumber.touched}">-->
+<!--                </td>-->
+<!--              </tr>-->
               <tr>
                 <td>Orginisatie:</td>
                 <div class="drop-org">
@@ -60,7 +60,7 @@
           </table>
           <div class="save-btn">
             <button
-              type="submit" [disabled]="!f.valid">Opslaan
+              type="submit" [disabled]="!f.valid" (click)="updateUser(f)">Opslaan
             </button>
           </div>
         </form>
