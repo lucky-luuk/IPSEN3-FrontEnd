@@ -11,7 +11,6 @@ export class AdminComponent implements OnInit {
   @ViewChild(AdminOverviewComponent) adminOverView: any;
 
   constructor(private userService: UserService) {
-    this.userService.setUsers();
   }
 
   ngOnInit(): void {

@@ -23,13 +23,10 @@ export class TicketComponent implements OnInit {
   ticketHasBeenSelected = false;
   private _model: TicketModel = new TicketModel();
   account: AccountModel = new AccountModel();
-  // changed in new-abbriation-component with 2 way databinding
   abbreviation: AbbreviationModel = new AbbreviationModel();
-
 
   constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal) {
   }
-
 
 
   ngOnInit(): void {
@@ -79,15 +76,14 @@ export class TicketComponent implements OnInit {
 
   private closeTicket() {
     this.model.removed=true;
-    this.ticketService.updateTicket(this.model, ()=>{})
+    this.ticketService.updateTicket(this.model, ()=>{});
     this.ticketHasBeenSelected = false;
     this.router.navigate(["moderator", "overview"]);
   }
 
   setTicketStatus(data: string) {
     this._model.statusName = data;
-    this.ticketService.updateTicket(this._model, () => {
-    });
+    this.ticketService.updateTicket(this._model, () => {});
   }
 
 

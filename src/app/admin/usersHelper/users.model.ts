@@ -8,7 +8,7 @@ export class UsersModel {
   lastName: string;
   email: string;
   phoneNumber?: string;
-  roles?: [];
+  roles: {name: string}[];
 
   constructor() {
     this.org_id = "";
@@ -18,5 +18,6 @@ export class UsersModel {
     this.id = "";
     this.email = "";
     this.phoneNumber = "";
+    this.roles = [];
   }
 }
