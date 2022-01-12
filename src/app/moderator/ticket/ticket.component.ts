@@ -28,12 +28,12 @@ export class TicketComponent implements OnInit {
 
 
   constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal) {
-    this.init();
-    // make sure the page is reloaded every time
-    this.router.events.subscribe((event) => {
-      this.init();
-    });
+  }
 
+
+
+  ngOnInit(): void {
+    this.init();
   }
 
   init() {
@@ -49,10 +49,6 @@ export class TicketComponent implements OnInit {
       });
     }
   }
-
-  ngOnInit(): void {
-  }
-
   // create a new abbreviation and delete the ticket
   onSaveAbbreviation() {
     this.abbrService.postAbbreviations([this.abbreviation]);

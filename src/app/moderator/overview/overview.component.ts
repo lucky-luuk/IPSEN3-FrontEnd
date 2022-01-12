@@ -13,15 +13,10 @@ export class OverviewComponent implements OnInit {
   tickets : TicketModel[] = [];
 
   constructor(private ticketService: TicketService, private router : Router) {
-    this.getAllTickets();
-    // make sure we reset the tickets on reload
-    this.router.events.subscribe((event) => {
-      this.getAllTickets();
-    });
   }
 
   ngOnInit(): void {
-
+    this.getAllTickets();
   }
 
   getAllTickets() : void {
