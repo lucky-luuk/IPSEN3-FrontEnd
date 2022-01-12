@@ -17,7 +17,7 @@ import {FormGroup} from "@angular/forms";
   styleUrls: ['./edit-mod.component.scss']
 })
 export class EditModComponent implements OnInit {
-  model: UsersModel;
+  user: UsersModel;
   id: string = '';
   lastSearchedData : string = "";
   // userEdit: FormGroup;
@@ -29,7 +29,7 @@ export class EditModComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
   ) {
-    this.model = new UsersModel();
+    this.user = new UsersModel();
     // this.userEdit = new FormGroup();
   }
 
@@ -45,7 +45,7 @@ export class EditModComponent implements OnInit {
     let user: UsersModel;
     this.usersService.getUsersById(this.id, (data) => {
       user = data;
-      this.model = data;
+      this.user = data;
       console.log(data);
     });
     // this.userEdit = new FormGroup({
@@ -57,8 +57,23 @@ export class EditModComponent implements OnInit {
     this.modalService.open(AdminSavePopupComponent)
   }
 
-  onSubmit(form: NgForm){
-    console.log(form);
+  // onSubmit(){
+  //   let data : {firstName : string, lastName : string, email : string, phoneNumber : string} = f.form.value
+  //   this.onSubmit = () => {this.updateUser(f)};
+  // }
+
+  // onChangeUser(){
+  //   this.usersService.updateUsers(this.user, this.user);
+  // }
+
+  updateUser(f : any) {
+    let data : {firstName : string, lastName : string, email : string} = f.form.value
+    let user = new UsersModel();
+    user.firstName = data.firstName;
+    user.lastName = data.lastName;
+    user.email = data.email
+    // user.phoneNumber = data.phoneNumber;
+    this.usersService.updateUsers(user, () => {});
   }
 
   onSelectOrganisation(orgid : string) {

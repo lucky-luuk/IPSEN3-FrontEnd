@@ -17,23 +17,27 @@ export class UserService {
   }
 
   public getAllUsers(implementation : (data: UsersModel[]) => void ){
-    this.http.get<UsersModel[]>("/user", new Map<string, string>(), implementation);
+    this.http.get<UsersModel[]>("/account", new Map<string, string>(), implementation);
   }
 
-  updateUsers(ticket : UsersModel, implementation : (data : UsersModel[]) => void) {
-    this.http.put<UsersModel[]>("/user", [ticket, ticket], implementation);
+  updateUsers(user : UsersModel, implementation : (data : UsersModel[]) => void) {
+    this.http.put<UsersModel[]>("/account/mod", [user, user], implementation);
+  }
+
+  getAllMods(implementation : (data : UsersModel[]) => void){
+    this.http.get<UsersModel[]>("/account/mod", new Map<string, string>(), implementation);
   }
 
 
   public getUsers(implementation : (data : UsersModel[]) => void) {
     let parameters = new Map<string, string>();
-    this.http.get<UsersModel[]>(this.endpoint+'/mod', parameters, implementation);
+    this.http.get<UsersModel[]>("/account/mod", parameters, implementation);
   }
 
   public getUsersById(name: string, implementation : (data : UsersModel) => void) {
     let parameters = new Map<string, string>();
     parameters.set('id', name);
-    this.http.get<UsersModel>(this.endpoint + '/user', parameters, implementation);
+    this.http.get<UsersModel>("/account" , parameters, implementation);
 
   }
 
@@ -44,6 +48,6 @@ export class UserService {
   }
 
   getModUsers() {
-    return this.users.slice()
+    return this.users;
   }
 }
