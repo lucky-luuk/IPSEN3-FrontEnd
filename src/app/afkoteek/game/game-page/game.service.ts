@@ -100,6 +100,11 @@ export class gameService{
         this.anwserGiven = true;
         if(anwser === this.currentAbbreviation.description){
             this.score = this.score + this.counter;
+        }else{
+            this.score = this.score - Math.round(this.counter/2);
+            if(this.score < 0){
+                this.score = 0;
+            }
         }
         if(this.forGlory){
             this.anwserGiven = false;
