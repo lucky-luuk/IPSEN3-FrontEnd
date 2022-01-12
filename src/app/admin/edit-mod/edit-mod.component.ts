@@ -72,12 +72,12 @@ export class EditModComponent implements OnInit {
 
   updateUser(f : any) {
     let data: { firstName: string, lastName: string, email: string } = f.form.value
-    let user = new UsersModel();
-    user.firstName = data.firstName;
-    user.lastName = data.lastName;
-    user.email = data.email
+    // let user = new UsersModel();
+    this.user.firstName = data.firstName;
+    this.user.lastName = data.lastName;
+    this.user.email = data.email;
     // user.phoneNumber = data.phoneNumber;
-    this.usersService.updateUsers(user, () => {
+    this.usersService.updateUsers(this.user, () => {
     });
   }
 
