@@ -1,6 +1,7 @@
 import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import { SearchBarComponent } from './search-bar.component';
+import {AppModule} from "../../../app.module";
 
 describe('SearchBarComponent', () => {
   let component: SearchBarComponent;
@@ -8,12 +9,10 @@ describe('SearchBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchBarComponent ]
+      declarations: [ SearchBarComponent ],
+      imports: [AppModule],
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

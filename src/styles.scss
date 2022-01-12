@@ -12,6 +12,7 @@ $primary-font: 'Open Sans', sans-serif;
 $home-page-background-color: #f2f2f2;
 
 $max-content-height: 60vh;
+$max-content-width: 60vw;
 
 .content-container{
   display: flex;
@@ -24,10 +25,10 @@ $max-content-height: 60vh;
 }
 
 body {
-  margin: 0 auto;
+  margin: 0;
   height: 100%;
   font-family: $primary-font;
-  background-color: $home-page-background-color;
+  background-color: $home-page-background-color !important;
 }
 
 button{
@@ -44,3 +45,9 @@ button{
    }
 }
 
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

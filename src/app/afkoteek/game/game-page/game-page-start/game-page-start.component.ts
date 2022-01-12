@@ -1,6 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
-import { gameService } from '../game.service';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {ActivatedRoute, Router} from "@angular/router";
+import { AbbreviationModel } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.model';
+import { AbbreviationService } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.service';
+import { OrganisationModel } from 'src/app/afkoteek/search/abbreviation-list/organisation.model';
+import { gameService } from '../Game.service';
 
 @Component({
   selector: 'app-game-page-start',
@@ -8,22 +12,35 @@ import { gameService } from '../game.service';
   styleUrls: ['./game-page-start.component.scss']
 })
 export class GamePageStartComponent implements OnInit {
+  @ViewChild('gameform') gameForm!: NgForm;
+  organisatie: string = '';
 
-  @ViewChild ('nameInput') nameInputRef: ElementRef;
-  // @ViewChild ('orgInput') OrgInputRef: ElementRef;
-
-  constructor(private gameService: gameService) {
-    this.nameInputRef = new ElementRef(null);
-    // this.OrgInputRef = new ElementRef(null);
+  constructor(private router: Router,private http: AbbreviationService, private route: ActivatedRoute, private gamservice: gameService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
-  startGame(){
-    const playerName = this.nameInputRef.nativeElement.value;
-    // const orgName = this.OrgInputRef.nativeElement.value;
-    this.gameService.addGameInfo(playerName);
+  onSelectOrg(data: OrganisationModel){
+    this.organisatie = data.id;
+    
+  }
+
+  startGame(form: NgForm){
+    this.setAbbreviationData(this.organisatie);
+
+    this.gamservice.selectedOrganisatie = this.organisatie;
+    this.gamservice.playerName = form.value.name;
+  }
+
+  forGlory(form: NgForm){
+    this.gamservice.forGlory = true;
+    this.startGame(form);
+  }
+
+  setAbbreviationData(data: string){
+    this.gamservice.organisatie = this.organisatie;
+    this.gamservice.getAbbreviations();
   }
 
 }

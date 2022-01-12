@@ -8,7 +8,6 @@ import {MockHttpService} from "../../mockHttp.service";
 describe('SearchComponent', () => {
   let component: SearchComponent;
 
-
   beforeEach(() => {
     let abbrListComp = new AbbreviationListComponent(new AbbreviationService(new MockHttpService()));
     component = new SearchComponent();

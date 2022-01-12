@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {TicketService} from "../ticket/ticketModel/ticket.service";
-import {TicketModel} from "../ticket/ticketModel/ticket.model";
+import {ActivatedRoute, Router} from "@angular/router";
+import {TicketModel} from "../ticket/ticket.model";
+import {TicketService} from "../ticket.service";
+import {NavigationEvent} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-view-model";
 
 @Component({
   selector: 'app-overview',
@@ -11,16 +12,19 @@ import {TicketModel} from "../ticket/ticketModel/ticket.model";
 export class OverviewComponent implements OnInit {
   tickets : TicketModel[] = [];
 
-  constructor(private router: Router, private ticketService: TicketService) {
-    this.tickets = this.ticketService.getTickets();
-
+  constructor(private ticketService: TicketService, private router : Router) {
   }
 
   ngOnInit(): void {
+    this.getAllTickets();
   }
 
-  onClick(){
-    console.log( this.router.navigate(['/ticketModel']));
-    this.router.navigate(['ticketModel']);
+  getAllTickets() : void {
+    this.ticketService.getAllActiveTickets((data) => {
+      this.tickets = data;
+    });
+  }
+  onClick(ticket : TicketModel) {
+    this.ticketService.setSelectedTicket(ticket);
   }
 }

@@ -1,18 +1,38 @@
 .new-abbreviation {
-padding: .45rem;
+  padding: .45rem;
   form{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    section{
+      display: grid;
+      grid-template-columns: auto auto;
+      input{
+        margin: 10px;
+        width: 90%;
+      }
+    }
+    .organisation{
+     border: 1px solid rgb(202, 202, 202);
+     }
   }
   .abbreviation{
-    grid-column: 1/2;
+    grid-column: 2/3;
   }
   .definition{
-    grid-column: 2/3;
+    grid-column: 1/2;
   }
   .organisation{
     grid-column: 1/2;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width:1600px){
+  .new-abbreviation{
+    form{
+      display: block;
+    }
+    input{
+      margin: 2px;
+      width: 100%;
+    }
   }
 }
 

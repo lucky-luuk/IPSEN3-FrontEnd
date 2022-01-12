@@ -9,15 +9,17 @@ import {ActivatedRoute, Router, Routes} from "@angular/router";
 })
 export class SupportComponent implements OnInit {
   activeSupport: string = '';
-  options: { type: string, name: string }[] = [];
 
-  constructor(private supportService: SupportService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private supportService: SupportService) { }
 
   ngOnInit(): void {
-    this.options = this.supportService.getOptions();
   }
 
-  supportType(type: string) {
+  setSupportType(type: string) {
     this.activeSupport = type;
+  }
+
+  getOptions() : { type: string, name: string }[] {
+    return this.supportService.getOptions();
   }
 }

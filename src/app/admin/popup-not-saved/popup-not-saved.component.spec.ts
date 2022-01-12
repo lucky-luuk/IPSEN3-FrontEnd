@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TicketModel } from './ticket.model';
+import { PopupNotSavedComponent } from './popup-not-saved.component';
 
-describe('TicketModel', () => {
-  let component: TicketModel;
-  let fixture: ComponentFixture<TicketModel>;
+describe('PopupNotSavedComponent', () => {
+  let component: PopupNotSavedComponent;
+  let fixture: ComponentFixture<PopupNotSavedComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TicketModel ]
+      declarations: [ PopupNotSavedComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TicketModel);
+    fixture = TestBed.createComponent(PopupNotSavedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
