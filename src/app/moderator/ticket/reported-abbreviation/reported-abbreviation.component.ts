@@ -2,6 +2,7 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 import {AbbreviationModel} from "../../../afkoteek/search/abbreviation-list/abbreviation.model";
 import {DropdownComponent} from "../../../afkoteek/search/dropdown/dropdown.component";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-reported-abbreviation',
@@ -9,6 +10,7 @@ import {DropdownComponent} from "../../../afkoteek/search/dropdown/dropdown.comp
   styleUrls: ['./reported-abbreviation.component.scss']
 })
 export class ReportedAbbreviationComponent implements OnInit {
+  reportForm = new FormGroup({abbreviation : new FormControl(), definition: new FormControl(), organisation: new FormControl()})
   @Input() abbrModel: AbbreviationModel;
   @ViewChild(DropdownComponent) dropdown : any;
 
@@ -22,4 +24,5 @@ export class ReportedAbbreviationComponent implements OnInit {
   onChangeOrganisation(org : OrganisationModel) {
     this.abbrModel.organisations[0] = org;
   }
+
 }

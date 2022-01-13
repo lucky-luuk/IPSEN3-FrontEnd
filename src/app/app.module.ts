@@ -110,7 +110,7 @@ import { PopupNotSavedComponent } from './admin/popup-not-saved/popup-not-saved.
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [SupportService, HeaderService, gameService],
+  providers: [SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

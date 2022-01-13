@@ -6,7 +6,7 @@
               ticket Nummer: {{model.id}}
           </th>
           <th>
-              <button  (click)="backToOverview()" class="ticket-header-button">Terug naar overzicht</button>
+              <button (click)="backToOverview()"  class="ticket-header-button">Terug naar overzicht</button>
           </th>
         </tr>
       </table>
@@ -33,7 +33,11 @@
             </tr>
             <tr>
               <td>Behandelaar:</td>
-              <td><form><input id="validator" type="text" value="{{account.firstName}}, {{account.lastName}}" ></form></td>
+              <td>
+                <form [formGroup]="form">
+                  <input formControlName="validator" type="text" value="{{account.firstName}} , {{account.lastName}}" >
+                </form>
+              </td>
             </tr>
         </table>
       </div>

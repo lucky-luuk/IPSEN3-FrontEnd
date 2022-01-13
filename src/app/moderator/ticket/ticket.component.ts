@@ -12,6 +12,10 @@ import {AdminSavePopupComponent} from "../../admin/edit-mod/admin-save-popup/adm
 import {ModTicketSavePopupComponent} from "./mod-ticket-save-popup/mod-ticket-save-popup.component";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NotSavedPopupComponent} from "./not-saved-popup/not-saved-popup.component";
+import {Location} from "@angular/common";
+import {FormGroup, FormControl, FormArray, Validators} from "@angular/forms";
+import {AddModComponent} from "../../admin/add-mod/add-mod.component";
+import {ReportedAbbreviationComponent} from "./reported-abbreviation/reported-abbreviation.component";
 
 
 @Component({
@@ -20,6 +24,9 @@ import {NotSavedPopupComponent} from "./not-saved-popup/not-saved-popup.componen
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
+  abbrName!: string;
+  abbrDesc!: string;
+  form = new FormGroup({validator: new FormControl()})
   ticketHasBeenSelected = false;
   private _model: TicketModel = new TicketModel();
   account: AccountModel = new AccountModel();
@@ -27,7 +34,7 @@ export class TicketComponent implements OnInit {
   abbreviation: AbbreviationModel = new AbbreviationModel();
 
 
-  constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal) {
+  constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal, private location: Location, private reportedComp: ReportedAbbreviationComponent) {
     this.init();
     // make sure the page is reloaded every time
     this.router.events.subscribe((event) => {
@@ -36,7 +43,11 @@ export class TicketComponent implements OnInit {
 
   }
 
+
+
   init() {
+    this.abbrName = this.abbreviation.name;
+    this.abbrDesc = this.abbreviation.description;
     this._model = this.ticketService.getSelectedTicket();
     this.ticketHasBeenSelected = this._model.id !== 0;
     if (this.ticketHasBeenSelected) {
@@ -112,10 +123,14 @@ export class TicketComponent implements OnInit {
   }
 
   backToOverview() {
-    let ref = this.modalService.open(NotSavedPopupComponent);
-    ref.componentInstance.data = {afkorting: this.abbreviation.name, beschrijving: this.abbreviation.description}
-    ref.componentInstance.onClose = () => {
-      this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
+    if (this.form.touched || this.form.dirty || this.abbreviation.name !== this.abbrName || this.abbreviation.description !== this.abbrDesc) {
+      let ref = this.modalService.open(NotSavedPopupComponent);
+      ref.componentInstance.data = {afkorting: this.abbreviation.name, beschrijving: this.abbreviation.description}
+      ref.componentInstance.onClose = () => {
+        this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
+      }
+    } else {
+        this.location.back();
     }
   }
 }
