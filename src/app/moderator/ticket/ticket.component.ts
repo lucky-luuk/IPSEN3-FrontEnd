@@ -116,7 +116,6 @@ export class TicketComponent implements OnInit {
     ref.componentInstance.data = {afkorting: this.abbreviation.name, beschrijving: this.abbreviation.description}
     ref.componentInstance.onClose = () => {
       this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
-      this.closeTicket();
     }
   }
 }
