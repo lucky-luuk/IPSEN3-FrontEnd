@@ -6,7 +6,7 @@
             <h5><b>Behaalde Score!</b></h5>
             <h1>{{score}}</h1>
             <br>
-            <button type="button" (click)="sendScoreToDB()">Stuur je score op</button>
+            <button type="button" *ngIf="forGlory" (click)="sendScoreToDB()">Stuur je score op</button>
         </div>
         <div class="child-content">
           <app-top-player-list></app-top-player-list>
