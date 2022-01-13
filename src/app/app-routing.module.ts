@@ -18,14 +18,15 @@ import {EditModComponent} from "./admin/edit-mod/edit-mod.component";
 import {AdminComponent} from "./admin/admin.component";
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
+import { ScoreComponent } from './afkoteek/game/game-page/score/score.component';
 
 
 export const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
   { path: 'afko', component: AfkoteekComponent},
-  { path: 'game', component: GamePageComponent },
-  { path: 'game-home', component: GamePageStartComponent},
-  { path: 'game-play', component: GamePagePlayingComponent},
+  { path: 'spelen', component: GamePagePlayingComponent},
+  { path: 'home', component: GamePageStartComponent},
+  { path: 'score', component: ScoreComponent},
 
   { path: 'support', component: SupportComponent,
     children: [
@@ -40,11 +41,11 @@ export const routes: Routes = [
     ]
   },
   { path: 'admin', component: AdminComponent, children:[
-      { path: 'admin-page', component: AdminPageComponent},
-      { path: 'edit-mod', component: EditModComponent},
+      { path: 'overzicht', component: AdminPageComponent},
+      { path: ':id/edit', component: EditModComponent},
       { path: 'settings', component: SettingsComponent},
       { path: 'search-admin', component: SearchAdminComponent},
-      { path: 'add-mod', component: AddModComponent},
+      { path: 'nieuw', component: AddModComponent},
     ]},
 ];
 
@@ -52,6 +53,4 @@ export const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

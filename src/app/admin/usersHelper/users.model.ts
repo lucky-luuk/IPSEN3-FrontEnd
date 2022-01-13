@@ -1,21 +1,23 @@
 
 
 export class UsersModel {
-  userid: string;
-  org_id: string;
-  status: string;
-  firstname: string;
-  lastname: string;
+  id: string;
+  org_id?: string;
+  status?: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  phoneNumber: string;
+  phoneNumber?: string;
+  roles: {name: string}[];
 
   constructor() {
-    this.org_id = 'binnenlandse zaken';
-    this.status = 'actief';
-    this.firstname = 'Henk';
-    this.lastname = 'Duif';
-    this.userid = '35007A69';
-    this.email = "henk.duif.overheid@gmail.com";
-    this.phoneNumber = "+31 61889542";
+    this.org_id = "";
+    this.status = "";
+    this.firstName = "";
+    this.lastName = "";
+    this.id = "";
+    this.email = "";
+    this.phoneNumber = "";
+    this.roles = [];
   }
 }

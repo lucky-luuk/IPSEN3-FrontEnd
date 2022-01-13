@@ -16,6 +16,8 @@ import {Location} from "@angular/common";
 import {FormGroup, FormControl, FormArray, Validators} from "@angular/forms";
 import {AddModComponent} from "../../admin/add-mod/add-mod.component";
 import {ReportedAbbreviationComponent} from "./reported-abbreviation/reported-abbreviation.component";
+import {TicketStatusModel} from "./ticketStatus.model";
+
 
 
 @Component({
@@ -30,8 +32,8 @@ export class TicketComponent implements OnInit {
   ticketHasBeenSelected = false;
   private _model: TicketModel = new TicketModel();
   account: AccountModel = new AccountModel();
-  // changed in new-abbriation-component with 2 way databinding
   abbreviation: AbbreviationModel = new AbbreviationModel();
+
 
 
   constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal, private location: Location, private reportedComp: ReportedAbbreviationComponent) {
@@ -41,6 +43,10 @@ export class TicketComponent implements OnInit {
       this.init();
     });
 
+
+
+  ngOnInit(): void {
+    this.init();
   }
 
 
@@ -60,10 +66,6 @@ export class TicketComponent implements OnInit {
       });
     }
   }
-
-  ngOnInit(): void {
-  }
-
   // create a new abbreviation and delete the ticket
   onSaveAbbreviation() {
     this.abbrService.postAbbreviations([this.abbreviation]);
@@ -80,29 +82,25 @@ export class TicketComponent implements OnInit {
     this.closeTicket();
   }
 
-  // change the abbreviation and delette the ticket
-  validator: any;
-
   onChangeAbbreviation() {
     // send the same abbreviation, api looks at id only when deciding what abbr to change
     let ref = this.modalService.open(ModTicketSavePopupComponent);
     ref.componentInstance.onClose = () => {
       this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
-      this.closeTicket()
     }
   }
 
   private closeTicket() {
     this.model.removed=true;
-    this.ticketService.updateTicket(this.model, ()=>{})
+    this.ticketService.updateTicket(this.model, ()=>{});
     this.ticketHasBeenSelected = false;
     this.router.navigate(["moderator", "overview"]);
   }
 
   setTicketStatus(data: string) {
     this._model.statusName = data;
-    this.ticketService.updateTicket(this._model, () => {
-    });
+    if (this.model.statusName === TicketStatusModel.CLOSED)
+      this.closeTicket();
   }
 
 

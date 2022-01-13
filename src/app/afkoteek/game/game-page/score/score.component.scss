@@ -1,0 +1,31 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    .child-content{
+        background-color: white;
+        margin: 5%;
+        text-align: center;
+        button{
+            float: right;
+            margin: 1em;
+        }
+    }
+    .button-content{
+        margin: 6%;
+    }
+}
+
+@media (max-width: 950px) {
+   .grid-container{
+       margin:  0;
+   }
+  }
+
+@media (max-width: 700px) {
+    .grid-container {
+      display: inline;
+    }
+  }

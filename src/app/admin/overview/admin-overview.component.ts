@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
+import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../usersHelper/user.service";
-import { Router } from '@angular/router';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-admin-overview',
@@ -10,28 +11,27 @@ import { Router } from '@angular/router';
 })
 
 export class AdminOverviewComponent implements OnInit {
-  users: UsersModel[];
-  filterdUsers: UsersModel[];
+  users: UsersModel[] = [];
+  filteredUsers: UsersModel[] = [];
 
-  constructor(private userService: UserService, public router: Router) {
-    this.users = this.userService.getUsers();
-    this.filterdUsers = this.users;
+  constructor(private userService: UserService) {
   }
 
   ngOnInit(): void {
+    this.userService.getUsers((data)=>{
+      this.users = data;
+      this.filteredUsers = data;
+    })
   }
 
   onSearch(data : string) {
-    this.users =[];
-    if(data == ""){this.users = this.filterdUsers;}
-
-    for(let user of this.filterdUsers){  
-      if(user.userid    == data ||
-         user.firstname == data ||
-         user.lastname  == data){          
-        this.users.push(user);
+    this.filteredUsers = [];
+    for (let user of this.users) {
+      if (user.firstName.toLowerCase().includes(data.toLowerCase())) {
+        this.filteredUsers.push(user);
       }
     }
   }
-  
+
+
 }
