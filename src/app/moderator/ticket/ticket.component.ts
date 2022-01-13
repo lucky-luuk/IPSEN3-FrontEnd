@@ -12,6 +12,7 @@ import {AdminSavePopupComponent} from "../../admin/edit-mod/admin-save-popup/adm
 import {ModTicketSavePopupComponent} from "./mod-ticket-save-popup/mod-ticket-save-popup.component";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NotSavedPopupComponent} from "./not-saved-popup/not-saved-popup.component";
+import {TicketStatusModel} from "./ticketStatus.model";
 
 
 @Component({
@@ -62,15 +63,11 @@ export class TicketComponent implements OnInit {
     this.closeTicket();
   }
 
-  // change the abbreviation and delette the ticket
-  validator: any;
-
   onChangeAbbreviation() {
     // send the same abbreviation, api looks at id only when deciding what abbr to change
     let ref = this.modalService.open(ModTicketSavePopupComponent);
     ref.componentInstance.onClose = () => {
       this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
-      this.closeTicket()
     }
   }
 
@@ -83,7 +80,8 @@ export class TicketComponent implements OnInit {
 
   setTicketStatus(data: string) {
     this._model.statusName = data;
-    this.ticketService.updateTicket(this._model, () => {});
+    if (this.model.statusName === TicketStatusModel.CLOSED)
+      this.closeTicket();
   }
 
 
