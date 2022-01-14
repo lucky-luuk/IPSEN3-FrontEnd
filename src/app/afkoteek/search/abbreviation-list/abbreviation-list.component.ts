@@ -57,7 +57,6 @@ export class AbbreviationListComponent implements OnInit {
   }
 
   public setAbbreviationData(data : AbbreviationModel[] | null) {
-    console.log(this.shouldShowSearchingAnimation);
     this.shouldShowSearchingAnimation = false;
     if (data === null) {
       this.abbreviations = [];

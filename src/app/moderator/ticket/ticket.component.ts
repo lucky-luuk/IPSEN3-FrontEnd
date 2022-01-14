@@ -62,10 +62,11 @@ export class TicketComponent implements OnInit {
   init() {
     this._model = this.ticketService.getSelectedTicket();
     this.oldData = this.ticketService.copyTicket(this._model);
+
     this.ticketHasBeenSelected = this._model.id !== 0;
     if (this.ticketHasBeenSelected) {
       // wont be null, but just make ts shut up
-      if (this._model.temporaryAbbreviation != null)
+      if (this._model.temporaryAbbreviation !== null)
         this.abbreviation = this._model.temporaryAbbreviation;
 
       this.accountService.getAccountDetailsFromId(this._model.accountId, (data) => {
@@ -75,7 +76,8 @@ export class TicketComponent implements OnInit {
       this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
         this._model = newTicket;
         this.oldData = this.ticketService.copyTicket(newTicket);
-        this.ticketTypDropDown.selectStatus(newTicket.statusName);
+        if (this.ticketTypDropDown !== undefined)
+          this.ticketTypDropDown.selectStatus(newTicket.statusName);
         //set org dropdown for reportedAbbreviationComponent
         if (this.reportedAbbreviation !== undefined) {
           if (this.model.temporaryAbbreviation !== null) {
@@ -105,7 +107,7 @@ export class TicketComponent implements OnInit {
     });
   }
 
-  private handleTicket() {
+  handleTicket() {
     if (this.model.statusName === TicketStatusModel.CLOSED) {
 
       let ref = this.modalService.open(DeleteTicketPopupComponent).componentInstance;
@@ -152,6 +154,12 @@ export class TicketComponent implements OnInit {
 
   get model(): TicketModel {
     return this._model;
+  }
+  set model(val) {
+    this._model = val;
+  }
+  getOldData() : TicketModel {
+    return this.oldData;
   }
 
   getAddAbbreviationTicketType() {

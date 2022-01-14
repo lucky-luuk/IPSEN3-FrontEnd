@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed, tick} from '@angular/core/testing';
 
 import { TicketService } from './ticket.service';
 import {MockHttpService} from "../mockHttp.service";
@@ -8,9 +8,11 @@ import {OrganisationModel} from "../afkoteek/search/abbreviation-list/organisati
 
 describe('TicketService', () => {
   let service: TicketService;
+  let mockHttp : MockHttpService;
 
   beforeEach(() => {
-    service = new TicketService(new MockHttpService());
+    mockHttp = new MockHttpService();
+    service = new TicketService(mockHttp);
   });
 
   it('should be created', () => {
@@ -85,6 +87,18 @@ describe('TicketService', () => {
     let org2 = new OrganisationModel();
     org2.id = "baz";
     expect(service.areOrganisationsSame([org1, org2], [org2])).toEqual(false);
+  });
+
+  it("#hasTicketChangedOnServer calls onChanged when ticket on server is different", () => {
+    let ticket = new TicketModel();
+    ticket.id = 123;
+    mockHttp.setData("/ticket", ticket);
+    service.hasTicketChangedOnServer(ticket, (other) => {
+      // auto fail if tickets are not the same
+      expect(false).toEqual(true);
+    }, () => {
+      expect(true).toEqual(true);
+    });
   });
 
 });
