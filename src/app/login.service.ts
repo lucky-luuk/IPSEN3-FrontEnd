@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private http : HttpService) { }
 
   login(email: string, password: string, onSuccess: (data: {email: string, firstname: string, lastname: string, token: string}) => void, onFailure: () => void) {
-    let hash = Md5.hashStr(password);
+    let hash = this.getPasswordHash(password);
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string}>(
       "/authenticate", {username: email, password: hash}, onSuccess, onFailure);
   }
@@ -19,13 +19,17 @@ export class LoginService {
   createAccount(account: AccountModel, onSuccess: (data: {id: string, firstName: string, lastName: string, email: string, roles: {name: string}[]}) => void, onFailure: () => void) {
     // create new account so we dont change the model
     let a = this.copyAccount(account);
-    a.password = Md5.hashStr(account.password);
+    a.password = this.getPasswordHash(account.password);
 
     this.http.postWithReturnType<AccountModel, {id: string, firstName: string, lastName: string, email: string, roles: {name: string}[]}>(
       "/register", a, onSuccess, onFailure);
   }
 
-  private copyAccount(a : AccountModel) : AccountModel {
+  getPasswordHash(password : string) : string {
+    return Md5.hashStr(password);
+  }
+
+  copyAccount(a : AccountModel) : AccountModel {
     let a2 = new AccountModel();
     a2.firstName = a.firstName;
     a2.password = a.password;

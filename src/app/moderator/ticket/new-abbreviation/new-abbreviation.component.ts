@@ -30,7 +30,6 @@ export class NewAbbreviationComponent implements OnInit, AfterViewInit {
 
   onChangeName(event : any) {
     this.abbrModel.name = event.target.value;
-    console.log(this.abbrModel.name)
   }
 
   onChangeOrganisation(org : OrganisationModel) {
