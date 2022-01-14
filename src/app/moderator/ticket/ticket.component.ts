@@ -72,6 +72,7 @@ export class TicketComponent implements OnInit {
       });
 
       this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
+        console.log("changed");
         this._model = newTicket;
         this.oldData = this.ticketService.copyTicket(newTicket);
         this.ticketTypDropDown.selectStatus(newTicket.statusName);
