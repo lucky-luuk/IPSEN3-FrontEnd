@@ -11,15 +11,11 @@ export class AnwserComponent implements OnInit {
 
   constructor(private gameService: gameService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
-  }
   selectAnwser(givenAnwser: string){
-    console.log(givenAnwser);
-    
     if(!this.gameService.anwserGiven){
       this.gameService.controlAnwser(givenAnwser);
     }
   }
-
 }
