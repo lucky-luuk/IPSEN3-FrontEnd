@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 import {AbbreviationModel} from "../../../afkoteek/search/abbreviation-list/abbreviation.model";
 import {DropdownComponent} from "../../../afkoteek/search/dropdown/dropdown.component";
+import {TicketModel} from "../ticket.model";
 
 @Component({
   selector: 'app-reported-abbreviation',
@@ -9,16 +10,17 @@ import {DropdownComponent} from "../../../afkoteek/search/dropdown/dropdown.comp
   styleUrls: ['./reported-abbreviation.component.scss']
 })
 export class ReportedAbbreviationComponent implements OnInit {
-  @Input() abbrModel: AbbreviationModel;
+  @Input() ticket: TicketModel;
   @ViewChild(DropdownComponent) dropdown : any;
   constructor() {
-    this.abbrModel = new AbbreviationModel();
+    this.ticket = new TicketModel();
   }
 
   ngOnInit(): void {
   }
 
   onChangeOrganisation(org : OrganisationModel) {
-    this.abbrModel.organisations[0] = org;
+    if (this.ticket.temporaryAbbreviation !== null)
+      this.ticket.temporaryAbbreviation.organisations[0] = org;
   }
 }

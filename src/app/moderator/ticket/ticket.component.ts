@@ -7,13 +7,31 @@ import {AccountModel} from "../../account.model";
 import {AccountService} from "../../account.service";
 import {TicketTypeModel} from "./ticketType.model";
 import {Router} from "@angular/router";
-import {TicketTypeDropdownComponent} from "./ticket-type-dropdown/ticket-type-dropdown.component";
-import {AdminSavePopupComponent} from "../../admin/edit-mod/admin-save-popup/admin-save-popup.component";
-import {ModTicketSavePopupComponent} from "./mod-ticket-save-popup/mod-ticket-save-popup.component";
 import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NotSavedPopupComponent} from "./not-saved-popup/not-saved-popup.component";
 import {TicketStatusModel} from "./ticketStatus.model";
+import {TicketHasBeenEditedPopupComponent} from "./ticket-has-been-edited-popup/ticket-has-been-edited-popup.component";
+import {ModTicketSavePopupComponent} from "./mod-ticket-save-popup/mod-ticket-save-popup.component";
+import {TicketTypeDropdownComponent} from "./ticket-type-dropdown/ticket-type-dropdown.component";
 
+/* FLOW
+* Verwijder -> deleteTicket()
+* if (ticket is changed on server) {
+*   open ticketHasChanged popup
+* }
+* else {
+*   ticket.removed = true
+*   service.updateTicket(ticket)
+* }
+*
+* Opslaan -> saveTicket()
+* if (ticket is changed on server) {
+*   open ticketHasChanged popup
+* }
+* else {
+*   handleTicket()
+* }
+*/
 
 @Component({
   selector: 'app-ticket',
@@ -21,21 +39,24 @@ import {TicketStatusModel} from "./ticketStatus.model";
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
+  @ViewChild(TicketTypeDropdownComponent) ticketTypDropDown : any;
+
   ticketHasBeenSelected = false;
+  private oldData = new TicketModel();
   private _model: TicketModel = new TicketModel();
   account: AccountModel = new AccountModel();
   abbreviation: AbbreviationModel = new AbbreviationModel();
 
   constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal) {
-  }
 
+  }
 
   ngOnInit(): void {
     this.init();
   }
-
   init() {
     this._model = this.ticketService.getSelectedTicket();
+    this.oldData = this.ticketService.copyTicket(this._model);
     this.ticketHasBeenSelected = this._model.id !== 0;
     if (this.ticketHasBeenSelected) {
       // wont be null, but just make ts shut up
@@ -45,45 +66,60 @@ export class TicketComponent implements OnInit {
       this.accountService.getAccountDetailsFromId(this._model.accountId, (data) => {
         this.account = data;
       });
-    }
-  }
-  // create a new abbreviation and delete the ticket
-  onSaveAbbreviation() {
-    this.abbrService.postAbbreviations([this.abbreviation]);
-  }
 
-  // delete the ticket
-  onDeleteTicket() {
-    this.closeTicket();
-  }
-
-  // delete the ticket and the abbreviation
-  onDeleteAbbreviation() {
-    this.abbrService.deleteAbbreviation([this.abbreviation]);
-    this.closeTicket();
-  }
-
-  onChangeAbbreviation() {
-    // send the same abbreviation, api looks at id only when deciding what abbr to change
-    let ref = this.modalService.open(ModTicketSavePopupComponent);
-    ref.componentInstance.onClose = () => {
-      this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
+      this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
+        this.onTicketHasBeenChangedOnServer(newTicket);
+      }, () => {});
     }
   }
 
-  private closeTicket() {
-    this.model.removed=true;
-    this.ticketService.updateTicket(this.model, ()=>{});
-    this.ticketHasBeenSelected = false;
-    this.router.navigate(["moderator", "overview"]);
+  deleteTicket() {
+    this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
+      this.onTicketHasBeenChangedOnServer(newTicket);
+    }, () => {
+      this.model.removed=true;
+      this.ticketService.updateTicket(this.model, ()=>{});
+      this.ticketHasBeenSelected = false;
+      this.router.navigate(["moderator", "overview"]);
+    });
+  }
+  saveTicket() {
+    this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
+      this.onTicketHasBeenChangedOnServer(newTicket);
+    }, () => {
+      this.handleTicket();
+    });
   }
 
-  setTicketStatus(data: string) {
-    this._model.statusName = data;
-    if (this.model.statusName === TicketStatusModel.CLOSED)
-      this.closeTicket();
+  private handleTicket() {
+    if (this.model.statusName === TicketStatusModel.CLOSED) {
+      if (this.model.type === TicketTypeModel.INFO) {
+
+      }
+      else if (this.model.type === TicketTypeModel.REPORT) {
+
+      }
+      else { // type === ADD_ABBREVIATION
+
+      }
+    }
+    else {
+      let ref = this.modalService.open(NotSavedPopupComponent).componentInstance;
+      ref.data = this._model;
+      ref.onClose = () => {
+        this.ticketService.updateTicket(this.model, () => {});
+      }
+    }
   }
 
+  private onTicketHasBeenChangedOnServer(newTicket : TicketModel) {
+    let ref = this.modalService.open(TicketHasBeenEditedPopupComponent).componentInstance;
+    ref.onReloadPage = () => {
+      this.ticketTypDropDown.selectStatus(newTicket.statusName);
+      this._model = newTicket;
+      this.oldData = newTicket;
+    };
+  }
 
   get model(): TicketModel {
     return this._model;
@@ -103,11 +139,14 @@ export class TicketComponent implements OnInit {
 
   backToOverview() {
     let ref = this.modalService.open(NotSavedPopupComponent);
-    ref.componentInstance.data = {afkorting: this.abbreviation.name, beschrijving: this.abbreviation.description}
+    ref.componentInstance.data = this.model;
     ref.componentInstance.onClose = () => {
-      this.abbrService.changeAbbreviation(this.abbreviation, this.abbreviation);
-      this.closeTicket();
+      this.saveTicket();
     }
+  }
+
+  setTicketStatus(data: string) {
+    this._model.statusName = data;
   }
 }
 

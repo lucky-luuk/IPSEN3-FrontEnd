@@ -3,6 +3,7 @@ import {AbbreviationModel} from "../../../afkoteek/search/abbreviation-list/abbr
 import {AbbreviationService} from "../../../afkoteek/search/abbreviation-list/abbreviation.service";
 import {DropdownComponent} from "../../../afkoteek/search/dropdown/dropdown.component";
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
+import {TicketModel} from "../ticket.model";
 
 @Component({
   selector: 'app-new-abbreviation',
@@ -10,29 +11,44 @@ import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/orga
   styleUrls: ['./new-abbreviation.component.scss']
 })
 export class NewAbbreviationComponent implements OnInit, AfterViewInit {
-  @Input() abbrModel: AbbreviationModel;
+  @Input() ticket: TicketModel;
   @ViewChild(DropdownComponent) dropdown : any;
 
   constructor() {
-   this.abbrModel = new AbbreviationModel();
+   this.ticket = new TicketModel();
   }
 
   ngOnInit(): void {
   }
 
   ngAfterViewInit() : void {
-    this.dropdown.selectOrganisation(this.abbrModel.organisations[0]);
+    if (this.ticket.temporaryAbbreviation !== null)
+      this.dropdown.selectOrganisation(this.ticket.temporaryAbbreviation.organisations[0]);
   }
 
   onChangeDescription(event : any) {
-    this.abbrModel.description = event.target.value;
+    if (this.ticket.temporaryAbbreviation !== null)
+      this.ticket.temporaryAbbreviation.description = event.target.value;
   }
 
   onChangeName(event : any) {
-    this.abbrModel.name = event.target.value;
+    if (this.ticket.temporaryAbbreviation !== null)
+      this.ticket.temporaryAbbreviation.name = event.target.value;
   }
 
   onChangeOrganisation(org : OrganisationModel) {
-    this.abbrModel.organisations[0] = org;
+    if (this.ticket.temporaryAbbreviation !== null)
+      this.ticket.temporaryAbbreviation.organisations[0] = org;
+  }
+
+  getAbbreviationName() : string {
+    if (this.ticket.temporaryAbbreviation !== null)
+      return this.ticket.temporaryAbbreviation.name;
+    return "";
+  }
+  getAbbreviationDescription() : string {
+    if (this.ticket.temporaryAbbreviation !== null)
+      return this.ticket.temporaryAbbreviation.description;
+    return "";
   }
 }
