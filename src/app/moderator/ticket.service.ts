@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpService} from "../http.service";
 import {TicketModel} from "./ticket/ticket.model";
 import {UsersModel} from "../admin/usersHelper/users.model";
 import {OrganisationModel} from "../afkoteek/search/abbreviation-list/organisation.model";
 import {AbbreviationModel} from "../afkoteek/search/abbreviation-list/abbreviation.model";
 import {tick} from "@angular/core/testing";
+import {Subscription} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TicketService {
-  private selectedTicket : TicketModel = new TicketModel();
+  private selectedTicket : TicketModel | null = null;
 
   constructor(private http : HttpService) { }
 
@@ -46,7 +47,12 @@ export class TicketService {
     this.selectedTicket = t;
   }
   getSelectedTicket() : TicketModel {
+    if (this.selectedTicket === null)
+      return new TicketModel();
     return this.selectedTicket;
+  }
+  selectedTicketHasBeenSet() : boolean {
+    return !(this.selectedTicket === null);
   }
 
   hasTicketChangedOnServer(ticket : TicketModel, onChanged : (newTicket : TicketModel) => void, onSame : () => void) {
@@ -127,7 +133,7 @@ export class TicketService {
     t2.temporaryAbbreviation.organisations.push(org2);
     return [t1, t2];
   }
-
+  // do a deep copy!!!
   copyTicket(ticket : TicketModel) : TicketModel {
     let t = new TicketModel();
     t.message = ticket.message;
@@ -162,5 +168,4 @@ export class TicketService {
     }
     return t;
   }
-
 }

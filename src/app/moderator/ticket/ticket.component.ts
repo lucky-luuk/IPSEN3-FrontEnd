@@ -85,6 +85,7 @@ export class TicketComponent implements OnInit {
   }
   saveTicket() {
     this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
+      console.log(this.oldData);
       this.onTicketHasBeenChangedOnServer(newTicket);
     }, () => {
       this.handleTicket();
@@ -117,7 +118,7 @@ export class TicketComponent implements OnInit {
     ref.onReloadPage = () => {
       this.ticketTypDropDown.selectStatus(newTicket.statusName);
       this._model = newTicket;
-      this.oldData = newTicket;
+      this.oldData = this.ticketService.copyTicket(newTicket);
     };
   }
 
