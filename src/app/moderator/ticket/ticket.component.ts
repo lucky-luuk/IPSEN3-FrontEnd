@@ -15,6 +15,7 @@ import {ModTicketSavePopupComponent} from "./mod-ticket-save-popup/mod-ticket-sa
 import {TicketTypeDropdownComponent} from "./ticket-type-dropdown/ticket-type-dropdown.component";
 import {ReportedAbbreviationComponent} from "./reported-abbreviation/reported-abbreviation.component";
 import {NewAbbreviationComponent} from "./new-abbreviation/new-abbreviation.component";
+import {DeleteTicketPopupComponent} from "./delete-ticket-popup/delete-ticket-popup.component";
 
 /* FLOW
 * Verwijder -> deleteTicket()
@@ -72,7 +73,6 @@ export class TicketComponent implements OnInit {
       });
 
       this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
-        console.log("changed");
         this._model = newTicket;
         this.oldData = this.ticketService.copyTicket(newTicket);
         this.ticketTypDropDown.selectStatus(newTicket.statusName);
@@ -97,16 +97,6 @@ export class TicketComponent implements OnInit {
     }
   }
 
-  deleteTicket() {
-    this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
-      this.onTicketHasBeenChangedOnServer(newTicket);
-    }, () => {
-      this.model.removed=true;
-      this.ticketService.updateTicket(this.model, ()=>{});
-      this.ticketHasBeenSelected = false;
-      this.router.navigate(["moderator", "overview"]);
-    });
-  }
   saveTicket() {
     this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
       this.onTicketHasBeenChangedOnServer(newTicket);
@@ -117,15 +107,20 @@ export class TicketComponent implements OnInit {
 
   private handleTicket() {
     if (this.model.statusName === TicketStatusModel.CLOSED) {
-      if (this.model.type === TicketTypeModel.INFO) {
 
-      }
-      else if (this.model.type === TicketTypeModel.REPORT) {
+      let ref = this.modalService.open(DeleteTicketPopupComponent).componentInstance;
+      ref.onDeleteCalled = () => {
+        if (this.model.type === TicketTypeModel.ADD_ABBREVIATION) {
 
-      }
-      else { // type === ADD_ABBREVIATION
+        }
+        else if (this.model.type === TicketTypeModel.REPORT) {
 
-      }
+        }
+        else { // type === INFO
+
+        }
+        this.deleteTicket();
+      };
     }
     else {
       let ref = this.modalService.open(NotSavedPopupComponent).componentInstance;
@@ -134,6 +129,17 @@ export class TicketComponent implements OnInit {
         this.ticketService.updateTicket(this.model, () => {});
       }
     }
+  }
+
+  deleteTicket() {
+    this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
+      this.onTicketHasBeenChangedOnServer(newTicket);
+    }, () => {
+      this.model.removed=true;
+      this.ticketService.updateTicket(this.model, ()=>{});
+      this.ticketHasBeenSelected = false;
+      this.router.navigate(["moderator", "overview"]);
+    });
   }
 
   private onTicketHasBeenChangedOnServer(newTicket : TicketModel) {
