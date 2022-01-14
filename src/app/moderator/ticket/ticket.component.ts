@@ -74,6 +74,7 @@ export class TicketComponent implements OnInit {
       this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
         this._model = newTicket;
         this.oldData = this.ticketService.copyTicket(newTicket);
+        this.ticketTypDropDown.selectStatus(newTicket.statusName);
         //set org dropdown for reportedAbbreviationComponent
         if (this.reportedAbbreviation !== undefined) {
           if (this.model.temporaryAbbreviation !== null) {
