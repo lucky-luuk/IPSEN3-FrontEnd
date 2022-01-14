@@ -32,11 +32,12 @@ export class gameService{
     playerName: string = '';
     score: number = 0;
 
-    counter: number = 60;
+    counter: number = 3;
     gameOver: boolean = false;
     anwserGiven = false;
     forGlory = false;
     anwserSend = false;
+    scoreSavedInDB = false;
 
     totalAbbreviations: number = 0;
     maxAnwsers: number= 4;
@@ -80,20 +81,18 @@ export class gameService{
         }
     }
 
-
     getWrongAnwser(){
         this.goOn = true;
 
         while(this.goOn){
             this.randomNumber = Math.floor(Math.random() * this.holderOfAbbreviations.length -1);
             this.wrongAbbreviation = this.holderOfAbbreviations[this.randomNumber];
-            //CRASH-------------------------------------------------------
-            console.log(this.wrongAbbreviation);
 
-
-            if(this.wrongAbbreviation.name !== this.currentAbbreviation.name){
-                this.listOfAnwsers.push(this.wrongAbbreviation);
-                this.goOn = false;
+            if(this.wrongAbbreviation !== undefined){
+                if(this.wrongAbbreviation.name !== this.currentAbbreviation.name){
+                    this.listOfAnwsers.push(this.wrongAbbreviation);
+                    this.goOn = false;
+                }
             }
         }
     }
@@ -102,18 +101,22 @@ export class gameService{
         this.anwserGiven = true;
         if(anwser === this.currentAbbreviation.description){
             this.score = this.score + this.counter;
+        }else{
+            this.score = this.score - Math.round(this.counter/2);
+            if(this.score < 0){
+                this.score = 0;
+            }
         }
         if(this.forGlory){
             this.anwserGiven = false;
             this.setQuestion();
         }
-
     }
 
     prepForNextgame(){
         this.listOfUsedAfk = [];
         this.score = 0;
-        this.counter = 60;
+        this.counter = 3;
         this.goOn = true;
         this.gameOver = false;
         this.anwserGiven = false;
@@ -123,17 +126,14 @@ export class gameService{
 
     postScore(){
         this.anwserSend = true;
-
         this.Game.name = this.playerName;
         this.Game.score = this.score;
         this.Game.organisation_id = this.selectedOrganisatie;
-
         this.Gamemodel = [];
-        console.log(this.Game.organisation_id);
 
         this.Gamemodel.push(this.Game);
-
         this.http.post<Game[]>('/score', this.Gamemodel, (data) => {
+            this.scoreSavedInDB = true;
         });
     }
 
@@ -141,7 +141,7 @@ export class gameService{
         this.holderOfAbbreviations =[];
         this.listOfAbbreviations = [];
         if(this.forGlory){
-            this.AbbreviationHTTP.geAbbreviationByOrgId('glory', (data) => {
+            this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
                 data.forEach( (abbr) =>{
                     this.putAbbreviationInList(abbr);
                 });
