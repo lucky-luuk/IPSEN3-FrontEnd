@@ -7,7 +7,7 @@
     <div>Weet je zeker dat je deze afkorting wilt rapporteren?</div>
     <div class="abbr-name">{{reportedAbbreviation.name}}</div>
     <div class="abbr-description">{{reportedAbbreviation.description}}</div>
-      <textarea (keydown)="onSetDescription($event)"
+      <textarea (keyup)="onSetDescription($event)"
         class="form-control"
         ngModel
         required

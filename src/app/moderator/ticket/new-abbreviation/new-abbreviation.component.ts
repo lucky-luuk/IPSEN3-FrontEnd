@@ -51,4 +51,7 @@ export class NewAbbreviationComponent implements OnInit, AfterViewInit {
       return this.ticket.temporaryAbbreviation.description;
     return "";
   }
+  setOrganisationDropdown(org : OrganisationModel) {
+    this.dropdown.selectOrganisation(org);
+  }
 }
