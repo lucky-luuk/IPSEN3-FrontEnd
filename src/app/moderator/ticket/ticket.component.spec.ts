@@ -15,15 +15,22 @@ import {AppModule} from "../../app.module";
 import {TicketModel} from "./ticket.model";
 import {TicketTypeModel} from "./ticketType.model";
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";
+import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organisation.model";
 
 describe('TicketComponent', () => {
   let component: TicketComponent;
   let fixture: ComponentFixture<TicketComponent>;
   let mockHttp : MockHttpService;
   let ticketService : TicketService;
+
   beforeEach(() => {
     mockHttp = new MockHttpService();
     ticketService = new TicketService(mockHttp);
+    let ticket = new TicketModel();
+    ticket.temporaryAbbreviation = new AbbreviationModel();
+    ticket.temporaryAbbreviation.organisations = [new OrganisationModel()];
+    ticket.removed = false;
+    mockHttp.setData("/ticket", ticket);
     TestBed.configureTestingModule({
       declarations: [
         TicketComponent, TicketTypeDropdownComponent, NewAbbreviationComponent, TicketInfoRequestComponent
@@ -50,9 +57,10 @@ describe('TicketComponent', () => {
 
   it("#deleteTicket should set removed to true when tickets are same", () => {
     let ticket = new TicketModel();
+    ticket.temporaryAbbreviation = new AbbreviationModel();
     ticket.removed = false;
     mockHttp.setData("/ticket", ticket);
-    component.model = ticket;
+    (component as any).oldData = ticket;
     component.deleteTicket();
     expect(component.model.removed).toEqual(true);
   });
@@ -74,8 +82,8 @@ describe('TicketComponent', () => {
     // to handle side effects:
     ticket.temporaryAbbreviation = new AbbreviationModel();
     mockHttp.setData("/ticket", ticket);
-
     ticketService.setSelectedTicket(ticket);
+
     component.init();
     expect(component.ticketHasBeenSelected).toEqual(true);
   });
@@ -99,5 +107,22 @@ describe('TicketComponent', () => {
     ticketService.setSelectedTicket(ticket1);
     component.init();
     expect(component.model.id).toEqual(ticket2.id);
+  });
+
+  it("#setTicketData should set model and oldData", () => {
+    let ticket = new TicketModel();
+    ticket.id = 1;
+    // to test private member
+    (component as any).setTicketData(ticket);
+    expect((component as any).oldData.id).toEqual(ticket.id);
+    expect(component.model.id).toEqual(ticket.id);
+  });
+
+  it("#handleTicketHasBeenChangedOnServer should call #setTicketData", () => {
+    let ticket = new TicketModel();
+    ticket.id = 123;
+    (component as any).handleTicketHasBeenChangedOnServer(ticket);
+    expect((component as any).oldData.id).toEqual(ticket.id);
+    expect(component.model.id).toEqual(ticket.id);
   });
 });
