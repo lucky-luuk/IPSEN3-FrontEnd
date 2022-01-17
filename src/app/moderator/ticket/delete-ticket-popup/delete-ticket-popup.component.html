@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title">Ticket Sluiten</h4>
+  <button class="btn btn-close" (click)="activeModal.close('Close click')"></button>
+</div>
+<div class="modal-body">
+  <div>Weet je zeker dat je dit ticket wilt sluiten?</div>
+
+</div>
+<div class="modal-footer">
+  <button [routerLink]="['moderator/overview']" (click)="onDelete()">Archiveer</button>
+</div>

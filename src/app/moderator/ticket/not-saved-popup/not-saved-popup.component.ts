@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ModalDismissReasons, NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {TicketModel} from "../ticket.model";
 
 
 @Component({
@@ -10,21 +11,10 @@ import {ModalDismissReasons, NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 export class NotSavedPopupComponent implements OnInit {
 
   onClose = ()=>{}
+  data: TicketModel;
 
-  data:{afkorting: string, beschrijving: string}
   constructor(public activeModal: NgbActiveModal) {
-    this.data= {afkorting: "er is geen afkorting", beschrijving: "er is geen beschrijving"}
-  }
-
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+    this.data = new TicketModel();
   }
 
   onSave(){

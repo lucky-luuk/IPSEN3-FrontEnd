@@ -43,7 +43,7 @@ export class gameService{
     maxAnwsers: number= 4;
     organisatie = '';
 
-    constructor(private router: Router ,private AbbreviationHTTP: AbbreviationService, private http : HttpService){
+    constructor(private router: Router, private AbbreviationHTTP: AbbreviationService, private http : HttpService){
     }
 
     putAbbreviationInList(data: AbbreviationModel){
@@ -54,14 +54,14 @@ export class gameService{
 
 
 // SET THE QUESTIONS AND ANWSERS FOR THE GAME
-    setQuestion() {  
-        this.totalAbbreviations = this.listOfAbbreviations.length - 1;      
+    setQuestion() {
+        this.totalAbbreviations = this.listOfAbbreviations.length - 1;
         this.randomNumber = Math.floor(Math.random() * this.totalAbbreviations);
         this.currentAbbreviation = this.listOfAbbreviations[this.randomNumber]
 
         this.listOfAbbreviations.splice(this.listOfAbbreviations.findIndex(abbr => abbr.name === this.currentAbbreviation.name), 1)
         this.listOfUsedAfk.push(this.currentAbbreviation.name);
-               
+
         if(this.listOfAbbreviations.length < 5){
             this.listOfUsedAfk = [];
             this.listOfAbbreviations = this.holderOfAbbreviations;
@@ -87,11 +87,13 @@ export class gameService{
         while(this.goOn){
             this.randomNumber = Math.floor(Math.random() * this.holderOfAbbreviations.length -1);
             this.wrongAbbreviation = this.holderOfAbbreviations[this.randomNumber];
+
             if(this.wrongAbbreviation !== undefined){
                 if(this.wrongAbbreviation.name !== this.currentAbbreviation.name){
                     this.listOfAnwsers.push(this.wrongAbbreviation);
                     this.goOn = false;
                 }
+
             }
         }
     }
@@ -129,6 +131,7 @@ export class gameService{
         this.Game.score = this.score;
         this.Game.organisation_id = this.selectedOrganisatie;
         this.Gamemodel = [];
+
         this.Gamemodel.push(this.Game);
         this.http.post<Game[]>('/score', this.Gamemodel, (data) => {
             this.scoreSavedInDB = true;
@@ -142,18 +145,22 @@ export class gameService{
             this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
                 data.forEach( (abbr) =>{
                     this.putAbbreviationInList(abbr);
-                }); 
+                });
                 this.setQuestion();
-                this.router.navigate(['spelen']);   
-            });
+                this.router.navigate(['spelen']);
+
+            }, () => {});
+
         }else{
             this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
                 data.forEach( (abbr) =>{
                     this.putAbbreviationInList(abbr);
-                }); 
+                });
                 this.setQuestion();
-                this.router.navigate(['spelen']);   
-            });
+                this.router.navigate(['spelen']);
+
+            }, () => {});
+
         }
     }
 
@@ -167,7 +174,7 @@ export class gameService{
             this.counter = this.counter - 1;
             if(this.counter === 0){
                 clearInterval(intervalID);
-                this.gameOver = true;  
+                this.gameOver = true;
             }
         }, 1000);
     }

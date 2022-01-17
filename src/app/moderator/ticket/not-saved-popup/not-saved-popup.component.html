@@ -1,14 +1,15 @@
 <div class="modal-header">
-  <h4 class="modal-title">Weet je zeker dat je terug wil gaan zonder op te slaan?</h4>
+  <h4 class="modal-title">Wil je deze ticket opslaan?</h4>
   <button class="btn btn-close" (click)="activeModal.close('Close click')"></button>
 </div>
 <div class="modal-body">
   <div class="data-container">
-    <div>Afkorting: {{data.afkorting}}</div>
-    <div>Betekenis: {{data.beschrijving}}</div>
+    <div>Ticket: {{data.id}}</div>
+    <div>Status: {{data.statusName}}</div>
   </div>
 </div>
 <div class="modal-footer">
-  <button [routerLink]="['moderator/overview']" (click)="onSave()">toch opslaan</button>
-  <button [routerLink]="['moderator/overview']" (click)="activeModal.close('not saved')">weizigingen negeren</button>
+  <button [routerLink]="['moderator/overview']" (click)="activeModal.close()">Sluit</button>
+  <button [routerLink]="['moderator/overview']" (click)="onSave()">Opslaan</button>
+
 </div>
