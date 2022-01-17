@@ -1,16 +1,16 @@
 <div class="float-container" *ngIf="ticketHasBeenSelected === true">
-    <div class="float-child">
-      <table class="child-content ticket-header">
-        <tr>
-          <th>
-              ticket Nummer: {{model.id}}
-          </th>
-          <th>
-              <button (click)="backToOverview()"  class="ticket-header-button">Terug naar overzicht</button>
-          </th>
-        </tr>
-      </table>
-    </div>
+  <div class="float-child">
+    <table class="child-content ticket-header">
+      <tr>
+        <th>
+          ticket Nummer: {{model.id}}
+        </th>
+        <th>
+          <button  (click)="backToOverview()" class="ticket-header-button">Terug naar overzicht</button>
+        </th>
+      </tr>
+    </table>
+  </div>
 
   <div class="float-child">
     <div class="float-child-split">
@@ -18,39 +18,35 @@
         <h4>{{model.type}}</h4>
         <p>{{model.userName}}</p>
         <p>{{model.userEmail}}</p>
-    </div>
-    <br>
-    <div class="child-content">
+      </div>
+      <br>
+      <div class="child-content">
         <table>
           <thead><h4>Status</h4></thead>
-            <tr>
-              <td>Indien datum:</td>
-              <td>{{model.createDate}}</td>
-            </tr>
-            <tr>
-              <td>Status:</td>
-              <td><app-ticket-type-dropdown [selectedStatus]="model.statusName" (onSelectEvent)="setTicketStatus($event)"></app-ticket-type-dropdown></td>
-            </tr>
-            <tr>
-              <td>Behandelaar:</td>
-              <td>
-                <form [formGroup]="form">
-                  <input formControlName="validator" type="text" value="{{account.firstName}} , {{account.lastName}}" >
-                </form>
-              </td>
-            </tr>
+          <tr>
+            <td>Indien datum:</td>
+            <td>{{model.createDate}}</td>
+          </tr>
+          <tr>
+            <td>Status:</td>
+            <td><app-ticket-type-dropdown [selectedStatus]="model.statusName" (onSelectEvent)="setTicketStatus($event)"></app-ticket-type-dropdown></td>
+          </tr>
+          <tr>
+            <td>Behandelaar:</td>
+            <td><form><input id="validator" class="form-control"  type="text" value="{{account.firstName}}, {{account.lastName}}" ></form></td>
+          </tr>
         </table>
       </div>
     </div>
 
     <div class="float-child-split">
       <div class="child-content">
-          <h4>Bericht</h4>
-          <textarea disabled>{{model.message}}</textarea>
+        <h4>Bericht</h4>
+        <textarea disabled>{{model.message}}</textarea>
       </div>
       <br>
       <div class="child-content" *ngIf="model.type === getAddAbbreviationTicketType()">
-          <app-new-abbreviation [ticket]="model"></app-new-abbreviation>
+        <app-new-abbreviation [ticket]="model"></app-new-abbreviation>
       </div>
       <div class="child-content" *ngIf="model.type === getReportAbbreviationTicketType()">
         <app-reported-abbreviation [ticket]="model"></app-reported-abbreviation>

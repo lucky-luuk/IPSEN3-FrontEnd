@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder} from "@angular/forms";
 import {OrganisationService} from "./organisation.service";
 import {OrganisationModel} from "../abbreviation-list/organisation.model";
 
