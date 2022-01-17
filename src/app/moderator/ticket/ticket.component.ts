@@ -110,10 +110,11 @@ export class TicketComponent implements OnInit {
   }
 
   backToOverview() {
-    let ref = this.modalService.open(NotSavedPopupComponent);
-    ref.componentInstance.data = this.model;
-    ref.componentInstance.onClose = () => {
-      this.saveTicket();
+    if (!this.ticketService.isSameTicket(this.oldData, this.model)){
+        this.saveTicket();
+
+    }else{
+      this.router.navigate(["moderator", "overview"]);
     }
   }
 
