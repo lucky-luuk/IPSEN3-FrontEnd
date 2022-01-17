@@ -21,7 +21,7 @@ export class AdminOverviewComponent implements OnInit {
     this.userService.getUsers((data)=>{
       this.users = data;
       this.filteredUsers = data;
-    })
+    });
   }
 
   onSearch(data : string) {

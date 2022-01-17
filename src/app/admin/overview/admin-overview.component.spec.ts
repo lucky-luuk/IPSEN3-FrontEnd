@@ -11,50 +11,42 @@ import {SearchModeratorComponent} from "./search-moderator/search-moderator.comp
 import {UserComponent} from "./user/user.component";
 import {AppModule} from "../../app.module";
 
-describe('OverviewComponent', () => {
+describe('AdminOverviewComponent', () => {
   let component: AdminOverviewComponent;
-  let fixture: ComponentFixture<AdminOverviewComponent>;
+  let mockHttp  = new MockHttpService();
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AdminOverviewComponent, SearchModeratorComponent, UserComponent
-      ],
-      providers: [
-        {provide: UserService, useClass: UserService},
-        {provide: HttpService, useClass: MockHttpService},
-        {provide: HttpClient, useClass: HttpClient},
-        {provide: HttpHandler, useClass: HttpHandler},
-      ],
-      imports: [
-        AppModule,
-        RouterTestingModule.withRoutes([])
-      ]
-    }).compileComponents();
-    fixture = TestBed.createComponent(AdminOverviewComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new AdminOverviewComponent(new UserService(mockHttp));
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('schould give', () =>{
-    component.onSearch("henk");
+  it('#ngOnInit should call UserService#getusers', () =>{
+    let data = [new UsersModel()];
+    data[0].firstName = "henk";
+    mockHttp.setData<UsersModel[]>("/account/mod", data);
+    component.ngOnInit();
+    expect(component.users[0].firstName).toEqual(data[0].firstName);
   });
 
   it('#onSearch check if users is filled with filterdUsers.',() =>{
-    expect(component.filterdUsers).toEqual(component.users);
-    component.filterdUsers = [];
+    expect(component.filteredUsers).toEqual(component.users);
+    component.filteredUsers = [];
     component.onSearch("");
     expect(component.users).toEqual([]);
   });
 
-  it('#onSearch check if users has data with Henk in it. ',() =>{
-    expect(component.filterdUsers).toEqual(component.users);
-    component.onSearch("Henk");
-    expect(component.users.length).toEqual(5);
+  it('#onSearch should fill filteredUsers. ',() =>{
+    let data = [new UsersModel()];
+    data[0].firstName = "henk";
+    mockHttp.setData<UsersModel[]>("/account/mod", data);
+    component.ngOnInit();
+
+    expect(component.filteredUsers).toEqual(component.users);
+    component.onSearch("Bob");
+    expect(component.filteredUsers.length).toEqual(0);
   });
 
 });
