@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {OrganisationService} from "./organisation.service";
 import {OrganisationModel} from "../abbreviation-list/organisation.model";
@@ -10,9 +10,9 @@ import {OrganisationModel} from "../abbreviation-list/organisation.model";
 })
 export class DropdownComponent implements OnInit {
   @Output() onSelectEvent = new EventEmitter();
+  @Input() selectedOrganisation : OrganisationModel | null = null;
 
   public organisations : Array<{org: OrganisationModel, selected: boolean}>;
-  private selectedOrganisation : OrganisationModel | null = null;
   private static readonly NO_ORGANISATION_SELECTED_ID = "NO_ID";
   private static readonly NO_ORGANISATION_SELECTED_NAME = "selecteer een organisatie";
 
@@ -69,6 +69,8 @@ export class DropdownComponent implements OnInit {
   // work around for the list being filled after instantiation
   public selectOrganisation(org : OrganisationModel | null) {
     this.selectedOrganisation = org;
+    if (org !== null)
+      this.setSelectedOrganisation(org);
   }
   private setSelectedOrganisation(org : OrganisationModel) {
     for (let i = 0; i < this.organisations.length; i++) {

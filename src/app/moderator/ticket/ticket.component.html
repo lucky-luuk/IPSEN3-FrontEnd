@@ -46,10 +46,10 @@
       </div>
       <br>
       <div class="child-content" *ngIf="model.type === getAddAbbreviationTicketType()">
-          <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
+          <app-new-abbreviation [ticket]="model"></app-new-abbreviation>
       </div>
       <div class="child-content" *ngIf="model.type === getReportAbbreviationTicketType()">
-        <app-new-abbreviation [abbrModel]="abbreviation"></app-new-abbreviation>
+        <app-reported-abbreviation [ticket]="model"></app-reported-abbreviation>
       </div>
       <div class="child-content" *ngIf="model.type === getInfoRequestTicketType()">
         <app-ticket-info-request [ticket]="model"></app-ticket-info-request>
@@ -59,14 +59,8 @@
 
   <div class="float-child">
     <div class="child-content child-content-footer">
-<!--      add abbreviation buttons -->
-      <button *ngIf="model.type === getAddAbbreviationTicketType()" (click)="onDeleteTicket()">Verwijder ticket</button>
-      <button *ngIf="model.type === getAddAbbreviationTicketType()" (click)="onSaveAbbreviation()">Opslaan</button>
-<!--      report buttons -->
-      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onDeleteTicket()">Verwijder ticket</button>
-      <button *ngIf="model.type === getReportAbbreviationTicketType()" (click)="onChangeAbbreviation()">Opslaan</button>
-<!--      info request buttons -->
-      <button *ngIf="model.type === getInfoRequestTicketType()" (click)="onDeleteTicket()">verwijder ticket</button>
+      <button (click)="handleTicket()">Afhandelen</button>
+      <button (click)="saveTicket()">Opslaan</button>
     </div>
   </div>
 </div>

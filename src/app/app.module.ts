@@ -57,6 +57,9 @@ import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-
 import { NotSavedPopupComponent } from './moderator/ticket/not-saved-popup/not-saved-popup.component';
 import { PopupNotSavedComponent } from './admin/popup-not-saved/popup-not-saved.component';
 import { AuthComponent } from './auth/auth.component';
+import { TicketHasBeenEditedPopupComponent } from './moderator/ticket/ticket-has-been-edited-popup/ticket-has-been-edited-popup.component';
+import { DeleteTicketPopupComponent } from './moderator/ticket/delete-ticket-popup/delete-ticket-popup.component';
+import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-popup/handle-ticket-popup.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +111,9 @@ import { AuthComponent } from './auth/auth.component';
     NotSavedPopupComponent,
     PopupNotSavedComponent,
     AuthComponent,
+    TicketHasBeenEditedPopupComponent,
+    DeleteTicketPopupComponent,
+    HandleTicketPopupComponent,
 
   ],
   imports: [

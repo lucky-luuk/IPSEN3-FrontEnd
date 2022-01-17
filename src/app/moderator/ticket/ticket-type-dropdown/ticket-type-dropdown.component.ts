@@ -31,8 +31,7 @@ export class TicketTypeDropdownComponent implements OnInit {
     this.onSelectEvent.emit(event.target.value);
   }
 
-  private selectStatus(status : string) {
-    console.log("selecting: " + status);
+  selectStatus(status : string) {
     for (let i = 0; i < this.statusList.length; i++) {
       this.statusList[i].selected = this.statusList[i].data === status;
     }
