@@ -9,6 +9,10 @@ import {TicketTypeModel} from "./ticketType.model";
 import {Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {NotSavedPopupComponent} from "./not-saved-popup/not-saved-popup.component";
+import {Location} from "@angular/common";
+import {FormGroup, FormControl, FormArray, Validators} from "@angular/forms";
+import {AddModComponent} from "../../admin/add-mod/add-mod.component";
+import {ReportedAbbreviationComponent} from "./reported-abbreviation/reported-abbreviation.component";
 import {TicketStatusModel} from "./ticketStatus.model";
 import {TicketHasBeenEditedPopupComponent} from "./ticket-has-been-edited-popup/ticket-has-been-edited-popup.component";
 import {TicketTypeDropdownComponent} from "./ticket-type-dropdown/ticket-type-dropdown.component";
@@ -17,12 +21,16 @@ import {NewAbbreviationComponent} from "./new-abbreviation/new-abbreviation.comp
 import {DeleteTicketPopupComponent} from "./delete-ticket-popup/delete-ticket-popup.component";
 import {HandleTicketPopupComponent} from "./handle-ticket-popup/handle-ticket-popup.component";
 
+
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
+  abbrName!: string;
+  abbrDesc!: string;
+  form = new FormGroup({validator: new FormControl()})
   @ViewChild(TicketTypeDropdownComponent) ticketTypDropDown : any;
   @ViewChild(ReportedAbbreviationComponent) reportedAbbreviation : any | undefined = undefined;
   @ViewChild(NewAbbreviationComponent) newAbbreviation : any | undefined = undefined;
@@ -33,15 +41,25 @@ export class TicketComponent implements OnInit {
   account: AccountModel = new AccountModel();
   abbreviation: AbbreviationModel = new AbbreviationModel();
 
-  constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal) {
-  }
+
+
+  constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal, private location: Location, private reportedComp: ReportedAbbreviationComponent) {
+    this.init();
+    // make sure the page is reloaded every time
+    this.router.events.subscribe((event) => {
+      this.init();
+    });
+
 
   ngOnInit(): void {
     this.init();
   }
 
+
+
   init() {
     this.setTicketData(this.ticketService.getSelectedTicket());
+   ///
     this.ticketHasBeenSelected = this.model.id !== 0;
     // wont be null, but just make ts shut up
     if (this.model.temporaryAbbreviation !== null)
@@ -50,6 +68,7 @@ export class TicketComponent implements OnInit {
     this.accountService.getAccountDetailsFromId(this.model.accountId, (data) => {
       this.account = data;
     });
+   /// 
     // if ticket has been changed on the server
     this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
       this.handleTicketHasBeenChangedOnServer(newTicket);
@@ -136,6 +155,7 @@ export class TicketComponent implements OnInit {
     return TicketTypeModel.REPORT;
   }
 
+
   private setTicketData(m : TicketModel) {
     this.model = m;
     this.oldData = this.ticketService.copyTicket(m);
@@ -176,6 +196,7 @@ export class TicketComponent implements OnInit {
         if (abbr.organisations !== undefined)
           viewchild.setOrganisationDropDown(abbr.organisations[0]);
       }
+
 
   }
 }

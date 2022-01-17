@@ -125,7 +125,7 @@ import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-pop
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [SupportService, HeaderService, gameService],
+  providers: [SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
