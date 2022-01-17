@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild, AfterViewInit} from '@angular/core';
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 import {AbbreviationModel} from "../../../afkoteek/search/abbreviation-list/abbreviation.model";
 import {DropdownComponent} from "../../../afkoteek/search/dropdown/dropdown.component";

@@ -176,7 +176,7 @@ export class TicketComponent implements OnInit {
         if (abbr.organisations !== undefined)
           viewchild.setOrganisationDropDown(abbr.organisations[0]);
       }
-    }
+
   }
 }
 

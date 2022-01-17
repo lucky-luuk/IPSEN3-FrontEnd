@@ -93,6 +93,7 @@ export class gameService{
                     this.listOfAnwsers.push(this.wrongAbbreviation);
                     this.goOn = false;
                 }
+
             }
         }
     }
@@ -147,7 +148,9 @@ export class gameService{
                 });
                 this.setQuestion();
                 this.router.navigate(['spelen']);
+
             }, () => {});
+
         }else{
             this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
                 data.forEach( (abbr) =>{
@@ -155,7 +158,9 @@ export class gameService{
                 });
                 this.setQuestion();
                 this.router.navigate(['spelen']);
+
             }, () => {});
+
         }
     }
 
