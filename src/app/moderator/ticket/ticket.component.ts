@@ -2,13 +2,11 @@ import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core'
 import {TicketModel} from "./ticket.model";
 import {AbbreviationService} from "../../afkoteek/search/abbreviation-list/abbreviation.service";
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";
-import {TicketService} from "../ticket.service";
 import {AccountModel} from "../../account.model";
 import {AccountService} from "../../account.service";
 import {TicketTypeModel} from "./ticketType.model";
 import {Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {NotSavedPopupComponent} from "./not-saved-popup/not-saved-popup.component";
 import {TicketStatusModel} from "./ticketStatus.model";
 import {TicketHasBeenEditedPopupComponent} from "./ticket-has-been-edited-popup/ticket-has-been-edited-popup.component";
 import {TicketTypeDropdownComponent} from "./ticket-type-dropdown/ticket-type-dropdown.component";
@@ -16,6 +14,8 @@ import {ReportedAbbreviationComponent} from "./reported-abbreviation/reported-ab
 import {NewAbbreviationComponent} from "./new-abbreviation/new-abbreviation.component";
 import {DeleteTicketPopupComponent} from "./delete-ticket-popup/delete-ticket-popup.component";
 import {HandleTicketPopupComponent} from "./handle-ticket-popup/handle-ticket-popup.component";
+import { TicketService } from '../ticket.service';
+import { NotSavedPopupComponent } from './not-saved-popup/not-saved-popup.component';
 
 @Component({
   selector: 'app-ticket',
