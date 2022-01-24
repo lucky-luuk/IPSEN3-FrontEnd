@@ -19,6 +19,7 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 import {LoginComponent} from "./auth/login/login.component";
 import { ScoreComponent } from './afkoteek/game/game-page/score/score.component';
+import {AuthGuardService} from "./auth/auth-guard.service";
 
 
 export const routes: Routes = [
@@ -38,7 +39,7 @@ export const routes: Routes = [
   {path: 'moderator', component: ModeratorComponent, children:[
     {path: 'ticket', component: TicketComponent},
     {path: 'overview', component: OverviewComponent},
-    ]
+    ],canActivate: [AuthGuardService]
   },
   { path: 'admin', component: AdminComponent, children:[
       { path: 'overzicht', component: AdminPageComponent},
@@ -47,13 +48,14 @@ export const routes: Routes = [
       { path: 'search-admin', component: SearchAdminComponent},
       { path: 'nieuw', component: AddModComponent},
     ]},
-  {path: 'login', component: LoginComponent}
+    ], canActivate: [AuthGuardService]
+  },
+   {path: 'login', component: LoginComponent}
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

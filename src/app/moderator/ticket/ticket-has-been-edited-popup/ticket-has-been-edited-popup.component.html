@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title">Ticket is verandert!</h4>
+  <button class="btn btn-close" (click)="activeModal.close('Close click')"></button>
+</div>
+<div class="modal-body">
+  <div>Ticket is verandert door een andere moderator, wil je de data herladen?</div>
+</div>
+<div class="modal-footer">
+  <div class="btn btn-secondary" (click)="close()">Terug naar ovezicht</div>
+  <div class="btn btn-primary" (click)="reloadData()">Herlaad</div>
+</div>

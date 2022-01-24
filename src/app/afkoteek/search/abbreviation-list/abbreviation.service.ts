@@ -11,31 +11,31 @@ export class AbbreviationService {
   constructor(private http : HttpService) {
   }
 
-  public getAbbreviationsByName(name : string, implementation : (data : AbbreviationModel[]) => void) : void {
+  public getAbbreviationsByName(name : string, implementation : (data : AbbreviationModel[]) => void, onFail : () => void) : void {
     let parameters = new Map<string, string>();
     parameters.set("name", name);
-    this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation);
+    this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation, onFail);
 
   }
 
   public getAbbreviationByOrgIdAndName(name : string, orgId : string,
-                                       implementation : (data : AbbreviationModel[]) => void) : void {
+                                       implementation : (data : AbbreviationModel[]) => void, onFail : () => void) : void {
     let parameters = new Map<string, string>();
     parameters.set("name", name);
     parameters.set("org_id", orgId);
-    this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation);
+    this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation, onFail);
   }
 
-  public geAbbreviationByOrgId(orgId : string, implementation : (data : AbbreviationModel[]) => void) : void {
+  public geAbbreviationByOrgId(orgId : string, implementation : (data : AbbreviationModel[]) => void, onFail : () => void) : void {
     let parameters = new Map<string, string>();
     parameters.set("org_id", orgId);
-    this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation);
+    this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation, onFail);
   }
 
-  public getAbbreviationById(id : string, implementation : (data : AbbreviationModel) => void) : void {
+  public getAbbreviationById(id : string, implementation : (data : AbbreviationModel) => void, onFail : () => void) : void {
     let parameters = new Map<string, string>();
     parameters.set("id", id);
-    this.http.get<AbbreviationModel>(this.endpoint, parameters, implementation);
+    this.http.get<AbbreviationModel>(this.endpoint, parameters, implementation, onFail);
   }
 
   public postAbbreviations(abbr : AbbreviationModel[]) : void {

@@ -45,7 +45,7 @@ export class AddComponent implements OnInit {
     ticket.accountId = this.accountService.getCurrentUserAccount().id;
     ticket.temporaryAbbreviation = this.model;
     ticket.temporaryAbbreviation.accountId = ticket.accountId;
-    ticket.statusName = TicketStatusModel.UNDER_REVIEW;
+    ticket.statusName = TicketStatusModel.REGISTERED;
     this.ticketService.createTickets([ticket], () => {});
     this.router.navigate(["afko"]);
   }

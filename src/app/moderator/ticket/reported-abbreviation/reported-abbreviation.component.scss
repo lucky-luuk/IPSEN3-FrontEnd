@@ -1,19 +1,15 @@
-.reported-abbreviation {
-  padding: .45rem;
-  form{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-  }
-  .abbreviation{
-    grid-column: 2/3;
-  }
-  .definition{
-    grid-column: 1/2;
-  }
-  .organisation{
-    grid-column: 2/3;
-  }
+
+.name {
+  margin-top: 10px;
+  width: 100%;
+  height: 80%;
 }
-
-
+.organisation {
+  margin-top: 10px;
+  width: 100%;
+  border: 1px gray solid;
+}
+.description {
+  margin-top: 10px;
+  width: 100%;
+}

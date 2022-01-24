@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="list-container">
-    <div *ngFor="let user of users">
+    <div *ngFor="let user of filteredUsers">
       <app-user [singleUser]="user" [routerLink]="['/admin' , user.id, 'edit']"></app-user>
     </div>
   </div>
