@@ -1,48 +1,49 @@
 <div class="login-container">
-  <div class="login-card">
-    <form
-      name="form"
-      (ngSubmit)="onSubmit()"
-      #Login="ngForm">
-      <div class="login-element">
-        <div class="row-el header-text">
-          <h2>Login</h2>
-          <h4>moderator</h4>
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="card">
+          <div class="card-header">
+            <h1>Login</h1>
+          </div>
+          <div class="card-body">
+            <form
+              name="form"
+              (ngSubmit)="onSubmit()"
+              #Login="ngForm">
+                <div class="form-floating mb-3">
+                  <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    ngModel
+                    name="email"
+                    required
+                    email
+                    #email="ngModel"
+                  >
+                </div>
+                <div class="form-floating mb-3">
+                  <label for="password" class="col-md-4 col-form-label text-md-right">Wachtwoord</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    ngModel
+                    name="password"
+                    required
+                    minlength="2"
+                    password
+                    #password="ngModel"
+                  >
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-lg btn-primary w-100 mx-0 mb-2"
+                  [disabled]="!Login.valid">Login</button>
+            </form>
+          </div>
         </div>
-
-        <div class="row-el">
-          <label>Email</label>
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            ngModel
-            name="email"
-            required
-            email
-            #email="ngModel"
-          >
-        </div>
-        <div class="row-el">
-          <label>Wachtwoord</label>
-          <input
-            type="password"
-            class="form-control"
-            ngModel
-            name="password"
-            required
-            minlength="2"
-            password
-            #password="ngModel"
-          >
-        </div>
-        <div class="row-el cen">
-          <button
-            type="submit"
-            class="btn-primary"
-            [disabled]="!Login.valid">Login</button>
-        </div>
-        </div>
-    </form>
+      </div>
   </div>
 </div>

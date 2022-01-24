@@ -1,69 +1,20 @@
 @import "src/styles";
 
-.login-container{
-  display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
-  padding: 10px;
-  width: 100%;
-  color: white;
-  .login-card{
-    margin: 20px;
-    padding: 10px;
-    width: 50%;
-    background-color: $dark-blue;
-    display: flex;
-    justify-content: space-around;
-    .login-element{
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-      height: 100%;
-      .cen{
-        display: flex;
-        justify-content: space-around;
-      }
-      .header-text{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px;
-        h4 {
-          font-size: 95%;
-        }
-      }
+.login-container
+{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
 
-      .row-el{
-        padding: 10px;
-
-        button{
-          margin-top: 30px;
-          background-color: $primary-blue;
-          cursor: pointer;
-          &:hover{
-            background-color: $dark-blue;
-          }
-        }
-      }
-      //.form-control{
-      //  padding: 0;
-      //  margin: 0;
-      //  border-radius: 0;
-      //}
-    }
+.card{
+  background-color: $dark-blue;
+  color: black;
+  max-width: 500px !important;
+  h1{
+    color: white;
   }
 }
 
 input.ng-invalid.ng-touched {
   border: 3px solid red;
-}
-
-@media (max-width: 600px){
-  .login-card {
-    width: 100% !important;
-  }
-
 }

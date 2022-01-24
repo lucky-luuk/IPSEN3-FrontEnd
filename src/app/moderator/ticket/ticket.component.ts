@@ -2,7 +2,6 @@ import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core'
 import {TicketModel} from "./ticket.model";
 import {AbbreviationService} from "../../afkoteek/search/abbreviation-list/abbreviation.service";
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";
-import {TicketService} from "../ticket.service";
 import {AccountModel} from "../../account.model";
 import {AccountService} from "../../account.service";
 import {TicketTypeModel} from "./ticketType.model";

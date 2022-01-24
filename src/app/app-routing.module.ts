@@ -47,8 +47,7 @@ export const routes: Routes = [
       { path: 'settings', component: SettingsComponent},
       { path: 'search-admin', component: SearchAdminComponent},
       { path: 'nieuw', component: AddModComponent},
-    ]},
-    ], canActivate: [AuthGuardService]
+    ], canActivate: [AuthGuardService],
   },
    {path: 'login', component: LoginComponent}
 
