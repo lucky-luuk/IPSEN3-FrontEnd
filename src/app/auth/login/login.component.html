@@ -31,7 +31,7 @@
             ngModel
             name="password"
             required
-            minlength="8"
+            minlength="2"
             password
             #password="ngModel"
           >
@@ -39,6 +39,7 @@
         <div class="row-el cen">
           <button
             type="submit"
+            class="btn-primary"
             [disabled]="!Login.valid">Login</button>
         </div>
         </div>

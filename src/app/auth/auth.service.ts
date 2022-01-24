@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import {HttpService} from "../http.service";
+import {UsersModel} from "../admin/usersHelper/users.model";
+import {AccountModel} from "./login/account.model";
 
 @Injectable({
   providedIn: 'root'
@@ -6,9 +9,20 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   loggedIn = false;
 
+  constructor(private http: HttpService) { }
+
+
   isAuthenticated() {
 
   }
 
-  constructor() { }
+  login(formUser: any, implementation : (data : any) => void) {
+    this.http.post('/authenticate', formUser, implementation)
+  }
+
+  isAuthorised(user: AccountModel) {
+
+  }
+
+
 }

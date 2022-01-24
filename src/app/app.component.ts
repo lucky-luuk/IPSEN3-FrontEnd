@@ -11,7 +11,7 @@ export class AppComponent implements OnInit{
   title = 'AFKORIJK';
   isAuthorised = 'afko';
 
-  constructor(private titleService : Title, private route: Router) {
+  constructor(private titleService : Title, public router: Router) {
     this.titleService.setTitle(this.title);
   }
 
