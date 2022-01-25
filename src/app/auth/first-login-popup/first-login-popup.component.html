@@ -7,6 +7,8 @@
   <div>Dit is de eerste keer dat je inlogd, maak een nieuw wachtwoord aan</div>
   <input required formControlName="password" class="form-control" type="password" placeholder="wachtwoord">
   <input required formControlName="password2" class="form-control" type="password" placeholder="herhaal je wachtwoord">
+  <hr>
+  <input required formControlName="newpassword" class="form-control" type="password" placeholder="nieuw wachtwoord">
   <span *ngIf="!passwordSame" class="alert-danger">Wachtwoorden komen niet overeen</span>
   <div class="data-container">
 
