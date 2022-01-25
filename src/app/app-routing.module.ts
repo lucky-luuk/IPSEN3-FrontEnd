@@ -20,6 +20,7 @@ import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-star
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
 import { ScoreComponent } from './afkoteek/game/game-page/score/score.component';
 import {AuthGuardService} from "./auth/auth-guard.service";
+import {BulkUploadComponent} from "./admin/bulk-upload/bulk-upload.component";
 
 
 export const routes: Routes = [
@@ -47,6 +48,7 @@ export const routes: Routes = [
       { path: 'settings', component: SettingsComponent},
       { path: 'search-admin', component: SearchAdminComponent},
       { path: 'nieuw', component: AddModComponent},
+      {path: "bulkUpload", component: BulkUploadComponent}
     ], canActivate: [AuthGuardService]
   },
 ];

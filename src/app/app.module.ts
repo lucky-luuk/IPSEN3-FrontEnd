@@ -60,6 +60,14 @@ import { AuthComponent } from './auth/auth.component';
 import { TicketHasBeenEditedPopupComponent } from './moderator/ticket/ticket-has-been-edited-popup/ticket-has-been-edited-popup.component';
 import { DeleteTicketPopupComponent } from './moderator/ticket/delete-ticket-popup/delete-ticket-popup.component';
 import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-popup/handle-ticket-popup.component';
+import { BulkUploadComponent } from './admin/bulk-upload/bulk-upload.component';
+import { CsvParserComponent } from './admin/bulk-upload/csv-parser/csv-parser.component';
+import { JsonParserComponent } from './admin/bulk-upload/json-parser/json-parser.component';
+import { JsonParserLayoutComponent } from './admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout.component';
+import { JsonParserLayoutRowComponent } from './admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-row/json-parser-layout-row.component';
+import { JsonParserLayoutDropdownComponent } from './admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-dropdown/json-parser-layout-dropdown.component';
+import { GenericPopupComponent } from './generic-popup/generic-popup.component';
+import { BulkUploadLoadingPopupComponent } from './admin/bulk-upload/bulk-upload-loading-popup/bulk-upload-loading-popup.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +122,14 @@ import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-pop
     TicketHasBeenEditedPopupComponent,
     DeleteTicketPopupComponent,
     HandleTicketPopupComponent,
-
+    BulkUploadComponent,
+    CsvParserComponent,
+    JsonParserComponent,
+    JsonParserLayoutComponent,
+    JsonParserLayoutRowComponent,
+    JsonParserLayoutDropdownComponent,
+    GenericPopupComponent,
+    BulkUploadLoadingPopupComponent,
   ],
   imports: [
     BrowserModule,

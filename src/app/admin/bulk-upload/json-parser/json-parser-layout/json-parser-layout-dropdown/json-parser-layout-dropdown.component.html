@@ -1,0 +1,23 @@
+<div class="btn-group mr-3 d-inline-block">
+  <div class="btn-group"
+       ngbDropdown
+       role="group" aria-label="button group with nested dropdown">
+    <button type="button" class="btn btn-primary" ngbDropdownToggle id="json-parser-dropdown">+</button>
+    <div ngbDropdownMenu attr.aria-labelledby="json-parser-dropdown">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <input type="text" (keyup)="onSetAbbr($event)" placeholder="Property">
+          </div>
+          <div class="col">
+            <input type="text" (keyup)="onSetJson($event)" placeholder="Naam in json">
+          </div>
+          <div class="col">
+            <button class="btn btn-primary" (click)="add()">Voeg toe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
