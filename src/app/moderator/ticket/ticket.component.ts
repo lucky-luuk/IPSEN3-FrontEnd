@@ -124,6 +124,11 @@ export class TicketComponent implements OnInit {
   setTicketStatus(data: string) {
     this.model.statusName = data;
   }
+  setModerator(data:any){
+    console.log("DATA CORRECT: " + data);
+    
+    this.model.accountId = data;
+  }
 
   getAddAbbreviationTicketType() {
     return TicketTypeModel.ADD_ABBREVIATION;

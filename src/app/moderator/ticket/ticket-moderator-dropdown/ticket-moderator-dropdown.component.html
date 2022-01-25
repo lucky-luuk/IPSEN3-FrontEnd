@@ -1,0 +1,11 @@
+<form>
+    <select (change)="submit($event)">
+      <option class="option-st" *ngFor="let moderator of moderators"
+              [selected]="moderator.firstName">
+        {{moderator.firstName}}
+      </option>
+    </select>
+  </form>
+  
+  
+  

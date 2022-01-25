@@ -6,6 +6,7 @@ import {OrganisationModel} from "../afkoteek/search/abbreviation-list/organisati
 import {AbbreviationModel} from "../afkoteek/search/abbreviation-list/abbreviation.model";
 import {tick} from "@angular/core/testing";
 import {Subscription} from "rxjs";
+import { AccountModel } from '../account.model';
 
 @Injectable({
   providedIn: 'root'
@@ -167,5 +168,9 @@ export class TicketService {
       t.temporaryAbbreviation = null;
     }
     return t;
+  }
+
+  getAllModerators(implementation : (data : AccountModel[]) => void) {
+      this.http.get<AccountModel[]>("/account/mod", new Map<string, string>(),implementation);
   }
 }

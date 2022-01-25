@@ -33,7 +33,9 @@
           </tr>
           <tr>
             <td>Behandelaar:</td>
-            <td><form><input id="validator" class="form-control"  type="text" value="{{account.firstName}}, {{account.lastName}}" ></form></td>
+            <td><app-ticket-moderator-dropdown (onSelectEvent)="setModerator($event)"></app-ticket-moderator-dropdown>
+              <!-- <input id="validator" class="form-control"  type="text" value="{{account.firstName}}, {{account.lastName}}" > -->
+            </td>
           </tr>
         </table>
       </div>

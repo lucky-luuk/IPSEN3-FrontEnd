@@ -60,6 +60,7 @@ import { AuthComponent } from './auth/auth.component';
 import { TicketHasBeenEditedPopupComponent } from './moderator/ticket/ticket-has-been-edited-popup/ticket-has-been-edited-popup.component';
 import { DeleteTicketPopupComponent } from './moderator/ticket/delete-ticket-popup/delete-ticket-popup.component';
 import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-popup/handle-ticket-popup.component';
+import { TicketModeratorDropdownComponent } from './moderator/ticket/ticket-moderator-dropdown/ticket-moderator-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +115,7 @@ import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-pop
     TicketHasBeenEditedPopupComponent,
     DeleteTicketPopupComponent,
     HandleTicketPopupComponent,
+    TicketModeratorDropdownComponent,
 
   ],
   imports: [
