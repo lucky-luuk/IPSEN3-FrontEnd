@@ -6,11 +6,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./json-parser-layout-dropdown.component.scss']
 })
 export class JsonParserLayoutDropdownComponent implements OnInit {
-  static highestId = 0;
-  getHighestId() {
-    let value = JsonParserLayoutDropdownComponent.highestId++;
-    return value;
-  }
   abbrProp = "";
   jsonProp = "";
   @Input()

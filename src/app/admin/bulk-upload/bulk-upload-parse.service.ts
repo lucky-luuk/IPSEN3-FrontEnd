@@ -58,8 +58,8 @@ export class BulkUploadParseService {
     });
   }
 
-  // im sry for the typescript
-  async parseJson<T>(t: {new(): T}, text : string, layout : {abbreviationProperty: string, jsonData: any | undefined, jsonProperty: any}[], obj : T = new t(), d : any = null) : Promise<T[]> {
+  // im sry for this typescript
+  async parseJson<T>(t: {new(): T}, text : string, layout : {abbreviationProperty: string, jsonData: any | undefined, jsonProperty: string}[], obj : T = new t(), d : any = null) : Promise<T[]> {
     let result = [];
     let data : any;
 
@@ -139,7 +139,7 @@ export class BulkUploadParseService {
     return {abbr: result, orgs: orgs};
   }
 
-  private addOrgIfNotExists(orgs : OrganisationModel[], id : string, name : string) : OrganisationModel {
+  addOrgIfNotExists(orgs : OrganisationModel[], id : string, name : string) : OrganisationModel {
     // because pdirect data is faulty and sometimes has null instead of a proper id for Rijksbreed
     const newId = (name === "Rijksbreed") ? this.getRijksbreedOrgId() : id;
 
@@ -167,6 +167,7 @@ export class BulkUploadParseService {
       this.router.navigate(["/admin", "overview"]);
     }
   }
+  // update the organisation ids of all abbreviations in data
   private setOrgIds(data :  {abbr: AbbreviationModel[], orgs: OrganisationModel[]}) {
     for (let a of data.abbr) {
       for (let o of a.organisations) {
@@ -174,6 +175,7 @@ export class BulkUploadParseService {
       }
     }
   }
+  // get the id belonging to a name from a list of organisations
   private getOrgIdFromName(name : string, data : {abbr: AbbreviationModel[], orgs: OrganisationModel[]}) : string {
     for (let d of data.orgs) {
       if (d.name === name) {

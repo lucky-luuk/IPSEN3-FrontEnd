@@ -21,7 +21,7 @@ export class BulkUploadComponent implements OnInit {
 
   @ViewChild(AbbreviationListComponent) abbrList : any;
 
-  constructor(private parserService : BulkUploadParseService, private http : HttpService, private modalService : NgbModal, private router : Router) {
+  constructor(private parserService : BulkUploadParseService,  private modalService : NgbModal, private router : Router) {
   }
   ngOnInit(): void {
   }
