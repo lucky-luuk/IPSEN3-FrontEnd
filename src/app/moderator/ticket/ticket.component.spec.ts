@@ -33,7 +33,7 @@ describe('TicketComponent', () => {
     mockHttp.setData("/ticket", ticket);
     TestBed.configureTestingModule({
       declarations: [
-        TicketComponent, TicketTypeDropdownComponent, NewAbbreviationComponent, TicketInfoRequestComponent
+        TicketComponent
       ],
       providers: [
         {provide: HttpService, useValue: mockHttp},

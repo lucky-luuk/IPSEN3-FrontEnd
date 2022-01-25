@@ -1,0 +1,28 @@
+<div class="header">
+  <div class="logo">
+    <img src="assets/RO_Logo.png" alt="Logo rijksoverheid">
+  </div>
+  <div class="nav" [ngClass]="{'mod': !user}">
+
+    <div class="navbar-container">
+      <ul *ngIf="isAuthorised === 'afko'">
+        <li routerLinkActive="active" ><a routerLink="/afko">Afkotheek</a></li>
+        <li routerLinkActive="active"><a routerLink="/home">Game</a></li>
+        <li routerLinkActive="active"><a routerLink="/support">Support</a></li>
+<!--        <li routerLinkActive="active"><a [routerLink]="['/moderator', 'overview']">Moderator::temp</a> </li>-->
+      </ul>
+      <ul *ngIf="isAuthorised === 'moderator'">
+        <li routerLinkActive="active" ><a routerLink="/moderator/overview">Overzicht</a></li>
+        <li routerLinkActive="active"><a routerLink="/moderator/ticket">ticket</a></li>
+        <li routerLinkActive="active"><a routerLink="/support">Zoek</a></li>
+      </ul>
+      <ul *ngIf="isAuthorised === 'admin'">
+        <li routerLinkActive="active" ><a routerLink="/admin/overzicht">Overzicht</a></li>
+        <li routerLinkActive="active"><a routerLink="/admin/nieuw">Gebruiker Toevoegen</a></li>
+        <li routerLinkActive="active"><a routerLink="/admin/settings">Instellingen</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
