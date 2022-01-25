@@ -8,8 +8,10 @@
     <div>{{data.first_name}}, {{data.last_name}}</div>
     <div>{{data.email}}</div>
     <div>{{data.phone}}</div>
+    <hr>
+    <div>Tijdelijk wachtwoord: {{data.password}}</div>
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" (click)="onSubmit()">voeg toe</button>
+  <button type="button" class="btn btn-primary" (click)="onSubmit()" (click)="activeModel.close('Close click')">voeg toe</button>
 </div>
