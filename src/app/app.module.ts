@@ -4,7 +4,7 @@ import {HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from "./header/header.component";
+import {HeaderComponent} from "./afkoteek/header/header.component";
 import {AfkoteekComponent} from "./afkoteek/afkoteek.component";
 import {FooterComponent} from "./afkoteek/search/footer/footer.component";
 import {DropdownComponent} from "./afkoteek/search/dropdown/dropdown.component";
@@ -19,8 +19,7 @@ import { InfoRequestComponent } from './afkoteek/support/info-request/info-reque
 import { ReportComponent } from './afkoteek/support/report/report.component';
 import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
-import {HeaderService} from "./header/header.service";
-import { LoginComponent } from './moderator/login/login.component';
+import {HeaderService} from "./afkoteek/header/header.service";
 import { ModeratorComponent } from './moderator/moderator.component';
 import { TicketComponent } from './moderator/ticket/ticket.component';
 import { OverviewComponent } from './moderator/overview/overview.component';
@@ -56,18 +55,12 @@ import { AdminSavePopupComponent } from './admin/edit-mod/admin-save-popup/admin
 import { ModTicketSavePopupComponent } from './moderator/ticket/mod-ticket-save-popup/mod-ticket-save-popup.component';
 import { NotSavedPopupComponent } from './moderator/ticket/not-saved-popup/not-saved-popup.component';
 import { PopupNotSavedComponent } from './admin/popup-not-saved/popup-not-saved.component';
-import { AuthComponent } from './auth/auth.component';
 import { TicketHasBeenEditedPopupComponent } from './moderator/ticket/ticket-has-been-edited-popup/ticket-has-been-edited-popup.component';
 import { DeleteTicketPopupComponent } from './moderator/ticket/delete-ticket-popup/delete-ticket-popup.component';
 import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-popup/handle-ticket-popup.component';
-import { BulkUploadComponent } from './admin/bulk-upload/bulk-upload.component';
-import { CsvParserComponent } from './admin/bulk-upload/csv-parser/csv-parser.component';
-import { JsonParserComponent } from './admin/bulk-upload/json-parser/json-parser.component';
-import { JsonParserLayoutComponent } from './admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout.component';
-import { JsonParserLayoutRowComponent } from './admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-row/json-parser-layout-row.component';
-import { JsonParserLayoutDropdownComponent } from './admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-dropdown/json-parser-layout-dropdown.component';
-import { GenericPopupComponent } from './generic-popup/generic-popup.component';
-import { BulkUploadLoadingPopupComponent } from './admin/bulk-upload/bulk-upload-loading-popup/bulk-upload-loading-popup.component';
+import {AdminHeaderComponent} from "./admin/admin-header/admin-header.component";
+import {ModHeaderComponent} from "./moderator/mod-header/mod-header.component";
+
 
 @NgModule({
   declarations: [
@@ -89,7 +82,6 @@ import { BulkUploadLoadingPopupComponent } from './admin/bulk-upload/bulk-upload
     InfoRequestComponent,
     ReportComponent,
     AddComponent,
-    LoginComponent,
     AdminPageComponent,
     SettingsComponent,
     SearchAdminComponent,
@@ -103,6 +95,7 @@ import { BulkUploadLoadingPopupComponent } from './admin/bulk-upload/bulk-upload
     AdminOverviewComponent,
     EditModComponent,
     AdminComponent,
+    LoginComponent,
     ModDropdownComponent,
     ClickableAbbreviationComponent,
     ReportPopupComponent,
@@ -118,18 +111,11 @@ import { BulkUploadLoadingPopupComponent } from './admin/bulk-upload/bulk-upload
     ModTicketSavePopupComponent,
     NotSavedPopupComponent,
     PopupNotSavedComponent,
-    AuthComponent,
     TicketHasBeenEditedPopupComponent,
     DeleteTicketPopupComponent,
     HandleTicketPopupComponent,
-    BulkUploadComponent,
-    CsvParserComponent,
-    JsonParserComponent,
-    JsonParserLayoutComponent,
-    JsonParserLayoutRowComponent,
-    JsonParserLayoutDropdownComponent,
-    GenericPopupComponent,
-    BulkUploadLoadingPopupComponent,
+    AdminHeaderComponent,
+    ModHeaderComponent
   ],
   imports: [
     BrowserModule,

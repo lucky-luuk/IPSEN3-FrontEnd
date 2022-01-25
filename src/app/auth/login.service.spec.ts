@@ -1,8 +1,7 @@
 import { TestBed } from '@angular/core/testing';
-
 import { LoginService } from './login.service';
-import {MockHttpService} from "./mockHttp.service";
-import {AccountModel} from "./account.model";
+import {MockHttpService} from "../mockHttp.service";
+import {AccountModel} from "../account.model";
 
 describe('LoginService', () => {
   let service: LoginService;

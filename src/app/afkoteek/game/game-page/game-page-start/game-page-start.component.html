@@ -16,14 +16,14 @@
         <form (ngSubmit)="startGame(gameform)" #gameform="ngForm" class="child-content game-form">
             <label for="name">Naam:</label>
             <input
-            type="text" 
-            id="name" 
-            class="name-input" 
+            type="text"
+            id="name"
+            class="name-input"
             ngModel
             name="name"
             #name="ngModel"
             required>
-            
+
             <label
             style="color: red; font-size:  1em;"
             *ngIf="!name.valid && name.touched">Er mist nog een naam</label>
@@ -37,7 +37,7 @@
             <button type="submit" [disabled]="!gameform.valid">Start</button>
             <button type="button" (click)="forGlory()">{{Glory ? 'Ga naar Oefenen' : 'Ga naar eer' }}</button>
             <hr>
-            <span><label><b>Je speelt nu:</b></label>{{Glory ? 'Voor de eer!' : 'Om te oefenen!' }} 
+            <span><label><b>Je speelt nu:</b></label>{{Glory ? 'Voor de eer!' : 'Om te oefenen!' }}
                 <br>
                 <p>{{Glory ? 'Strijd om de hoogste score! In deze speel mode kan je je totaal punten
                     op sturen.' : 'Selecteer een organisatie die je graag zou willen oefenen!
