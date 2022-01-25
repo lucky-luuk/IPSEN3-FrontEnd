@@ -12,21 +12,23 @@ import {routes} from "../app-routing.module";
 })
 export class LoginService {
   private role = '';
+  private token!: string;
   constructor(private http : HttpService, private router: Router) { }
 
-  login(email: string, password: string, ) {
+  login(email: string, password: string, onFailure: () => void) {
     let hash = this.getPasswordHash(password);
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string}>(
       "/authenticate", {username: email, password: hash}, (data) => {
-        this.handleLogin(data.token);
-        if (this.role === 'ADMIN') {
-          this.router.navigate(['admin/overzicht'])
-        } else {
-          this.router.navigate(['moderator/overzicht'])
+        if (data) {
+          console.log('kom je hier?')
+          this.handleLogin(data.token);
+          if (this.role === 'ADMIN') {
+            this.router.navigate(['admin/overzicht'])
+          } else {
+            this.router.navigate(['moderator/overzicht'])
+          }
         }
-      }, () => {
-
-      });
+      }, onFailure);
   }
 
   createAccount(account: AccountModel, onSuccess: (data: {id: string, firstName: string, lastName: string, email: string, roles: {name: string}[]}) => void, onFailure: () => void) {
@@ -54,18 +56,25 @@ export class LoginService {
 
   public isAuthenticated() : boolean{
     let jwtHelper = new JwtHelperService();
-    const token = localStorage.getItem('token') ;
-    if (token) {
+    if (this.token) {
       //check if token is expired, returns true or false
-      this.handleLogin(token)
-      return !jwtHelper.isTokenExpired(token);
+      this.handleLogin(this.token)
+      return !jwtHelper.isTokenExpired(this.token);
     }
     return false;
+  }
+
+  autoLogin() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.handleLogin(token);
+    }
   }
 
   private handleLogin(token: any) {
     const tokenPayload: any = jwt_decode(token);
     this.role = tokenPayload.role;
+    this.token = token;
     localStorage.setItem('token', JSON.stringify(token))
   }
 
@@ -75,6 +84,6 @@ export class LoginService {
 
   logout() {
     localStorage.removeItem('token');
-    this.router.navigate(['login'])
+    this.router.navigate(['afko'])
   }
 }
