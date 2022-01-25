@@ -12,6 +12,7 @@ export class LoginComponent {
   email = '';
   password = '';
   submitted = false;
+  invalid = false;
 
   constructor( private auth: LoginService) { }
 
@@ -19,6 +20,8 @@ export class LoginComponent {
       this.submitted = true;
       this.email = form.value.email;
       this.password = form.value.password;
-      this.auth.login(this.email, this.password)
+      this.auth.login(this.email, this.password, () => {
+        this.invalid = true;
+      })
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from "@angular/router";
+import {LoginService} from "../auth/login.service";
 
 @Component({
   selector: 'app-moderator',
@@ -11,7 +12,6 @@ export class ModeratorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
 }
