@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -69,6 +69,7 @@ import {JsonParserLayoutComponent} from "./admin/bulk-upload/json-parser/json-pa
 import {JsonParserLayoutDropdownComponent} from "./admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-dropdown/json-parser-layout-dropdown.component";
 import {JsonParserComponent} from "./admin/bulk-upload/json-parser/json-parser.component";
 import {GenericPopupComponent} from "./generic-popup/generic-popup.component";
+import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor";
 
 
 @NgModule({
@@ -143,7 +144,7 @@ import {GenericPopupComponent} from "./generic-popup/generic-popup.component";
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}, SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
