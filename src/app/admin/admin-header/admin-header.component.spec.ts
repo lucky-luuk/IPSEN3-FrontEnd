@@ -1,18 +1,18 @@
 import {ComponentFixture, getTestBed, TestBed} from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { AdminHeaderComponent } from './admin-header.component';
 import {HeaderService} from "./header.service";
 import {RouterTestingModule} from "@angular/router/testing";
-import {AppModule} from "../app.module";
+import {AppModule} from "../../app.module";
 
 describe('HeaderComponent', () => {
-  let fixture : ComponentFixture<HeaderComponent>;
-  let component : HeaderComponent;
+  let fixture : ComponentFixture<AdminHeaderComponent>;
+  let component : AdminHeaderComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        HeaderComponent
+        AdminHeaderComponent
       ],
       providers: [
         {provide: HeaderService, useClass: HeaderService},
@@ -22,7 +22,7 @@ describe('HeaderComponent', () => {
         AppModule
       ]
     }).compileComponents();
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(AdminHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

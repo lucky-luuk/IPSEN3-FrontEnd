@@ -114,7 +114,7 @@ export class TicketComponent implements OnInit {
         this.saveTicket();
 
     }else{
-      this.router.navigate(["moderator", "overview"]);
+      this.router.navigate(["moderator", "overzicht"]);
     }
   }
 
@@ -146,7 +146,7 @@ export class TicketComponent implements OnInit {
     ticket.removed=true;
     this.ticketService.updateTicket(ticket, ()=>{});
     this.ticketHasBeenSelected = false;
-    this.router.navigate(["moderator", "overview"]);
+    this.router.navigate(["moderator", "overzicht"]);
   }
 
   private onTicketHasBeenChangedOnServer(newTicket : TicketModel) {

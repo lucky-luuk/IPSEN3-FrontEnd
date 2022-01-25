@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {AuthService} from "../auth.service";
 import {AccountModel} from "../../account.model";
+import {LoginService} from "../login.service";
 
 @Component({
   selector: 'app-login',
@@ -9,27 +9,16 @@ import {AccountModel} from "../../account.model";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  @ViewChild('Login') loginForm: NgForm | undefined;
   email = '';
   password = '';
   submitted = false;
 
-  constructor(private authService: AuthService) {
-  }
+  constructor( private auth: LoginService) { }
 
-  onSubmit() {
-    if (this.loginForm != undefined) {
+  onSubmit(form: any) {
       this.submitted = true;
-      this.email = this.loginForm.value.email;
-      this.password = this.loginForm.value.password;
-      const body = {
-        username: this.loginForm.value.email,
-        password: this.loginForm.value.password
-      }
-      this.authService.login(body, (data: AccountModel) => {
-        console.log(data)
-        this.authService.isAuthorised(data);
-      })
-    }
+      this.email = form.value.email;
+      this.password = form.value.password;
+      this.auth.login(this.email, this.password)
   }
 }
