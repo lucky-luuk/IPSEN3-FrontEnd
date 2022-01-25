@@ -60,6 +60,15 @@ import { DeleteTicketPopupComponent } from './moderator/ticket/delete-ticket-pop
 import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-popup/handle-ticket-popup.component';
 import {AdminHeaderComponent} from "./admin/admin-header/admin-header.component";
 import {ModHeaderComponent} from "./moderator/mod-header/mod-header.component";
+import {LoginComponent} from "./auth/login/login.component";
+import {BulkUploadComponent} from "./admin/bulk-upload/bulk-upload.component";
+import {BulkUploadLoadingPopupComponent} from "./admin/bulk-upload/bulk-upload-loading-popup/bulk-upload-loading-popup.component";
+import {CsvParserComponent} from "./admin/bulk-upload/csv-parser/csv-parser.component";
+import {JsonParserLayoutRowComponent} from "./admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-row/json-parser-layout-row.component";
+import {JsonParserLayoutComponent} from "./admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout.component";
+import {JsonParserLayoutDropdownComponent} from "./admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-dropdown/json-parser-layout-dropdown.component";
+import {JsonParserComponent} from "./admin/bulk-upload/json-parser/json-parser.component";
+import {GenericPopupComponent} from "./generic-popup/generic-popup.component";
 
 
 @NgModule({
@@ -115,7 +124,15 @@ import {ModHeaderComponent} from "./moderator/mod-header/mod-header.component";
     DeleteTicketPopupComponent,
     HandleTicketPopupComponent,
     AdminHeaderComponent,
-    ModHeaderComponent
+    ModHeaderComponent,
+    BulkUploadComponent,
+    BulkUploadLoadingPopupComponent,
+    CsvParserComponent,
+    JsonParserLayoutRowComponent,
+    JsonParserLayoutComponent,
+    JsonParserLayoutDropdownComponent,
+    JsonParserComponent,
+    GenericPopupComponent
   ],
   imports: [
     BrowserModule,

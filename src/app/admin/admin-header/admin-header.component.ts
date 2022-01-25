@@ -23,10 +23,12 @@ export class AdminHeaderComponent implements OnInit {
     {
       name: 'Instellingen',
       link: '/admin/settings'
+    },
+    {
+      name: "Bulk uploaden",
+      link: "/admin/bulk"
     }
   ]
-
-
 
   constructor(private route: Router, private activeRoute: ActivatedRoute, private auth: LoginService) {
   }
