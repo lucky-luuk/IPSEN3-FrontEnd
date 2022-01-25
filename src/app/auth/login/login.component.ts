@@ -20,5 +20,6 @@ export class LoginComponent {
       this.email = form.value.email;
       this.password = form.value.password;
       this.auth.login(this.email, this.password)
+
   }
 }

@@ -6,18 +6,25 @@ import {JwtHelperService} from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
 import jwt_decode from "jwt-decode";
 import {routes} from "../app-routing.module";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {FirstLoginPopupComponent} from "./first-login-popup/first-login-popup.component";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   private role = '';
-  constructor(private http : HttpService, private router: Router) { }
+  constructor(private http : HttpService, private router: Router, private modal: NgbModal) { }
 
   login(email: string, password: string, ) {
     let hash = this.getPasswordHash(password);
-    this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string}>(
+    this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}>(
       "/authenticate", {username: email, password: hash}, (data) => {
+        console.log("bij if", data.firstLogin)
+        if (data.firstLogin){
+          console.log("in if")
+          this.modal.open(FirstLoginPopupComponent);
+        }
         this.handleLogin(data.token);
         if (this.role === 'ADMIN') {
           this.router.navigate(['admin/overzicht'])

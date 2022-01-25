@@ -62,6 +62,7 @@ import { DeleteTicketPopupComponent } from './moderator/ticket/delete-ticket-pop
 import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-popup/handle-ticket-popup.component';
 import {AdminHeaderComponent} from "./admin/admin-header/admin-header.component";
 import {ModHeaderComponent} from "./moderator/mod-header/mod-header.component";
+import { FirstLoginPopupComponent } from './auth/first-login-popup/first-login-popup.component';
 
 
 @NgModule({
@@ -117,7 +118,8 @@ import {ModHeaderComponent} from "./moderator/mod-header/mod-header.component";
     DeleteTicketPopupComponent,
     HandleTicketPopupComponent,
     AdminHeaderComponent,
-    ModHeaderComponent
+    ModHeaderComponent,
+    FirstLoginPopupComponent
   ],
   imports: [
     BrowserModule,
