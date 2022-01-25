@@ -9,7 +9,6 @@ import {OverviewComponent} from "./moderator/overview/overview.component";
 import {InfoRequestComponent} from "./afkoteek/support/info-request/info-request.component";
 import {ReportComponent} from "./afkoteek/support/report/report.component";
 import {AddComponent} from "./afkoteek/support/add/add.component";
-import {LoginComponent} from "./moderator/login/login.component";
 import {AdminPageComponent} from "./admin/admin-page/admin-page.component";
 import {SettingsComponent} from "./admin/settings/settings.component";
 import {SearchAdminComponent} from "./admin/search-admin/search-admin.component";
@@ -18,6 +17,7 @@ import {EditModComponent} from "./admin/edit-mod/edit-mod.component";
 import {AdminComponent} from "./admin/admin.component";
 import { GamePageStartComponent } from './afkoteek/game/game-page/game-page-start/game-page-start.component';
 import { GamePagePlayingComponent } from './afkoteek/game/game-page/game-page-playing/game-page-playing.component';
+import {LoginComponent} from "./auth/login/login.component";
 import { ScoreComponent } from './afkoteek/game/game-page/score/score.component';
 import {AuthGuardService} from "./auth/auth-guard.service";
 
@@ -47,8 +47,10 @@ export const routes: Routes = [
       { path: 'settings', component: SettingsComponent},
       { path: 'search-admin', component: SearchAdminComponent},
       { path: 'nieuw', component: AddModComponent},
-    ], canActivate: [AuthGuardService]
+    ], canActivate: [AuthGuardService],
   },
+   {path: 'login', component: LoginComponent}
+
 ];
 
 @NgModule({
