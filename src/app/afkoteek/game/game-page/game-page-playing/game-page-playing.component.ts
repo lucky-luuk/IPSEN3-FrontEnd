@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbbreviationModel } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.model';
-import { gameService } from '../Game.service';
+import { gameService } from '../game.service';
 
 @Component({
   selector: 'app-game-page-playing',

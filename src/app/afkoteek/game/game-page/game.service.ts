@@ -142,7 +142,7 @@ export class gameService{
         this.holderOfAbbreviations =[];
         this.listOfAbbreviations = [];
         if(this.forGlory){
-            this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
+            this.AbbreviationHTTP.geAbbreviationByOrgId("Rijksbreed", (data) => {
                 data.forEach( (abbr) =>{
                     this.putAbbreviationInList(abbr);
                 });

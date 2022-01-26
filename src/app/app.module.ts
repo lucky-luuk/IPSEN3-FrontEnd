@@ -19,7 +19,6 @@ import { InfoRequestComponent } from './afkoteek/support/info-request/info-reque
 import { ReportComponent } from './afkoteek/support/report/report.component';
 import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
-import {HeaderService} from "./afkoteek/header/header.service";
 import { ModeratorComponent } from './moderator/moderator.component';
 import { TicketComponent } from './moderator/ticket/ticket.component';
 import { OverviewComponent } from './moderator/overview/overview.component';
@@ -37,7 +36,7 @@ import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
-import { gameService } from './afkoteek/game/game-page/Game.service';
+import { gameService } from './afkoteek/game/game-page/game.service';
 import { ModDropdownComponent } from './admin/edit-mod/mod-dropdown/mod-dropdown.component';
 import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -60,6 +59,7 @@ import { DeleteTicketPopupComponent } from './moderator/ticket/delete-ticket-pop
 import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-popup/handle-ticket-popup.component';
 import {AdminHeaderComponent} from "./admin/admin-header/admin-header.component";
 import {ModHeaderComponent} from "./moderator/mod-header/mod-header.component";
+import { FirstLoginPopupComponent } from './auth/first-login-popup/first-login-popup.component';
 import {LoginComponent} from "./auth/login/login.component";
 import {BulkUploadComponent} from "./admin/bulk-upload/bulk-upload.component";
 import {BulkUploadLoadingPopupComponent} from "./admin/bulk-upload/bulk-upload-loading-popup/bulk-upload-loading-popup.component";
@@ -126,6 +126,7 @@ import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor"
     HandleTicketPopupComponent,
     AdminHeaderComponent,
     ModHeaderComponent,
+    FirstLoginPopupComponent,
     BulkUploadComponent,
     BulkUploadLoadingPopupComponent,
     CsvParserComponent,
@@ -144,7 +145,7 @@ import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor"
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}, SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}, SupportService, gameService, ReportedAbbreviationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

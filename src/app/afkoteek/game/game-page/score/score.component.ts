@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { gameService } from '../Game.service';
+import { gameService } from '../game.service';
 
 @Component({
   selector: 'ngbd-modal-content',
