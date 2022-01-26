@@ -8,7 +8,6 @@ import {LoginService} from "../../auth/login.service";
   styleUrls: ['./admin-header.component.scss']
 })
 export class AdminHeaderComponent implements OnInit {
-  isAuthorised: string = 'afko'
   isLoggedIn: boolean = false;
   roleRoutes: { name: string; link: string; }[] = []
   adminRoutes = [
@@ -39,7 +38,8 @@ export class AdminHeaderComponent implements OnInit {
 
   logout() {
     this.isLoggedIn = false;
-    this.auth.logout();
+    this.auth.deleteToken();
+    this.route.navigate(['afko'])
   }
 
 }
