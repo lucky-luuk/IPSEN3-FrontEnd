@@ -14,11 +14,7 @@ export class AccountService {
    this.currentAccount.id = AccountService.DEFAULT_ID
   }
 
-  getAccountDetailsFromId(id : string, implementation : (data : AccountModel) => void) {
-    let map = new Map<string, string>();
-    map.set("id", id);
-    this.http.get<AccountModel>("/account", map, implementation);
-  }
+
 
   getCurrentUserAccount() : AccountModel {
     return this.currentAccount;

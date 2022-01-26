@@ -70,6 +70,7 @@ import {JsonParserLayoutDropdownComponent} from "./admin/bulk-upload/json-parser
 import {JsonParserComponent} from "./admin/bulk-upload/json-parser/json-parser.component";
 import {GenericPopupComponent} from "./generic-popup/generic-popup.component";
 import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor";
+import { TicketHandlerDropdownComponent } from './moderator/ticket/ticket-handler-dropdown/ticket-handler-dropdown.component';
 
 
 @NgModule({
@@ -134,7 +135,8 @@ import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor"
     JsonParserLayoutComponent,
     JsonParserLayoutDropdownComponent,
     JsonParserComponent,
-    GenericPopupComponent
+    GenericPopupComponent,
+    TicketHandlerDropdownComponent
   ],
   imports: [
     BrowserModule,

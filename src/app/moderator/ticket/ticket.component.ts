@@ -16,6 +16,7 @@ import {DeleteTicketPopupComponent} from "./delete-ticket-popup/delete-ticket-po
 import {HandleTicketPopupComponent} from "./handle-ticket-popup/handle-ticket-popup.component";
 import { TicketService } from '../ticket.service';
 import { NotSavedPopupComponent } from './not-saved-popup/not-saved-popup.component';
+import {TicketHandlerDropdownComponent} from "./ticket-handler-dropdown/ticket-handler-dropdown.component";
 
 @Component({
   selector: 'app-ticket',
@@ -26,11 +27,11 @@ export class TicketComponent implements OnInit {
   @ViewChild(TicketTypeDropdownComponent) ticketTypDropDown : any;
   @ViewChild(ReportedAbbreviationComponent) reportedAbbreviation : any | undefined = undefined;
   @ViewChild(NewAbbreviationComponent) newAbbreviation : any | undefined = undefined;
+  @ViewChild(TicketHandlerDropdownComponent) ticketHandlerDropdown : any;
 
   ticketHasBeenSelected = false;
   private oldData = new TicketModel();
   model: TicketModel = new TicketModel();
-  account: AccountModel = new AccountModel();
   abbreviation: AbbreviationModel = new AbbreviationModel();
 
   constructor(private ticketService: TicketService, private abbrService: AbbreviationService, private accountService: AccountService, private router: Router, private modalService: NgbModal) {
@@ -40,6 +41,14 @@ export class TicketComponent implements OnInit {
     this.init();
   }
 
+  getTicketTypeDisplayName() {
+    if (this.model.type === TicketTypeModel.INFO)
+      return "Informatie verzoek";
+    if (this.model.type === TicketTypeModel.ADD_ABBREVIATION)
+      return "Verzoek om afkorting toe te voegen";
+    return "Gerapporteerde afkorting";
+  }
+
   init() {
     this.setTicketData(this.ticketService.getSelectedTicket());
     this.ticketHasBeenSelected = this.model.id !== 0;
@@ -47,9 +56,6 @@ export class TicketComponent implements OnInit {
     if (this.model.temporaryAbbreviation !== null)
       this.abbreviation = this.model.temporaryAbbreviation;
 
-    this.accountService.getAccountDetailsFromId(this.model.accountId, (data) => {
-      this.account = data;
-    });
     // if ticket has been changed on the server
     this.ticketService.hasTicketChangedOnServer(this.oldData, (newTicket) => {
       this.handleTicketHasBeenChangedOnServer(newTicket);
@@ -112,7 +118,6 @@ export class TicketComponent implements OnInit {
   backToOverview() {
     if (!this.ticketService.isSameTicket(this.oldData, this.model)){
         this.saveTicket();
-
     }else{
       this.router.navigate(["moderator", "overzicht"]);
     }
@@ -123,6 +128,9 @@ export class TicketComponent implements OnInit {
   }
   setTicketStatus(data: string) {
     this.model.statusName = data;
+  }
+  setTicketAccountId(id : string) {
+    this.model.accountId = id;
   }
 
   getAddAbbreviationTicketType() {
@@ -168,8 +176,11 @@ export class TicketComponent implements OnInit {
 
     // set org dropdown for newAbbreviationComponent
     this.setViewChildDropdown(this.newAbbreviation);
-  }
 
+    if (this.ticketHandlerDropdown) {
+      this.ticketHandlerDropdown.selectHandler(this.model.accountId);
+    }
+  }
   private setViewChildDropdown(viewchild : any) {
     if (viewchild !== undefined) {
       if (this.model.temporaryAbbreviation !== null) {

@@ -41,7 +41,6 @@ export class gameService{
 
     totalAbbreviations: number = 0;
     maxAnwsers: number= 4;
-    organisatie = '';
 
     constructor(private router: Router, private AbbreviationHTTP: AbbreviationService, private http : HttpService){
     }
@@ -142,25 +141,24 @@ export class gameService{
         this.holderOfAbbreviations =[];
         this.listOfAbbreviations = [];
         if(this.forGlory){
-            this.AbbreviationHTTP.geAbbreviationByOrgId("Rijksbreed", (data) => {
+            this.AbbreviationHTTP.geAbbreviationByOrgId(this.selectedOrganisatie, (data) => {
                 data.forEach( (abbr) =>{
                     this.putAbbreviationInList(abbr);
                 });
                 this.setQuestion();
                 this.router.navigate(['spelen']);
 
-            }, () => {});
+            }, () => {}, 100);
 
         }else{
-            this.AbbreviationHTTP.geAbbreviationByOrgId(this.organisatie, (data) => {
+            this.AbbreviationHTTP.geAbbreviationByOrgId(this.selectedOrganisatie, (data) => {
                 data.forEach( (abbr) =>{
                     this.putAbbreviationInList(abbr);
                 });
                 this.setQuestion();
                 this.router.navigate(['spelen']);
 
-            }, () => {});
-
+            }, () => {}, 100);
         }
     }
 

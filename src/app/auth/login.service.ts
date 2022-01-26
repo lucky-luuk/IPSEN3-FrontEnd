@@ -19,6 +19,12 @@ export class LoginService {
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}>(
       "/authenticate", {username: email, password: hash}, onSuccess, onFailure);
 
+
+  }
+
+  getAllAccounts(implementation : (data : AccountModel[]) => void) {
+    let map = new Map<string, string>();
+    this.http.get<AccountModel[]>("/account/mod", map, implementation);
   }
 
   createAccount(account: AccountModel, onSuccess: (data: {id: string, firstName: string, lastName: string, email: string, roles: {name: string}[]}) => void, onFailure: () => void) {

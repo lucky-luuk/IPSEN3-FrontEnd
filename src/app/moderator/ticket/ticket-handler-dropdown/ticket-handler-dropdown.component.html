@@ -1,0 +1,7 @@
+<form>
+  <select class="account-select" (change)="submit($event)" id="account-select-dropdown">
+    <option class="option-st" *ngFor="let account of accounts" [value]="account.account.id" [selected]="account.selected">
+      {{account.account.firstName}}, {{account.account.lastName}}
+    </option>
+  </select>
+</form>
