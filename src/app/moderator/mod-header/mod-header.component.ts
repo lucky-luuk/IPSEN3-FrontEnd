@@ -32,7 +32,8 @@ export class ModHeaderComponent implements OnInit {
 
   logout() {
     this.isLoggedIn = false;
-    this.auth.logout();
+    this.auth.deleteToken();
+    this.route.navigate(['afko'])
   }
 
 }

@@ -3,9 +3,7 @@ import {Md5} from "ts-md5";
 import {HttpService} from "../http.service";
 import {AccountModel} from "../account.model";
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {Router} from "@angular/router";
 import jwt_decode from "jwt-decode";
-import {routes} from "../app-routing.module";
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +11,14 @@ import {routes} from "../app-routing.module";
 export class LoginService {
   private role = '';
   private token!: string;
-  constructor(private http : HttpService, private router: Router) { }
+  constructor(private http : HttpService) { }
 
-  login(email: string, password: string, onFailure: () => void) {
+  login(email: string, password: string, onSucces: (data: {email: string, firstname: string, lastname: string, token: string}) => void ,onFailure: () => void) {
     let hash = this.getPasswordHash(password);
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string}>(
       "/authenticate", {username: email, password: hash}, (data) => {
         if (data) {
           this.handleLogin(data.token);
-          if (this.role === 'ADMIN') {
-            this.router.navigate(['admin/overzicht'])
-          } else {
-            this.router.navigate(['moderator/overzicht'])
-          }
         }
       }, onFailure);
   }
@@ -84,8 +77,8 @@ export class LoginService {
   getToken() {
     return this.token;
   }
-  logout() {
+
+  deleteToken() {
     localStorage.removeItem('token');
-    this.router.navigate(['afko'])
   }
 }
