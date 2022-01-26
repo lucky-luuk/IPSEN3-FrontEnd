@@ -17,3 +17,11 @@
   display: flex;
   justify-content: center;
 }
+.new-abbr{
+  color: $primary-orange;
+  cursor: pointer;
+  font-size: 20px;
+  &:hover{
+    color: #c96300;;
+  }
+}

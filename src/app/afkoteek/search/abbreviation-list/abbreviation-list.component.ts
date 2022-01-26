@@ -3,6 +3,7 @@ import {AbbreviationService} from "./abbreviation.service";
 import {AbbreviationModel} from "./abbreviation.model";
 import {DropdownComponent} from "../dropdown/dropdown.component";
 import {OrganisationModel} from "./organisation.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-abbreviation-list',
@@ -18,19 +19,21 @@ export class AbbreviationListComponent implements OnInit {
   @Input() list_height : string = "45vh";
   @Input() shouldUseClickableAbbreviationComponent = false;
   @Output() onAbbreviationClick = new EventEmitter<AbbreviationModel>();
-
-  constructor(private h : AbbreviationService) {
+  noResult: boolean = false;
+  constructor(private h : AbbreviationService, private router: Router) {
     this.http = h;
   }
 
   ngOnInit(): void {}
 
   onSearch(name : string) : void {
+    this.noResult = false;
     // search by name only
     if (this.organisationIdFilter === OrganisationModel.DEFAULT_ID) {
       this.http.getAbbreviationsByName(name, (data) => {
         this.setAbbreviationData(data);
       }, () => {
+        this.noResult = true;
         this.setAbbreviationData([])
       });
     }
@@ -39,6 +42,7 @@ export class AbbreviationListComponent implements OnInit {
       this.http.geAbbreviationByOrgId(this.organisationIdFilter, (data) => {
         this.setAbbreviationData(data);
       }, () => {
+        this.noResult = true;
         this.setAbbreviationData([])
       });
     }
@@ -47,6 +51,7 @@ export class AbbreviationListComponent implements OnInit {
       this.http.getAbbreviationByOrgIdAndName(name, this.organisationIdFilter, (data) => {
         this.setAbbreviationData(data);
       }, () => {
+        this.noResult = true;
         this.setAbbreviationData([])
       });
     }
@@ -73,5 +78,9 @@ export class AbbreviationListComponent implements OnInit {
   showSearchingAnimation() {
     this.abbreviations = [];
     this.shouldShowSearchingAnimation = true;
+  }
+
+  navNewAbbreviation() {
+    this.router.navigate(['support/add'])
   }
 }
