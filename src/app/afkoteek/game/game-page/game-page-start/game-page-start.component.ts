@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import {ActivatedRoute, Router} from "@angular/router";
 import { AbbreviationService } from 'src/app/afkoteek/search/abbreviation-list/abbreviation.service';
 import { OrganisationModel } from 'src/app/afkoteek/search/abbreviation-list/organisation.model';
-import { gameService } from '../Game.service';
+import { gameService } from '../game.service';
 
 @Component({
   selector: 'app-game-page-start',

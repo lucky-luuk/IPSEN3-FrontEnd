@@ -4,23 +4,25 @@ import {HttpService} from "../http.service";
 import {AccountModel} from "../account.model";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import jwt_decode from "jwt-decode";
+import {routes} from "../app-routing.module";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {FirstLoginPopupComponent} from "./first-login-popup/first-login-popup.component";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   private role = '';
+
   private token!: string;
   constructor(private http : HttpService) { }
 
-  login(email: string, password: string, onSucces: (data: {email: string, firstname: string, lastname: string, token: string}) => void ,onFailure: () => void) {
+  login(email: string, password: string, onSuccess: (data: {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}) => void ,onFailure: () => void) {
     let hash = this.getPasswordHash(password);
-    this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string}>(
-      "/authenticate", {username: email, password: hash}, (data) => {
-        if (data) {
-          this.handleLogin(data.token);
-        }
-      }, onFailure);
+    this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}>(
+      "/authenticate", {username: email, password: hash}, onSuccess, onFailure);
+      
   }
 
   createAccount(account: AccountModel, onSuccess: (data: {id: string, firstName: string, lastName: string, email: string, roles: {name: string}[]}) => void, onFailure: () => void) {
@@ -56,6 +58,11 @@ export class LoginService {
     return false;
   }
 
+  public resetPassword(changePasswordRequestBody : {oldPassword: string, newPassword: string}) {
+    this.http.put<{oldPassword: string, newPassword: string}>("/account/mod/password", changePasswordRequestBody,(data) => {
+    });
+  }
+
   autoLogin() {
     const token = localStorage.getItem('token');
     if (token) {
@@ -63,7 +70,7 @@ export class LoginService {
     }
   }
 
-  private handleLogin(token: string) {
+  handleLogin(token: string) {
     const tokenPayload: any = jwt_decode(token);
     this.role = tokenPayload.role;
     this.token = token;
