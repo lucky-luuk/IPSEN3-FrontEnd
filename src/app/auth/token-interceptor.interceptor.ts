@@ -14,11 +14,8 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
   constructor(private auth: LoginService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log('intercaptor werkt')
     if (this.auth.isAuthenticated()) {
-      console.log('autorised')
       if (this.auth.getToken()) {
-        console.log('heeft token')
         const modif = request.clone({headers: request.headers.set('Authorization', 'Bearer '+this.auth.getToken())})
         return next.handle(modif);
       }
