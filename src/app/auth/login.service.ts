@@ -20,7 +20,6 @@ export class LoginService {
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string}>(
       "/authenticate", {username: email, password: hash}, (data) => {
         if (data) {
-          console.log('kom je hier?')
           this.handleLogin(data.token);
           if (this.role === 'ADMIN') {
             this.router.navigate(['admin/overzicht'])
@@ -71,17 +70,20 @@ export class LoginService {
     }
   }
 
-  private handleLogin(token: any) {
+  private handleLogin(token: string) {
     const tokenPayload: any = jwt_decode(token);
     this.role = tokenPayload.role;
     this.token = token;
-    localStorage.setItem('token', JSON.stringify(token))
+    localStorage.setItem('token', token)
   }
 
   getRole() {
     return this.role;
   }
 
+  getToken() {
+    return this.token;
+  }
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['afko'])
