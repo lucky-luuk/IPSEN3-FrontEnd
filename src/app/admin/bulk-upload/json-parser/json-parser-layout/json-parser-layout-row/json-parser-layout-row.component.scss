@@ -1,0 +1,8 @@
+.json-container {
+  margin-top: 5px;
+  background-color: rgba(153, 189, 189, 0.51);
+  margin-left: 40px;
+  &:hover {
+    background-color: rgba(153, 189, 189, 0.61);
+  }
+}

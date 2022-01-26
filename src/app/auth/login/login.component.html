@@ -2,33 +2,38 @@
   <div class="container">
     <div class="row justify-content-center">
         <div class="card">
+          <div *ngIf="invalid" class="alert alert-danger" role="alert">
+            Het gebruikers naam of wachtwoord is incorrect.
+          </div>
           <div class="card-header">
             <h1>Login</h1>
           </div>
           <div class="card-body">
             <form
               name="form"
-              (ngSubmit)="onSubmit()"
-              #Login="ngForm">
+              #Login="ngForm"
+              (ngSubmit)="onSubmit(Login)">
                 <div class="form-floating mb-3">
-                  <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                   <input
                     type="email"
                     id="email"
                     class="form-control"
+                    placeholder="Email"
                     ngModel
                     name="email"
                     required
                     email
                     #email="ngModel"
                   >
+                  <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+
                 </div>
                 <div class="form-floating mb-3">
-                  <label for="password" class="col-md-4 col-form-label text-md-right">Wachtwoord</label>
                   <input
                     type="password"
                     class="form-control"
                     id="password"
+                    placeholder="Wachtwoord"
                     ngModel
                     name="password"
                     required
@@ -36,6 +41,7 @@
                     password
                     #password="ngModel"
                   >
+                  <label for="password" class="col-md-4 col-form-label text-md-right">Wachtwoord</label>
                 </div>
                 <button
                   type="submit"

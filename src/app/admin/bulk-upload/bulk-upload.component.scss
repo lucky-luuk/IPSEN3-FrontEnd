@@ -1,0 +1,13 @@
+@import "src/styles";
+.abbr-list-container {
+  width: 80%;
+  margin-left: 10%;
+}
+.post-button {
+  margin-left: 50%;
+  margin-top: 20px;
+  background-color: $primary-blue;
+  &:hover {
+    background-color: $dark-blue;
+  }
+}

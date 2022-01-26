@@ -1,7 +1,8 @@
 import {Component, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {AuthService} from "../auth.service";
 import {AccountModel} from "../../account.model";
+import {LoginService} from "../login.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,27 +10,25 @@ import {AccountModel} from "../../account.model";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  @ViewChild('Login') loginForm: NgForm | undefined;
   email = '';
   password = '';
   submitted = false;
+  invalid = false;
 
-  constructor(private authService: AuthService) {
-  }
+  constructor( private auth: LoginService, private router: Router) { }
 
-  onSubmit() {
-    if (this.loginForm != undefined) {
+  onSubmit(form: any) {
       this.submitted = true;
-      this.email = this.loginForm.value.email;
-      this.password = this.loginForm.value.password;
-      const body = {
-        username: this.loginForm.value.email,
-        password: this.loginForm.value.password
-      }
-      this.authService.login(body, (data: AccountModel) => {
-        console.log(data)
-        this.authService.isAuthorised(data);
-      })
-    }
+      this.email = form.value.email;
+      this.password = form.value.password;
+      this.auth.login(this.email, this.password, (data) => {
+        if (this.auth.getRole() === 'ADMIN') {
+          this.router.navigate(['admin/overzicht'])
+        } else {
+          this.router.navigate(['moderator/overzicht'])
+        }
+      }, () => {
+        this.invalid = true;
+      });
   }
 }

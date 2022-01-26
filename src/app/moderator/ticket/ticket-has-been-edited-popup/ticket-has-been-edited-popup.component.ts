@@ -23,6 +23,6 @@ export class TicketHasBeenEditedPopupComponent implements OnInit {
   }
   close() {
     this.activeModal.close();
-    this.router.navigate(["moderator", "overview"])
+    this.router.navigate(["moderator", "overzicht"])
   }
 }

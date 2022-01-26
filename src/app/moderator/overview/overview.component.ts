@@ -1,9 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
 import {TicketModel} from "../ticket/ticket.model";
 import {TicketService} from "../ticket.service";
-import {NavigationEvent} from "@ng-bootstrap/ng-bootstrap/datepicker/datepicker-view-model";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-overview',
