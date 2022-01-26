@@ -26,6 +26,10 @@ export class AdminOverviewComponent implements OnInit {
 
   onSearch(data : string) {
     this.filteredUsers = [];
+    if (data === "") {
+      this.filteredUsers = this.users;
+      return;
+    }
     for (let user of this.users) {
       if (user.firstName.toLowerCase().includes(data.toLowerCase())) {
         this.filteredUsers.push(user);
