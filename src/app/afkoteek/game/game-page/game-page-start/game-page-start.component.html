@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="float-container">
     <div class="float-child">
         <div class="child-content">
@@ -22,7 +23,7 @@
             ngModel
             name="name"
             #name="ngModel"
-            required>
+            required (keyup)="setName($event)">
 
             <label
             style="color: red; font-size:  1em;"
@@ -34,14 +35,12 @@
             <app-dropdown (onSelectEvent)="onSelectOrg($event)"></app-dropdown>
             <br>
 
-            <button type="submit" [disabled]="!gameform.valid">Start</button>
+            <button type="submit" [disabled]="shouldDisableButton" [ngClass]="{'disabled-button': shouldDisableButton}">Start</button>
             <button type="button" (click)="forGlory()">{{Glory ? 'Ga naar Oefenen' : 'Ga naar eer' }}</button>
             <hr>
             <span><label><b>Je speelt nu:</b></label>{{Glory ? 'Voor de eer!' : 'Om te oefenen!' }}
                 <br>
-                <p>{{Glory ? 'Strijd om de hoogste score! In deze speel mode kan je je totaal punten
-                    op sturen.' : 'Selecteer een organisatie die je graag zou willen oefenen!
-                    De punten die je hierbij haalt kan je niet versturen.' }}</p>
+                <p>{{Glory ? 'Strijd om de hoogste score! In deze speel mode kan je je totaal punten op sturen.' : 'Selecteer een organisatie die je graag zou willen oefenen! De punten die je hierbij haalt kan je niet versturen.' }}</p>
             </span>
         </form>
     </div>

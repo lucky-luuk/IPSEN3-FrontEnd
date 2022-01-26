@@ -15,7 +15,7 @@
   <div class="float-child">
     <div class="float-child-split">
       <div class="child-content">
-        <h4>{{model.type}}</h4>
+        <h4>{{getTicketTypeDisplayName()}}</h4>
         <p>{{model.userName}}</p>
         <p>{{model.userEmail}}</p>
       </div>
@@ -33,7 +33,11 @@
           </tr>
           <tr>
             <td>Behandelaar:</td>
-            <td><form><input id="validator" class="form-control"  type="text" value="{{account.firstName}}, {{account.lastName}}" ></form></td>
+            <td>
+              <form>
+                <app-ticket-handler-dropdown [ticket]="model" (onSelect)="setTicketAccountId($event)"></app-ticket-handler-dropdown>
+              </form>
+            </td>
           </tr>
         </table>
       </div>

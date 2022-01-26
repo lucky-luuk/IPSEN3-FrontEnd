@@ -65,8 +65,6 @@ export class DropdownComponent implements OnInit {
     }
   }
 
-  // set the organisation to be selected when creating the organisation list
-  // work around for the list being filled after instantiation
   public selectOrganisation(org : OrganisationModel | null) {
     this.selectedOrganisation = org;
     if (org !== null)

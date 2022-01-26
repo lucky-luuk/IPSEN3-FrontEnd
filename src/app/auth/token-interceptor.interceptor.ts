@@ -14,10 +14,9 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
   constructor(private auth: LoginService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-
     if (this.auth.isAuthenticated()) {
       if (this.auth.getToken()) {
-        const modif = request.clone({headers: request.headers.set('Authorization', 'Bearer '+this.auth.getToken())})
+        const modif = request.clone({headers: request.headers.set('Authorization', 'Bearer '+ this.auth.getToken())})
         return next.handle(modif);
       }
     }

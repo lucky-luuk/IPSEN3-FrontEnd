@@ -26,9 +26,11 @@ export class AbbreviationService {
     this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation, onFail);
   }
 
-  public geAbbreviationByOrgId(orgId : string, implementation : (data : AbbreviationModel[]) => void, onFail : () => void) : void {
+  public geAbbreviationByOrgId(orgId : string, implementation : (data : AbbreviationModel[]) => void, onFail : () => void, amount : number = -1) : void {
     let parameters = new Map<string, string>();
     parameters.set("org_id", orgId);
+    if (amount !== -1)
+      parameters.set("max_amount", "" + amount);
     this.http.get<AbbreviationModel[]>(this.endpoint, parameters, implementation, onFail);
   }
 

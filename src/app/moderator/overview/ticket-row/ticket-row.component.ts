@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TicketModel} from "../../ticket/ticket.model";
 import {TicketService} from "../../ticket.service";
+import {TicketTypeModel} from "../../ticket/ticketType.model";
 
 @Component({
   selector: 'app-ticket-row',
@@ -15,6 +16,14 @@ export class TicketRowComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  getTypeDisplayName() : string {
+    if (this.model.type === TicketTypeModel.ADD_ABBREVIATION)
+      return "Afkorting toevoegen";
+    if (this.model.type === TicketTypeModel.INFO)
+      return "Informatie verzoek";
+    return "Gerapporteerde afkorting";
   }
 
 }

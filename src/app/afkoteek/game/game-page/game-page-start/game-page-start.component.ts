@@ -12,32 +12,36 @@ import { gameService } from '../game.service';
 })
 export class GamePageStartComponent implements OnInit {
   @ViewChild('gameform') gameForm!: NgForm;
-  organisatie: string = '';
   Glory= false;
+  shouldDisableButton = true;
 
   constructor(private router: Router,private http: AbbreviationService, private route: ActivatedRoute, private gamservice: gameService) {
   }
 
   ngOnInit() {
+    this.shouldDisableButton = true;
   }
 
+  setName(event : any) {
+    this.gamservice.playerName = event.target.value;
+    this.shouldDisableButton = (this.gamservice.selectedOrganisatie === "");
+  }
   onSelectOrg(data: OrganisationModel){
-    this.organisatie = data.id;
+    this.gamservice.selectedOrganisatie = data.id;
+    this.shouldDisableButton = (this.gamservice.playerName === "");
   }
 
   startGame(form: NgForm){
+    this.shouldDisableButton = true;
     this.gamservice.forGlory = this.Glory;
-    this.setAbbreviationData(this.organisatie);
-    this.gamservice.selectedOrganisatie = this.organisatie;
-    this.gamservice.playerName = form.value.name;
+    this.setAbbreviationData(this.gamservice.selectedOrganisatie);
   }
 
   forGlory(){
-    this.Glory = !this.Glory; 
+    this.Glory = !this.Glory;
   }
 
   setAbbreviationData(data: string){
-    this.gamservice.organisatie = this.organisatie;
     this.gamservice.getAbbreviations();
   }
 
