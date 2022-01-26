@@ -9,7 +9,6 @@ import {LoginService} from "../../auth/login.service";
 })
 export class ModHeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
-  roleRoutes: { name: string; link: string; }[] = []
   modRouter = [
     {
       name: 'Overzicht',

@@ -19,7 +19,6 @@ import { InfoRequestComponent } from './afkoteek/support/info-request/info-reque
 import { ReportComponent } from './afkoteek/support/report/report.component';
 import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
-import {HeaderService} from "./afkoteek/header/header.service";
 import { ModeratorComponent } from './moderator/moderator.component';
 import { TicketComponent } from './moderator/ticket/ticket.component';
 import { OverviewComponent } from './moderator/overview/overview.component';
@@ -144,7 +143,7 @@ import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor"
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}, SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}, SupportService, gameService, ReportedAbbreviationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
