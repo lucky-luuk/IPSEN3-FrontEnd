@@ -27,7 +27,10 @@ export class AddModPopupComponent implements OnInit {
     this.account.lastName = this.data.last_name;
     this.account.email = this.data.email;
     this.account.password = Md5.hashStr(this.data.password);
-    this.http.post<AccountModel>('/account/mod', this.account, (data) => {});
+    this.http.post<AccountModel>('/account/mod', this.account, (data) => {
+      console.log(data);
+      
+    });
   }
 
   createRandomUserPassword(): string{
