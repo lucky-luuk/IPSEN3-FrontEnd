@@ -60,19 +60,10 @@
                    [ngClass]="{'is-invalid': !phone.valid && phone.touched}">
           </div>
         </div>
-
-        <div class="row">
-          <div class="col text-column">
-            Organisatie
-          </div>
-          <div class="col">
-            <app-dropdown (onSelectEvent)="onSetOrganisation($event)"></app-dropdown>
-          </div>
-        </div>
       </div>
     </div>
     <div class="form-background button">
-      <button class="btn btn-primary add-button" [disabled]="(!shouldEnableButton()) || (!f.valid)">
+      <button class="btn btn-primary add-button" [disabled]="(!f.valid)">
         voeg toe
       </button>
     </div>

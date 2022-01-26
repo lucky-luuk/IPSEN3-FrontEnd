@@ -22,6 +22,10 @@ export class UserService {
     this.http.put<UsersModel[]>("/account/mod", [user, user], implementation);
   }
 
+  deleteUser(user : UsersModel, implementation : (data : UsersModel[]) => void) {
+    this.http.delete("/account/mod", [user], implementation)
+  }
+
   getAllMods(implementation : (data : UsersModel[]) => void){
     this.http.get<UsersModel[]>("/account/mod", new Map<string, string>(), implementation);
   }

@@ -1,6 +1,6 @@
 <div class="float-container">
   <div class="float-child">
-    <div class="float-child-split">
+<!--    <div class="float-child-split">-->
       <div class="child-content">
         <form #f="ngForm">
           <table>
@@ -38,67 +38,59 @@
                          [ngClass]="{'is-invalid': !email.valid && email.touched}">
                 </td>
               </tr>
-<!--              <tr>-->
-<!--                <td>Telefoon:</td>-->
-<!--                <td>-->
-<!--                  <input type="text" class="form-control"-->
-<!--                         ngModel ="{{user.phoneNumber}}"-->
-<!--                         name="telefoon"-->
-<!--                         required-->
-<!--                         #phoneNumber="ngModel"-->
-<!--                         [ngClass]="{'is-invalid': !phoneNumber.valid && phoneNumber.touched}">-->
-<!--                </td>-->
-<!--              </tr>-->
-              <tr>
-                <td>Orginisatie:</td>
-                <div class="drop-org">
-                  <td>
-                    <app-mod-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-mod-dropdown>
-                  </td>
-                </div>
-              </tr>
           </table>
-          <div class="save-btn">
-            <button
-              type="submit" [disabled]="!f.valid" (click)="updateUser(f)">Opslaan
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <div class="float-child-split">
-      <div class="child-content">
-        <button
-          class="btn-back" [routerLink]="['/admin' , 'overzicht']">Terug naar overzicht
-        </button>
-        <form>
-          <div class="radio-container">
-            <div class="radio-btn">
-              <label for="actief">Actief</label>
-              <input
-                type="radio"
-                id="actief"
-                name="activation-buttons"
-                value="actief" checked>
-
-              <label for="in-actief">In-actief</label>
-              <input
-                type="radio"
-                id="in-actief"
-                name="activation-buttons"
-                value="in-actief">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="save-btn">
+                  <button type="submit" class="delete-button" (click)="deleteUser()">Verwijder Moderator</button>
+                </div>
+              </div>
+              <div class="col">
+                <div class="save-btn">
+                  <button
+                    type="submit" [disabled]="!f.valid" (click)="updateUser(f)">Opslaan
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </form>
-        <button class="ww-button">Wachtwoord Reset</button>
       </div>
     </div>
-  </div>
+
+<!--    <div class="float-child-split">-->
+<!--      <div class="child-content">-->
+<!--        <button-->
+<!--          class="btn-back" [routerLink]="['/admin' , 'overzicht']">Terug naar overzicht-->
+<!--        </button>-->
+<!--        <form>-->
+<!--          <div class="radio-container">-->
+<!--            <div class="radio-btn">-->
+<!--              <label for="actief">Actief</label>-->
+<!--              <input-->
+<!--                type="radio"-->
+<!--                id="actief"-->
+<!--                name="activation-buttons"-->
+<!--                value="actief" checked>-->
+
+<!--              <label for="in-actief">In-actief</label>-->
+<!--              <input-->
+<!--                type="radio"-->
+<!--                id="in-actief"-->
+<!--                name="activation-buttons"-->
+<!--                value="in-actief">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--        <button class="ww-button">Wachtwoord Reset</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
   <div class="float-child">
     <div class="child-content child-content-footer">
 <!--      <button  type="Button" class="close" aria-label="Close" (click)="onClick()">Opslaan</button>-->
-      <button>Wijziging negeren</button>
+      <button (click)="backToOverview()">Wijziging negeren</button>
     </div>
   </div>
 </div>
