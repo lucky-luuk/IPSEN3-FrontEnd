@@ -9,10 +9,8 @@ import {AddModPopupComponent} from "./add-mod-popup/add-mod-popup.component";
   styleUrls: ['./add-mod.component.scss']
 })
 export class AddModComponent implements OnInit {
-  organisationModel : OrganisationModel;
 
   constructor(private modalService : NgbModal) {
-    this.organisationModel = new OrganisationModel();
   }
 
   ngOnInit(): void {
@@ -21,13 +19,5 @@ export class AddModComponent implements OnInit {
   onSubmit(data : any) {
     let modal = this.modalService.open(AddModPopupComponent);
     modal.componentInstance.data = data.form.value;
-  }
-
-  onSetOrganisation(org : OrganisationModel) {
-    this.organisationModel = org;
-  }
-
-  shouldEnableButton() : boolean {
-    return (this.organisationModel.name !== OrganisationModel.DEFAULT_NAME);
   }
 }

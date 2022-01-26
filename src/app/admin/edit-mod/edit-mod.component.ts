@@ -1,14 +1,13 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {UsersModel} from "../usersHelper/users.model";
 import {UserService} from "../usersHelper/user.service";
-
-import {NgForm} from "@angular/forms";
 import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list/abbreviation-list.component";
 
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AdminSavePopupComponent} from "./admin-save-popup/admin-save-popup.component";
 import {NotSavedPopupComponent} from "../../moderator/ticket/not-saved-popup/not-saved-popup.component";
 import {ActivatedRoute, Params, Router} from "@angular/router";
+import {GenericPopupComponent} from "../../generic-popup/generic-popup.component";
 
 
 @Component({
@@ -55,14 +54,24 @@ export class EditModComponent implements OnInit {
     this.usersService.updateUsers(this.user, () => {});
   }
 
+  deleteUser() {
+    let ref = this.modalService.open(GenericPopupComponent).componentInstance;
+    ref.shouldHideDenyButton = false;
+    ref.title = "Weet je zeker dat je deze moderator wil verwijderen?";
+    ref.confirmText = "Verwijder";
+    ref.denyText = "Sluit";
+    ref.confirm = () => {
+      this.usersService.deleteUser(this.user, () => {
+        let ref = this.modalService.open(GenericPopupComponent).componentInstance;
+        ref.title = "Gebruiker succesvol verwijderd";
+        ref.confirmText = "Ok";
+      });
+      this.router.navigate(["/admin", "overzicht"]);
+    };
+  }
   backToOverview() {
-    let ref = this.modalService.open(NotSavedPopupComponent);
-    // ref.componentInstance.data = {afkorting: this.abbreviation.name, beschrijving: this.abbreviation.description}
-    ref.componentInstance.onClose = () => {
-   //TODO weizigingen opslaan
-      this.router.navigate(["moderator", "overzicht"]);
+    this.router.navigate(["/admin", "overzicht"]);
 
-    }
   }
 
   onSelectOrganisation(orgid : string) {

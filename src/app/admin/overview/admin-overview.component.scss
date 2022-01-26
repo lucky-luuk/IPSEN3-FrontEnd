@@ -22,17 +22,15 @@
       }
     }
   }
-  .list-container{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    width: 60vw;
-    min-height: 30vh;
-    background: white;
-    max-height: $max-content-height - 20vh;
-    overflow-x: hidden;
-    margin: 0;
-  }
+}
+.list-container{
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  min-height: 30vh;
+  background: white;
+  max-height: $max-content-height - 20vh;
+  overflow-x: hidden;
 }
 
 

@@ -1,5 +1,11 @@
 @import "../../../styles";
 
+.delete-button {
+  background-color: #800505;
+  &:hover {
+    background-color: red;
+  }
+}
 .float-container{
   padding: 0px 20%;
 }

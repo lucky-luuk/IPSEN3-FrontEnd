@@ -4,6 +4,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import { AccountModel } from 'src/app/account.model';
 import { HttpService } from 'src/app/http.service';
 import { Md5 } from 'ts-md5';
+import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 
 @Component({
   selector: 'app-add-mod-popup',
@@ -29,7 +30,7 @@ export class AddModPopupComponent implements OnInit {
     this.account.password = Md5.hashStr(this.data.password);
     this.http.post<AccountModel>('/account/mod', this.account, (data) => {
       console.log(data);
-      
+
     });
   }
 
