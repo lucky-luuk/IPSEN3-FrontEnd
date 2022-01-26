@@ -18,10 +18,11 @@ export class LoginService {
   private token!: string;
   constructor(private http : HttpService) { }
 
-  login(email: string, password: string, onSuccess: (data: {email: string, firstname: string, lastname: string, token: string}) => void ,onFailure: () => void) {
+  login(email: string, password: string, onSuccess: (data: {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}) => void ,onFailure: () => void) {
     let hash = this.getPasswordHash(password);
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}>(
       "/authenticate", {username: email, password: hash}, onSuccess, onFailure);
+      
   }
 
   createAccount(account: AccountModel, onSuccess: (data: {id: string, firstName: string, lastName: string, email: string, roles: {name: string}[]}) => void, onFailure: () => void) {
@@ -58,9 +59,8 @@ export class LoginService {
   }
 
   public resetPassword(changePasswordRequestBody : {oldPassword: string, newPassword: string}) {
-    this.http.put<{oldPassword: string, newPassword: string}>("/account/mod/password", changePasswordRequestBody, (data) => {
+    this.http.put<{oldPassword: string, newPassword: string}>("/account/mod/password", changePasswordRequestBody,(data) => {
     });
-
   }
 
   autoLogin() {

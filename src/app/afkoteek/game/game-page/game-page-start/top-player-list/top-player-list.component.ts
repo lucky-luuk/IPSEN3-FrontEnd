@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../../game.model';
-import { gameService } from '../../Game.service';
+import { gameService } from '../../game.service';
 
 @Component({
   selector: 'app-top-player-list',

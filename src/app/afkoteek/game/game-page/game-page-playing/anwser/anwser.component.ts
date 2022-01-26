@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { gameService } from '../../Game.service';
+import { gameService } from '../../game.service';
 
 @Component({
   selector: 'app-anwser',

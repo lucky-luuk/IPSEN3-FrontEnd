@@ -6,6 +6,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import { HttpService } from 'src/app/http.service';
 import { LoginService } from '../login.service';
 import { Md5 } from 'ts-md5';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-first-login-popup',
@@ -14,6 +15,7 @@ import { Md5 } from 'ts-md5';
 })
 export class FirstLoginPopupComponent implements OnInit {
   passwordSame: boolean = true;
+  data: any;
   form = new FormGroup({
     password : new FormControl(),
     newpassword: new FormControl(),
@@ -24,7 +26,7 @@ export class FirstLoginPopupComponent implements OnInit {
   onClose = ()=>{}
 
   abbreviation = new AbbreviationModel();
-  constructor(public activeModal: NgbActiveModal, private loginservice: LoginService) {}
+  constructor(private auth: LoginService, public activeModal: NgbActiveModal, private router: Router, private loginservice: LoginService) {}
 
 
   submit(){
@@ -32,9 +34,11 @@ export class FirstLoginPopupComponent implements OnInit {
     let newPassword = this.form.get("newpassword")?.value;
     let newpasswordtwo: string = this.form.get("newpasswordtwo")?.value;
     if (newPassword === newpasswordtwo){
+      oldPassword = Md5.hashStr(oldPassword);
       newPassword = Md5.hashStr(newPassword);
       this.loginservice.resetPassword({oldPassword, newPassword});
-    } else{
+      this.onSave();
+    }else{
       this.passwordSame = false;
     }
   }
@@ -42,6 +46,15 @@ export class FirstLoginPopupComponent implements OnInit {
   onSave(){
     this.activeModal.close();
     this.onClose();
+
+    if (this.data) {
+      this.auth.handleLogin(this.data.token);
+      if (this.auth.getRole() === 'ADMIN') {
+        this.router.navigate(['admin/overzicht'])
+      } else {
+        this.router.navigate(['moderator/overzicht'])
+      }
+    }
   }
   ngOnInit(): void {
   }
