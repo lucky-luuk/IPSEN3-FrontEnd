@@ -1,0 +1,56 @@
+<div class="parser-container">
+  <div class="layout">
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" [value]="'custom'"> Custom JSON
+      </label>
+      <label ngbButtonLabel class="btn-primary">
+        <input ngbButton type="radio" [value]="'pdirect'"> PDirect JSON
+      </label>
+    </div>
+  </div>
+  <div class="explanation-text" *ngIf="model === 'pdirect'">
+    <div>
+      gebruik de pdirect layout:
+    </div>
+    <code>
+      {{'{'}}
+      "entries": number,
+      "results": [
+      "id": string,
+      "abbreviation": string,
+      "definitions": [ {{'{'}}
+      "id": string,
+      "fullText": string,
+      "oranizations": [ {{'{'}}
+      "id": string
+      "name": string
+      {{'}'}}
+      ]
+      {{'}'}}
+      ]
+      ]
+      {{'}'}}
+    </code>
+  </div>
+  <div *ngIf="model === 'custom'">
+    <div class="explanation-text">
+      Bouw een custom json setup, door op de '+' knop te drukken voeg je een data member toe.
+      De '-' knop haalt deze weer weg. <br>
+      de mogelijk property namen zijn: name, description en organisations. <br>
+      zet deze aan in het linker vak!
+      Bv. de json: <code>
+      {{'{'}} "naam": "etc", "beschrijving": "et cetera", "organizaties": [ "naam": "Rijksbreed"] {{'}'}}
+    </code>
+      moet naar het correcte object worden omgezet, gebruik dan de volgende layout:
+    </div>
+    <app-json-parser-layout [layout]="layout"></app-json-parser-layout>
+  </div>
+  <button (click)="onParse()" class="parse-button">
+    parse
+  </button>
+  <div class="error-text" *ngIf="error !== ''">
+    {{error}}
+  </div>
+</div>
+

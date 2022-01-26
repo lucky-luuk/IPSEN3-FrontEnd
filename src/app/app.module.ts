@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +20,6 @@ import { ReportComponent } from './afkoteek/support/report/report.component';
 import { AddComponent } from './afkoteek/support/add/add.component';
 import {SupportService} from "./afkoteek/support/support.service";
 import {HeaderService} from "./afkoteek/header/header.service";
-
 import { ModeratorComponent } from './moderator/moderator.component';
 import { TicketComponent } from './moderator/ticket/ticket.component';
 import { OverviewComponent } from './moderator/overview/overview.component';
@@ -38,7 +37,6 @@ import { UserComponent } from './admin/overview/user/user.component';
 import { AdminOverviewComponent} from "./admin/overview/admin-overview.component";
 import { EditModComponent } from './admin/edit-mod/edit-mod.component';
 import { AdminComponent } from './admin/admin.component';
-import {LoginComponent} from "./auth/login/login.component";
 import { gameService } from './afkoteek/game/game-page/Game.service';
 import { ModDropdownComponent } from './admin/edit-mod/mod-dropdown/mod-dropdown.component';
 import { ClickableAbbreviationComponent } from './afkoteek/search/abbreviation-list/clickable-abbreviation/clickable-abbreviation.component';
@@ -63,6 +61,16 @@ import { HandleTicketPopupComponent } from './moderator/ticket/handle-ticket-pop
 import {AdminHeaderComponent} from "./admin/admin-header/admin-header.component";
 import {ModHeaderComponent} from "./moderator/mod-header/mod-header.component";
 import { FirstLoginPopupComponent } from './auth/first-login-popup/first-login-popup.component';
+import {LoginComponent} from "./auth/login/login.component";
+import {BulkUploadComponent} from "./admin/bulk-upload/bulk-upload.component";
+import {BulkUploadLoadingPopupComponent} from "./admin/bulk-upload/bulk-upload-loading-popup/bulk-upload-loading-popup.component";
+import {CsvParserComponent} from "./admin/bulk-upload/csv-parser/csv-parser.component";
+import {JsonParserLayoutRowComponent} from "./admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-row/json-parser-layout-row.component";
+import {JsonParserLayoutComponent} from "./admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout.component";
+import {JsonParserLayoutDropdownComponent} from "./admin/bulk-upload/json-parser/json-parser-layout/json-parser-layout-dropdown/json-parser-layout-dropdown.component";
+import {JsonParserComponent} from "./admin/bulk-upload/json-parser/json-parser.component";
+import {GenericPopupComponent} from "./generic-popup/generic-popup.component";
+import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor";
 
 
 @NgModule({
@@ -119,7 +127,15 @@ import { FirstLoginPopupComponent } from './auth/first-login-popup/first-login-p
     HandleTicketPopupComponent,
     AdminHeaderComponent,
     ModHeaderComponent,
-    FirstLoginPopupComponent
+    FirstLoginPopupComponent,
+    BulkUploadComponent,
+    BulkUploadLoadingPopupComponent,
+    CsvParserComponent,
+    JsonParserLayoutRowComponent,
+    JsonParserLayoutComponent,
+    JsonParserLayoutDropdownComponent,
+    JsonParserComponent,
+    GenericPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -130,7 +146,7 @@ import { FirstLoginPopupComponent } from './auth/first-login-popup/first-login-p
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true}, SupportService, HeaderService, gameService, ReportedAbbreviationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

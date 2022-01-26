@@ -8,7 +8,6 @@ import {LoginService} from "../../auth/login.service";
   styleUrls: ['./admin-header.component.scss']
 })
 export class AdminHeaderComponent implements OnInit {
-  isAuthorised: string = 'afko'
   isLoggedIn: boolean = false;
   roleRoutes: { name: string; link: string; }[] = []
   adminRoutes = [
@@ -23,10 +22,12 @@ export class AdminHeaderComponent implements OnInit {
     {
       name: 'Instellingen',
       link: '/admin/settings'
+    },
+    {
+      name: "Bulk uploaden",
+      link: "/admin/bulk"
     }
   ]
-
-
 
   constructor(private route: Router, private activeRoute: ActivatedRoute, private auth: LoginService) {
   }
@@ -37,7 +38,8 @@ export class AdminHeaderComponent implements OnInit {
 
   logout() {
     this.isLoggedIn = false;
-    this.auth.logout();
+    this.auth.deleteToken();
+    this.route.navigate(['afko'])
   }
 
 }

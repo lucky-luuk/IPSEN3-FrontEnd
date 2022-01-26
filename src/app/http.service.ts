@@ -61,7 +61,7 @@ export class HttpService {
 
   private static callImplementation<T>(response : HttpResponse<T>, implementation : (data : T) => void | null, onFailure : () => void) : void {
     // if error
-    if (response.response === HttpService.RESPONSE_FAILURE_CODE) {
+    if (response.response !== HttpService.RESPONSE_SUCCESS_CODE) {
       HttpService.onError(response.error);
       onFailure();
     }

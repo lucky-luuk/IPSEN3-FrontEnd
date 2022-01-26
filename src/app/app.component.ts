@@ -13,12 +13,12 @@ export class AppComponent implements OnInit{
   isAuthorised = 'afko';
 
 
-  constructor(private titleService : Title,  public router: Router) {
+  constructor(private titleService : Title,  public router: Router, private auth: LoginService) {
     this.titleService.setTitle(this.title);
   }
 
   ngOnInit() {
-
+    this.auth.autoLogin();
   }
 
 }

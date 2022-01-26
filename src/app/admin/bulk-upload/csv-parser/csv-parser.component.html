@@ -1,0 +1,16 @@
+<div class="parser-container">
+  <div class="explanation">
+    De CSV parser ondersteund geen meerdere waardes in een enkele kolom. Gebruikt hiervoor de JSON parser.
+    De layout van de data dient in de volgende volgorde te staan:
+  </div>
+  <div class="layout">
+    naam, beschrijving, organisatie naam, organisatie id
+  </div>
+  <button (click)="onParse()">
+    parse
+  </button>
+  <div class="error-text" *ngIf="error !== ''">
+    {{error}}
+  </div>
+</div>
+
