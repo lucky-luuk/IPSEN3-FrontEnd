@@ -20,9 +20,8 @@ export class LoginComponent {
   onSubmit(form: any) {
       this.submitted = true;
       this.email = form.value.email;
-      this.password = form.value.password;
-
-      this.auth.login(this.email, this.password, (data) => {
+      this.password = form.value.password;      
+      this.auth.login(this.email, this.password, (data) => {   
         if (this.auth.getRole() === 'ADMIN') {
           this.router.navigate(['admin/overzicht'])
         } else {

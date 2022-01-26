@@ -19,9 +19,9 @@ export class LoginService {
   constructor(private http : HttpService) { }
 
   login(email: string, password: string, onSucces: (data: {email: string, firstname: string, lastname: string, token: string}) => void ,onFailure: () => void) {
-    let hash = this.getPasswordHash(password);
+    let hash = this.getPasswordHash(password);    
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}>(
-      "/authenticate", {username: email, password: hash}, (data) => {
+      "/authenticate", {username: email, password: hash}, (data) => {        
         if (data) {
           this.handleLogin(data.token);
         }
