@@ -36,7 +36,12 @@ export class HttpService {
     });
   }
 
-  public put<T>(endpoint : string, body : T, implementation : (data : T) => void, onFailure : () => void = () => {}) {
+  public put<T>(endpoint : string, body : T, implementation : (data : T) => void, onFailure : () => void = () => {}, header?: {headers: {Authorization: string}}) {
+    if (header) {
+      this.http.put<HttpResponse<T>>(this.url + endpoint, body, header).subscribe((response) => {
+        HttpService.callImplementation<T>(response, implementation, onFailure);
+      });
+    }
     this.http.put<HttpResponse<T>>(this.url + endpoint, body).subscribe((response) => {
       HttpService.callImplementation<T>(response, implementation, onFailure);
     });

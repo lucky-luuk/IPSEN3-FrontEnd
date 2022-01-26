@@ -56,8 +56,12 @@ export class LoginService {
   }
 
   public resetPassword(changePasswordRequestBody : {newPassword: string}) {
-    this.http.put<{newPassword: string}>("/account/mod/password", changePasswordRequestBody,(data) => {
-    });
+    console.log(this.getToken())
+      const header = {headers: {Authorization: 'Bearer ' + this.getToken()}}
+      this.http.put("/account/mod/password",
+        changePasswordRequestBody
+      ,(data) => {
+    }, () => {}, header);
   }
 
   autoLogin() {
