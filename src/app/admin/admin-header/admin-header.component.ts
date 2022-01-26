@@ -19,10 +19,6 @@ export class AdminHeaderComponent implements OnInit {
       link: '/admin/nieuw'
     },
     {
-      name: 'Instellingen',
-      link: '/admin/settings'
-    },
-    {
       name: "Bulk uploaden",
       link: "/admin/bulk"
     }
