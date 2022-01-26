@@ -1,14 +1,15 @@
 <form (submit)="submit()" [formGroup]="form">
 <div class="modal-header">
   <h4 class="modal-title">Nieuw wachtwoord kiezen</h4>
-  <button class="btn btn-close" (click)="activeModal.close('Close click')"></button>
+  <button class="btn btn-close" type="button" (click)="activeModal.close('Close click')"></button>
 </div>
 <div class="modal-body">
   <div>Dit is de eerste keer dat je inlogd, maak een nieuw wachtwoord aan</div>
-  <input required formControlName="password" class="form-control" type="password" placeholder="wachtwoord">
-  <input required formControlName="password2" class="form-control" type="password" placeholder="herhaal je wachtwoord">
+  <input required formControlName="password" class="form-control" type="password" placeholder="oude wachtwoord">
   <hr>
-  <input required formControlName="newpassword" class="form-control" type="password" placeholder="nieuw wachtwoord">
+  <input required formControlName="newpasswordtwo" class="form-control" type="password" placeholder="nieuw wachtwoord">
+  <br>
+  <input required formControlName="newpassword" class="form-control" type="password" placeholder="herhaal je nieuwe wachtwoord">
   <span *ngIf="!passwordSame" class="alert-danger">Wachtwoorden komen niet overeen</span>
   <div class="data-container">
 

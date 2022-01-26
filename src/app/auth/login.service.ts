@@ -24,7 +24,6 @@ export class LoginService {
         if (data.firstLogin){
           console.log("in if")
           this.modal.open(FirstLoginPopupComponent);
-          localStorage.setItem('userEmail', data.email);
         }
         this.handleLogin(data.token);
         if (this.role === 'ADMIN') {
@@ -71,8 +70,8 @@ export class LoginService {
     return false;
   }
 
-  public resetPassword(changePasswordRequestBody : {email: string, oldpassword: string, newpassword: string}) {
-    this.http.put<{email: string, oldpassword: string, newpassword: string}>("/account/mod/password", changePasswordRequestBody, (data) => {
+  public resetPassword(changePasswordRequestBody : {oldPassword: string, newPassword: string}) {
+    this.http.put<{oldPassword: string, newPassword: string}>("/account/mod/password", changePasswordRequestBody, (data) => {
     });
 
   }
