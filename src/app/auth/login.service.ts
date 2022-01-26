@@ -18,14 +18,10 @@ export class LoginService {
   private token!: string;
   constructor(private http : HttpService) { }
 
-  login(email: string, password: string, onSucces: (data: {email: string, firstname: string, lastname: string, token: string}) => void ,onFailure: () => void) {
-    let hash = this.getPasswordHash(password);    
+  login(email: string, password: string, onSuccess: (data: {email: string, firstname: string, lastname: string, token: string}) => void ,onFailure: () => void) {
+    let hash = this.getPasswordHash(password);
     this.http.postWithReturnType <{username: string, password: string}, {email: string, firstname: string, lastname: string, token: string, firstLogin: boolean}>(
-      "/authenticate", {username: email, password: hash}, (data) => {        
-        if (data) {
-          this.handleLogin(data.token);
-        }
-      }, onFailure);
+      "/authenticate", {username: email, password: hash}, onSuccess, onFailure);
   }
 
   createAccount(account: AccountModel, onSuccess: (data: {id: string, firstName: string, lastName: string, email: string, roles: {name: string}[]}) => void, onFailure: () => void) {
@@ -74,7 +70,7 @@ export class LoginService {
     }
   }
 
-  private handleLogin(token: string) {
+  handleLogin(token: string) {
     const tokenPayload: any = jwt_decode(token);
     this.role = tokenPayload.role;
     this.token = token;

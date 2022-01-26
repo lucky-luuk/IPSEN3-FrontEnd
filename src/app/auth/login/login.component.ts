@@ -20,13 +20,18 @@ export class LoginComponent {
   onSubmit(form: any) {
       this.submitted = true;
       this.email = form.value.email;
-      this.password = form.value.password;      
-      this.auth.login(this.email, this.password, (data) => {   
-        if (this.auth.getRole() === 'ADMIN') {
-          this.router.navigate(['admin/overzicht'])
-        } else {
-          this.router.navigate(['moderator/overzicht'])
+      this.password = form.value.password;
+      this.auth.login(this.email, this.password, (data) => {
+        console.log(this.auth.getRole())
+        if (data) {
+          this.auth.handleLogin(data.token);
+          if (this.auth.getRole() === 'ADMIN') {
+            this.router.navigate(['admin/overzicht'])
+          } else {
+            this.router.navigate(['moderator/overzicht'])
+          }
         }
+
       }, () => {
         this.invalid = true;
       });
