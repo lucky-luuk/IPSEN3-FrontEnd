@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { gameService } from '../game.service';
@@ -24,7 +24,7 @@ export class NgbdModalContent{
   templateUrl: './score.component.html',
   styleUrls: ['./score.component.scss']
 })
-export class ScoreComponent implements OnInit {
+export class ScoreComponent implements OnInit{
   forGlory= false;
   score: number = 0;
   name: string = '';
@@ -52,5 +52,4 @@ export class ScoreComponent implements OnInit {
     this.gameService.prepForNextgame();
     this.router.navigate(['/home']);
   }
-
 }

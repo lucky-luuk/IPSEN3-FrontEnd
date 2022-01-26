@@ -32,6 +32,7 @@ export class FirstLoginPopupComponent implements OnInit {
     let newPassword = this.form.get("newpassword")?.value;
     let newpasswordtwo: string = this.form.get("newpasswordtwo")?.value;
     if (newPassword === newpasswordtwo){
+      const token = this.auth.getToken();
       newPassword = Md5.hashStr(newPassword);
       this.loginservice.resetPassword({newPassword});
       this.onSave();

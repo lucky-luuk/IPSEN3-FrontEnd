@@ -24,6 +24,7 @@ export class LoginComponent {
       this.email = form.value.email;
       this.password = form.value.password;
       this.auth.login(this.email, this.password, (data) => {
+        this.auth.handleLogin(data.token);
         if(data.firstLogin){
           let modalOption : NgbModalOptions = {};
           modalOption.backdrop = "static";
