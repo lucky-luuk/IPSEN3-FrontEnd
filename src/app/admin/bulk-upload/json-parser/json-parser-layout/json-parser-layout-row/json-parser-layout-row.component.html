@@ -1,0 +1,22 @@
+<div class="row g-0 json-container">
+  <div class="col-sm-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <app-json-parser-layout-dropdown (onAdd)="onAdd($event)"></app-json-parser-layout-dropdown>
+          <button class="btn btn-danger" (click)="onRemove.emit(row)">-</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <input type="text" [value]="row.abbreviationProperty" (keyup)="setAbbrProperty($event)">
+    <input type="text" [value]="row.jsonProperty" (keyup)="setJsonProperty($event)">
+    <div class="container" *ngIf="row.jsonData !== undefined">
+      <div *ngFor="let r of row.jsonData">
+        <app-json-parser-layout-row [row]="r" (onRemove)="remove($event)"></app-json-parser-layout-row>
+      </div>
+    </div>
+  </div>
+</div>
+

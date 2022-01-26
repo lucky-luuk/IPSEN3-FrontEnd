@@ -4,9 +4,8 @@ import {OrganisationModel} from "./afkoteek/search/abbreviation-list/organisatio
 import {HttpClient, HttpEvent, HttpHandler, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {TicketModel} from "./moderator/ticket/ticket.model";
-import {AccountModel} from "./account.model";
 import {Injectable} from "@angular/core";
-import {HttpResponse} from "./HttpResponse";
+import {AccountModel} from "./account.model";
 
 @Injectable()
 export class MockHttpService extends HttpService {

@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {LoginService} from "./auth/login.service";
 import {Router} from "@angular/router";
-import {LoginService} from "./login.service";
-import {AccountModel} from "./account.model";
 
 @Component({
   selector: 'app-root',
@@ -13,12 +12,13 @@ export class AppComponent implements OnInit{
   title = 'AFKORIJK';
   isAuthorised = 'afko';
 
-  constructor(private titleService : Title, private login : LoginService) {
+
+  constructor(private titleService : Title,  public router: Router, private auth: LoginService) {
     this.titleService.setTitle(this.title);
   }
 
   ngOnInit() {
-
+    this.auth.autoLogin();
   }
 
 }

@@ -1,0 +1,15 @@
+<div class="explanation">
+  Deze parser ondersteund JSON en CSV, upload een bestand en druk op "Parse" om het bestand in te laden. Er zal een preview gegenereerd worden.
+  Druk op "Post" om de data aan de database toe te voegen.
+</div>
+<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+<div class="csv-container" *ngIf="extension === '.csv'">
+  <app-csv-parser [file]="file" (onParsed)="onParsed($event)"></app-csv-parser>
+</div>
+<div class="json-container" *ngIf="extension === '.json'">
+  <app-json-parser [file]="file" (onParsed)="onParsed($event)" (onParseButtonClicked)="onParseButtonClicked()"></app-json-parser>
+</div>
+<div class="abbr-list-container" *ngIf="extension !== ''">
+  <app-abbreviation-list [list_height]="'200px'"></app-abbreviation-list>
+  <button [disabled]="!shouldEnablePostButton" class="post-button" (click)="onPost()">Post</button>
+</div>

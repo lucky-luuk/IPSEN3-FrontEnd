@@ -60,7 +60,7 @@ export class EditModComponent implements OnInit {
     // ref.componentInstance.data = {afkorting: this.abbreviation.name, beschrijving: this.abbreviation.description}
     ref.componentInstance.onClose = () => {
    //TODO weizigingen opslaan
-      this.router.navigate(["moderator", "overview"]);
+      this.router.navigate(["moderator", "overzicht"]);
 
     }
   }
