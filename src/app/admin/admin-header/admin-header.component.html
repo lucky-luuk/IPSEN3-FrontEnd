@@ -3,13 +3,10 @@
     <img src="../../../assets/RO_Logo.png" alt="Logo rijksoverheid">
   </div>
   <div class="nav mod">
-
-    <div class="navbar-container">
-      <ul>
-        <li *ngFor="let admin of adminRoutes" routerLinkActive="active" ><a routerLink="{{admin.link}}">{{admin.name}}</a></li>
-        <li ><a (click)="logout()">Log Uit</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li *ngFor="let admin of adminRoutes" routerLinkActive="active" ><a routerLink="{{admin.link}}">{{admin.name}}</a></li>
+      <li ><a (click)="logout()">Log Uit</a></li>
+    </ul>
   </div>
 </div>
 
