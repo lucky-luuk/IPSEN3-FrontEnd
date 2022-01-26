@@ -17,7 +17,6 @@ export class FirstLoginPopupComponent implements OnInit {
   passwordSame: boolean = true;
   data: any;
   form = new FormGroup({
-    password : new FormControl(),
     newpassword: new FormControl(),
     newpasswordtwo : new FormControl()
   });
@@ -30,13 +29,11 @@ export class FirstLoginPopupComponent implements OnInit {
 
 
   submit(){
-    let oldPassword: string = this.form.get("password")?.value;
     let newPassword = this.form.get("newpassword")?.value;
     let newpasswordtwo: string = this.form.get("newpasswordtwo")?.value;
     if (newPassword === newpasswordtwo){
-      oldPassword = Md5.hashStr(oldPassword);
       newPassword = Md5.hashStr(newPassword);
-      this.loginservice.resetPassword({oldPassword, newPassword});
+      this.loginservice.resetPassword({newPassword});
       this.onSave();
     }else{
       this.passwordSame = false;

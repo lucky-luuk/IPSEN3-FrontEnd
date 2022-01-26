@@ -55,8 +55,8 @@ export class LoginService {
     return false;
   }
 
-  public resetPassword(changePasswordRequestBody : {oldPassword: string, newPassword: string}) {
-    this.http.put<{oldPassword: string, newPassword: string}>("/account/mod/password", changePasswordRequestBody,(data) => {
+  public resetPassword(changePasswordRequestBody : {newPassword: string}) {
+    this.http.put<{newPassword: string}>("/account/mod/password", changePasswordRequestBody,(data) => {
     });
   }
 
