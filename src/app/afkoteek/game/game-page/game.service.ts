@@ -32,7 +32,7 @@ export class gameService{
     playerName: string = '';
     score: number = 0;
 
-    counter: number = 3;
+    counter: number = 60;
     gameOver: boolean = false;
     anwserGiven = false;
     forGlory = false;
@@ -116,7 +116,7 @@ export class gameService{
     prepForNextgame(){
         this.listOfUsedAfk = [];
         this.score = 0;
-        this.counter = 3;
+        this.counter = 60;
         this.goOn = true;
         this.gameOver = false;
         this.anwserGiven = false;
