@@ -7,15 +7,22 @@
     <div>Weet je zeker dat je deze afkorting wilt rapporteren?</div>
     <div class="abbr-name">{{reportedAbbreviation.name}}</div>
     <div class="abbr-description">{{reportedAbbreviation.description}}</div>
-      <textarea (keyup)="onSetDescription($event)"
-        class="form-control"
-        ngModel
-        required
-        name="description"
-        #description="ngModel"
-        placeholder="beschrijving de fout in de afkorting!"
-        [ngClass]="{'is-invalid': !description.valid && description.touched }">
-      </textarea>
+    <select name="" id=""
+      (change)="onSetDescription($event)">
+      <option value="Spelfout">Spelfout</option>
+      <option value="Ongepast woord">Ongepast woord</option>
+      <option value="Verkeerde betekenis">Verkeerde betekenis</option>
+      <option value="Dubbele afkorting">Dubbele afkorting</option>
+    </select>
+<!--      <textarea (keyup)="onSetDescription($event)"-->
+<!--        class="form-control"-->
+<!--        ngModel-->
+<!--        required-->
+<!--        name="description"-->
+<!--        #description="ngModel"-->
+<!--        placeholder="beschrijving de fout in de afkorting!"-->
+<!--        [ngClass]="{'is-invalid': !description.valid && description.touched }">-->
+<!--      </textarea>-->
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" [disabled]="!f.valid" (click)="onSubmit()">rapporteer</button>
