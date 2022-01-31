@@ -5,7 +5,7 @@ import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organis
 import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list/abbreviation-list.component";
 import {HttpService} from "../../http/http.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {GenericPopupComponent} from "../../generic-popup/generic-popup.component";
+import {GenericPopupComponent} from "../../features/generic-popup/generic-popup.component";
 import {Router} from "@angular/router";
 
 @Component({

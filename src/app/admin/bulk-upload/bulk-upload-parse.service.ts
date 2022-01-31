@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";
 import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organisation.model";
-import {GenericPopupComponent} from "../../generic-popup/generic-popup.component";
+import {GenericPopupComponent} from "../../features/generic-popup/generic-popup.component";
 import {HttpService} from "../../http/http.service";
 import {NgbModal, NgbModalOptions} from "@ng-bootstrap/ng-bootstrap";
 import {Router} from "@angular/router";

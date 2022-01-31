@@ -11,7 +11,6 @@ import {gameService} from './afkoteek/game/game-page/game.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule} from "@angular/router";
 import {LoginComponent} from "./auth/login/login.component";
-import {GenericPopupComponent} from "./generic-popup/generic-popup.component";
 import {TokenInterceptorInterceptor} from "./auth/token-interceptor.interceptor";
 import {AdminModule} from "./admin/admin.module";
 import {ModeratorModule} from "./moderator/moderator.module";
@@ -22,7 +21,6 @@ import {AfkoteekModule} from "./afkoteek/afkoteek.module";
   declarations: [
     AppComponent,
     LoginComponent,
-    GenericPopupComponent,
   ],
   imports: [
     BrowserModule,
