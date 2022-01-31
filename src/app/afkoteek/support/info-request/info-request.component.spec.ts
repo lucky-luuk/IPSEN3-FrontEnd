@@ -4,7 +4,7 @@ import { InfoRequestComponent } from './info-request.component';
 import {AddComponent} from "../add/add.component";
 import {HttpService} from "../../../http/http.service";
 import {AccountService} from "../../../account/account.service";
-import {TicketService} from "../../../moderator/ticket.service";
+import {TicketService} from "../../../moderator/ticket/ticket.service";
 import {RouterTestingModule} from "@angular/router/testing";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {FormsModule, NgForm} from "@angular/forms";

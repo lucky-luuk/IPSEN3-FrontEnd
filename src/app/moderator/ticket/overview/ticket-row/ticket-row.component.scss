@@ -1,0 +1,22 @@
+@import "../../../../../styles";
+
+
+.col-sm.name {
+  color: $primary-blue;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.row.abbreviation:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-bottom: 1px solid lightgray;
+  width: 97%;
+}
+
+.row.abbreviation:hover{
+  background-color: lightblue;
+}
+

@@ -4,15 +4,11 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {FooterComponent} from "./afkoteek/search/footer/footer.component";
-import {DropdownComponent} from "./features/dropdown/dropdown.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SupportService} from "./afkoteek/support/support.service";
-import {ReportedAbbreviationComponent} from './moderator/ticket/reported-abbreviation/reported-abbreviation.component';
-import {UserComponent} from './admin/overview/user/user.component';
+import {ReportedAbbreviationComponent} from './moderator/ticket/ticket-detail/reported-abbreviation/reported-abbreviation.component';
 import {gameService} from './afkoteek/game/game-page/game.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {LoadingAnimationComponent} from './afkoteek/search/abbreviation-list/loading-animation/loading-animation.component';
 import {RouterModule} from "@angular/router";
 import {LoginComponent} from "./auth/login/login.component";
 import {GenericPopupComponent} from "./generic-popup/generic-popup.component";

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ModeratorComponent} from "./moderator.component";
-import {TicketComponent} from "./ticket/ticket.component";
-import {OverviewComponent} from "./overview/overview.component";
+import {TicketComponent} from "./ticket/ticket-detail/ticket.component";
+import {OverviewComponent} from "./ticket/overview/overview.component";
 import {RoleGuardService} from "../auth/role-guard.service";
 
 const routes: Routes = [

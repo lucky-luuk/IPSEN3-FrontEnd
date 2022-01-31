@@ -1,15 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AbbreviationListComponent} from "../../search/abbreviation-list/abbreviation-list.component";
 import {AbbreviationModel} from "../../search/abbreviation-list/abbreviation.model";
-import {AbbreviationService} from "../../search/abbreviation-list/abbreviation.service";
 import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
 import {TicketModel} from "../../../moderator/ticket/ticket.model";
-import {TicketTypeModel} from "../../../moderator/ticket/ticketType.model";
+import {TicketTypeModel} from "../../../moderator/ticket/ticket-detail/ticketType.model";
 import {AccountService} from "../../../account/account.service";
-import {tick} from "@angular/core/testing";
-import {TicketStatusModel} from "../../../moderator/ticket/ticketStatus.model";
-import {TicketService} from "../../../moderator/ticket.service";
+import {TicketStatusModel} from "../../../moderator/ticket/ticket-detail/ticketStatus.model";
+import {TicketService} from "../../../moderator/ticket/ticket.service";
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {ConfirmPopupComponent} from "../confirm-popup/confirm-popup.component";
 import {Router} from "@angular/router";

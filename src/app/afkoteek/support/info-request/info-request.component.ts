@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {TicketModel} from "../../../moderator/ticket/ticket.model";
-import {TicketTypeModel} from "../../../moderator/ticket/ticketType.model";
-import {TicketStatusModel} from "../../../moderator/ticket/ticketStatus.model";
+import {TicketTypeModel} from "../../../moderator/ticket/ticket-detail/ticketType.model";
+import {TicketStatusModel} from "../../../moderator/ticket/ticket-detail/ticketStatus.model";
 import {AccountService} from "../../../account/account.service";
-import {TicketService} from "../../../moderator/ticket.service";
+import {TicketService} from "../../../moderator/ticket/ticket.service";
 import {Router} from "@angular/router";
 import {NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {ConfirmPopupComponent} from "../confirm-popup/confirm-popup.component";
