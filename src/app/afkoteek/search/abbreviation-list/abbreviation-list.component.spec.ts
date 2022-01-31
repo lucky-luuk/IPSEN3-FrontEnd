@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AbbreviationListComponent } from './abbreviation-list.component';
 import {MockHttpService} from "../../../mockHttp.service";
 import {AbbreviationService} from "./abbreviation.service";
-import {DropdownComponent} from "../dropdown/dropdown.component";
+import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {AbbreviationModel} from "./abbreviation.model";
 import {OrganisationModel} from "./organisation.model";
 

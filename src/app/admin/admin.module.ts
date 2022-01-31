@@ -19,6 +19,13 @@ import {BulkUploadLoadingPopupComponent} from "./bulk-upload/bulk-upload-loading
 import {CsvParserComponent} from "./bulk-upload/csv-parser/csv-parser.component";
 import {AdminHeaderComponent} from "./admin-header/admin-header.component";
 import {AdminSavePopupComponent} from "./edit-mod/admin-save-popup/admin-save-popup.component";
+import {SearchModeratorComponent} from "./overview/search-moderator/search-moderator.component";
+import {AdminRoutingModule} from "./admin-routing.module";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AfkoteekModule} from "../afkoteek/afkoteek.module";
+import {FeatureModule} from "../features/feature.module";
+import {UserComponent} from "./overview/user/user.component";
 
 
 
@@ -41,11 +48,19 @@ import {AdminSavePopupComponent} from "./edit-mod/admin-save-popup/admin-save-po
     CsvParserComponent,
     JsonParserComponent,
     AdminHeaderComponent,
-    AdminSavePopupComponent
+    AdminSavePopupComponent,
+    SearchModeratorComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
-    BrowserModule
+    BrowserModule,
+    AdminRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AfkoteekModule,
+    FeatureModule
   ]
 })
 export class AdminModule { }

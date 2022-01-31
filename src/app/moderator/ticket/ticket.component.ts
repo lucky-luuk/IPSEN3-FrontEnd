@@ -171,10 +171,10 @@ export class TicketComponent implements OnInit {
     if (this.ticketTypDropDown !== undefined)
       this.ticketTypDropDown.selectStatus(newTicket.statusName);
 
-    //set org dropdown for reportedAbbreviationComponent
+    //set org features for reportedAbbreviationComponent
     this.setViewChildDropdown(this.reportedAbbreviation);
 
-    // set org dropdown for newAbbreviationComponent
+    // set org features for newAbbreviationComponent
     this.setViewChildDropdown(this.newAbbreviation);
 
     if (this.ticketHandlerDropdown) {

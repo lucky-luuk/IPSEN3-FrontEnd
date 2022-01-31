@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
 import {AbbreviationModel} from "../../../afkoteek/search/abbreviation-list/abbreviation.model";
 import {AbbreviationService} from "../../../afkoteek/search/abbreviation-list/abbreviation.service";
-import {DropdownComponent} from "../../../afkoteek/search/dropdown/dropdown.component";
+import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 import {TicketModel} from "../ticket.model";
 

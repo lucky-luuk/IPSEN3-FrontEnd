@@ -5,7 +5,7 @@ import {NgbActiveModal, NgbModal, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ConfirmPopupComponent} from "../../afkoteek/support/confirm-popup/confirm-popup.component";
 import {RouterTestingModule} from "@angular/router/testing";
 import {FormBuilder, FormsModule} from "@angular/forms";
-import {DropdownComponent} from "../../afkoteek/search/dropdown/dropdown.component";
+import {DropdownComponent} from "../../features/dropdown/dropdown.component";
 import {AppModule} from "../../app.module";
 import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organisation.model";
 

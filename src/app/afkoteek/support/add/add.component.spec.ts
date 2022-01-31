@@ -12,7 +12,7 @@ import {TicketModel} from "../../../moderator/ticket/ticket.model";
 import {AbbreviationModel} from "../../search/abbreviation-list/abbreviation.model";
 import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
 import {SearchBarComponent} from "../../search/search-bar/search-bar.component";
-import {DropdownComponent} from "../../search/dropdown/dropdown.component";
+import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {AbbreviationListComponent} from "../../search/abbreviation-list/abbreviation-list.component";
 import {AppModule} from "../../../app.module";
 

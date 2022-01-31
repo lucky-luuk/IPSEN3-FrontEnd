@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 import {FormBuilder} from "@angular/forms";
-import {OrganisationService} from "../../../afkoteek/search/dropdown/organisation.service";
+import {OrganisationService} from "../../../features/dropdown/organisation.service";
 
 @Component({
   selector: 'app-mod-dropdown',

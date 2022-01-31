@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpService} from "../../../http.service";
-import {OrganisationModel} from "../abbreviation-list/organisation.model";
+import {HttpService} from "../../http.service";
+import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organisation.model";
 
 @Injectable({
   providedIn: 'root'

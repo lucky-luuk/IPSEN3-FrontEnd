@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { AbbreviationService } from './abbreviation.service';
 import {MockHttpService} from "../../../mockHttp.service";
-import {OrganisationService} from "../dropdown/organisation.service";
+import {OrganisationService} from "../../../features/dropdown/organisation.service";
 import {AppModule} from "../../../app.module";
 
 describe('AbbreviationService', () => {

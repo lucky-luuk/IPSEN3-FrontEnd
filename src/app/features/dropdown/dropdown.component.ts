@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {OrganisationService} from "./organisation.service";
-import {OrganisationModel} from "../abbreviation-list/organisation.model";
+import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organisation.model";
 
 @Component({
   selector: 'app-dropdown',
