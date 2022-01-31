@@ -1,8 +1,8 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpService } from 'src/app/http.service';
-import { MockHttpService } from 'src/app/mockHttp.service';
+import { HttpService } from 'src/app/http/http.service';
+import { MockHttpService } from 'src/app/http/mockHttp.service';
 import { UserService } from '../usersHelper/user.service';
 import { UsersModel } from '../usersHelper/users.model';
 

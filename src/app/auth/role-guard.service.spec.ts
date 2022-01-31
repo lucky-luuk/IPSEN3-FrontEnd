@@ -1,10 +1,10 @@
-import {MockHttpService} from "../mockHttp.service";
+import {MockHttpService} from "../http/mockHttp.service";
 import {TestBed} from "@angular/core/testing";
 import {AppModule} from "../app.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RoleGuardService} from "./role-guard.service";
 import {LoginService} from "./login.service";
-import {HttpService} from "../http.service";
+import {HttpService} from "../http/http.service";
 
 describe('RoleGuardService', () => {
   let mockHttp: MockHttpService;

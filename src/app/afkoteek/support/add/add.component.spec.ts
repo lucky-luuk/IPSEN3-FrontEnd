@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddComponent } from './add.component';
-import {MockHttpService} from "../../../mockHttp.service";
-import {HttpService} from "../../../http.service";
-import {AccountService} from "../../../account.service";
+import {MockHttpService} from "../../../http/mockHttp.service";
+import {HttpService} from "../../../http/http.service";
+import {AccountService} from "../../../account/account.service";
 import {TicketService} from "../../../moderator/ticket.service";
 import {NgbModal, NgbModalModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {RouterTestingModule} from "@angular/router/testing";

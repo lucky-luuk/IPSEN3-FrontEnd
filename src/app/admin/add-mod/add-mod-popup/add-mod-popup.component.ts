@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import { AccountModel } from 'src/app/account.model';
-import { HttpService } from 'src/app/http.service';
+import { AccountModel } from 'src/app/account/account.model';
+import { HttpService } from 'src/app/http/http.service';
 import { Md5 } from 'ts-md5';
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 

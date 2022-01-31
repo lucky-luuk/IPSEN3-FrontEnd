@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { HttpService } from "src/app/http.service";
+import { HttpService } from "src/app/http/http.service";
 import { AbbreviationModel } from "../../search/abbreviation-list/abbreviation.model";
 import { AbbreviationService } from "../../search/abbreviation-list/abbreviation.service";
 import { Game } from "./game.model";

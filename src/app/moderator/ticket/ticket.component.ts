@@ -2,8 +2,8 @@ import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core'
 import {TicketModel} from "./ticket.model";
 import {AbbreviationService} from "../../afkoteek/search/abbreviation-list/abbreviation.service";
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";
-import {AccountModel} from "../../account.model";
-import {AccountService} from "../../account.service";
+import {AccountModel} from "../../account/account.model";
+import {AccountService} from "../../account/account.service";
 import {TicketTypeModel} from "./ticketType.model";
 import {Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";

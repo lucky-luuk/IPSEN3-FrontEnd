@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditModComponent } from './edit-mod.component';
-import {HttpService} from "../../http.service";
-import {MockHttpService} from "../../mockHttp.service";
+import {HttpService} from "../../http/http.service";
+import {MockHttpService} from "../../http/mockHttp.service";
 import {UserService} from "../usersHelper/user.service";
 import {AppModule} from "../../app.module";
 

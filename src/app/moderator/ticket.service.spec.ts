@@ -1,7 +1,7 @@
 import {TestBed, tick} from '@angular/core/testing';
 
 import { TicketService } from './ticket.service';
-import {MockHttpService} from "../mockHttp.service";
+import {MockHttpService} from "../http/mockHttp.service";
 import {TicketModel} from "./ticket/ticket.model";
 import {AbbreviationModel} from "../afkoteek/search/abbreviation-list/abbreviation.model";
 import {OrganisationModel} from "../afkoteek/search/abbreviation-list/organisation.model";

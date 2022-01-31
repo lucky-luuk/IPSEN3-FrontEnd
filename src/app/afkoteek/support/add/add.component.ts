@@ -6,7 +6,7 @@ import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
 import {TicketModel} from "../../../moderator/ticket/ticket.model";
 import {TicketTypeModel} from "../../../moderator/ticket/ticketType.model";
-import {AccountService} from "../../../account.service";
+import {AccountService} from "../../../account/account.service";
 import {tick} from "@angular/core/testing";
 import {TicketStatusModel} from "../../../moderator/ticket/ticketStatus.model";
 import {TicketService} from "../../../moderator/ticket.service";

@@ -4,7 +4,7 @@ import {NgbActiveModal, NgbModal, NgbModalRef} from "@ng-bootstrap/ng-bootstrap"
 import {TicketModel} from "../../../../moderator/ticket/ticket.model";
 import {TicketTypeModel} from "../../../../moderator/ticket/ticketType.model";
 import {TicketStatusModel} from "../../../../moderator/ticket/ticketStatus.model";
-import {AccountService} from "../../../../account.service";
+import {AccountService} from "../../../../account/account.service";
 import {TicketService} from "../../../../moderator/ticket.service";
 import {Router} from "@angular/router";
 

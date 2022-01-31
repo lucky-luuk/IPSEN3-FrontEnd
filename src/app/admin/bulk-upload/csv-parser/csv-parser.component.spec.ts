@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CsvParserComponent } from './csv-parser.component';
-import {MockHttpService} from "../../../mockHttp.service";
+import {MockHttpService} from "../../../http/mockHttp.service";
 import {AppModule} from "../../../app.module";
 import {RouterTestingModule} from "@angular/router/testing";
 import {EditModComponent} from "../../edit-mod/edit-mod.component";
 import {UserService} from "../../usersHelper/user.service";
-import {HttpService} from "../../../http.service";
+import {HttpService} from "../../../http/http.service";
 
 describe('CsvParserComponent', () => {
   let component: CsvParserComponent;

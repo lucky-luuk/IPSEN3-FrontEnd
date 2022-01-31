@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {LoginService} from "../../../auth/login.service";
-import {AccountModel} from "../../../account.model";
+import {AccountModel} from "../../../account/account.model";
 import {TicketModel} from "../ticket.model";
 import {OrganisationModel} from "../../../afkoteek/search/abbreviation-list/organisation.model";
 

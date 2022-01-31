@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TicketRowComponent } from './ticket-row.component';
-import {MockHttpService} from "../../../mockHttp.service";
-import {HttpService} from "../../../http.service";
+import {MockHttpService} from "../../../http/mockHttp.service";
+import {HttpService} from "../../../http/http.service";
 import {AppModule} from "../../../app.module";
 
 describe('TicketRowComponent', () => {

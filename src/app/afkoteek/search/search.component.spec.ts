@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchComponent } from './search.component';
 import {AbbreviationListComponent} from "./abbreviation-list/abbreviation-list.component";
 import {AbbreviationService} from "./abbreviation-list/abbreviation.service";
-import {MockHttpService} from "../../mockHttp.service";
+import {MockHttpService} from "../../http/mockHttp.service";
 
 describe('SearchComponent', () => {
   let component: SearchComponent;

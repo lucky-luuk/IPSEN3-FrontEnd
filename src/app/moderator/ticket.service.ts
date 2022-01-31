@@ -1,5 +1,5 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {HttpService} from "../http.service";
+import {HttpService} from "../http/http.service";
 import {TicketModel} from "./ticket/ticket.model";
 import {UsersModel} from "../admin/usersHelper/users.model";
 import {OrganisationModel} from "../afkoteek/search/abbreviation-list/organisation.model";

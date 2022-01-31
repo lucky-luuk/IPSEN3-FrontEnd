@@ -1,11 +1,11 @@
 import {HttpService} from "./http.service";
-import {AbbreviationModel} from "./afkoteek/search/abbreviation-list/abbreviation.model";
-import {OrganisationModel} from "./afkoteek/search/abbreviation-list/organisation.model";
+import {AbbreviationModel} from "../afkoteek/search/abbreviation-list/abbreviation.model";
+import {OrganisationModel} from "../afkoteek/search/abbreviation-list/organisation.model";
 import {HttpClient, HttpEvent, HttpHandler, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {TicketModel} from "./moderator/ticket/ticket.model";
+import {TicketModel} from "../moderator/ticket/ticket.model";
 import {Injectable} from "@angular/core";
-import {AccountModel} from "./account.model";
+import {AccountModel} from "../account/account.model";
 
 @Injectable()
 export class MockHttpService extends HttpService {

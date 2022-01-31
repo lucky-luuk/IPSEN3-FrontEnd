@@ -3,7 +3,7 @@ import {BulkUploadParseService} from "./bulk-upload-parse.service";
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";
 import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organisation.model";
 import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list/abbreviation-list.component";
-import {HttpService} from "../../http.service";
+import {HttpService} from "../../http/http.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {GenericPopupComponent} from "../../generic-popup/generic-popup.component";
 import {Router} from "@angular/router";
