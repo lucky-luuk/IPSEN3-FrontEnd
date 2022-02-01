@@ -21,7 +21,6 @@ import {AfkoteekRoutingModule} from "./afkoteek-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
-import {DropdownComponent} from "../features/dropdown/dropdown.component";
 import {SearchComponent} from "./search/search.component";
 import {HeaderComponent} from "./header/header.component";
 import {FeatureModule} from "../features/feature.module";

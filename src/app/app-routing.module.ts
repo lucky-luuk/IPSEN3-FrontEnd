@@ -5,11 +5,7 @@ import {LoginComponent} from "./auth/login/login.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/afko', pathMatch: 'full'},
-
-
-
-   {path: 'login', component: LoginComponent}
-
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
