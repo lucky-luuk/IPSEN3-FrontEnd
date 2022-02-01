@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GamePagePlayingComponent } from './game-page-playing.component';
-import {gameService} from "../Game.service";
 import {AppModule} from "../../../../app.module";
+import {gameService} from "../game.service";
 
 describe('GamePagePlayingComponent', () => {
   let component: GamePagePlayingComponent;

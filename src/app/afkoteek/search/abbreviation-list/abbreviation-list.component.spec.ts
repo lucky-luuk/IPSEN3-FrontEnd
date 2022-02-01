@@ -3,15 +3,38 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AbbreviationListComponent } from './abbreviation-list.component';
 import {MockHttpService} from "../../../http/mockHttp.service";
 import {AbbreviationService} from "./abbreviation.service";
-import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {AbbreviationModel} from "./abbreviation.model";
 import {OrganisationModel} from "./organisation.model";
+import {RouterTestingModule} from "@angular/router/testing";
+import {InfoRequestComponent} from "../../support/info-request/info-request.component";
+import {HttpService} from "../../../http/http.service";
+import {AccountService} from "../../../account/account.service";
+import {TicketService} from "../../../moderator/ticket/ticket.service";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {FormsModule} from "@angular/forms";
+import {AppModule} from "../../../app.module";
 
 describe('AbbreviationListComponent', () => {
   let component: AbbreviationListComponent;
+  let fixture: ComponentFixture<AbbreviationListComponent>;
+  let mockHttp : MockHttpService;
 
   beforeEach(() => {
-    component = new AbbreviationListComponent(new AbbreviationService(new MockHttpService()));
+    mockHttp = new MockHttpService();
+    TestBed.configureTestingModule({
+      declarations: [ AbbreviationListComponent ],
+      providers: [
+        {provide: HttpService, useValue: mockHttp},
+        AbbreviationService
+      ],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        AppModule
+      ]
+    }).compileComponents();
+    fixture = TestBed.createComponent(AbbreviationListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -33,14 +56,12 @@ describe('AbbreviationListComponent', () => {
 
   it("#onSearch should set correct data, when name == \"\", should search by org_id", () => {
     // set the correct data
-    let mockService = new MockHttpService();
     let data = [new AbbreviationModel()];
     let org = new OrganisationModel();
     let id = "1";
     org.id = id;
     data[0].organisations.push(org);
-    mockService.setData("/abbreviation", data);
-    component = new AbbreviationListComponent(new AbbreviationService(mockService));
+    mockHttp.setData("/abbreviation", data);
     component.organisationIdFilter = id;
 
     // search for the data;
@@ -51,12 +72,10 @@ describe('AbbreviationListComponent', () => {
 
   it("#onSearch should set correct data, when name != \"\", should search by name", () => {
     // set the correct data
-    let mockService = new MockHttpService();
     let data = [new AbbreviationModel()];
     let name = "an abbreviation name";
     data[0].name = name;
-    mockService.setData("/abbreviation", data);
-    component = new AbbreviationListComponent(new AbbreviationService(mockService));
+    mockHttp.setData("/abbreviation", data);
 
     // search for the data;
     expect(component.abbreviations.length).toBe(0);

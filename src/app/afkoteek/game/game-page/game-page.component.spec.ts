@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GamePageComponent } from './game-page.component';
 import {GamePageStartComponent} from "./game-page-start/game-page-start.component";
-import {gameService} from "./Game.service";
+import {gameService} from "./game.service";
 import {AppModule} from "../../../app.module";
 
 describe('GamePageComponent', () => {

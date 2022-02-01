@@ -9,31 +9,5 @@ import {HttpService} from "../../../http/http.service";
 import {MockHttpService} from "../../../http/mockHttp.service";
 
 describe('JsonParserComponent', () => {
-  let component: JsonParserComponent;
-  let fixture: ComponentFixture<JsonParserComponent>;
-  let mockHttp : MockHttpService;
 
-  beforeEach( () => {
-    mockHttp = new MockHttpService();
-    TestBed.configureTestingModule({
-      imports: [AppModule,
-        RouterTestingModule.withRoutes([])
-      ],
-      declarations: [ EditModComponent ],
-      providers: [
-        UserService,
-        {provide: HttpService, useValue: mockHttp}
-      ]
-    }).compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(JsonParserComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

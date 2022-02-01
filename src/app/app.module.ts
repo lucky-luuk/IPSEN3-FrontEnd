@@ -16,7 +16,6 @@ import {AdminModule} from "./admin/admin.module";
 import {ModeratorModule} from "./moderator/moderator.module";
 import {AfkoteekModule} from "./afkoteek/afkoteek.module";
 
-
 @NgModule({
   declarations: [
     AppComponent,

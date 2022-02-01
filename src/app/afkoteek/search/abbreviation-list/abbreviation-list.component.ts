@@ -20,6 +20,7 @@ export class AbbreviationListComponent implements OnInit {
   @Input() shouldUseClickableAbbreviationComponent = false;
   @Output() onAbbreviationClick = new EventEmitter<AbbreviationModel>();
   noResult: boolean = false;
+
   constructor(private h : AbbreviationService, private router: Router) {
     this.http = h;
   }

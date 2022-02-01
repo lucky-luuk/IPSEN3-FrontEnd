@@ -38,15 +38,5 @@ describe('AddModComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("#onSetOrganisation sets organisation", () => {
-    component.organisationModel = new OrganisationModel();
-    let org = new OrganisationModel();
-    org.name = "foo";
-    component.onSetOrganisation(org);
-    expect(component.organisationModel).toEqual(org);
-  });
 
-  it("#shouldEnablebutton returns false by default", () => {
-    expect(component.shouldEnableButton()).toEqual(false);
-  });
 });
