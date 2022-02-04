@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { BulkUploadParseService } from './bulk-upload-parse.service';
 import {AppModule} from "../../app.module";
-import {EditModComponent} from "../edit-mod/edit-mod.component";
+import {EditModComponent} from "../moderator-details/edit-mod/edit-mod.component";
 import {UserService} from "../usersHelper/user.service";
 import {HttpService} from "../../http/http.service";
 import {MockHttpService} from "../../http/mockHttp.service";

@@ -3,13 +3,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/http/http.service';
 import { MockHttpService } from 'src/app/http/mockHttp.service';
-import { UserService } from '../usersHelper/user.service';
-import { UsersModel } from '../usersHelper/users.model';
+import { UserService } from '../../usersHelper/user.service';
+import { UsersModel } from '../../usersHelper/users.model';
 
 import { AdminOverviewComponent } from './admin-overview.component';
 import {SearchModeratorComponent} from "./search-moderator/search-moderator.component";
 import {UserComponent} from "./user/user.component";
-import {AppModule} from "../../app.module";
+import {AppModule} from "../../../app.module";
 
 describe('AdminOverviewComponent', () => {
   let component: AdminOverviewComponent;

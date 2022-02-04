@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchModeratorComponent } from './search-moderator.component';
-import {AppModule} from "../../../app.module";
+import {AppModule} from "../../../../app.module";
 
 describe('SearchModeratorComponent', () => {
   let component: SearchModeratorComponent;

@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpResponse} from "./HttpResponse";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class HttpService {
   public static readonly RESPONSE_SUCCESS_CODE = "SUCCESS";
   public static readonly RESPONSE_FAILURE_CODE = "FAILURE";
 
-  private url : string = "http://localhost:8080";
+  private url : string = environment.baseUrl;
   private http : HttpClient;
 
   constructor(private h : HttpClient) {

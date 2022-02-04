@@ -9,7 +9,6 @@ import {TicketTypeDropdownComponent} from "./ticket/ticket-detail/ticket-type-dr
 import {TicketInfoRequestComponent} from "./ticket/ticket-detail/ticket-info-request/ticket-info-request.component";
 import {ModTicketSavePopupComponent} from "./ticket/ticket-detail/ticket-popup/mod-ticket-save-popup/mod-ticket-save-popup.component";
 import {NotSavedPopupComponent} from "./ticket/ticket-detail/ticket-popup/not-saved-popup/not-saved-popup.component";
-import {PopupNotSavedComponent} from "../admin/popup-not-saved/popup-not-saved.component";
 import {TicketHasBeenEditedPopupComponent} from "./ticket/ticket-detail/ticket-popup/ticket-has-been-edited-popup/ticket-has-been-edited-popup.component";
 import {DeleteTicketPopupComponent} from "./ticket/ticket-detail/ticket-popup/delete-ticket-popup/delete-ticket-popup.component";
 import {HandleTicketPopupComponent} from "./ticket/ticket-detail/ticket-popup/handle-ticket-popup/handle-ticket-popup.component";
@@ -35,7 +34,6 @@ import {FeatureModule} from "../features/feature.module";
     TicketInfoRequestComponent,
     ModTicketSavePopupComponent,
     NotSavedPopupComponent,
-    PopupNotSavedComponent,
     TicketHasBeenEditedPopupComponent,
     DeleteTicketPopupComponent,
     HandleTicketPopupComponent,

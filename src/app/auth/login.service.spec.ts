@@ -30,6 +30,13 @@ describe('LoginService', () => {
     });
   });
 
+  it('#getAllAccounts should return data', () => {
+    mockHttp.setData('/account/mod', []);
+    mockHttp.get<AccountModel[]>('/account/mod', new Map<string, string>(), data => {
+      expect(data.length).toEqual(0)
+    })
+  });
+
   it("#copyAccount should copyAccount", () => {
     let a1 = new AccountModel();
     a1.id = "testId";

@@ -1,13 +1,13 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
-import {UsersModel} from "../usersHelper/users.model";
-import {UserService} from "../usersHelper/user.service";
-import {AbbreviationListComponent} from "../../afkoteek/search/abbreviation-list/abbreviation-list.component";
+import {UsersModel} from "../../usersHelper/users.model";
+import {UserService} from "../../usersHelper/user.service";
+import {AbbreviationListComponent} from "../../../afkoteek/search/abbreviation-list/abbreviation-list.component";
 
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {AdminSavePopupComponent} from "./admin-save-popup/admin-save-popup.component";
-import {NotSavedPopupComponent} from "../../moderator/ticket/ticket-detail/ticket-popup/not-saved-popup/not-saved-popup.component";
+import {NotSavedPopupComponent} from "../../../moderator/ticket/ticket-detail/ticket-popup/not-saved-popup/not-saved-popup.component";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {GenericPopupComponent} from "../../features/generic-popup/generic-popup.component";
+import {GenericPopupComponent} from "../../../features/generic-popup/generic-popup.component";
 
 
 @Component({
