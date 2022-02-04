@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {AbbreviationService} from "./abbreviation.service";
 import {AbbreviationModel} from "./abbreviation.model";
-import {DropdownComponent} from "../dropdown/dropdown.component";
+import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {OrganisationModel} from "./organisation.model";
 import {Router} from "@angular/router";
 
@@ -20,6 +20,7 @@ export class AbbreviationListComponent implements OnInit {
   @Input() shouldUseClickableAbbreviationComponent = false;
   @Output() onAbbreviationClick = new EventEmitter<AbbreviationModel>();
   noResult: boolean = false;
+
   constructor(private h : AbbreviationService, private router: Router) {
     this.http = h;
   }

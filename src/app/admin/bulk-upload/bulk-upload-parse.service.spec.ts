@@ -2,10 +2,10 @@ import { TestBed } from '@angular/core/testing';
 
 import { BulkUploadParseService } from './bulk-upload-parse.service';
 import {AppModule} from "../../app.module";
-import {EditModComponent} from "../edit-mod/edit-mod.component";
+import {EditModComponent} from "../moderator-details/edit-mod/edit-mod.component";
 import {UserService} from "../usersHelper/user.service";
-import {HttpService} from "../../http.service";
-import {MockHttpService} from "../../mockHttp.service";
+import {HttpService} from "../../http/http.service";
+import {MockHttpService} from "../../http/mockHttp.service";
 import {RouterTestingModule} from "@angular/router/testing";
 import {OrganisationModel} from "../../afkoteek/search/abbreviation-list/organisation.model";
 import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbreviation.model";

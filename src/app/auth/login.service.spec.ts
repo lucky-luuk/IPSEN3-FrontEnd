@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { LoginService } from './login.service';
-import {MockHttpService} from "../mockHttp.service";
-import {AccountModel} from "../account.model";
+import {MockHttpService} from "../http/mockHttp.service";
+import {AccountModel} from "../account/account.model";
 
 describe('LoginService', () => {
   let service: LoginService;
@@ -28,6 +28,13 @@ describe('LoginService', () => {
       // auto fail
       expect(true).toEqual(false);
     });
+  });
+
+  it('#getAllAccounts should return data', () => {
+    mockHttp.setData('/account/mod', []);
+    mockHttp.get<AccountModel[]>('/account/mod', new Map<string, string>(), data => {
+      expect(data.length).toEqual(0)
+    })
   });
 
   it("#copyAccount should copyAccount", () => {

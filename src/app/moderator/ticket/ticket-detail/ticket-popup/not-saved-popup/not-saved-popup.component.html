@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title">Wil je de wijzinging opslaan voor je terug gaat?</h4>
+  <button class="btn btn-close" (click)="activeModal.close('Close click')"></button>
+</div>
+<div class="modal-body">
+  <div class="data-container">
+    <div>Ticket: {{data.id}}</div>
+    <div>Status: {{data.statusName}}</div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button [routerLink]="['moderator/overzicht']" (click)="activeModal.close()">Niet Opslaan</button>
+  <button [routerLink]="['moderator/overzicht']" (click)="onSave()">Opslaan</button>
+
+</div>

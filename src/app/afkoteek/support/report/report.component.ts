@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AbbreviationListComponent} from "../../search/abbreviation-list/abbreviation-list.component";
-import {DropdownComponent} from "../../search/dropdown/dropdown.component";
+import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
 import {AbbreviationModel} from "../../search/abbreviation-list/abbreviation.model";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";

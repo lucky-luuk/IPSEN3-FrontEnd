@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddComponent } from './add.component';
-import {MockHttpService} from "../../../mockHttp.service";
-import {HttpService} from "../../../http.service";
-import {AccountService} from "../../../account.service";
-import {TicketService} from "../../../moderator/ticket.service";
+import {MockHttpService} from "../../../http/mockHttp.service";
+import {HttpService} from "../../../http/http.service";
+import {AccountService} from "../../../account/account.service";
+import {TicketService} from "../../../moderator/ticket/ticket.service";
 import {NgbModal, NgbModalModule, NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {RouterTestingModule} from "@angular/router/testing";
 import {FormBuilder, FormsModule} from "@angular/forms";
@@ -12,7 +12,7 @@ import {TicketModel} from "../../../moderator/ticket/ticket.model";
 import {AbbreviationModel} from "../../search/abbreviation-list/abbreviation.model";
 import {OrganisationModel} from "../../search/abbreviation-list/organisation.model";
 import {SearchBarComponent} from "../../search/search-bar/search-bar.component";
-import {DropdownComponent} from "../../search/dropdown/dropdown.component";
+import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {AbbreviationListComponent} from "../../search/abbreviation-list/abbreviation-list.component";
 import {AppModule} from "../../../app.module";
 

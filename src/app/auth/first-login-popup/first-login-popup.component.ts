@@ -3,7 +3,7 @@ import {AbbreviationModel} from "../../afkoteek/search/abbreviation-list/abbrevi
 import {ModalDismissReasons, NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {AbbreviationService} from "../../afkoteek/search/abbreviation-list/abbreviation.service";
 import {FormControl, FormGroup} from "@angular/forms";
-import { HttpService } from 'src/app/http.service';
+import { HttpService } from 'src/app/http/http.service';
 import { LoginService } from '../login.service';
 import { Md5 } from 'ts-md5';
 import { Router } from '@angular/router';

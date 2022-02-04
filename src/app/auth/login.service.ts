@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Md5} from "ts-md5";
-import {HttpService} from "../http.service";
-import {AccountModel} from "../account.model";
+import {HttpService} from "../http/http.service";
+import {AccountModel} from "../account/account.model";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import jwt_decode from "jwt-decode";
 

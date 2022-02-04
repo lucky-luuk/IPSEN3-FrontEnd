@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {AccountModel} from "../../account.model";
+import {AccountModel} from "../../account/account.model";
 import {LoginService} from "../login.service";
 import {Router} from "@angular/router";
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';

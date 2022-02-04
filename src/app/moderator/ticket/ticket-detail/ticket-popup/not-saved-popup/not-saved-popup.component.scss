@@ -1,0 +1,8 @@
+@import "../../../../../../styles";
+
+button{
+  background-color: $primary-blue;
+  &:hover{
+    background-color: $dark-blue;
+  }
+}

@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReportComponent } from './report.component';
 import {SearchBarComponent} from "../../search/search-bar/search-bar.component";
-import {DropdownComponent} from "../../search/dropdown/dropdown.component";
+import {DropdownComponent} from "../../../features/dropdown/dropdown.component";
 import {AbbreviationListComponent} from "../../search/abbreviation-list/abbreviation-list.component";
 import {FormBuilder} from "@angular/forms";
-import {HttpService} from "../../../http.service";
-import {MockHttpService} from "../../../mockHttp.service";
+import {HttpService} from "../../../http/http.service";
+import {MockHttpService} from "../../../http/mockHttp.service";
 import {AppModule} from "../../../app.module";
 
 describe('ReportComponent', () => {
