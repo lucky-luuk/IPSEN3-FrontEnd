@@ -1,0 +1,39 @@
+.new-abbreviation {
+  padding: .45rem;
+  form{
+    section{
+      display: grid;
+      grid-template-columns: auto auto;
+      input{
+        margin: 10px;
+        width: 90%;
+      }
+    }
+    .organisation{
+     border: 1px solid rgb(202, 202, 202);
+     }
+  }
+  .abbreviation{
+    grid-column: 2/3;
+  }
+  .definition{
+    grid-column: 1/2;
+  }
+  .organisation{
+    grid-column: 1/2;
+  }
+}
+
+@media only screen and (min-width: 100px) and (max-width:1600px){
+  .new-abbreviation{
+    form{
+      display: block;
+    }
+    input{
+      margin: 2px;
+      width: 100%;
+    }
+  }
+}
+
+

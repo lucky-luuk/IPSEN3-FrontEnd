@@ -1,0 +1,27 @@
+@import "src/styles";
+
+.abbreviation_list {
+  background-color: white;
+}
+.abbreviation-list-container {
+  margin-top: 5vh;
+  background-color: white;
+  width: auto;
+  overflow-x: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading-animation {
+  display: flex;
+  justify-content: center;
+}
+.new-abbr{
+  color: $primary-orange;
+  cursor: pointer;
+  font-size: 20px;
+  &:hover{
+    color: #c96300;;
+  }
+}

@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit()" #f="ngForm">
+  <div class="container addAbbreviation">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <app-search-bar class="input-centered" (onSearchEvent)="onSearch($event)" (preOnSearchEvent)="showAbbreviationListSearchingAnimation()"></app-search-bar>
+        </div>
+        <div class="col">
+          <app-dropdown class="input-centered" (onSelectEvent)="onSelectOrganisation($event)"></app-dropdown>
+        </div>
+      </div>
+      <div class="row abbreviation-list">
+        <div class="col-sm">
+          <textarea (keyup)="onSetDescription($event)"
+                    class="form-control abbreviation-definition"
+                    ngModel
+                    required
+                    name="description"
+                    #description="ngModel"
+                    placeholder="beschrijving"
+                    [ngClass]="{'is-invalid': !description.valid && description.touched }">
+              </textarea>
+        </div>
+        <div class="col abbreviation-list">
+          <app-abbreviation-list [list_height]="'20vh'"></app-abbreviation-list>
+        </div>
+      </div>
+      <div class="row button">
+        <button class="btn btn-primary abbreviation-submit-button" type="submit" [disabled]="(!shouldEnableButton()) || (!f.valid)">voeg toe</button>
+      </div>
+    </div>
+  </div>
+</form>

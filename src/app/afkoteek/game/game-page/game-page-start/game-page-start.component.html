@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="float-container">
+    <div class="float-child">
+        <div class="child-content">
+            <h3>Welkom bij de AFKO Game!</h3>
+            <p> Voer een gebruiker naam in en kies daarna een organisatie uit waar je meer over wilt leren.
+                In deze game krijg je één minuut de tijd om zoveel mogelijk afkortingen goed te raden, uit de vier gegeven opties die er onder staan. Raad de meeste worden en word de AFK-kenner van de Rijksoverheid!
+                </p>
+        </div>
+        <br>
+        <article class="child-content">
+          <app-top-player-list></app-top-player-list>
+        </article>
+    </div>
+
+    <div class="float-child">
+        <form (ngSubmit)="startGame(gameform)" #gameform="ngForm" class="child-content game-form">
+            <label for="name">Naam:</label>
+            <input
+            type="text"
+            id="name"
+            class="name-input"
+            ngModel
+            name="name"
+            #name="ngModel"
+            required (keyup)="setName($event)">
+
+            <label
+            style="color: red; font-size:  1em;"
+            *ngIf="!name.valid && name.touched">Er mist nog een naam</label>
+
+            <br><br>
+
+            <label>Organisatie:</label>
+            <app-dropdown (onSelectEvent)="onSelectOrg($event)"></app-dropdown>
+            <br>
+
+            <button type="submit" [disabled]="shouldDisableButton" [ngClass]="{'disabled-button': shouldDisableButton}">Start</button>
+            <button type="button" (click)="forGlory()">{{Glory ? 'Ga naar Oefenen' : 'Ga naar eer' }}</button>
+            <hr>
+            <span><label><b>Je speelt nu:</b></label>{{Glory ? 'Voor de eer!' : 'Om te oefenen!' }}
+                <br>
+                <p>{{Glory ? 'Strijd om de hoogste score! In deze speel mode kan je je totaal punten op sturen.' : 'Selecteer een organisatie die je graag zou willen oefenen! De punten die je hierbij haalt kan je niet versturen.' }}</p>
+            </span>
+        </form>
+    </div>
+</div>

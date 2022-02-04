@@ -1,0 +1,12 @@
+<div class="container input">
+    <div class="row">
+      <div class="col search">
+        <app-search-bar (onSearchEvent)="onSearch($event)" (preOnSearchEvent)="showAbbreviationListSearchingAnimation()"></app-search-bar>
+      </div>
+      <div class="col">
+        <app-dropdown (onSelectEvent)="onSelectOrganisation($event)"></app-dropdown>
+      </div>
+    </div>
+</div>
+<app-abbreviation-list></app-abbreviation-list>
+<app-footer></app-footer>

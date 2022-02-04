@@ -1,0 +1,96 @@
+<div class="float-container">
+  <div class="float-child">
+<!--    <div class="float-child-split">-->
+      <div class="child-content">
+        <form #f="ngForm">
+          <table>
+            <thead><h4>Moderator: {{(user.firstName + ' ' + user.lastName)}}</h4></thead>
+              <tr>
+                <td>Voornaam:</td>
+                <td>
+                  <input type="text" class="form-control"
+                         ngModel ="{{user.firstName}}"
+                         name="firstName"
+                         required
+                         #firstName="ngModel"
+                         [ngClass]="{'is-invalid': !firstName.valid && firstName.touched}">
+                </td>
+              </tr>
+              <tr>
+                <td>Achternaam:</td>
+                <td>
+                  <input type="text" class="form-control"
+                         ngModel ="{{user.lastName}}"
+                         name="lastName"
+                         required
+                         #lastName="ngModel"
+                         [ngClass]="{'is-invalid': !lastName.valid && lastName.touched}">
+                </td>
+              </tr>
+              <tr>
+                <td>E-mail:</td>
+                <td>
+                  <input type="text" class="form-control"
+                         ngModel ="{{user.email}}"
+                         name="email"
+                         required email
+                         #email="ngModel"
+                         [ngClass]="{'is-invalid': !email.valid && email.touched}">
+                </td>
+              </tr>
+          </table>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="save-btn">
+                  <button type="submit" class="delete-button" (click)="deleteUser()">Verwijder Moderator</button>
+                </div>
+              </div>
+              <div class="col">
+                <div class="save-btn">
+                  <button
+                    type="submit" [disabled]="!f.valid" (click)="updateUser(f)">Opslaan
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+<!--    <div class="float-child-split">-->
+<!--      <div class="child-content">-->
+<!--        <button-->
+<!--          class="btn-back" [routerLink]="['/admin' , 'overzicht']">Terug naar overzicht-->
+<!--        </button>-->
+<!--        <form>-->
+<!--          <div class="radio-container">-->
+<!--            <div class="radio-btn">-->
+<!--              <label for="actief">Actief</label>-->
+<!--              <input-->
+<!--                type="radio"-->
+<!--                id="actief"-->
+<!--                name="activation-buttons"-->
+<!--                value="actief" checked>-->
+
+<!--              <label for="in-actief">In-actief</label>-->
+<!--              <input-->
+<!--                type="radio"-->
+<!--                id="in-actief"-->
+<!--                name="activation-buttons"-->
+<!--                value="in-actief">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--        <button class="ww-button">Wachtwoord Reset</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  <div class="float-child">
+    <div class="child-content child-content-footer">
+<!--      <button  type="Button" class="close" aria-label="Close" (click)="onClick()">Opslaan</button>-->
+      <button (click)="backToOverview()">Wijziging negeren</button>
+    </div>
+  </div>
+</div>

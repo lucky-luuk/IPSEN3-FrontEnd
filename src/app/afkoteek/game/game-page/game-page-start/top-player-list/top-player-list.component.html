@@ -1,0 +1,10 @@
+<section class="card-body">
+  <h3>Top 3 Spelers</h3>
+  <table class="top-three-table">
+    <tr *ngFor="let player of game">
+      <th>{{player.name}}</th>
+      <th>{{player.score}}</th>
+      <th><img src="https://img.freepik.com/free-vector/pixel-art-medal-icon-8bit-game-white-background_360488-237.jpg?size=338&ext=jpg" alt="IMAGE"></th>
+    </tr>
+  </table>
+</section>

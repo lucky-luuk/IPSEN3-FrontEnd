@@ -1,0 +1,89 @@
+@import '../../../../../styles';
+
+.float-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.float-child {
+    width: 100%;
+    float: left;
+}
+
+.child-content{
+    padding: 10px;
+    p{
+    font-size:  3em;
+    font-weight: bolder;
+    color:  $primary-orange;
+}
+}
+
+.child-anwsers-container{
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.child-content-anwsers{
+    float: left;
+    width: 25%;
+    padding: 20px;
+}
+
+.button-start-game{
+    width: 13em;
+    font-size: 1.5em;
+}
+
+.anwser-container{
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 22px 0px;
+    word-wrap: break-word;
+    padding: 10px;
+}
+
+.progress-content {
+    p{
+    font-size: 4em;
+    }
+}
+
+progress {
+    border-radius: 7px; 
+    width: 95%;
+    box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.1);
+  }
+  progress::-webkit-progress-bar {
+    background-color: lightgray;
+  }
+  progress::-webkit-progress-value {
+    background-color: $primary-orange;
+    border-radius: 7px;
+  }
+
+  .game-header{
+      padding: 2em;
+      p{
+          font-size: 1.5em;
+          font-weight: bolder;
+          color:  $primary-orange;
+      }
+  }
+
+
+@media (max-width: 1500px) {
+.child-content-anwsers{
+    width: 50%;
+}
+}
+
+@media (max-width: 600px) {
+    .child-content-anwsers{
+        width: 100%;
+    }
+    .button-start-game{
+        width: 80%;
+        font-size: 1.5em;
+    }
+    }
+

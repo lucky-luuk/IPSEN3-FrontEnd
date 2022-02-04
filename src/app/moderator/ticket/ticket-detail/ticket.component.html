@@ -1,0 +1,73 @@
+<div class="float-container" *ngIf="ticketHasBeenSelected === true">
+  <div class="float-child">
+    <table class="child-content ticket-header">
+      <tr>
+        <th>
+          ticket Nummer: {{model.id}}
+        </th>
+        <th>
+          <button  (click)="backToOverview()" class="ticket-header-button">Terug naar overzicht</button>
+        </th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="float-child">
+    <div class="float-child-split">
+      <div class="child-content">
+        <h4>{{getTicketTypeDisplayName()}}</h4>
+        <p>{{model.userName}}</p>
+        <p>{{model.userEmail}}</p>
+      </div>
+      <br>
+      <div class="child-content">
+        <table>
+          <thead><h4>Status</h4></thead>
+          <tr>
+            <td>Indien datum:</td>
+            <td>{{model.createDate}}</td>
+          </tr>
+          <tr>
+            <td>Status:</td>
+            <td><app-ticket-type-dropdown [selectedStatus]="model.statusName" (onSelectEvent)="setTicketStatus($event)"></app-ticket-type-dropdown></td>
+          </tr>
+          <tr>
+            <td>Behandelaar:</td>
+            <td>
+              <form>
+                <app-ticket-handler-dropdown [ticket]="model" (onSelect)="setTicketAccountId($event)"></app-ticket-handler-dropdown>
+              </form>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="float-child-split">
+      <div class="child-content">
+        <h4>Bericht</h4>
+        <textarea disabled>{{model.message}}</textarea>
+      </div>
+      <br>
+      <div class="child-content" *ngIf="model.type === getAddAbbreviationTicketType()">
+        <app-new-abbreviation [ticket]="model"></app-new-abbreviation>
+      </div>
+      <div class="child-content" *ngIf="model.type === getReportAbbreviationTicketType()">
+        <app-reported-abbreviation [ticket]="model"></app-reported-abbreviation>
+      </div>
+      <div class="child-content" *ngIf="model.type === getInfoRequestTicketType()">
+        <app-ticket-info-request [ticket]="model"></app-ticket-info-request>
+      </div>
+    </div>
+  </div>
+
+  <div class="float-child">
+    <div class="child-content child-content-footer">
+      <button (click)="handleTicket()">Afhandelen</button>
+      <button (click)="saveTicket()">Opslaan</button>
+    </div>
+  </div>
+</div>
+<div class="float-container" *ngIf="ticketHasBeenSelected === false">
+  Er is geen ticket geselecteerd!
+</div>

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="game-header">
+    <p>{{player}}</p>
+</div>
+
+<div class="float-container">
+    <div class="float-child">
+        <div class="child-content">
+            <h1>Wat betekend de volgende afkorting?</h1>
+            <p>{{currentWord}}</p>
+        </div>
+    </div>
+
+    <div class="float-child">
+        <!-- LOOP TROUGH ANWSERS -->
+        <div class="child-anwsers-container">
+        <app-anwser *ngFor="let anwser of ArrayOfWords"
+        [anwser]="anwser"></app-anwser>
+        </div>
+    </div>
+
+    <div class="float-child">
+        <div class="child-content">
+            <button *ngIf="!forGlory" class="button-start-game" (click)="nextQuestion()">Volgende vraag &rarr;</button>
+            <hr>
+            <div class="progress-content">
+                <progress class="timer-bar" value="{{60 - timer}}" max="60"></progress>
+                <br>
+                <p>{{timer}}</p>
+            </div>
+        </div>
+    </div>
+</div>

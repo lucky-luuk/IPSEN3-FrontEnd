@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <h4 class="modal-title">Voeg moderator toe</h4>
+  <button class="btn btn-close" (click)="activeModel.close('Close click')"></button>
+</div>
+<div class="modal-body">
+  <div>Weet je zeker dat je deze moderator wilt toevoegen?</div>
+  <div class="data-container">
+    <div>{{data.first_name}}, {{data.last_name}}</div>
+    <div>{{data.email}}</div>
+    <div>{{data.phone}}</div>
+    <hr>
+    <div>Tijdelijk wachtwoord: {{data.password}}</div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="onSubmit()" (click)="activeModel.close('Close click')">voeg toe</button>
+</div>

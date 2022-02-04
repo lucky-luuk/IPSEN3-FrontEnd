@@ -1,0 +1,20 @@
+$dropdown-component-width: 23.5em;
+
+.organisation_select {
+  background-color: white;
+  color: #cccccc;
+  text-decoration: none;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  .option-st {
+    color: black;
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 500px) {
+  select {
+    margin-top: 5px;
+  }
+}

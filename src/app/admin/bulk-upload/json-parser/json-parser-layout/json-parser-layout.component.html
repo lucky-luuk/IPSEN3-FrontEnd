@@ -1,0 +1,6 @@
+<div class="container">
+  <app-json-parser-layout-dropdown (onAdd)="addJsonProperty($event)"></app-json-parser-layout-dropdown>
+  <div *ngFor="let r of layout">
+    <app-json-parser-layout-row [row]="r" (onRemove)="remove($event)"></app-json-parser-layout-row>
+  </div>
+</div>

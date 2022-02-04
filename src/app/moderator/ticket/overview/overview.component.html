@@ -1,0 +1,24 @@
+<div class="overview-container">
+  <div class="container overview-header">
+    <div class="row">
+      <div class="col-sm">
+        ticket-id
+      </div>
+      <div class="col-sm">
+        ticket-type
+      </div>
+      <div class="col-sm">
+        ticket-status
+      </div>
+      <div class="col-sm">
+        datum aangemaakt
+      </div>
+    </div>
+  </div>
+  <div class="list-container">
+    <div *ngFor="let ticket of tickets">
+      <app-ticket-row [model]="ticket" [routerLink]="['/moderator' , 'ticket']" (click)="onClick(ticket)"></app-ticket-row>
+    </div>
+  </div>
+</div>
+

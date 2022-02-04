@@ -1,0 +1,22 @@
+@import "src/styles";
+
+.explanation-text {
+
+}
+.error-text {
+  color: red;
+}
+.parser-container {
+  background-color: white;
+  padding: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.parse-button {
+  margin-left: 50%;
+  margin-top: 10px;
+  background-color: $primary-blue;
+  &:hover {
+    background-color: $dark-blue;
+  }
+}

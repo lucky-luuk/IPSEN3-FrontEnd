@@ -1,0 +1,14 @@
+@import "src/styles";
+input{
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+app-abbreviation-list {
+  max-height: $max-content-height - 20vh;
+
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #cccccc;
+}

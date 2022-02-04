@@ -1,0 +1,9 @@
+@import "src/styles";
+
+.progress-bar-container {
+  background-color: gray;
+}
+.progress-bar {
+  height: 10px;
+  background-color: $primary-blue;
+}

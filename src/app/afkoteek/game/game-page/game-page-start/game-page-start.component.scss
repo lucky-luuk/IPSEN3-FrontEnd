@@ -1,0 +1,46 @@
+.float-container {
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 30px;
+}
+.disabled-button {
+  background-color: gray;
+}
+button{
+    margin: 5px;
+}
+label{
+    margin-right: 5px;
+}
+
+.child-content{
+    padding: 20px;
+    background-color: white;
+}
+
+.name-input{
+    box-sizing: border-box;
+    min-width: 50%;
+    font-size: 16px;
+    padding: 10px;
+    margin: 30px 0;
+    width: 100%;
+}
+
+@media (max-width: 720px) {
+  .float-child {
+    width: 100%;
+}
+
+.float-container {
+  padding: 0px;
+}
+
+.game-form{
+    background-color: #f2f2f2;
+}
+}
